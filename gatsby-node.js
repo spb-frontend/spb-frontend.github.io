@@ -44,6 +44,11 @@ exports.modifyWebpackConfig = function(config, env) {
     require('postcss-clearfix'),
     require('postcss-easings'),
     require('autoprefixer'),
+    require('cssnano')({
+      autoprefixer: false,
+      discardComments: {removeAll: true},
+      safe: true,
+    }),
     require('postcss-browser-reporter'),
   ]
 

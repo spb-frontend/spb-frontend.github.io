@@ -12,6 +12,7 @@
     "babel-preset-react": "^6.5.0",
     "babel-preset-react-hmre": "^1.1.1",
     "babel-preset-stage-1": "^6.5.0",
+    "cssnano": "^3.10.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "front-matter": "^2.1.1",
     "gatsby": "^0.12.20",
@@ -49,8 +50,8 @@
     "typography-plugin-code": "^0.15.0"
   },
   "devDependencies": {
-    "babel-jest": "^18.0.0",
     "babel-eslint": "7.1.1",
+    "babel-jest": "^18.0.0",
     "eslint": "3.14.1",
     "eslint-config-uploadcare": "*",
     "eslint-plugin-import": "2.2.0",
