@@ -75,7 +75,17 @@ module.exports = (props) => {
           } else { f(); }
         })(document, window, "yandex_metrika_callbacks");`,
       }} />}
-      {process.env.NODE_ENV === 'production' && <noscript><div><img src='https://mc.yandex.ru/watch/42533689' style='position:absolute; left:-9999px;' alt='' /></div></noscript>}
+      {process.env.NODE_ENV === 'production' && <noscript>
+        <div>
+          <img
+            src='https://mc.yandex.ru/watch/42533689'
+            style={{
+              position: 'absolute',
+              left: '-9999px',
+            }}
+            alt='' />
+        </div>
+      </noscript>}
     </body>
   </html>
 }
