@@ -10,8 +10,8 @@ exports.modifyWebpackConfig = function(config, env) {
       test: /\.css$/,
       loaders: ['style', 'css', 'postcss'],
     })
-    config.loader('pcss', {
-      test: /\.pcss$/,
+    config.loader('mcss', {
+      test: /\.mcss$/,
       loaders: ['style', 'css?modules&localIdentName=[name]_[local]__[hash:base64:5]', 'postcss'],
     })
   }
@@ -21,8 +21,8 @@ exports.modifyWebpackConfig = function(config, env) {
       test: /\.css$/,
       loader: ExtractTextPlugin.extract(['css', 'postcss']),
     })
-    config.loader('pcss', {
-      test: /\.pcss$/,
+    config.loader('mcss', {
+      test: /\.mcss$/,
       loader: ExtractTextPlugin.extract(['css?modules&localIdentName=[hash:base64:8]', 'postcss']),
     })
   }
