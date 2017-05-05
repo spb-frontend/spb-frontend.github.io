@@ -28,6 +28,8 @@ module.exports = props =>
           <dd className='contacts--desc'><a href='https://vk.com/spb_frontend'>spb_frontend</a></dd>
           <dt className='contacts--term'>Твитер</dt>
           <dd className='contacts--desc'><a href='https://twitter.com/spb_frontend'>@spb_frontend</a></dd>
+          <dt class='contacts__term'>Канал в Телеграме</dt>
+          <dd className='contacts--desc'><a href='https://t.me/spb_frontend'>@spb_frontend</a></dd>
           <dt class='contacts__term'>Канал на ютубе</dt>
           <dd class='contacts__desc'><a href='https://www.youtube.com/channel/UCWjDubFXv8I1vWEb47s9_IA'>SPB Frontend</a></dd>
           <dt className='contacts--term'>Слак-чат</dt>
