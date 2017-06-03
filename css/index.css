@@ -85,9 +85,16 @@ p, dl {
   font-size: .9em;
 }
 
+/* .contacts--term {
+} */
+
 .contacts--desc {
   margin-left: 0;
   -webkit-margin-start: 0;
+
+  & + .contacts--term {
+    margin-top: calc(var(--base-size) / 2);
+  }
 }
 
 @media screen and (min-width: 460px) and (max-width: 699px) {
