@@ -29,7 +29,7 @@ const Index = () =>
 
     <p>
       Чтобы следить за новыми событиями сообщества,
-      подписывайтесь на <a href='https://vk.com/spb_frontend'>группу ВКонтакте</a>,
+      подписывайтесь на <a href='https://vk.com/spb_frontend'>группу ВКонтакте</a>,&nbsp;
       <a href='https://twitter.com/spb_frontend'>Твиттер</a> или <a href='https://t.me/spb_frontend'>Телеграм канал</a>.
     </p>
 
