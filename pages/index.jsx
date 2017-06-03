@@ -29,13 +29,14 @@ const Index = () =>
 
     <p>
       Чтобы следить за новыми событиями сообщества,
-      подписывайтесь на <a href='https://vk.com/spb_frontend'>группу ВКонтакте</a> или <a href='https://twitter.com/spb_frontend'>твитер</a>.
+      подписывайтесь на <a href='https://vk.com/spb_frontend'>группу ВКонтакте</a>,
+      <a href='https://twitter.com/spb_frontend'>Твиттер</a> или <a href='https://t.me/spb_frontend'>Телеграм канал</a>.
     </p>
 
     <p>
       Еще у нас есть <a href='https://spb-frontend.slack.com/'>Слак-чат</a> для свободного общения на фронт-темы.
       Вопросы приветствуются.
-      Получить инвайт в чат можно <a href='http://slack.spb-frontend.ru/'>на сайте</a>.
+      Получить инвайт в чат можно <a href='http://slack.spb-frontend.ru/'>на специальной странице</a>.
     </p>
 
     <p>
