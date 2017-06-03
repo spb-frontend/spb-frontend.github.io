@@ -3,6 +3,8 @@ import Helmet from 'react-helmet'
 import {config} from 'config'
 import 'css/index.css'
 
+import {SubscriptionForm} from '../components/subscription-form'
+
 module.exports = props =>
   <div className='page'>
     <header className='page--header'>
@@ -28,10 +30,10 @@ module.exports = props =>
           <dd className='contacts--desc'><a href='https://vk.com/spb_frontend'>spb_frontend</a></dd>
           <dt className='contacts--term'>Твитер</dt>
           <dd className='contacts--desc'><a href='https://twitter.com/spb_frontend'>@spb_frontend</a></dd>
-          <dt class='contacts__term'>Канал в Телеграме</dt>
+          <dt className='contacts__term'>Канал в Телеграме</dt>
           <dd className='contacts--desc'><a href='https://t.me/spb_frontend'>@spb_frontend</a></dd>
-          <dt class='contacts__term'>Канал на ютубе</dt>
-          <dd class='contacts__desc'><a href='https://www.youtube.com/channel/UCWjDubFXv8I1vWEb47s9_IA'>SPB Frontend</a></dd>
+          <dt className='contacts__term'>Канал на ютубе</dt>
+          <dd className='contacts__desc'><a href='https://www.youtube.com/channel/UCWjDubFXv8I1vWEb47s9_IA'>SPB Frontend</a></dd>
           <dt className='contacts--term'>Слак-чат</dt>
           <dd className='contacts--desc'><a href='https://spb-frontend.slack.com/'>spb-frontend.slack.com</a></dd>
           <dt className='contacts--term'>Регистрация в Слак</dt>
@@ -41,6 +43,8 @@ module.exports = props =>
           <dt className='contacts--term'>Почта</dt>
           <dd className='contacts--desc'><a href='mailto:hi@spb-frontend.ru'>hi@spb-frontend.ru</a></dd>
         </dl>
+
+        <SubscriptionForm />
       </aside>
 
       <main className='page--content'>{props.children}</main>
