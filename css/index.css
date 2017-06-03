@@ -85,6 +85,11 @@ p, dl {
   font-size: .9em;
 }
 
+.contacts--desc {
+  margin-left: 0;
+  -webkit-margin-start: 0;
+}
+
 @media screen and (min-width: 460px) and (max-width: 699px) {
   .page--logo {
     float: right;
