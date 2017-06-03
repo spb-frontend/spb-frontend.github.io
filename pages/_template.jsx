@@ -30,10 +30,10 @@ module.exports = props =>
           <dd className='contacts--desc'><a href='https://vk.com/spb_frontend'>spb_frontend</a></dd>
           <dt className='contacts--term'>Твитер</dt>
           <dd className='contacts--desc'><a href='https://twitter.com/spb_frontend'>@spb_frontend</a></dd>
-          <dt className='contacts__term'>Канал в Телеграме</dt>
+          <dt className='contacts--term'>Канал в Телеграме</dt>
           <dd className='contacts--desc'><a href='https://t.me/spb_frontend'>@spb_frontend</a></dd>
-          <dt className='contacts__term'>Канал на ютубе</dt>
-          <dd className='contacts__desc'><a href='https://www.youtube.com/channel/UCWjDubFXv8I1vWEb47s9_IA'>SPB Frontend</a></dd>
+          <dt className='contacts--term'>Канал на ютубе</dt>
+          <dd className='contacts--desc'><a href='https://www.youtube.com/channel/UCWjDubFXv8I1vWEb47s9_IA'>SPB Frontend</a></dd>
           <dt className='contacts--term'>Слак-чат</dt>
           <dd className='contacts--desc'><a href='https://spb-frontend.slack.com/'>spb-frontend.slack.com</a></dd>
           <dt className='contacts--term'>Регистрация в Слак</dt>
