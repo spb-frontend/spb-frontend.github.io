@@ -1,9 +1,15 @@
 /* eslint-disable no-underscore-dangle */
+import webpackLodashPlugin from 'lodash-webpack-plugin'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 
 exports.modifyWebpackConfig = function(config, env) {
+  if (env === `build-javascript`) {
+    config.plugin(`Lodash`, webpackLodashPlugin, null)
+  }
+
   config.removeLoader('less')
   config.removeLoader('sass')
+
   if (env === 'develop') {
     config.removeLoader('css')
     config.loader('css', {
