@@ -3,8 +3,8 @@ import webpackLodashPlugin from 'lodash-webpack-plugin'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 
 exports.modifyWebpackConfig = function(config, env) {
-  if (env === `build-javascript`) {
-    config.plugin(`Lodash`, webpackLodashPlugin, null)
+  if (env === 'build-javascript') {
+    config.plugin('Lodash', webpackLodashPlugin, null)
   }
 
   config.removeLoader('less')
@@ -16,8 +16,8 @@ exports.modifyWebpackConfig = function(config, env) {
       test: /\.css$/,
       loaders: ['style', 'css', 'postcss'],
     })
-    config.loader('mcss', {
-      test: /\.mcss$/,
+    config.loader('module.css', {
+      test: /\.module.css$/,
       loaders: ['style', 'css?modules&localIdentName=[name]_[local]__[hash:base64:5]', 'postcss'],
     })
   }
@@ -27,36 +27,11 @@ exports.modifyWebpackConfig = function(config, env) {
       test: /\.css$/,
       loader: ExtractTextPlugin.extract(['css', 'postcss']),
     })
-    config.loader('mcss', {
-      test: /\.mcss$/,
+    config.loader('module.css', {
+      test: /\.module.css$/,
       loader: ExtractTextPlugin.extract(['css?modules&localIdentName=[hash:base64:8]', 'postcss']),
     })
   }
-
-  config._config.postcss = [
-    require('postcss-import'),
-    require('postcss-for'),
-    require('postcss-nested'),
-    require('postcss-brand-colors'),
-    require('postcss-color-function'),
-    require('postcss-vertical-rhythm'),
-    require('pleeease-filters'),
-    require('postcss-svg')({paths: ['pages/images', 'pages/images/icons']}),
-    require('postcss-assets')({
-      basePath: './pages',
-      loadPaths: ['images/'],
-    }),
-    require('postcss-svgo'),
-    require('postcss-clearfix'),
-    require('postcss-easings'),
-    require('autoprefixer'),
-    require('cssnano')({
-      autoprefixer: false,
-      discardComments: {removeAll: true},
-      safe: true,
-    }),
-    require('postcss-browser-reporter'),
-  ]
 
   config.merge({plugins: [new ExtractTextPlugin('styles.css')]})
 
