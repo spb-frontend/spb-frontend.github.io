@@ -1,5 +1,5 @@
 {
-  "extends": "uploadcare",
+  "extends": "eslint:recommended",
   "plugins": ["react", "compat"],
   "parser": "babel-eslint",
   "parserOptions": {
