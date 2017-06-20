@@ -2,7 +2,6 @@
   "name": "spb-frontend.ru",
   "description": "The official site of SPB Frontend",
   "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
     "autoprefixer": "^6.3.6",
     "babel-core": "^6.9.1",
