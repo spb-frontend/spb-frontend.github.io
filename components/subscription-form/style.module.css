@@ -2,7 +2,7 @@
   margin-top: 20px;
 }
 
-.subscription--form {
+.form {
   width: 100%;
   display: block;
   box-sizing: border-box;
@@ -10,7 +10,7 @@
   font-family: var(--base-font);
 }
 
-.subscription--input {
+.input {
   width: 100%;
   display: block;
   box-sizing: border-box;
@@ -20,7 +20,7 @@
   padding: calc(var(--base-size) / 2) var(--base-size);
 }
 
-.subscription--button {
+.button {
   width: 100%;
   display: block;
   box-sizing: border-box;
@@ -41,11 +41,11 @@
 /* .subscription--success {
 } */
 
-.subscription--errors {
+.errors {
   font-size: calc(var(--base-size) / 1.5);
   margin: calc(var(--base-size) / 2) 0;
 }
 
-.subscription--error {
-
+.error {
+  font-size: calc(var(--base-size) / 1.5);
 }
