@@ -3,18 +3,18 @@ var markdownIt = require('markdown-it')
 var hljs = require('highlight.js')
 var objectAssign = require('object-assign')
 
-var highlight = function (str, lang) {
-  if ((lang !== null) && hljs.getLanguage(lang)) {
+var highlight = function(str, lang) {
+  if (lang !== null && hljs.getLanguage(lang)) {
     try {
       return hljs.highlight(lang, str).value
     } catch (_error) {
-      console.error(_error)
+      console.error(_error) // eslint-disable-line no-console
     }
   }
   try {
     return hljs.highlightAuto(str).value
   } catch (_error) {
-    console.error(_error)
+    console.error(_error) // eslint-disable-line no-console
   }
   return ''
 }
@@ -31,7 +31,7 @@ var md = markdownIt({
   .use(require('markdown-it-abbr'))
   .use(require('markdown-it-attrs'))
 
-module.exports = function (content) {
+module.exports = function(content) {
   this.cacheable()
   const meta = frontMatter(content)
   const body = md.render(meta.body)
