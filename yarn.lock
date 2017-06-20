@@ -386,7 +386,7 @@ babel-core@^6.0.0, babel-core@^6.24.1, babel-core@^6.25.0:
     slash "^1.0.0"
     source-map "^0.5.0"
 
-babel-eslint@^7.0.0, babel-eslint@^7.2.3:
+babel-eslint@^7.2.3:
   version "7.2.3"
   resolved "https://registry.yarnpkg.com/babel-eslint/-/babel-eslint-7.2.3.tgz#b2fe2d80126470f5c19442dc757253a897710827"
   dependencies:
@@ -7860,11 +7860,9 @@ stylehacks@^2.3.2:
     text-table "^0.2.0"
     write-file-stdout "0.0.2"
 
-stylelint-config-uploadcare@*:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/stylelint-config-uploadcare/-/stylelint-config-uploadcare-1.0.0.tgz#a92ca7ecc9367db3736cf921cbd3bf339219f3b7"
-  dependencies:
-    babel-eslint "^7.0.0"
+stylelint-config-standard@^16.0.0:
+  version "16.0.0"
+  resolved "https://registry.yarnpkg.com/stylelint-config-standard/-/stylelint-config-standard-16.0.0.tgz#bb7387bff1d7dd7186a52b3ebf885b2405d691bf"
 
 stylelint@^7.4.2:
   version "7.11.1"
