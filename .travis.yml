@@ -1,0 +1,14 @@
+sudo: required
+dist: xenial
+
+language: node_js
+node_js:
+  - '6.11'
+
+cache: yarn
+
+before_script:
+  - yarn install
+
+script:
+  - yarn deploy
