@@ -34,7 +34,7 @@
     "develop": "gatsby develop",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"pages/*.js\" \"utils/*.js\" \"wrappers/*.js\" \"html.js\"",
     "test": "jest",
-    "lint": "eslint . & stylelint ./{components,css}/*.css & remark .",
+    "lint": "eslint ./src & stylelint \"./src/{components,css}/*.css\" & remark .",
     "precommit": "lint-staged"
   },
   "lint-staged": {

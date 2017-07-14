@@ -59,7 +59,6 @@
         ]
       }
     }],
-    "react/jsx-space-before-closing": [2, "always"],
     "react/jsx-tag-spacing": [2, {
       "closingSlash": "never",
       "beforeSelfClosing": "always",
