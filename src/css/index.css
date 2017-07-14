@@ -1,10 +1,4 @@
-:root {
-  --base-font: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Arial, sans-serif;
-  --base-size: 16px;
-  --color-red: #df4b26;
-  --color-grey: #f7f7f7;
-  --color-dark: #000;
-}
+@import 'config.css';
 
 html,
 body {
@@ -31,13 +25,14 @@ a {
 
 a:hover,
 a:focus {
+  cursor: pointer;
   border: none;
 }
 
 p,
 dl {
   margin: 0;
-  padding: 0.5em 0;
+  padding: .5em 0;
 }
 
 .app {
@@ -60,7 +55,7 @@ dl {
 
 .page--heading {
   margin: 0;
-  padding: 0 0 0.5em;
+  padding: 0 0 .5em;
 }
 
 .page--aside {
@@ -82,7 +77,7 @@ dl {
 .page--footer {
   box-sizing: border-box;
   padding: 40px 1em;
-  font-size: 0.9em;
+  font-size: .9em;
 }
 
 /* .contacts--term {

@@ -1,10 +1,8 @@
 import React from 'react'
-import { Link } from 'react-router'
-import { prefixLink } from 'gatsby-helpers'
+import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
-import { config } from 'config'
 
-const Index = () =>
+const Index = (props) =>
   <div>
     <p>
       SPB Frontend — петербургское сообщество фронтенд-разработчиков.
