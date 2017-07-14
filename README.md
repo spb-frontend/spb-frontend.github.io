@@ -6,7 +6,7 @@ The official site of SPB Frontend
 
 ## Posts
 
-To add new post add Markdown, HTML or JSX file to `pages/posts/`
+To add new post add Markdown, HTML or JSX file to `src/pages/posts/`
 
 ## Development
 Site works on [gatsby engine](https://github.com/gatsbyjs/gatsby)
