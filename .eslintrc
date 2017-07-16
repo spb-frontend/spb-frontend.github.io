@@ -12,7 +12,9 @@
     "compat/compat": 2,
     "global-require": [0],
     "import/no-unresolved": [0],
+    "jsx-quotes": [2, "prefer-single"],
     "no-unused-vars": [0],
+    "quotes": [2, "single"],
     "react/display-name": [0],
     "react/jsx-boolean-value": [0],
     "react/jsx-closing-bracket-location": [2, "after-props"],
@@ -71,4 +73,7 @@
     "node": true,
     "es6": true
   },
+  "globals": {
+    "graphql": true
+  }
 }
