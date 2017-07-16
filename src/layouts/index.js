@@ -15,17 +15,22 @@ const Template = (props) =>
 
     <div className='page--container'>
       <aside className='page--aside'>
-        <picture className='logo page--logo'>
-          <source
-            type='image/webp'
-            srcSet='
+        <a
+          className='no-border'
+          href='/'>
+
+          <picture className='logo page--logo'>
+            <source
+              type='image/webp'
+              srcSet='
               https://ucarecdn.com/bcedcf3c-77c7-4693-8888-7e5645185882/-/preview/-/resize/200x/-/format/webp/spb_frontend_logo.webp 1x,
               https://ucarecdn.com/bcedcf3c-77c7-4693-8888-7e5645185882/-/preview/-/resize/400x/-/format/webp/-/quality/lightest/spb_frontend_logo@2x.webp 2x' />
-          <img
-            src='https://ucarecdn.com/bcedcf3c-77c7-4693-8888-7e5645185882/-/preview/-/resize/200x/spb_frontend_logo.png'
-            srcSet='https://ucarecdn.com/bcedcf3c-77c7-4693-8888-7e5645185882/-/preview/-/resize/400x/-/quality/lightest/spb_frontend_logo@2x.png 2x'
-            alt='SPB Frontend. Frontend artisans' />
-        </picture>
+            <img
+              src='https://ucarecdn.com/bcedcf3c-77c7-4693-8888-7e5645185882/-/preview/-/resize/200x/spb_frontend_logo.png'
+              srcSet='https://ucarecdn.com/bcedcf3c-77c7-4693-8888-7e5645185882/-/preview/-/resize/400x/-/quality/lightest/spb_frontend_logo@2x.png 2x'
+              alt='SPB Frontend. Frontend artisans' />
+          </picture>
+        </a>
 
         <dl className='contacts'>
           <dt className='contacts--term'>ВКонтакте</dt>
