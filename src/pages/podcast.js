@@ -1,6 +1,8 @@
 import React from 'react'
+import Helmet from 'react-helmet'
 
 import styles from './../css/podcast.module.css'
+import {defaultHelmetMeta} from "../layouts/index";
 
 const getPost = ({ node }) => {
   const {title, link, date} = node.frontmatter
@@ -33,6 +35,14 @@ const Podcast = ({data}) => {
         🍻 Drinkcast 🍻
       </h2>
       <div className={styles.posts}>{postList}</div>
+
+      <Helmet meta={defaultHelmetMeta}>
+        <title>SPB Frontend. Drinkcast</title>
+        <link
+          rel='alternate'
+          type='application/rss+xml'
+          href='/podcast.xml' />
+      </Helmet>
     </div>
   )
 }
