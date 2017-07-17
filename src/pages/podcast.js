@@ -1,21 +1,23 @@
 import React from 'react'
 
-import '../css/podcast.css'
+import styles from './../css/podcast.module.css'
 
 const getPost = ({ node }) => {
   const {title, link, date} = node.frontmatter
 
   return (
-    <div className='posts_item'>
-      <header>
-        <h3>{title}</h3>
-        <date>{date}</date>
+    <div className={styles.post}>
+      <header className={styles.header}>
+        <h3 className={styles.header_title}>{title}</h3>
+        <date className={styles.header_date}>{date}</date>
       </header>
       <audio
+        className={styles.audio}
         controls='controls'
         preload='none'
         src={link} />
       <footer
+        className={styles.footer}
         dangerouslySetInnerHTML={{ __html: node.html }} />
     </div>
   )
@@ -26,11 +28,11 @@ const Podcast = ({data}) => {
   const postList = blogPosts.map(getPost)
 
   return (
-    <div className='podcast'>
-      <h2>
+    <div>
+      <h2 className={styles.title}>
         🍻 Drinkcast 🍻
       </h2>
-      <div className='posts'>{postList}</div>
+      <div className={styles.posts}>{postList}</div>
     </div>
   )
 }

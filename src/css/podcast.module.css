@@ -1,5 +1,5 @@
 
-.podcast h2 {
+.title {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -14,17 +14,17 @@
   line-height: 0;
 }
 
-.posts_item {
+.post {
   border-bottom: 1px solid #eee;
   padding-bottom: 20px;
   margin-bottom: 20px;
 }
 
-.posts_item audio {
+.audio {
   width: 100%;
 }
 
-.posts_item header {
+.header {
   display: flex;
   font-weight: 200;
   justify-content: space-between;
@@ -32,22 +32,22 @@
   margin-bottom: 10px;
 }
 
-.posts_item h3 {
+.header_title {
   font-weight: 200;
   margin: 0;
 }
 
-.posts_item date {
+.header_date {
   font-weight: 200;
   color: #7b7b7b;
 }
 
-.posts_item footer {
+.footer {
   margin-top: 10px;
   color: #777;
 }
 
-.posts_item footer ul {
+.footer ul {
   list-style: none;
   margin-left: 0;
 }
