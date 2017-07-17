@@ -2,7 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 
 import styles from './../css/podcast.module.css'
-import {defaultHelmetMeta} from "../layouts/index";
+import {defaultHelmetMeta} from '../layouts/index'
 
 const getPost = ({ node }) => {
   const {title, link, date} = node.frontmatter
