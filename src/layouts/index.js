@@ -1,6 +1,4 @@
 import React from 'react'
-import Link from 'gatsby-link'
-import Helmet from 'react-helmet'
 
 import { SubscriptionForm } from '../components/subscription-form'
 
@@ -15,17 +13,22 @@ const Template = (props) =>
 
     <div className='page--container'>
       <aside className='page--aside'>
-        <picture className='logo page--logo'>
-          <source
-            type='image/webp'
-            srcSet='
+        <a
+          className='no-border'
+          href='/'>
+
+          <picture className='logo page--logo'>
+            <source
+              type='image/webp'
+              srcSet='
               https://ucarecdn.com/bcedcf3c-77c7-4693-8888-7e5645185882/-/preview/-/resize/200x/-/format/webp/spb_frontend_logo.webp 1x,
               https://ucarecdn.com/bcedcf3c-77c7-4693-8888-7e5645185882/-/preview/-/resize/400x/-/format/webp/-/quality/lightest/spb_frontend_logo@2x.webp 2x' />
-          <img
-            src='https://ucarecdn.com/bcedcf3c-77c7-4693-8888-7e5645185882/-/preview/-/resize/200x/spb_frontend_logo.png'
-            srcSet='https://ucarecdn.com/bcedcf3c-77c7-4693-8888-7e5645185882/-/preview/-/resize/400x/-/quality/lightest/spb_frontend_logo@2x.png 2x'
-            alt='SPB Frontend. Frontend artisans' />
-        </picture>
+            <img
+              src='https://ucarecdn.com/bcedcf3c-77c7-4693-8888-7e5645185882/-/preview/-/resize/200x/spb_frontend_logo.png'
+              srcSet='https://ucarecdn.com/bcedcf3c-77c7-4693-8888-7e5645185882/-/preview/-/resize/400x/-/quality/lightest/spb_frontend_logo@2x.png 2x'
+              alt='SPB Frontend. Frontend artisans' />
+          </picture>
+        </a>
 
         <dl className='contacts'>
           <dt className='contacts--term'>ВКонтакте</dt>
@@ -80,3 +83,47 @@ const Template = (props) =>
   </div>
 
 export default Template
+
+export const defaultHelmetMeta = [
+  {
+    name: 'theme-color',
+    content: '#ffffff',
+  },
+  {
+    property: 'og:title',
+    content: 'SPB Frontend',
+  },
+  {
+    property: 'og:description',
+    content: 'Петербургское сообщество фронтенд-разработчиков',
+  },
+  {
+    property: 'og:image',
+    content:
+      'https://ucarecdn.com/bcedcf3c-77c7-4693-8888-7e5645185882/-/preview/-/resize/1200x/-/crop/1200x630/0,300/spb_frontend_social.png',
+  },
+  {
+    property: 'og:url',
+    content: 'http://spb-frontend.ru/',
+  },
+  {
+    name: 'twitter:card',
+    content: 'summary_large_image',
+  },
+  {
+    name: 'twitter:site',
+    content: '@spb_frontend',
+  },
+  {
+    name: 'twitter:image:alt',
+    content: 'SPB Frontend. Frontend artisans',
+  },
+  {
+    name: 'description',
+    content: 'Петербургское сообщество фронтенд-разработчиков',
+  },
+  {
+    name: 'keywords',
+    content: 'frontend, spb-frontend',
+  },
+]
