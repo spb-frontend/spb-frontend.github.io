@@ -58,7 +58,7 @@ const Index = (props) =>
     </p>
 
     <Helmet meta={defaultHelmetMeta}>
-      <title>SPB Frontend. Frontend artisan</title>
+      <title>SPB Frontend. Frontend artisans</title>
     </Helmet>
 
   </div>
