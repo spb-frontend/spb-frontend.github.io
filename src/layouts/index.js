@@ -1,15 +1,15 @@
 import React from 'react'
 
 import { SubscriptionForm } from '../components/subscription-form'
+import { SiteHeader } from '../components/nav-header/index';
 
 import '../css/typography.css'
 import '../css/index.css'
 
 const Template = (props) =>
   <div className='page'>
-    <header className='page--header'>
-      <h1 className='page--heading'>SPB Frontend</h1>
-    </header>
+
+    <SiteHeader />
 
     <div className='page--container'>
       <aside className='page--aside'>

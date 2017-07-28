@@ -49,7 +49,7 @@ dl {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  padding: 1em 0;
+  padding: 70px 0 1em;
 }
 
 .page--header {
