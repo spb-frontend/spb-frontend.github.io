@@ -50,6 +50,8 @@ dl {
   flex-direction: column;
   box-sizing: border-box;
   padding: 70px 0 1em;
+  width: 100%;
+  min-width: 360px;
 }
 
 .page--header {
@@ -65,12 +67,20 @@ dl {
 .page--aside {
   box-sizing: border-box;
   padding: 0 1em;
+  order: 1;
+  margin-top: 1em;
+  border-top: 1px solid #eee;
 }
 
 .page--container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-grow: 1;
+}
+
+.page--logo {
+  float: right;
+  padding: 1em 0;
 }
 
 .page--content {
@@ -96,13 +106,6 @@ dl {
   }
 }
 
-@media screen and (min-width: 460px) and (max-width: 699px) {
-  .page--logo {
-    float: right;
-    padding: 1em 0;
-  }
-}
-
 @media screen and (min-width: 700px) {
   .page {
     flex-direction: column;
@@ -116,6 +119,12 @@ dl {
   .page--aside {
     flex-basis: 250px;
     order: 1;
+    margin-top: 0;
+    border-top: none;
+  }
+
+  .page--logo {
+    float: none;
   }
 
   .page--container {
