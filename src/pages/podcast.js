@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Helmet from 'react-helmet'
+import Link from 'gatsby-link'
 
 import styles from './../css/podcast.module.css'
 import {defaultHelmetMeta} from '../layouts/index'
@@ -14,24 +15,23 @@ export default class Podcast  extends Component {
   }
 
   getPost({ node }, index) {
-    const {title, link, date} = node.frontmatter
+    const {title, date} = node.frontmatter
+    const postLink = `/podcast/${index}`
 
     return (
       <div
         key={index}
         className={styles.post}>
         <header className={styles.header}>
-          <h3 className={styles.header_title}>{title}</h3>
+          <h3 className={styles.header_title}>
+            <Link
+              className='title'
+              to={postLink}>
+              {title}
+            </Link>
+          </h3>
           <date className={styles.header_date}>{date}</date>
         </header>
-        <audio
-          className={styles.audio}
-          controls='controls'
-          preload='none'
-          src={link} />
-        <footer
-          className={styles.footer}
-          dangerouslySetInnerHTML={{ __html: node.html }} />
       </div>
     )
   }
