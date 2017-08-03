@@ -51,7 +51,6 @@ dl {
   box-sizing: border-box;
   padding: 70px 0 1em;
   width: 100%;
-  min-width: 360px;
 }
 
 .page--header {
