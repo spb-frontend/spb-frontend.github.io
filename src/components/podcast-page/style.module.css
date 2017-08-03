@@ -1,0 +1,43 @@
+
+.post {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.audio {
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  font-weight: 200;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 20px;
+}
+
+.header_title {
+  font-weight: 200;
+  margin: 0;
+}
+
+.header_date {
+  font-weight: 200;
+  color: #7b7b7b;
+}
+
+.footer {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: #777;
+}
+
+.footer ul {
+  list-style: none;
+  margin-left: 0;
+}
+
+.back_link {
+  margin-bottom: 10px;
+}

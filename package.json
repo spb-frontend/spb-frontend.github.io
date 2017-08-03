@@ -3,15 +3,16 @@
   "description": "SPB Frontend official site",
   "version": "1.0.0",
   "dependencies": {
+    "@jacobmischka/gatsby-plugin-react-svg": "^1.0.0",
     "gatsby": "^1.0.1",
     "gatsby-link": "^1.0.1",
     "gatsby-plugin-manifest": "^1.0.1",
     "gatsby-plugin-react-helmet": "^1.0.1",
-    "@jacobmischka/gatsby-plugin-react-svg": "^1.0.0",
     "gatsby-source-filesystem": "^1.0.1",
     "gatsby-transformer-json": "^1.0.1",
     "gatsby-transformer-remark": "^1.1.0",
-    "rss": "^1.2.2"
+    "rss": "^1.2.2",
+    "slug": "^0.9.1"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
