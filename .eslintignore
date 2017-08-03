@@ -3,3 +3,5 @@
 /docs/*
 /public/*
 /static/*
+/plugins/**
+!plugins/**/src/*
