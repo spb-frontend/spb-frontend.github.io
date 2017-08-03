@@ -1,8 +1,19 @@
 module.exports = {
   siteMetadata: {
     title: 'SPB Frontend',
-    description: 'SPB Frontend official site',
+    description: 'Питерское сообщество фронтендеров SPB Frontend',
     siteUrl: 'https://spb-frontend.ru',
+    link: 'http://spb-frontend.ru/podcast/',
+    podcast: {
+      title: 'SPB Frontend Drinkcast',
+      description: 'Подкаст питерского сообщества фронтендеров SPB Frontend',
+      siteUrl: 'http://spb-frontend.ru/podcast/',
+      image_url: 'http://spb-frontend.ru/images/drinkcast.png',
+      feed_url: 'http://spb-frontend.ru/podcast.xml',
+      language: 'ru',
+      author: 'SPB Frontend',
+      categories: ['Professional']
+    }
   },
   plugins: [
     {
@@ -21,9 +32,16 @@ module.exports = {
           {
             site {
               siteMetadata {
-                title
-                description
-                siteUrl
+                podcast {
+                  title
+                  description
+                  siteUrl
+                  image_url
+                  feed_url
+                  language
+                  author
+                  categories
+                }
               }
             }
           }
@@ -46,6 +64,7 @@ module.exports = {
                         link
                         title
                         date
+                        image
                       }
                     }
                   }
