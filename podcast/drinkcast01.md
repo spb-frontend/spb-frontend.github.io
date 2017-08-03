@@ -1,8 +1,8 @@
 ---
 title: '12 колонок на пакет мертвеца'
 date: '2017-07-16'
-image: 'images/drinkcast.png'
-notes: ''
+image: 'http://spb-frontend.ru/images/drinkcast.png'
+description: ''
 link: 'https://goo.gl/btkTtU'
 ---
 
