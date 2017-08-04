@@ -1,6 +1,6 @@
 'use strict';
 
-function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step('next', value); }, function (err) { step('throw', err); }); } } return step('next'); }); }; }
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
 require('babel-core/register');
 require('babel-polyfill');
@@ -82,17 +82,15 @@ exports.onPostBuild = function () {
                       feed = new RSS(setup(Object.assign({}, rest, ctx)));
                       items = f.serialize ? f.serialize(ctx) : serialize(ctx);
 
-                      console.log(feed);
-                      console.log(items);
 
                       items.forEach(function (i) {
                         return feed.item(i);
                       });
 
-                      _context.next = 14;
+                      _context.next = 12;
                       return writeFile(output, feed.xml());
 
-                    case 14:
+                    case 12:
                     case 'end':
                       return _context.stop();
                   }
