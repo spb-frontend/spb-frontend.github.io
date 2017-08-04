@@ -8,11 +8,12 @@ module.exports = {
       title: 'SPB Frontend Drinkcast',
       description: 'Подкаст питерского сообщества фронтендеров SPB Frontend',
       siteUrl: 'http://spb-frontend.ru/podcast/',
-      image_url: 'http://spb-frontend.ru/images/drinkcast.png',
+      image_url: 'http://spb-frontend.ru/podcast_cover2x.png',
       feed_url: 'http://spb-frontend.ru/podcast.xml',
       language: 'ru',
       author: 'SPB Frontend',
-      categories: ['Professional']
+      categories: ['Professional'],
+      explicit: false
     }
   },
   plugins: [
@@ -41,6 +42,7 @@ module.exports = {
                   language
                   author
                   categories
+                  explicit
                 }
               }
             }
@@ -66,6 +68,9 @@ module.exports = {
                         date
                         image
                         duration
+                        explicit
+                        length
+                        file
                       }
                     }
                   }

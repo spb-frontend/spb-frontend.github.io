@@ -26,13 +26,9 @@ exports.onPostBuild = async ({ graphql }, pluginOptions) => {
    * Run the site settings query to gather context, then
    * then run the corresponding feed for each query.
    */
-  const { query, setup, feeds, rest } = Object.assign(
-    {},
-    defaultOptions,
-    pluginOptions
-  )
+  const { query, setup, feeds, rest } = Object.assign({}, defaultOptions, pluginOptions)
   const globals = await runQuery(graphql, query)
-
+  console.log(globals)
   /* TODO: придумать решение получше */
   globals.site.siteMetadata = globals.site.siteMetadata.podcast
 
@@ -49,49 +45,52 @@ exports.onPostBuild = async ({ graphql }, pluginOptions) => {
 
     /* TODO: Вынести настройки в конфиг */
     feed.custom_namespaces = {
-      itunes: 'http://www.itunes.com/dtds/podcast-1.0.dtd',
+      'itunes': 'http://www.itunes.com/dtds/podcast-1.0.dtd'
     }
     feed.custom_elements = [
-      { 'itunes:subtitle': feed.title },
-      { 'itunes:author': 'SPB Frontend' },
-      { 'itunes:summary': feed.description },
-      {
-        'itunes:owner': [
-          { 'itunes:name': 'SPB Frontend' },
-          { 'itunes:email': 'hi@spn-frontend.ru' },
-        ],
-      },
-      {
-        'itunes:image': {
-          _attr: {
-            href: feed.image_url,
-          },
-        },
-      },
-      {
-        'itunes:category': [
-          {
-            _attr: {
-              text: 'Professional',
-            },
-          },
-        ],
-      },
+      {'itunes:explicit': 'no'},
+      {'itunes:subtitle': feed.title},
+      {'itunes:author': 'SPB Frontend'},
+      {'itunes:summary': feed.description},
+      {'itunes:owner': [
+        {'itunes:name': 'SPB Frontend'},
+        {'itunes:email': 'hi@spn-frontend.ru'}
+      ]},
+      {'itunes:image': {
+        _attr: {
+          href: feed.image_url
+        }
+      }},
+      {'itunes:category': [
+        {_attr: {
+          text: 'Professional'
+        }},
+      ]},
     ]
+
+    // console.log(feed)
 
     items.forEach(i => {
       i.custom_elements = [
-        { 'itunes:author': 'SPB Frontend' },
-        { 'itunes:subtitle': i.title },
-        {
-          'itunes:image': {
-            _attr: {
-              href: i.image,
-            },
-          },
-        },
-        { 'itunes:duration': i.duration },
+        {'itunes:explicit': i.explicit},
+        {'itunes:author': 'SPB Frontend'},
+        {'itunes:subtitle': i.title},
+        {'itunes:image': {
+          _attr: {
+            href: i.image
+          }
+        }},
+        {'itunes:duration': i.duration},
+        // {'enclosure': {
+        //   _attr: {
+        //     type: 'audio/mp3',
+        //     url: i.file,
+        //     length: i.length,
+        //   }
+        // }}
       ]
+
+      // console.log(i)
 
       return feed.item(i)
     })
