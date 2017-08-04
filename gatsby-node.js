@@ -39,7 +39,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 
         Array.from(result.data.allMarkdownRemark.edges).forEach((edge, id) => {
           createPage({
-            path: `/podcast/${slug(id)}`,
+            path: `/podcast/${slug(id + 1)}`,
             component: slash(postTemplate),
             context: {
               data: edge,

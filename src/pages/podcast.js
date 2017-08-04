@@ -16,7 +16,7 @@ export default class Podcast  extends Component {
 
   getPost({ node }, index) {
     const {title, date} = node.frontmatter
-    const postLink = `/podcast/${index}`
+    const postLink = `/podcast/${index + 1}`
 
     return (
       <div
