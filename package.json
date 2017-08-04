@@ -31,29 +31,21 @@
     "stylelint": "^7.13.0",
     "stylelint-config-standard": "^16.0.0"
   },
-  "keywords": [
-    "gatsby"
-  ],
+  "keywords": ["gatsby"],
   "license": "MIT",
   "main": "n/a",
   "scripts": {
     "build": "gatsby build",
     "deploy": "gatsby build && gh-pages -d public",
     "develop": "gatsby develop",
-    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"pages/*.js\" \"utils/*.js\" \"wrappers/*.js\" \"html.js\"",
+    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"pages/*.js\" \"utils/*.js\" \"wrappers/*.js\"",
     "test": "jest",
     "lint": "eslint ./src & stylelint \"./src/{components,css}/*.css\" & remark .",
     "precommit": "lint-staged"
   },
   "lint-staged": {
-    "*.{js,jsx}": [
-      "eslint"
-    ],
-    "*.{css,pcss}": [
-      "stylelint"
-    ],
-    "*.{md,markdown}": [
-      "remark"
-    ]
+    "*.{js,jsx}": ["eslint"],
+    "*.{css,pcss}": ["stylelint"],
+    "*.{md,markdown}": ["remark"]
   }
 }
