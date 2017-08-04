@@ -1,6 +1,6 @@
 'use strict';
 
-function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step('next', value); }, function (err) { step('throw', err); }); } } return step('next'); }); }; }
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
 require('babel-core/register');
 require('babel-polyfill');
@@ -53,7 +53,7 @@ exports.onPostBuild = function () {
           case 4:
             globals = _context2.sent;
 
-
+            console.log(globals);
             /* TODO: придумать решение получше */
             globals.site.siteMetadata = globals.site.siteMetadata.podcast;
 
@@ -82,10 +82,30 @@ exports.onPostBuild = function () {
                       feed = new RSS(setup(Object.assign({}, rest, ctx)));
                       items = f.serialize ? f.serialize(ctx) : serialize(ctx);
 
-                      console.log(feed);
-                      console.log(items);
+                      /* TODO: Вынести настройки в конфиг */
+
+                      feed.custom_namespaces = {
+                        'itunes': 'http://www.itunes.com/dtds/podcast-1.0.dtd'
+                      };
+                      feed.custom_elements = [{ 'itunes:explicit': 'no' }, { 'itunes:subtitle': feed.title }, { 'itunes:author': 'SPB Frontend' }, { 'itunes:summary': feed.description }, { 'itunes:owner': [{ 'itunes:name': 'SPB Frontend' }, { 'itunes:email': 'hi@spn-frontend.ru' }] }, { 'itunes:image': {
+                          _attr: {
+                            href: feed.image_url
+                          }
+                        } }, { 'itunes:category': [{ _attr: {
+                            text: 'Professional'
+                          } }] }];
+
+                      // console.log(feed)
 
                       items.forEach(function (i) {
+                        i.custom_elements = [{ 'itunes:explicit': i.explicit }, { 'itunes:author': 'SPB Frontend' }, { 'itunes:subtitle': i.title }, { 'itunes:image': {
+                            _attr: {
+                              href: i.image
+                            }
+                          } }, { 'itunes:duration': i.duration }];
+
+                        // console.log(i)
+
                         return feed.item(i);
                       });
 
@@ -102,66 +122,66 @@ exports.onPostBuild = function () {
             _iteratorNormalCompletion = true;
             _didIteratorError = false;
             _iteratorError = undefined;
-            _context2.prev = 10;
+            _context2.prev = 11;
             _iterator = feeds[Symbol.iterator]();
 
-          case 12:
+          case 13:
             if (_iteratorNormalCompletion = (_step = _iterator.next()).done) {
-              _context2.next = 18;
+              _context2.next = 19;
               break;
             }
 
             f = _step.value;
-            return _context2.delegateYield(_loop(f), 't0', 15);
+            return _context2.delegateYield(_loop(f), 't0', 16);
 
-          case 15:
+          case 16:
             _iteratorNormalCompletion = true;
-            _context2.next = 12;
+            _context2.next = 13;
             break;
 
-          case 18:
-            _context2.next = 24;
+          case 19:
+            _context2.next = 25;
             break;
 
-          case 20:
-            _context2.prev = 20;
-            _context2.t1 = _context2['catch'](10);
+          case 21:
+            _context2.prev = 21;
+            _context2.t1 = _context2['catch'](11);
             _didIteratorError = true;
             _iteratorError = _context2.t1;
 
-          case 24:
-            _context2.prev = 24;
+          case 25:
             _context2.prev = 25;
+            _context2.prev = 26;
 
             if (!_iteratorNormalCompletion && _iterator.return) {
               _iterator.return();
             }
 
-          case 27:
-            _context2.prev = 27;
+          case 28:
+            _context2.prev = 28;
 
             if (!_didIteratorError) {
-              _context2.next = 30;
+              _context2.next = 31;
               break;
             }
 
             throw _iteratorError;
 
-          case 30:
-            return _context2.finish(27);
-
           case 31:
-            return _context2.finish(24);
+            return _context2.finish(28);
 
           case 32:
-            return _context2.abrupt('return', Promise.resolve());
+            return _context2.finish(25);
 
           case 33:
+            return _context2.abrupt('return', Promise.resolve());
+
+          case 34:
           case 'end':
             return _context2.stop();
         }
       }
-    }, _callee, undefined, [[10, 20, 24, 32], [25,, 27, 31]]);
+    }, _callee, undefined, [[11, 21, 25, 33], [26,, 28, 32]]);
   }));
 
   return function (_x, _x2) {

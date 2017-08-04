@@ -16,7 +16,7 @@ export default class Podcast  extends Component {
 
   getPost({ node }, index) {
     const {title, date} = node.frontmatter
-    const postLink = `/podcast/${index}`
+    const postLink = `/podcast/${index + 1}`
 
     return (
       <div
@@ -60,7 +60,7 @@ export const pageQuery = graphql` query MyQueryName
   {
     allMarkdownRemark(
       limit: 1000,
-      sort: { order: DESC, fields: [frontmatter___date] },
+      sort: { order: ASC, fields: [frontmatter___date] },
       filter: {
         fileAbsolutePath: { regex: "/podcast/" }
       }

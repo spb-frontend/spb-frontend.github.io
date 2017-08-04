@@ -1,9 +1,13 @@
 ---
 title: '12 колонок на пакет мертвеца'
 date: '2017-07-16'
-image: 'http://spb-frontend.ru/images/drinkcast.png'
+image: 'http://spb-frontend.ru/podcast_cover2x.png'
 description: ''
 link: 'https://goo.gl/btkTtU'
+file: 'http://spb-frontend.ru/episodes/SPB Frontend Drinkcast 01.mp3'
+duration: '43:13'
+explicit: 'no'
+length: '83070974'
 ---
 
 - 0:40 - CSS-in-JS: [Decss](https://github.com/kossnocorp/decss), [Styled Components](https://github.com/styled-components/styled-components)
