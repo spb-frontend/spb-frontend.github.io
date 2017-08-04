@@ -3,8 +3,10 @@ title: 'Бойкий Джун - Счастливый Ментор'
 date: '2017-08-04'
 image: 'http://spb-frontend.ru/images/drinkcast.png'
 description: ''
-link: 'https://goo.gl/tSdEtj'
+link: 'https://goo.gl/daqfZ3'
 duration: '55:01'
+explicit: false
+length: '105698863'
 ---
 
 - 1:16 - Собеседование джуниора
