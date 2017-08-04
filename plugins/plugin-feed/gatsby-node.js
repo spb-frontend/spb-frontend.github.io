@@ -82,15 +82,33 @@ exports.onPostBuild = function () {
                       feed = new RSS(setup(Object.assign({}, rest, ctx)));
                       items = f.serialize ? f.serialize(ctx) : serialize(ctx);
 
+                      /* TODO: Вынести настройки в конфиг */
+
+                      feed.custom_namespaces = {
+                        'itunes': 'http://www.itunes.com/dtds/podcast-1.0.dtd'
+                      };
+                      feed.custom_elements = [{ 'itunes:subtitle': feed.title }, { 'itunes:author': 'SPB Frontend' }, { 'itunes:summary': feed.description }, { 'itunes:owner': [{ 'itunes:name': 'SPB Frontend' }, { 'itunes:email': 'hi@spn-frontend.ru' }] }, { 'itunes:image': {
+                          _attr: {
+                            href: feed.image_url
+                          }
+                        } }, { 'itunes:category': [{ _attr: {
+                            text: 'Professional'
+                          } }] }];
 
                       items.forEach(function (i) {
+                        i.custom_elements = [{ 'itunes:author': 'SPB Frontend' }, { 'itunes:subtitle': i.title }, { 'itunes:image': {
+                            _attr: {
+                              href: i.image
+                            }
+                          } }, { 'itunes:duration': i.duration }];
+
                         return feed.item(i);
                       });
 
-                      _context.next = 12;
+                      _context.next = 14;
                       return writeFile(output, feed.xml());
 
-                    case 12:
+                    case 14:
                     case 'end':
                       return _context.stop();
                   }

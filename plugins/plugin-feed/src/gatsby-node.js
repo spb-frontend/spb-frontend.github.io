@@ -43,7 +43,44 @@ exports.onPostBuild = async ({ graphql }, pluginOptions) => {
     const feed = new RSS(setup(Object.assign({}, rest, ctx)))
     const items = f.serialize ? f.serialize(ctx) : serialize(ctx)
 
-    items.forEach(i => feed.item(i))
+    /* TODO: Вынести настройки в конфиг */
+    feed.custom_namespaces = {
+      'itunes': 'http://www.itunes.com/dtds/podcast-1.0.dtd'
+    }
+    feed.custom_elements = [
+      {'itunes:subtitle': feed.title},
+      {'itunes:author': 'SPB Frontend'},
+      {'itunes:summary': feed.description},
+      {'itunes:owner': [
+        {'itunes:name': 'SPB Frontend'},
+        {'itunes:email': 'hi@spn-frontend.ru'}
+      ]},
+      {'itunes:image': {
+        _attr: {
+          href: feed.image_url
+        }
+      }},
+      {'itunes:category': [
+        {_attr: {
+          text: 'Professional'
+        }},
+      ]},
+    ]
+
+    items.forEach(i => {
+      i.custom_elements = [
+        {'itunes:author': 'SPB Frontend'},
+        {'itunes:subtitle': i.title},
+        {'itunes:image': {
+          _attr: {
+            href: i.image
+          }
+        }},
+        {'itunes:duration': i.duration}
+      ]
+
+      return feed.item(i)
+    })
 
     await writeFile(output, feed.xml())
   }
