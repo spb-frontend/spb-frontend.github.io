@@ -4,6 +4,7 @@ date: '2017-07-16'
 image: 'http://spb-frontend.ru/images/drinkcast.png'
 description: ''
 link: 'https://goo.gl/btkTtU'
+duration: '43:13'
 ---
 
 - 0:40 - CSS-in-JS: [Decss](https://github.com/kossnocorp/decss), [Styled Components](https://github.com/styled-components/styled-components)
