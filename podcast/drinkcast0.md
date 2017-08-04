@@ -3,7 +3,7 @@ title: '12 колонок на пакет мертвеца'
 date: '2017-07-16'
 image: 'images/drinkcast.png'
 notes: 'Some text'
-link: 'https://goo.gl/pV1cdq'
+link: 'https://goo.gl/btkTtU'
 ---
 
 * 0:40 - CSS-in-JS: [Decss](https://github.com/kossnocorp/decss), [Styled Components](https://github.com/styled-components/styled-components)
