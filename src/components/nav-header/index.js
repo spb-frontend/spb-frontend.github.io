@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import Link from 'gatsby-link'
 
 import style from './style.module.css'
@@ -9,14 +9,15 @@ class SiteHeader extends Component {
     return (
       <div className={style.header}>
         <div className={style.wrapper}>
-          <Link className={style.logo} to="/">
+          <Link
+            className={style.logo}
+            to='/'>
             <Icon className={style.icon} />
           </Link>
           <Link
             className={style.menuItem}
             activeClassName={style.active}
-            to="/podcast"
-          >
+            to='/podcast'>
             Drinkcast
           </Link>
         </div>
@@ -25,4 +26,4 @@ class SiteHeader extends Component {
   }
 }
 
-export { SiteHeader }
+export {SiteHeader}

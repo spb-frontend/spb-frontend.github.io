@@ -2,8 +2,8 @@ const path = require('path')
 const slug = require('slug')
 const slash = require('slash')
 
-exports.createPages = ({ graphql, boundActionCreators }) => {
-  const { createPage } = boundActionCreators
+exports.createPages = ({graphql, boundActionCreators}) => {
+  const {createPage} = boundActionCreators
 
   return new Promise((resolve, reject) => {
     resolve(
@@ -45,8 +45,8 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
             component: slash(postTemplate),
             context: {
               data: edge,
-              id,
-            },
+              id
+            }
           })
         })
 

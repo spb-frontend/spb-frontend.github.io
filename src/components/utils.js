@@ -157,7 +157,7 @@ export function scrollIt(
     },
     easeInOutQuint(t) {
       return t < 0.5 ? 16 * t * t * t * t * t : 1 + 16 * --t * t * t * t * t
-    },
+    }
   }
 
   const start = window.pageYOffset

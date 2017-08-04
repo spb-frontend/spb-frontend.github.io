@@ -1,16 +1,16 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import styles from './style.module.css'
 import Link from 'gatsby-link'
-import { Box, Thread } from 'react-disqussion'
+import {Box, Thread} from 'react-disqussion'
 
 const PodcastPage = props => {
-  const { data, id } = props.pathContext
-  const { node: { frontmatter, html } } = data
+  const {data, id} = props.pathContext
+  const {node: {frontmatter, html}} = data
 
   return (
     <div>
       <div className={styles.back_link}>
-        <Link to="/podcast/">
+        <Link to='/podcast/'>
           {'<'} назад
         </Link>
       </div>
@@ -26,22 +26,19 @@ const PodcastPage = props => {
 
       <audio
         className={styles.audio}
-        controls="controls"
-        preload="none"
-        src={frontmatter.link}
-      />
+        controls='controls'
+        preload='none'
+        src={frontmatter.link} />
 
       <footer
         className={styles.footer}
-        dangerouslySetInnerHTML={{ __html: html }}
-      />
+        dangerouslySetInnerHTML={{__html: html}} />
 
-      <Box shortname="http-spb-frontend-ru">
+      <Box shortname='http-spb-frontend-ru'>
         <Thread
           url={`http://spb-frontend.ru/podcast/${id + 1}`}
           title={frontmatter.title}
-          identifier={`podcast-${id + 1}`}
-        />
+          identifier={`podcast-${id + 1}`} />
       </Box>
     </div>
   )
