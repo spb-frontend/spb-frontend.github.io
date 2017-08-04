@@ -1,7 +1,7 @@
 ---
 title: 'Бойкий Джун - Счастливый Ментор'
 date: '2017-08-04'
-image: 'http://spb-frontend.ru/images/podcast_cover2x.png'
+image: 'http://spb-frontend.ru/images/podcast_cover1400.png'
 description: ''
 link: 'https://goo.gl/daqfZ3'
 file: 'http://spb-frontend.ru/episodes/SPB Frontend Drinkcast 02.mp3'
