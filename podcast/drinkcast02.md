@@ -4,6 +4,7 @@ date: '2017-08-04'
 image: 'http://spb-frontend.ru/images/drinkcast.png'
 description: ''
 link: 'https://goo.gl/tSdEtj'
+duration: '55:01'
 ---
 
 - 1:16 - Собеседование джуниора
