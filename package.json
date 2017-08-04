@@ -11,6 +11,7 @@
     "gatsby-source-filesystem": "^1.0.1",
     "gatsby-transformer-json": "^1.0.1",
     "gatsby-transformer-remark": "^1.1.0",
+    "react-disqussion": "^1.1.0",
     "rss": "^1.2.2",
     "slug": "^0.9.1"
   },
