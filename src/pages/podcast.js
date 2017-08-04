@@ -60,7 +60,7 @@ export const pageQuery = graphql` query MyQueryName
   {
     allMarkdownRemark(
       limit: 1000,
-      sort: { order: DESC, fields: [frontmatter___date] },
+      sort: { order: ASC, fields: [frontmatter___date] },
       filter: {
         fileAbsolutePath: { regex: "/podcast/" }
       }
