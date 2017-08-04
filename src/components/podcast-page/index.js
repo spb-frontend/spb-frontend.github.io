@@ -1,62 +1,44 @@
 import React, { Component } from 'react'
 import styles from './style.module.css'
 import Link from 'gatsby-link'
+import {Box, Thread} from 'react-disqussion'
 
-class PodcastPage extends Component {
+const PodcastPage = (props) => {
+  const {data, id} = props.pathContext
+  const {node: {frontmatter, html}} = data
 
-  constructor(props) {
-    super(props)
+  return <div>
+    <div className={styles.back_link}>
+      <Link
+        to='/podcast/'>
+        {'<'} назад
+      </Link>
+    </div>
 
-    const {node} = props.pathContext.data;
+    <header className={styles.header}>
+      <h3 className={styles.header_title}>
+        {frontmatter.title}
+      </h3>
+      <date className={styles.header_date}>{frontmatter.date}</date>
+    </header>
 
-    this.data = node.frontmatter;
-    this.showNotes = node.html;
-  }
+    <audio
+      className={styles.audio}
+      controls='controls'
+      preload='none'
+      src={frontmatter.link} />
 
-  render() {
+    <footer
+      className={styles.footer}
+      dangerouslySetInnerHTML={{ __html: html }} />
 
-    var disqus_config = function () {
-      this.page.url = `/podcast/${this.props.pathContext.id}`;
-      this.page.identifier = `/podcast/${this.props.pathContext.id}`;
-    };
-
-    (function() { // DON'T EDIT BELOW THIS LINE
-      var d = document, s = d.createElement('script');
-      s.src = 'https://http-spb-frontend-ru.disqus.com/embed.js';
-      s.setAttribute('data-timestamp', +new Date());
-      (d.head || d.body).appendChild(s);
-    })();
-
-    return (
-      <div>
-        <div className={styles.back_link}>
-          <Link
-            to='/podcast/'>
-            {'<'} назад
-          </Link>
-        </div>
-
-        <header className={styles.header}>
-          <h3 className={styles.header_title}>
-            {this.data.title}
-          </h3>
-          <date className={styles.header_date}>{this.data.date}</date>
-        </header>
-
-        <audio
-          className={styles.audio}
-          controls='controls'
-          preload='none'
-          src={this.data.link} />
-
-        <footer
-          className={styles.footer}
-          dangerouslySetInnerHTML={{ __html: this.showNotes }} />
-
-        <div id="disqus_thread"></div>
-      </div>
-    )
-  }
+    <Box shortname='http-spb-frontend-ru'>
+      <Thread
+        url={`http://spb-frontend.ru/podcast/${id + 1}`}
+        title={frontmatter.title}
+        identifier={`podcast-${id + 1}`} />
+    </Box>
+  </div>
 }
 
 export default PodcastPage
