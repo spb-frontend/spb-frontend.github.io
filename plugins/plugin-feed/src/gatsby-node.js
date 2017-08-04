@@ -26,7 +26,11 @@ exports.onPostBuild = async ({ graphql }, pluginOptions) => {
    * Run the site settings query to gather context, then
    * then run the corresponding feed for each query.
    */
-  const { query, setup, feeds, rest } = Object.assign({}, defaultOptions, pluginOptions)
+  const { query, setup, feeds, rest } = Object.assign(
+    {},
+    defaultOptions,
+    pluginOptions
+  )
   const globals = await runQuery(graphql, query)
 
   /* TODO: придумать решение получше */
@@ -45,38 +49,48 @@ exports.onPostBuild = async ({ graphql }, pluginOptions) => {
 
     /* TODO: Вынести настройки в конфиг */
     feed.custom_namespaces = {
-      'itunes': 'http://www.itunes.com/dtds/podcast-1.0.dtd'
+      itunes: 'http://www.itunes.com/dtds/podcast-1.0.dtd',
     }
     feed.custom_elements = [
-      {'itunes:subtitle': feed.title},
-      {'itunes:author': 'SPB Frontend'},
-      {'itunes:summary': feed.description},
-      {'itunes:owner': [
-        {'itunes:name': 'SPB Frontend'},
-        {'itunes:email': 'hi@spn-frontend.ru'}
-      ]},
-      {'itunes:image': {
-        _attr: {
-          href: feed.image_url
-        }
-      }},
-      {'itunes:category': [
-        {_attr: {
-          text: 'Professional'
-        }},
-      ]},
+      { 'itunes:subtitle': feed.title },
+      { 'itunes:author': 'SPB Frontend' },
+      { 'itunes:summary': feed.description },
+      {
+        'itunes:owner': [
+          { 'itunes:name': 'SPB Frontend' },
+          { 'itunes:email': 'hi@spn-frontend.ru' },
+        ],
+      },
+      {
+        'itunes:image': {
+          _attr: {
+            href: feed.image_url,
+          },
+        },
+      },
+      {
+        'itunes:category': [
+          {
+            _attr: {
+              text: 'Professional',
+            },
+          },
+        ],
+      },
     ]
 
     items.forEach(i => {
       i.custom_elements = [
-        {'itunes:author': 'SPB Frontend'},
-        {'itunes:subtitle': i.title},
-        {'itunes:image': {
-          _attr: {
-            href: i.image
-          }
-        }},
-        {'itunes:duration': i.duration}
+        { 'itunes:author': 'SPB Frontend' },
+        { 'itunes:subtitle': i.title },
+        {
+          'itunes:image': {
+            _attr: {
+              href: i.image,
+            },
+          },
+        },
+        { 'itunes:duration': i.duration },
       ]
 
       return feed.item(i)

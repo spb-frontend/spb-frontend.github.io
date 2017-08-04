@@ -1,31 +1,27 @@
-import React, { Component } from 'react';
-import Helmet from 'react-helmet';
-import Link from 'gatsby-link';
+import React, { Component } from 'react'
+import Helmet from 'react-helmet'
+import Link from 'gatsby-link'
 
-import styles from './../css/podcast.module.css';
-import { defaultHelmetMeta } from '../layouts/index';
+import styles from './../css/podcast.module.css'
+import { defaultHelmetMeta } from '../layouts/index'
 
 export default class Podcast extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
-    const posts = props.data.allMarkdownRemark.edges;
-    this.postList = posts.map(this.getPost.bind(this));
+    const posts = props.data.allMarkdownRemark.edges
+    this.postList = posts.map(this.getPost.bind(this))
   }
 
   getPost({ node }, index) {
-    const { title, date } = node.frontmatter;
-    const postLink = `/podcast/${index + 1}`;
+    const { title, date } = node.frontmatter
+    const postLink = `/podcast/${index + 1}`
 
     return (
-      <div
-        key={index}
-        className={styles.post}>
+      <div key={index} className={styles.post}>
         <header className={styles.header}>
           <h3 className={styles.header_title}>
-            <Link
-              className='title'
-              to={postLink}>
+            <Link className="title" to={postLink}>
               {title}
             </Link>
           </h3>
@@ -34,7 +30,7 @@ export default class Podcast extends Component {
           </date>
         </header>
       </div>
-    );
+    )
   }
 
   render() {
@@ -48,12 +44,13 @@ export default class Podcast extends Component {
         <Helmet meta={defaultHelmetMeta}>
           <title>SPB Frontend. Drinkcast</title>
           <link
-            rel='alternate'
-            type='application/rss+xml'
-            href='/podcast.xml' />
+            rel="alternate"
+            type="application/rss+xml"
+            href="/podcast.xml"
+          />
         </Helmet>
       </div>
-    );
+    )
   }
 }
 
@@ -76,4 +73,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`

@@ -12,8 +12,8 @@ module.exports = {
       feed_url: 'http://spb-frontend.ru/podcast.xml',
       language: 'ru',
       author: 'SPB Frontend',
-      categories: ['Professional']
-    }
+      categories: ['Professional'],
+    },
   },
   plugins: [
     {
@@ -21,7 +21,7 @@ module.exports = {
       options: {
         name: 'podcast',
         path: `${__dirname}/podcast`,
-      }
+      },
     },
     'gatsby-transformer-remark',
     'gatsby-transformer-json',
@@ -72,10 +72,10 @@ module.exports = {
                 }
               }
             `,
-            output: '/podcast.xml'
-          }
-        ]
-      }
+            output: '/podcast.xml',
+          },
+        ],
+      },
     },
     {
       resolve: 'gatsby-plugin-manifest',
@@ -97,8 +97,8 @@ module.exports = {
             type: 'image/png',
           },
         ],
-      }
+      },
     },
-    'gatsby-plugin-react-helmet'
+    'gatsby-plugin-react-helmet',
   ],
 }

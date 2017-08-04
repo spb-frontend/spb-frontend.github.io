@@ -35,7 +35,9 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           reject(new Error(result.errors))
         }
 
-        const postTemplate = path.resolve('src/components/podcast-page/index.js')
+        const postTemplate = path.resolve(
+          'src/components/podcast-page/index.js'
+        )
 
         Array.from(result.data.allMarkdownRemark.edges).forEach((edge, id) => {
           createPage({
