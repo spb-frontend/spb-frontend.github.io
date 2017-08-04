@@ -68,7 +68,7 @@ exports.onPostBuild = async ({ graphql }, pluginOptions) => {
       ]},
     ]
 
-    console.log(feed)
+    // console.log(feed)
 
     items.forEach(i => {
       i.custom_elements = [
@@ -90,7 +90,7 @@ exports.onPostBuild = async ({ graphql }, pluginOptions) => {
         // }}
       ]
 
-      console.log(i)
+      // console.log(i)
 
       return feed.item(i)
     })

@@ -95,7 +95,7 @@ exports.onPostBuild = function () {
                             text: 'Professional'
                           } }] }];
 
-                      console.log(feed);
+                      // console.log(feed)
 
                       items.forEach(function (i) {
                         i.custom_elements = [{ 'itunes:explicit': i.explicit }, { 'itunes:author': 'SPB Frontend' }, { 'itunes:subtitle': i.title }, { 'itunes:image': {
@@ -104,15 +104,15 @@ exports.onPostBuild = function () {
                             }
                           } }, { 'itunes:duration': i.duration }];
 
-                        console.log(i);
+                        // console.log(i)
 
                         return feed.item(i);
                       });
 
-                      _context.next = 15;
+                      _context.next = 14;
                       return writeFile(output, feed.xml());
 
-                    case 15:
+                    case 14:
                     case 'end':
                       return _context.stop();
                   }
