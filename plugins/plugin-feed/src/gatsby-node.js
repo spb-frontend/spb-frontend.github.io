@@ -26,7 +26,8 @@ exports.onPostBuild = async ({ graphql }, pluginOptions) => {
    * Run the site settings query to gather context, then
    * then run the corresponding feed for each query.
    */
-  const { query, setup, feeds, rest } = Object.assign({}, defaultOptions, pluginOptions)
+  const { query, setup, feeds,
+     rest } = Object.assign({}, defaultOptions, pluginOptions)
   const globals = await runQuery(graphql, query)
   console.log(globals)
   /* TODO: придумать решение получше */
