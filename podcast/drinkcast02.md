@@ -1,7 +1,7 @@
 ---
 title: 'Бойкий Джун - Счастливый Ментор'
 date: '2017-08-04'
-image: 'http://spb-frontend.ru/images/podcast_cover.png'
+image: 'http://spb-frontend.ru/images/podcast_cover1400.png'
 description: ''
 link: 'http://goo.gl/daqfZ3'
 duration: '55:01'
