@@ -81,13 +81,13 @@ exports.onPostBuild = async ({ graphql }, pluginOptions) => {
           }
         }},
         {'itunes:duration': i.duration},
-        // {'enclosure': {
-        //   _attr: {
-        //     type: 'audio/mp3',
-        //     url: i.file,
-        //     length: i.length,
-        //   }
-        // }}
+        {'enclosure': {
+          _attr: {
+            type: 'audio/mp3',
+            url: i.url,
+            length: i.length,
+          }
+        }}
       ]
 
       // console.log(i)

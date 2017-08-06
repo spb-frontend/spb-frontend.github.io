@@ -102,7 +102,13 @@ exports.onPostBuild = function () {
                             _attr: {
                               href: i.image
                             }
-                          } }, { 'itunes:duration': i.duration }];
+                          } }, { 'itunes:duration': i.duration }, { 'enclosure': {
+                            _attr: {
+                              type: 'audio/mp3',
+                              url: i.url,
+                              length: i.length
+                            }
+                          } }];
 
                         // console.log(i)
 
