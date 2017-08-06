@@ -70,7 +70,6 @@ module.exports = {
                         duration
                         explicit
                         length
-                        file
                       }
                     }
                   }
