@@ -92,7 +92,7 @@ exports.onPostBuild = function () {
                             href: feed.image_url
                           }
                         } }, { 'itunes:category': [{ _attr: {
-                            text: 'Professional'
+                            text: 'Technology'
                           } }] }];
 
                       // console.log(feed)
@@ -102,7 +102,13 @@ exports.onPostBuild = function () {
                             _attr: {
                               href: i.image
                             }
-                          } }, { 'itunes:duration': i.duration }];
+                          } }, { 'itunes:duration': i.duration }, { 'enclosure': {
+                            _attr: {
+                              type: 'audio/mpeg',
+                              url: i.link,
+                              length: i.length
+                            }
+                          } }];
 
                         // console.log(i)
 
