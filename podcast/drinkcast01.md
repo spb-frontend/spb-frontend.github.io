@@ -1,7 +1,7 @@
 ---
 title: '12 колонок на пакет мертвеца'
 date: '2017-07-16'
-image: 'http://spb-frontend.ru/podcast_cover2x.png'
+image: 'http://spb-frontend.ru/podcast_cover.png'
 description: ''
 link: 'http://goo.gl/btkTtU'
 duration: '43:13'
