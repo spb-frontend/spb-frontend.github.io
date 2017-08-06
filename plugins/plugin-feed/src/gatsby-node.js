@@ -63,7 +63,7 @@ exports.onPostBuild = async ({ graphql }, pluginOptions) => {
       }},
       {'itunes:category': [
         {_attr: {
-          text: 'Professional'
+          text: 'Technology'
         }},
       ]},
     ]

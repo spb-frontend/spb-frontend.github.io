@@ -92,7 +92,7 @@ exports.onPostBuild = function () {
                             href: feed.image_url
                           }
                         } }, { 'itunes:category': [{ _attr: {
-                            text: 'Professional'
+                            text: 'Technology'
                           } }] }];
 
                       // console.log(feed)
