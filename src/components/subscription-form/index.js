@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
-import React, { Component } from 'react'
-import { getJSON, postJSON, serialize } from '../utils'
+import React, {Component} from 'react'
+import {getJSON, postJSON, serialize} from '../utils'
 import st from './style.module.css'
 
 class SubscriptionForm extends Component {
@@ -9,7 +9,7 @@ class SubscriptionForm extends Component {
 
     this.state = {
       errors: [],
-      status: 'form',
+      status: 'form'
     }
   }
 
@@ -41,17 +41,17 @@ class SubscriptionForm extends Component {
   }
 
   showError = resp => {
-    this.setState({ errors: [resp] })
+    this.setState({errors: [resp]})
   }
 
   showSuccess = resp => {
-    this.setState({ status: 'success' })
+    this.setState({status: 'success'})
   }
 
   render() {
     return (
       <div
-        id="mc_embed_signup"
+        id='mc_embed_signup'
         className={st.subscription}>
         {this.state.status === 'success' &&
           <span className={st.success}>
@@ -60,43 +60,43 @@ class SubscriptionForm extends Component {
         {this.state.status === 'form' &&
           <form
             onSubmit={this.sendForm}
-            action=""
-            method="post"
-            id="mc-embedded-subscribe-form"
-            name="mc-embedded-subscribe-form"
+            action=''
+            method='post'
+            id='mc-embedded-subscribe-form'
+            name='mc-embedded-subscribe-form'
             className={st.form}
-            target="_blank">
+            target='_blank'>
             <input
-              type="email"
-              name="EMAIL"
+              type='email'
+              name='EMAIL'
               className={st.input}
-              id="mce-EMAIL"
-              placeholder="email address"
+              id='mce-EMAIL'
+              placeholder='email address'
               required />
             <div
               style={{
                 position: 'absolute',
-                left: '-9999vw',
+                left: '-9999vw'
               }}
-              aria-hidden="true">
+              aria-hidden='true'>
               <input
-                type="text"
-                name="b_e16bb3d05ec796d0d4d06c13d_8651e5fe3f"
-                tabIndex="-1" />
+                type='text'
+                name='b_e16bb3d05ec796d0d4d06c13d_8651e5fe3f'
+                tabIndex='-1' />
             </div>
             <div className={st.errors}>
               {this.state.errors.map(err =>
                 <div
                   key={err}
                   className={st.error}
-                  dangerouslySetInnerHTML={{ __html: err.msg }} />,
+                  dangerouslySetInnerHTML={{__html: err.msg}} />
               )}
             </div>
             <input
-              type="submit"
-              value="Subscribe"
-              name="subscribe"
-              id="mc-embedded-subscribe"
+              type='submit'
+              value='Subscribe'
+              name='subscribe'
+              id='mc-embedded-subscribe'
               className={st.button} />
           </form>}
       </div>
@@ -104,4 +104,4 @@ class SubscriptionForm extends Component {
   }
 }
 
-export { SubscriptionForm }
+export {SubscriptionForm}

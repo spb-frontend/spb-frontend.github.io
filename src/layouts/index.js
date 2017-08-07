@@ -1,14 +1,13 @@
 import React from 'react'
 
-import { SubscriptionForm } from '../components/subscription-form'
-import { SiteHeader } from '../components/nav-header/index';
+import {SubscriptionForm} from '../components/subscription-form'
+import {SiteHeader} from '../components/nav-header/index'
 
 import '../css/typography.css'
 import '../css/index.css'
 
-const Template = (props) =>
+const Template = props =>
   <div className='page'>
-
     <SiteHeader />
 
     <div className='page--container'>
@@ -16,7 +15,6 @@ const Template = (props) =>
         <a
           className='no-border'
           href='/'>
-
           <picture className='logo page--logo'>
             <source
               type='image/webp'
@@ -70,7 +68,9 @@ const Template = (props) =>
         <SubscriptionForm />
       </aside>
 
-      <main className='page--content'>{props.children()}</main>
+      <main className='page--content'>
+        {props.children()}
+      </main>
     </div>
 
     <footer className='page--footer'>
@@ -87,43 +87,43 @@ export default Template
 export const defaultHelmetMeta = [
   {
     name: 'theme-color',
-    content: '#ffffff',
+    content: '#ffffff'
   },
   {
     property: 'og:title',
-    content: 'SPB Frontend',
+    content: 'SPB Frontend'
   },
   {
     property: 'og:description',
-    content: 'Петербургское сообщество фронтенд-разработчиков',
+    content: 'Петербургское сообщество фронтенд-разработчиков'
   },
   {
     property: 'og:image',
     content:
-      'https://ucarecdn.com/bcedcf3c-77c7-4693-8888-7e5645185882/-/preview/-/resize/1200x/-/crop/1200x630/0,300/spb_frontend_social.png',
+      'https://ucarecdn.com/bcedcf3c-77c7-4693-8888-7e5645185882/-/preview/-/resize/1200x/-/crop/1200x630/0,300/spb_frontend_social.png'
   },
   {
     property: 'og:url',
-    content: 'http://spb-frontend.ru/',
+    content: 'http://spb-frontend.ru/'
   },
   {
     name: 'twitter:card',
-    content: 'summary_large_image',
+    content: 'summary_large_image'
   },
   {
     name: 'twitter:site',
-    content: '@spb_frontend',
+    content: '@spb_frontend'
   },
   {
     name: 'twitter:image:alt',
-    content: 'SPB Frontend. Frontend artisans',
+    content: 'SPB Frontend. Frontend artisans'
   },
   {
     name: 'description',
-    content: 'Петербургское сообщество фронтенд-разработчиков',
+    content: 'Петербургское сообщество фронтенд-разработчиков'
   },
   {
     name: 'keywords',
-    content: 'frontend, spb-frontend',
-  },
+    content: 'frontend, spb-frontend'
+  }
 ]

@@ -1,8 +1,5 @@
 'use strict';
 
-require('babel-core/register');
-require('babel-polyfill');
-
 var fs = require('fs');
 var pify = require('pify');
 

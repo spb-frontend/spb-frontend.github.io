@@ -1,8 +1,6 @@
 'use strict';
 
-require('babel-core/register');
-require('babel-polyfill');
-
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
 var path = require('path');
 var RSS = require('rss');
@@ -91,7 +89,7 @@ exports.onPostBuild = function () {
                             href: feed.image_url
                           }
                         } }, { 'itunes:category': [{ _attr: {
-                            text: 'Technology'
+                            text: 'Professional'
                           } }] }];
 
                       // console.log(feed)
@@ -101,13 +99,7 @@ exports.onPostBuild = function () {
                             _attr: {
                               href: i.image
                             }
-                          } }, { 'itunes:duration': i.duration }, { 'enclosure': {
-                            _attr: {
-                              type: 'audio/mpeg',
-                              url: i.link,
-                              length: i.length
-                            }
-                          } }];
+                          } }, { 'itunes:duration': i.duration }];
 
                         // console.log(i)
 

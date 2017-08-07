@@ -5,7 +5,7 @@ const BUILD_TIME = new Date().getTime()
 
 export default class HTML extends React.Component {
   static propTypes = {
-    body: PropTypes.string,
+    body: PropTypes.string
   }
 
   render() {
@@ -14,7 +14,7 @@ export default class HTML extends React.Component {
       css = (
         <style
           dangerouslySetInnerHTML={{
-            __html: require('!raw!../public/styles.css'),
+            __html: require('!raw!../public/styles.css')
           }} />
       )
       analytics = (
@@ -48,7 +48,7 @@ export default class HTML extends React.Component {
           <div
             id='___gatsby'
             className='app'
-            dangerouslySetInnerHTML={{ __html: this.props.body }} />
+            dangerouslySetInnerHTML={{__html: this.props.body}} />
           {this.props.postBodyComponents}
           {analytics}
         </body>

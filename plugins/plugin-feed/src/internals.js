@@ -1,6 +1,3 @@
-require('babel-core/register')
-require('babel-polyfill')
-
 const fs = require('fs')
 const pify = require('pify')
 

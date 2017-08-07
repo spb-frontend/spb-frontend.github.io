@@ -11,9 +11,9 @@ To add new post add Markdown, HTML or JSX file to `src/pages/posts/`
 ## Development
 Site works on [gatsby engine](https://github.com/gatsbyjs/gatsby)
 
-- Install dependencies `yarn install`
-- Run development server `yarn develop`
+- Install dependencies `npm run install`
+- Run development server `npm run develop`
 
 ## Deploy
 
-- `yarn deploy`
+- `npm run deploy`
