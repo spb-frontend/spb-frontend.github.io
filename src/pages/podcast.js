@@ -30,7 +30,7 @@ export default ({data: {allMarkdownRemark: {edges}}}) =>
           key={index}
           title={title}
           date={date}
-          to={`/podcast/${index + 1}`} />,
+          to={`/podcast/${index + 1}`} />
       )}
     </div>
 
