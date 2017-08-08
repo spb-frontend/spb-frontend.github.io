@@ -68,7 +68,7 @@ exports.onPostBuild = async ({ graphql }, pluginOptions) => {
       ]},
     ]
 
-    // console.log(feed)
+    console.log(feed)
 
     items.forEach(i => {
       i.custom_elements = [
@@ -84,7 +84,7 @@ exports.onPostBuild = async ({ graphql }, pluginOptions) => {
         {'enclosure': {
           _attr: {
             type: 'audio/mpeg',
-            url: i.link,
+            url: i.file,
             length: i.length,
           }
         }}
