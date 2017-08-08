@@ -6,6 +6,7 @@
   height: 128px;
   background: url(/podcast_cover.png);
   background-size: cover;
+  background-position: center center;
   color: #fff;
   text-align: center;
   margin-top: 0;
