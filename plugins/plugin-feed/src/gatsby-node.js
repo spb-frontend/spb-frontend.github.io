@@ -63,7 +63,7 @@ exports.onPostBuild = async ({ graphql }, pluginOptions) => {
       }},
       {'itunes:category': [
         {_attr: {
-          text: 'Professional'
+          text: 'Technology'
         }},
       ]},
     ]
@@ -81,13 +81,13 @@ exports.onPostBuild = async ({ graphql }, pluginOptions) => {
           }
         }},
         {'itunes:duration': i.duration},
-        // {'enclosure': {
-        //   _attr: {
-        //     type: 'audio/mp3',
-        //     url: i.file,
-        //     length: i.length,
-        //   }
-        // }}
+        {'enclosure': {
+          _attr: {
+            type: 'audio/mpeg',
+            url: i.link,
+            length: i.length,
+          }
+        }}
       ]
 
       // console.log(i)
