@@ -7,13 +7,14 @@ module.exports = {
     podcast: {
       title: 'SPB Frontend Drinkcast',
       description: 'Подкаст питерского сообщества фронтендеров SPB Frontend',
-      siteUrl: 'http://spb-frontend.ru/podcast/',
+      site_url: 'http://spb-frontend.ru/podcast/',
       image_url: 'http://spb-frontend.ru/podcast_cover.png',
       feed_url: 'http://spb-frontend.ru/podcast.xml',
       language: 'ru',
       author: 'SPB Frontend',
       categories: ['Technology'],
-      explicit: false
+      explicit: false,
+      copyright: 'All rights reserved',
     }
   },
   plugins: [
@@ -36,13 +37,14 @@ module.exports = {
                 podcast {
                   title
                   description
-                  siteUrl
+                  site_url
                   image_url
                   feed_url
                   language
                   author
                   categories
                   explicit
+                  copyright
                 }
               }
             }
@@ -64,6 +66,7 @@ module.exports = {
                       html
                       frontmatter {
                         link
+                        file
                         title
                         date
                         image
