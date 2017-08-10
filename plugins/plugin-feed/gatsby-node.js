@@ -22,6 +22,8 @@ const serialize = ({ site, allMarkdownRemark }) =>
 exports.onPostBuild = async ({ graphql }, pluginOptions) => {
   delete pluginOptions.plugins
 
+  console.log('123')
+
   /*
    * Run the site settings query to gather context, then
    * then run the corresponding feed for each query.

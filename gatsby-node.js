@@ -29,14 +29,14 @@ exports.createPages = ({graphql, boundActionCreators}) => {
             }
           }
         }
-      `
+      `,
       ).then(result => {
         if (result.errors) {
           reject(new Error(result.errors))
         }
 
         const postTemplate = path.resolve(
-          'src/components/podcast-page/index.js'
+          'src/components/podcast-page/index.js',
         )
 
         Array.from(result.data.allMarkdownRemark.edges).forEach((edge, id) => {
@@ -45,13 +45,13 @@ exports.createPages = ({graphql, boundActionCreators}) => {
             component: slash(postTemplate),
             context: {
               data: edge,
-              id
-            }
+              id,
+            },
           })
         })
 
         return
-      })
+      }),
     )
   })
 }

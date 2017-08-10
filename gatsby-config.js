@@ -15,15 +15,15 @@ module.exports = {
       categories: ['Technology'],
       explicit: false,
       copyright: 'All rights reserved',
-    }
+    },
   },
   plugins: [
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'podcast',
-        path: `${__dirname}/podcast`
-      }
+        path: `${__dirname}/podcast`,
+      },
     },
     'gatsby-transformer-remark',
     'gatsby-transformer-json',
@@ -79,10 +79,10 @@ module.exports = {
                 }
               }
             `,
-            output: '/podcast.xml'
-          }
-        ]
-      }
+            output: '/podcast.xml',
+          },
+        ],
+      },
     },
     {
       resolve: 'gatsby-plugin-manifest',
@@ -96,16 +96,16 @@ module.exports = {
           {
             src: '/favicons/android-chrome-192x192.png',
             sizes: '192x192',
-            type: 'image/png'
+            type: 'image/png',
           },
           {
             src: '/favicons/android-chrome-512x512.png',
             sizes: '512x512',
-            type: 'image/png'
-          }
-        ]
-      }
+            type: 'image/png',
+          },
+        ],
+      },
     },
-    'gatsby-plugin-react-helmet'
-  ]
+    'gatsby-plugin-react-helmet',
+  ],
 }
