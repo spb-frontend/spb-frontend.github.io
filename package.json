@@ -15,7 +15,9 @@
     "rss": "^1.2.2",
     "slug": "^0.9.1"
   },
-  "engine": "8.1.2",
+  "engines": {
+    "node": "8.1.2"
+  },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
     "eslint": "^4.3.0",
@@ -33,7 +35,9 @@
     "stylelint": "^8.0.0",
     "stylelint-config-standard": "^17.0.0"
   },
-  "keywords": ["gatsby"],
+  "keywords": [
+    "gatsby"
+  ],
   "license": "MIT",
   "main": "n/a",
   "scripts": {
@@ -46,8 +50,14 @@
     "precommit": "lint-staged"
   },
   "lint-staged": {
-    "*.{js,jsx}": ["eslint"],
-    "*.{css,pcss}": ["stylelint"],
-    "*.{md,markdown}": ["remark"]
+    "*.{js,jsx}": [
+      "eslint"
+    ],
+    "*.{css,pcss}": [
+      "stylelint"
+    ],
+    "*.{md,markdown}": [
+      "remark"
+    ]
   }
 }
