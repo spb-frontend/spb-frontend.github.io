@@ -1,5 +1,5 @@
 ---
-title: '#1 — 12 колонок на пакет мертвеца'
+title: '#1 — «12 колонок на пакет мертвеца»'
 date: '2017-07-16'
 image: 'http://spb-frontend.ru/podcast_cover1400.png'
 description: ''

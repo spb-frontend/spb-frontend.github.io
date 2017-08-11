@@ -1,5 +1,5 @@
 ---
-title: '#2 — Бойкий Джун — Счастливый Ментор'
+title: '#2 — «Бойкий Джун — Счастливый Ментор»'
 date: '2017-08-04'
 image: 'http://spb-frontend.ru/images/podcast_cover1400.png'
 description: ''
