@@ -1,3 +1,4 @@
+'use strict'
 import React, {Component} from 'react'
 import styles from './style.module.css'
 import Link from 'gatsby-link'

@@ -1,3 +1,4 @@
+'use strict';
 require('babel-core/register')
 require('babel-polyfill')
 
@@ -45,7 +46,7 @@ exports.onPostBuild = async ({ graphql }, pluginOptions) => {
 
     /* TODO: Вынести настройки в конфиг */
     feed.custom_namespaces = {
-      'itunes': 'http://www.itunes.com/dtds/podcast-1.0.dtd'
+      itunes: 'http://www.itunes.com/dtds/podcast-1.0.dtd'
     }
     feed.custom_elements = [
       {'itunes:explicit': 'no'},
@@ -81,7 +82,7 @@ exports.onPostBuild = async ({ graphql }, pluginOptions) => {
           }
         }},
         {'itunes:duration': i.duration},
-        {'enclosure': {
+        {enclosure: {
           _attr: {
             type: 'audio/mpeg',
             url: i.file,

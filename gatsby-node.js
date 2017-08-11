@@ -1,14 +1,13 @@
+'use strict'
 const path = require('path')
 const slug = require('slug')
 const slash = require('slash')
 
-exports.createPages = ({graphql, boundActionCreators}) => {
+exports.createPages = async ({graphql, boundActionCreators}) => {
   const {createPage} = boundActionCreators
 
-  return new Promise((resolve, reject) => {
-    resolve(
-      graphql(
-        `
+  const result = await graphql(
+    `
         {
           allMarkdownRemark(
             limit: 1000,
@@ -30,28 +29,23 @@ exports.createPages = ({graphql, boundActionCreators}) => {
           }
         }
       `,
-      ).then(result => {
-        if (result.errors) {
-          reject(new Error(result.errors))
-        }
+  )
+  if (result.errors) {
+    throw new Error(result.errors)
+  }
 
-        const postTemplate = path.resolve(
-          'src/components/podcast-page/index.js',
-        )
+  const postTemplate = path.resolve('src/components/podcast-page/index.js')
 
-        Array.from(result.data.allMarkdownRemark.edges).forEach((edge, id) => {
-          createPage({
-            path: `/podcast/${slug(id + 1)}`,
-            component: slash(postTemplate),
-            context: {
-              data: edge,
-              id,
-            },
-          })
-        })
-
-        return
-      }),
-    )
+  Array.from(result.data.allMarkdownRemark.edges).forEach((edge, id) => {
+    createPage({
+      path: `/podcast/${slug(id + 1)}`,
+      component: slash(postTemplate),
+      context: {
+        data: edge,
+        id,
+      },
+    })
   })
+
+  return
 }
