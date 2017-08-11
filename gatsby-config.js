@@ -9,7 +9,7 @@ module.exports = {
       title: 'SPB Frontend Drinkcast',
       description: 'Подкаст питерского сообщества фронтендеров SPB Frontend',
       site_url: 'http://spb-frontend.ru/podcast/',
-      image_url: 'http://spb-frontend.ru/podcast_cover.png',
+      image_url: 'http://spb-frontend.ru/podcast_cover1400.png',
       feed_url: 'http://spb-frontend.ru/podcast.xml',
       language: 'ru',
       author: 'SPB Frontend',
