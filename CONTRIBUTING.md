@@ -22,3 +22,25 @@
 или открывайте пулреквест в котором ссылайтесь на нужный issue, бот сам подвинет
 задачу в In Progress, это необходимо, чтобы другие участники могли видеть,
 кто над чем работает.
+
+## Линтеры
+### eslint
+Мы используем eslint:recommended и plugin:react/recommended конфиги, но
+переопределили некоторые правила.
+
+Дополнительно используем плагины eslint-plugin-compat, eslint-plugin-import,
+eslint-plugin-jsx-a11y, eslint-plugin-react
+
+### stylelint
+Для stylelint используем stylelint-config-standard c переопределенными
+некоторыми правилами
+
+### remark-lint
+Для remark-lint используем remark-preset-lint-markdown-style-guide и
+remark-preset-lint-recommended также переопределив некоторые правила
+
+### lint-staged
+lint-staged перед коммитом проверяет файлы линтерами
+- .js и jsx — с помощью eslint
+- .css — с помощью stylelint
+- .md — с помощью remark-lint
