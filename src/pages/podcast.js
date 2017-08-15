@@ -22,11 +22,11 @@ const PostLink = ({title, date, to}) =>
     </header>
   </div>
 
-export default ({data: {allMarkdownRemark: {edges}}}) =>
+export default ({data: {allContentfulDrinkcast: {edges}}}) =>
   <div>
     <h2 className={styles.title}>🍻 Drinkcast 🍻</h2>
     <div className={styles.posts}>
-      {edges.map(({node: {frontmatter: {title, date}}}, index) =>
+      {edges.map(({node: {title, date}}, index) =>
         <PostLink
           key={index}
           title={title}
@@ -46,19 +46,14 @@ export default ({data: {allMarkdownRemark: {edges}}}) =>
 
 export const pageQuery = graphql`
   query MyQueryName {
-    allMarkdownRemark(
+    allContentfulDrinkcast(
       limit: 1000
-      sort: {order: ASC, fields: [frontmatter___date]}
-      filter: {fileAbsolutePath: {regex: "/podcast/"}}
+      sort: {order: ASC, fields: [date]}
     ) {
       edges {
         node {
-          html
-          frontmatter {
-            link
-            title
-            date
-          }
+          title
+          date
         }
       }
     }
