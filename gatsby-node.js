@@ -9,20 +9,17 @@ exports.createPages = async ({graphql, boundActionCreators}) => {
   const result = await graphql(
     `
         {
-          allMarkdownRemark(
+          allContentfulDrinkcast(
             limit: 1000,
-            sort: { order: ASC, fields: [frontmatter___date] },
-            filter: {
-              fileAbsolutePath: { regex: "/podcast/" }
-            }
+            sort: { order: ASC, fields: [date] }
           ) {
             edges {
               node {
-                html
-                frontmatter {
-                  link
-                  title
-                  date
+                link
+                title
+                date
+                notes {
+                  notes
                 }
               }
             }
@@ -36,7 +33,7 @@ exports.createPages = async ({graphql, boundActionCreators}) => {
 
   const postTemplate = path.resolve('src/components/podcast-page/index.js')
 
-  Array.from(result.data.allMarkdownRemark.edges).forEach((edge, id) => {
+  Array.from(result.data.allContentfulDrinkcast.edges).forEach((edge, id) => {
     createPage({
       path: `/podcast/${slug(id + 1)}`,
       component: slash(postTemplate),

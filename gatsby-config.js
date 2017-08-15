@@ -1,4 +1,3 @@
-'use strict'
 module.exports = {
   siteMetadata: {
     title: 'SPB Frontend',
@@ -19,101 +18,101 @@ module.exports = {
     },
   },
   plugins: [
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'podcast',
-        path: `${__dirname}/podcast`,
-      },
-    },
-    'gatsby-transformer-remark',
-    // 'gatsby-transformer-json',
     // {
-    //   resolve: 'gatsby-source-contentful',
+    //   resolve: 'gatsby-source-filesystem',
     //   options: {
-    //     spaceId: '0euqbzml1bys',
-    //     accessToken: '6033b8b1a8c46b1c2ee894eed2be414c382d4c93c6517d695a5ad46fe040cd4e',
+    //     name: 'podcast',
+    //     path: `${__dirname}/podcast`,
     //   },
     // },
+    // 'gatsby-transformer-remark',
+    // 'gatsby-transformer-json',
     {
-      resolve: 'plugin-feed',
+      resolve: 'gatsby-source-contentful',
       options: {
-        query: `
-          {
-            site {
-              siteMetadata {
-                podcast {
-                  title
-                  description
-                  site_url
-                  image_url
-                  feed_url
-                  language
-                  author
-                  categories
-                  explicit
-                  copyright
-                }
-              }
-            }
-          }
-        `,
-        feeds: [
-          {
-            query: `
-              {
-                allMarkdownRemark(
-                  limit: 1000,
-                  sort: { order: DESC, fields: [frontmatter___date] },
-                  filter: {
-                    fileAbsolutePath: { regex: "/podcast/" }
-                  }
-                ) {
-                  edges {
-                    node {
-                      html
-                      frontmatter {
-                        link
-                        file
-                        title
-                        date
-                        image
-                        duration
-                        explicit
-                        length
-                      }
-                    }
-                  }
-                }
-              }
-            `,
-            output: '/podcast.xml',
-          },
-        ],
+        spaceId: 'ej3wzulnf8dw',
+        accessToken: '3989f692f59e637e18bba9ee6ce00228b895d86de3d22a8c89f52863b0925fa7',
       },
     },
-    {
-      resolve: 'gatsby-plugin-manifest',
-      options: {
-        name: 'SPB Frontend official site',
-        short_name: 'Akurganow',
-        start_url: '/',
-        background_color: '#fff',
-        display: 'minimal-ui',
-        icons: [
-          {
-            src: '/favicons/android-chrome-192x192.png',
-            sizes: '192x192',
-            type: 'image/png',
-          },
-          {
-            src: '/favicons/android-chrome-512x512.png',
-            sizes: '512x512',
-            type: 'image/png',
-          },
-        ],
-      },
-    },
+    // {
+    //   resolve: 'plugin-feed',
+    //   options: {
+    //     query: `
+    //       {
+    //         site {
+    //           siteMetadata {
+    //             podcast {
+    //               title
+    //               description
+    //               site_url
+    //               image_url
+    //               feed_url
+    //               language
+    //               author
+    //               categories
+    //               explicit
+    //               copyright
+    //             }
+    //           }
+    //         }
+    //       }
+    //     `,
+    //     feeds: [
+    //       {
+    //         query: `
+    //           {
+    //             allMarkdownRemark(
+    //               limit: 1000,
+    //               sort: { order: DESC, fields: [frontmatter___date] },
+    //               filter: {
+    //                 fileAbsolutePath: { regex: "/podcast/" }
+    //               }
+    //             ) {
+    //               edges {
+    //                 node {
+    //                   html
+    //                   frontmatter {
+    //                     link
+    //                     file
+    //                     title
+    //                     date
+    //                     image
+    //                     duration
+    //                     explicit
+    //                     length
+    //                   }
+    //                 }
+    //               }
+    //             }
+    //           }
+    //         `,
+    //         output: '/podcast.xml',
+    //       },
+    //     ],
+    //   },
+    // },
+    // {
+    //   resolve: 'gatsby-plugin-manifest',
+    //   options: {
+    //     name: 'SPB Frontend official site',
+    //     short_name: 'Akurganow',
+    //     start_url: '/',
+    //     background_color: '#fff',
+    //     display: 'minimal-ui',
+    //     icons: [
+    //       {
+    //         src: '/favicons/android-chrome-192x192.png',
+    //         sizes: '192x192',
+    //         type: 'image/png',
+    //       },
+    //       {
+    //         src: '/favicons/android-chrome-512x512.png',
+    //         sizes: '512x512',
+    //         type: 'image/png',
+    //       },
+    //     ],
+    //   },
+    // },
     'gatsby-plugin-react-helmet',
   ],
 }
