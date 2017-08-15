@@ -27,7 +27,14 @@ module.exports = {
       },
     },
     'gatsby-transformer-remark',
-    'gatsby-transformer-json',
+    // 'gatsby-transformer-json',
+    // {
+    //   resolve: 'gatsby-source-contentful',
+    //   options: {
+    //     spaceId: '0euqbzml1bys',
+    //     accessToken: '6033b8b1a8c46b1c2ee894eed2be414c382d4c93c6517d695a5ad46fe040cd4e',
+    //   },
+    // },
     {
       resolve: 'plugin-feed',
       options: {
