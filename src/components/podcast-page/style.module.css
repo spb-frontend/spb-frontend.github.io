@@ -5,10 +5,6 @@
   margin-bottom: 20px;
 }
 
-.audio {
-  width: 100%;
-}
-
 .header {
   display: flex;
   font-weight: 200;
@@ -40,4 +36,35 @@
 
 .back_link {
   margin-bottom: 10px;
+}
+
+.player {
+  width: 100%;
+  background: #fafafa;
+}
+
+.player_audio {
+  width: 100%;
+}
+
+.player_controls {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 10px 5px;
+}
+
+.player_controls_item {
+  color: #555;
+  background: transparent;
+  border: none;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.player_controls_item:hover {
+  color: #000;
+}
+
+.player_controls_item + .player_controls_item {
+  margin-left: 5px;
 }

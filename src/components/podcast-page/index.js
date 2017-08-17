@@ -6,11 +6,21 @@ import marked from 'marked'
 import {Box, Thread} from 'react-disqussion'
 import {timestampToSeconds} from '../../utils/time'
 
+const PLAYBACK_RATES = [
+  1.0,
+  1.2,
+  1.4,
+  1.6,
+  1.8,
+  2.0,
+]
+
 class PodcastPage extends Component {
   constructor(props) {
     super(props)
     this.handleTimeClick = this.handleTimeClick.bind(this)
   }
+
   handleTimeClick(e) {
     const {target} = e
     if (target.classList.contains('podcast_time')) {
@@ -18,6 +28,11 @@ class PodcastPage extends Component {
       this.audioEl.currentTime = timestampToSeconds(target.innerText)
     }
   }
+
+  handleSpeedClick(speed) {
+    this.audioEl.playbackRate = speed;
+  }
+
   render() {
     const {data, id} = this.props.pathContext
     const {node: {title, date, link, notes}} = data
@@ -39,12 +54,22 @@ class PodcastPage extends Component {
           </date>
         </header>
 
-        <audio
-          className={styles.audio}
-          controls='controls'
-          preload='metadata'
-          src={link}
-          ref={el => (this.audioEl = el)} />
+        <div className={styles.player}>
+          <audio
+            className={styles.player_audio}
+            controls='controls'
+            preload='metadata'
+            src={link}
+            ref={el => (this.audioEl = el)} />
+          <div className={styles.player_controls}>
+            {PLAYBACK_RATES.map(speed => (
+              <button
+                key={speed}
+                className={styles.player_controls_item}
+                onClick={() => this.handleSpeedClick(speed)}>{speed}</button>
+            ))}
+          </div>
+        </div>
 
         <footer
           onClick={this.handleTimeClick}
