@@ -1,3 +1,4 @@
+'use strict'
 export function toSnakeCase(text) {
   const lower = text.toLowerCase()
   const snake = lower.replace(/\s/g, '_')
@@ -9,9 +10,9 @@ export function serialize(form) {
   if (!form || form.nodeName !== 'FORM') {
     return
   }
-  var i,
-    j,
-    q = []
+  let i
+  let j
+  let q = []
   for (i = form.elements.length - 1; i >= 0; i = i - 1) {
     if (form.elements[i].name === '') {
       continue
@@ -27,18 +28,18 @@ export function serialize(form) {
           case 'reset':
           case 'submit':
             q.push(
-              form.elements[i].name +
-                '=' +
-                encodeURIComponent(form.elements[i].value)
+              `${form.elements[i].name}=${encodeURIComponent(
+                form.elements[i].value,
+              )}`,
             )
             break
           case 'checkbox':
           case 'radio':
             if (form.elements[i].checked) {
               q.push(
-                form.elements[i].name +
-                  '=' +
-                  encodeURIComponent(form.elements[i].value)
+                `${form.elements[i].name}=${encodeURIComponent(
+                  form.elements[i].value,
+                )}`,
               )
             }
             break
@@ -48,27 +49,27 @@ export function serialize(form) {
         break
       case 'TEXTAREA':
         q.push(
-          form.elements[i].name +
-            '=' +
-            encodeURIComponent(form.elements[i].value)
+          `${form.elements[i].name}=${encodeURIComponent(
+            form.elements[i].value,
+          )}`,
         )
         break
       case 'SELECT':
         switch (form.elements[i].type) {
           case 'select-one':
             q.push(
-              form.elements[i].name +
-                '=' +
-                encodeURIComponent(form.elements[i].value)
+              `${form.elements[i].name}=${encodeURIComponent(
+                form.elements[i].value,
+              )}`,
             )
             break
           case 'select-multiple':
             for (j = form.elements[i].options.length - 1; j >= 0; j = j - 1) {
               if (form.elements[i].options[j].selected) {
                 q.push(
-                  form.elements[i].name +
-                    '=' +
-                    encodeURIComponent(form.elements[i].options[j].value)
+                  `${form.elements[i].name}=${encodeURIComponent(
+                    form.elements[i].options[j].value,
+                  )}`,
                 )
               }
             }
@@ -81,9 +82,9 @@ export function serialize(form) {
           case 'submit':
           case 'button':
             q.push(
-              form.elements[i].name +
-                '=' +
-                encodeURIComponent(form.elements[i].value)
+              `${form.elements[i].name}=${encodeURIComponent(
+                form.elements[i].value,
+              )}`,
             )
             break
         }
@@ -116,7 +117,7 @@ export function scrollIt(
   destination,
   duration = 200,
   easing = 'linear',
-  callback
+  callback,
 ) {
   const easings = {
     linear(t) {
@@ -157,7 +158,7 @@ export function scrollIt(
     },
     easeInOutQuint(t) {
       return t < 0.5 ? 16 * t * t * t * t * t : 1 + 16 * --t * t * t * t * t
-    }
+    },
   }
 
   const start = window.pageYOffset
@@ -169,7 +170,7 @@ export function scrollIt(
     document.body.offsetHeight,
     document.documentElement.clientHeight,
     document.documentElement.scrollHeight,
-    document.documentElement.offsetHeight
+    document.documentElement.offsetHeight,
   )
   const windowHeight =
     window.innerHeight ||
@@ -180,7 +181,7 @@ export function scrollIt(
   const destinationOffsetToScroll = Math.round(
     documentHeight - destinationOffset < windowHeight
       ? documentHeight - windowHeight
-      : destinationOffset
+      : destinationOffset,
   )
 
   if ('requestAnimationFrame' in window === false) {
@@ -198,7 +199,7 @@ export function scrollIt(
     const timeFunction = easings[easing](time)
     window.scroll(
       0,
-      Math.ceil(timeFunction * (destinationOffsetToScroll - start) + start)
+      Math.ceil(timeFunction * (destinationOffsetToScroll - start) + start),
     )
 
     if (window.pageYOffset === destinationOffsetToScroll) {

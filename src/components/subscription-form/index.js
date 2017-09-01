@@ -1,4 +1,6 @@
 /* eslint-disable max-len */
+'use strict'
+
 import React, {Component} from 'react'
 import {getJSON, postJSON, serialize} from '../utils'
 import st from './style.module.css'
@@ -9,7 +11,7 @@ class SubscriptionForm extends Component {
 
     this.state = {
       errors: [],
-      status: 'form'
+      status: 'form',
     }
   }
 
@@ -76,7 +78,7 @@ class SubscriptionForm extends Component {
             <div
               style={{
                 position: 'absolute',
-                left: '-9999vw'
+                left: '-9999vw',
               }}
               aria-hidden='true'>
               <input
@@ -89,7 +91,7 @@ class SubscriptionForm extends Component {
                 <div
                   key={err}
                   className={st.error}
-                  dangerouslySetInnerHTML={{__html: err.msg}} />
+                  dangerouslySetInnerHTML={{__html: err.msg}} />,
               )}
             </div>
             <input

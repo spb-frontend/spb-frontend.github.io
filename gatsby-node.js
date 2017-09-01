@@ -1,57 +1,48 @@
+'use strict'
 const path = require('path')
 const slug = require('slug')
 const slash = require('slash')
 
-exports.createPages = ({graphql, boundActionCreators}) => {
+exports.createPages = async ({graphql, boundActionCreators}) => {
   const {createPage} = boundActionCreators
 
-  return new Promise((resolve, reject) => {
-    resolve(
-      graphql(
-        `
+  const result = await graphql(
+    `
         {
-          allMarkdownRemark(
+          allContentfulDrinkcast(
             limit: 1000,
-            sort: { order: ASC, fields: [frontmatter___date] },
-            filter: {
-              fileAbsolutePath: { regex: "/podcast/" }
-            }
+            sort: { order: ASC, fields: [date] }
           ) {
             edges {
               node {
-                html
-                frontmatter {
-                  link
-                  title
-                  date
+                link
+                title
+                date
+                notes {
+                  notes
                 }
               }
             }
           }
         }
       `,
-      ).then(result => {
-        if (result.errors) {
-          reject(new Error(result.errors))
-        }
+  )
+  if (result.errors) {
+    throw new Error(result.errors)
+  }
 
-        const postTemplate = path.resolve(
-          'src/components/podcast-page/index.js',
-        )
+  const postTemplate = path.resolve('src/components/podcast-page/index.js')
 
-        Array.from(result.data.allMarkdownRemark.edges).forEach((edge, id) => {
-          createPage({
-            path: `/podcast/${slug(id + 1)}`,
-            component: slash(postTemplate),
-            context: {
-              data: edge,
-              id,
-            },
-          })
-        })
-
-        return
-      }),
-    )
+  Array.from(result.data.allContentfulDrinkcast.edges).forEach((edge, id) => {
+    createPage({
+      path: `/podcast/${slug(id + 1)}`,
+      component: slash(postTemplate),
+      context: {
+        data: edge,
+        id,
+      },
+    })
   })
+
+  return
 }

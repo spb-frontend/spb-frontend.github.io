@@ -8,7 +8,7 @@ module.exports = {
       title: 'SPB Frontend Drinkcast',
       description: 'Подкаст питерского сообщества фронтендеров SPB Frontend',
       site_url: 'http://spb-frontend.ru/podcast/',
-      image_url: 'http://spb-frontend.ru/podcast_cover.png',
+      image_url: 'http://spb-frontend.ru/podcast_cover1400.png',
       feed_url: 'http://spb-frontend.ru/podcast.xml',
       language: 'ru',
       author: 'SPB Frontend',
@@ -18,15 +18,22 @@ module.exports = {
     },
   },
   plugins: [
+    // {
+    //   resolve: 'gatsby-source-filesystem',
+    //   options: {
+    //     name: 'podcast',
+    //     path: `${__dirname}/podcast`,
+    //   },
+    // },
+    // 'gatsby-transformer-remark',
+    // 'gatsby-transformer-json',
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: 'gatsby-source-contentful',
       options: {
-        name: 'podcast',
-        path: `${__dirname}/podcast`,
+        spaceId: 'ej3wzulnf8dw',
+        accessToken: '3989f692f59e637e18bba9ee6ce00228b895d86de3d22a8c89f52863b0925fa7',
       },
     },
-    'gatsby-transformer-remark',
-    'gatsby-transformer-json',
     {
       resolve: 'plugin-feed',
       options: {
@@ -54,25 +61,29 @@ module.exports = {
           {
             query: `
               {
-                allMarkdownRemark(
+                allContentfulDrinkcast(
                   limit: 1000,
-                  sort: { order: DESC, fields: [frontmatter___date] },
-                  filter: {
-                    fileAbsolutePath: { regex: "/podcast/" }
-                  }
+                  sort: { order: DESC, fields: [date] },
                 ) {
                   edges {
                     node {
-                      html
-                      frontmatter {
-                        link
-                        file
-                        title
-                        date
-                        image
-                        duration
-                        explicit
-                        length
+                      notes {
+                        notes
+                      }
+                      id
+                      link
+                      file
+                      title
+                      date
+                      duration
+                      explicit
+                      length
+                      image {
+                        file {
+                          url
+                          fileName
+                          contentType
+                        }
                       }
                     }
                   }

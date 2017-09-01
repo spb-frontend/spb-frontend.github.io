@@ -1,3 +1,4 @@
+'use strict'
 import React from 'react'
 import PropTypes from 'prop-types'
 
@@ -5,16 +6,17 @@ const BUILD_TIME = new Date().getTime()
 
 export default class HTML extends React.Component {
   static propTypes = {
-    body: PropTypes.string
+    body: PropTypes.string,
   }
 
   render() {
-    let css, analytics
+    let css
+    let analytics
     if (process.env.NODE_ENV === 'production') {
       css = (
         <style
           dangerouslySetInnerHTML={{
-            __html: require('!raw!../public/styles.css')
+            __html: require('!raw!../public/styles.css'),
           }} />
       )
       analytics = (
@@ -26,7 +28,7 @@ export default class HTML extends React.Component {
             })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
             ga('create', 'UA-102437066-1', 'auto');
-            ga('send', 'pageview');`
+            ga('send', 'pageview');`,
           }} />
       )
     }
