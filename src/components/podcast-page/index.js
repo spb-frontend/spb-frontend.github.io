@@ -5,6 +5,7 @@ import Link from 'gatsby-link'
 import marked from 'marked'
 import {Box, Thread} from 'react-disqussion'
 import {timestampToSeconds} from '../../utils/time'
+import {getHumanDate} from '../../utils/date'
 
 const PLAYBACK_RATES = [
   1.0,
@@ -50,7 +51,7 @@ class PodcastPage extends Component {
             {title}
           </h3>
           <date className={styles.header_date}>
-            {date}
+            {getHumanDate(date)}
           </date>
         </header>
 

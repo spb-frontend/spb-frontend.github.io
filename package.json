@@ -13,6 +13,7 @@
     "gatsby-transformer-json": "^1.0.2",
     "gatsby-transformer-remark": "^1.7.0",
     "marked": "^0.3.6",
+    "moment": "^2.18.1",
     "react-disqussion": "^1.1.0",
     "rss": "^1.2.2",
     "slug": "^0.9.1"
