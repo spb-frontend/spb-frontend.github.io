@@ -60,27 +60,8 @@
   font-size: 30px;
 }
 
-.logo:before,
-.logo:after {
-  color: #df4b26;
-  font-size: 30px;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-63%);
-}
-
-.logo:before {
-  content: '}';
-  right: -10px;
-}
-
-.logo:after {
-  content: '{';
-  left: -10px;
-}
-
 .icon {
-  width: 50px;
+  width: 75px;
   height: 100%;
-  margin: 0 5px;
+  margin: 0;
 }
