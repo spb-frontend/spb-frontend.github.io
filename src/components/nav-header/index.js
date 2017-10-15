@@ -3,7 +3,7 @@ import React, {Component} from 'react'
 import Link from 'gatsby-link'
 
 import style from './style.module.css'
-import Icon from '-!svg-react-loader?name=Icon!./mustache.svg'
+import Icon from '-!svg-react-loader?name=Icon!./spbf-logo-white.svg'
 
 class SiteHeader extends Component {
   render() {

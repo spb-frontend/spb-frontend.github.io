@@ -20,11 +20,11 @@ const Template = props =>
             <source
               type='image/webp'
               srcSet='
-              https://ucarecdn.com/bcedcf3c-77c7-4693-8888-7e5645185882/-/preview/-/resize/200x/-/format/webp/spb_frontend_logo.webp 1x,
-              https://ucarecdn.com/bcedcf3c-77c7-4693-8888-7e5645185882/-/preview/-/resize/400x/-/format/webp/-/quality/lightest/spb_frontend_logo@2x.webp 2x' />
+              https://ucarecdn.com/3d33c161-b440-4710-b3dd-ad980640dba8/-/preview/-/resize/200x/-/format/webp/spb_frontend_logo.webp 1x,
+              https://ucarecdn.com/3d33c161-b440-4710-b3dd-ad980640dba8/-/preview/-/resize/400x/-/format/webp/-/quality/lightest/spb_frontend_logo@2x.webp 2x' />
             <img
-              src='https://ucarecdn.com/bcedcf3c-77c7-4693-8888-7e5645185882/-/preview/-/resize/200x/spb_frontend_logo.png'
-              srcSet='https://ucarecdn.com/bcedcf3c-77c7-4693-8888-7e5645185882/-/preview/-/resize/400x/-/quality/lightest/spb_frontend_logo@2x.png 2x'
+              src='https://ucarecdn.com/3d33c161-b440-4710-b3dd-ad980640dba8/-/preview/-/resize/200x/spb_frontend_logo.png'
+              srcSet='https://ucarecdn.com/3d33c161-b440-4710-b3dd-ad980640dba8/-/preview/-/resize/400x/-/quality/lightest/spb_frontend_logo@2x.png 2x'
               alt='SPB Frontend. Frontend artisans' />
           </picture>
         </a>
@@ -101,7 +101,7 @@ export const defaultHelmetMeta = [
   {
     property: 'og:image',
     content:
-      'https://ucarecdn.com/bcedcf3c-77c7-4693-8888-7e5645185882/-/preview/-/resize/1200x/-/crop/1200x630/0,300/spb_frontend_social.png',
+      'https://ucarecdn.com/3d33c161-b440-4710-b3dd-ad980640dba8/-/preview/-/resize/1200x/-/crop/1200x630/0,300/spb_frontend_social.png',
   },
   {
     property: 'og:url',
