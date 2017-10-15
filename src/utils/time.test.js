@@ -14,7 +14,7 @@ describe('utils#timestampToSeconds', () => {
     //hours:minutes:seconds
     ['0:01:00', 60],
     ['01:00:01', 3601],
-    ['10:00:00', 36000]
+    ['10:00:00', 36000],
   ]
 
   testData.map(([format, expected]) => {

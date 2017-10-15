@@ -2,4 +2,4 @@
 
 > 2%
 Last 2 versions
-not ie <= 11
+not ie > 0

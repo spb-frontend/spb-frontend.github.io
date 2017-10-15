@@ -5,6 +5,7 @@ import Link from 'gatsby-link'
 
 import styles from './../css/podcast.module.css'
 import {defaultHelmetMeta} from '../layouts/index'
+import {getHumanDate} from '../utils/date'
 
 const PostLink = ({title, date, to}) =>
   <div className={styles.post}>
@@ -17,7 +18,7 @@ const PostLink = ({title, date, to}) =>
         </Link>
       </h3>
       <date className={styles.header_date}>
-        {date}
+        {getHumanDate(date)}
       </date>
     </header>
   </div>
@@ -46,10 +47,7 @@ export default ({data: {allContentfulDrinkcast: {edges}}}) =>
 
 export const pageQuery = graphql`
   query MyQueryName {
-    allContentfulDrinkcast(
-      limit: 1000
-      sort: {order: ASC, fields: [date]}
-    ) {
+    allContentfulDrinkcast(limit: 1000, sort: {order: ASC, fields: [date]}) {
       edges {
         node {
           title
