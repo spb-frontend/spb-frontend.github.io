@@ -7,14 +7,7 @@ import {Box, Thread} from 'react-disqussion'
 import {timestampToSeconds} from '../../utils/time'
 import {getHumanDate} from '../../utils/date'
 
-const PLAYBACK_RATES = [
-  1.0,
-  1.2,
-  1.4,
-  1.6,
-  1.8,
-  2.0,
-]
+const PLAYBACK_RATES = [1.0, 1.2, 1.4, 1.6, 1.8, 2.0]
 
 class PodcastPage extends Component {
   constructor(props) {
@@ -31,7 +24,7 @@ class PodcastPage extends Component {
   }
 
   handleSpeedClick(speed) {
-    this.audioEl.playbackRate = speed;
+    this.audioEl.playbackRate = speed
   }
 
   render() {
@@ -63,12 +56,14 @@ class PodcastPage extends Component {
             src={link}
             ref={el => (this.audioEl = el)} />
           <div className={styles.player_controls}>
-            {PLAYBACK_RATES.map(speed => (
+            {PLAYBACK_RATES.map(speed =>
               <button
                 key={speed}
                 className={styles.player_controls_item}
-                onClick={() => this.handleSpeedClick(speed)}>{speed}</button>
-            ))}
+                onClick={() => this.handleSpeedClick(speed)}>
+                {speed}
+              </button>,
+            )}
           </div>
         </div>
 

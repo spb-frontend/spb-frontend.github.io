@@ -40,9 +40,7 @@
     "stylelint": "^8.0.0",
     "stylelint-config-standard": "^17.0.0"
   },
-  "keywords": [
-    "gatsby"
-  ],
+  "keywords": ["gatsby"],
   "license": "MIT",
   "main": "n/a",
   "scripts": {
@@ -55,14 +53,8 @@
     "precommit": "lint-staged"
   },
   "lint-staged": {
-    "*.{js,jsx}": [
-      "eslint"
-    ],
-    "*.{css,pcss}": [
-      "stylelint"
-    ],
-    "*.{md,markdown}": [
-      "remark"
-    ]
+    "*.{js,jsx}": ["eslint"],
+    "*.{css,pcss}": ["stylelint"],
+    "*.{md,markdown}": ["remark"]
   }
 }
