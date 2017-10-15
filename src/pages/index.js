@@ -3,7 +3,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import {defaultHelmetMeta} from '../layouts/index'
 
-const Index = props =>
+const Index = props => (
   <div>
     <p>
       SPB Frontend — петербургское сообщество фронтенд-разработчиков. Мы
@@ -55,5 +55,6 @@ const Index = props =>
       <title>SPB Frontend. Frontend artisans</title>
     </Helmet>
   </div>
+)
 
 export default Index

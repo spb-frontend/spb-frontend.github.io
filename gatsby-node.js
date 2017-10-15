@@ -8,24 +8,24 @@ exports.createPages = async ({graphql, boundActionCreators}) => {
 
   const result = await graphql(
     `
-        {
-          allContentfulDrinkcast(
-            limit: 1000,
-            sort: { order: ASC, fields: [date] }
-          ) {
-            edges {
-              node {
-                link
-                title
-                date
-                notes {
-                  notes
-                }
+      {
+        allContentfulDrinkcast(
+          limit: 1000
+          sort: {order: ASC, fields: [date]}
+        ) {
+          edges {
+            node {
+              link
+              title
+              date
+              notes {
+                notes
               }
             }
           }
         }
-      `,
+      }
+    `,
   )
   if (result.errors) {
     throw new Error(result.errors)

@@ -34,18 +34,12 @@ class PodcastPage extends Component {
     return (
       <div>
         <div className={styles.back_link}>
-          <Link to='/podcast/'>
-            {'<'} назад
-          </Link>
+          <Link to='/podcast/'>{'<'} назад</Link>
         </div>
 
         <header className={styles.header}>
-          <h3 className={styles.header_title}>
-            {title}
-          </h3>
-          <date className={styles.header_date}>
-            {getHumanDate(date)}
-          </date>
+          <h3 className={styles.header_title}>{title}</h3>
+          <date className={styles.header_date}>{getHumanDate(date)}</date>
         </header>
 
         <div className={styles.player}>
@@ -56,14 +50,14 @@ class PodcastPage extends Component {
             src={link}
             ref={el => (this.audioEl = el)} />
           <div className={styles.player_controls}>
-            {PLAYBACK_RATES.map(speed =>
+            {PLAYBACK_RATES.map(speed => (
               <button
                 key={speed}
                 className={styles.player_controls_item}
                 onClick={() => this.handleSpeedClick(speed)}>
                 {speed}
-              </button>,
-            )}
+              </button>
+            ))}
           </div>
         </div>
 
