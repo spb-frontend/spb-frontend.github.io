@@ -2,6 +2,7 @@
 import React, {Component} from 'react'
 import Helmet from 'react-helmet'
 import Link from 'gatsby-link'
+import Icon from '-!svg-react-loader?name=Icon!../../static/rss-symbol.svg'
 
 import styles from './../css/podcast.module.css'
 import {defaultHelmetMeta} from '../layouts/index'
@@ -26,6 +27,15 @@ export default props => {
   return (
     <div>
       <h2 className={styles.title}>🍻 Drinkcast 🍻</h2>
+      <div className={styles.links}>
+        <a
+          className={styles.linksItem}
+          href='http://spb-frontend.ru/podcast.xml'
+          target='_blank'
+          rel='noopener noreferrer'>
+          <Icon className={styles.icon} /> RSS
+        </a>
+      </div>
       <div className={styles.posts}>
         {edges.map(({node: {title, date, formatedDate}}, index) => {
           return (
