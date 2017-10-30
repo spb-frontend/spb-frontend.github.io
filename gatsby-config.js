@@ -103,6 +103,7 @@ module.exports = {
         name: 'SPB Frontend official site',
         short_name: 'Akurganow',
         start_url: '/',
+        theme_color: '#fff',
         background_color: '#fff',
         display: 'minimal-ui',
         icons: [
