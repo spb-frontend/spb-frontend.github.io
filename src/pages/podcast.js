@@ -36,12 +36,16 @@ export default ({data: {allContentfulDrinkcast: {edges}}}) =>
       )}
     </div>
 
-    <Helmet meta={defaultHelmetMeta}>
-      <title>SPB Frontend. Drinkcast</title>
-      <link
-        rel='alternate'
-        type='application/rss+xml'
-        href='/podcast.xml' />
+    <Helmet>
+      {[
+        ...defaultHelmetMeta,
+        <title key='title'>SPB Frontend. Drinkcast</title>,
+        <link
+          key='rss'
+          rel='alternate'
+          type='application/rss+xml'
+          href='/podcast.xml' />,
+      ]}
     </Helmet>
   </div>
 
