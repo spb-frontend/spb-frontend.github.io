@@ -43,6 +43,9 @@ export default class HTML extends React.Component {
           <meta
             name='viewport'
             content='width=device-width, initial-scale=1.0' />
+          <meta
+            name='theme-color'
+            content='#000000' />
           {this.props.headComponents}
           {css}
         </head>
