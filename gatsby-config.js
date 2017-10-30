@@ -27,6 +27,7 @@ module.exports = {
     // },
     // 'gatsby-transformer-remark',
     // 'gatsby-transformer-json',
+    'gatsby-plugin-offline',
     {
       resolve: 'gatsby-source-contentful',
       options: {
