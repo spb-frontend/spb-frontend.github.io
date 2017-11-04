@@ -2,7 +2,9 @@
 import React, {Component} from 'react'
 import Helmet from 'react-helmet'
 import Link from 'gatsby-link'
-import Icon from '-!svg-react-loader?name=Icon!../../static/rss-symbol.svg'
+import RSSIcon from '-!svg-react-loader?name=Icon!../../static/rss-symbol.svg'
+import ITunesIcon from '-!svg-react-loader?name=Icon!../../static/itunes.svg'
+import TelegramIcon from '-!svg-react-loader?name=Icon!../../static/telegram.svg'
 
 import styles from './../css/podcast.module.css'
 import {defaultHelmetMeta} from '../layouts/index'
@@ -33,7 +35,28 @@ export default props => {
           href='http://spb-frontend.ru/podcast.xml'
           target='_blank'
           rel='noopener noreferrer'>
-          <Icon className={styles.icon} /> RSS
+          <RSSIcon className={styles.rss_icon} /> RSS
+        </a>
+        <a
+          className={styles.linksItem}
+          href='https://itunes.apple.com/us/podcast/spb-frontend-drinkcast/id1269128794'
+          target='_blank'
+          rel='noopener noreferrer'>
+          <ITunesIcon className={styles.itunes_icon} /> iTunes
+        </a>
+        <a
+          className={styles.linksItem}
+          href='https://player.fm/series/spb-frontend-drinkcast-1519092'
+          target='_blank'
+          rel='noopener noreferrer'>
+          PlayerFM
+        </a>
+        <a
+          className={styles.linksItem}
+          href='https://t.me/drinkcast'
+          target='_blank'
+          rel='noopener noreferrer'>
+          <TelegramIcon className={styles.telegram_icon} /> Телеграм
         </a>
       </div>
       <div className={styles.posts}>
