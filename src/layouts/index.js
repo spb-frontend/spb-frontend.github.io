@@ -85,45 +85,40 @@ const Template = props => (
 export default Template
 
 export const defaultHelmetMeta = [
-  {
-    name: 'theme-color',
-    content: '#ffffff',
-  },
-  {
-    property: 'og:title',
-    content: 'SPB Frontend',
-  },
-  {
-    property: 'og:description',
-    content: 'Петербургское сообщество фронтенд-разработчиков',
-  },
-  {
-    property: 'og:image',
-    content:
-      'https://ucarecdn.com/3d33c161-b440-4710-b3dd-ad980640dba8/-/preview/-/resize/1200x/-/crop/1200x630/0,300/spb_frontend_social.png',
-  },
-  {
-    property: 'og:url',
-    content: 'http://spb-frontend.ru/',
-  },
-  {
-    name: 'twitter:card',
-    content: 'summary_large_image',
-  },
-  {
-    name: 'twitter:site',
-    content: '@spb_frontend',
-  },
-  {
-    name: 'twitter:image:alt',
-    content: 'SPB Frontend. Frontend artisans',
-  },
-  {
-    name: 'description',
-    content: 'Петербургское сообщество фронтенд-разработчиков',
-  },
-  {
-    name: 'keywords',
-    content: 'frontend, spb-frontend',
-  },
+  <meta
+    key='og:title'
+    property='og:title'
+    content='SPB Frontend' />,
+  <meta
+    key='og:description'
+    property='og:description'
+    content='Петербургское сообщество фронтенд-разработчиков' />,
+  <meta
+    key='og:image'
+    property='og:image'
+    content='https://ucarecdn.com/3d33c161-b440-4710-b3dd-ad980640dba8/-/preview/-/resize/1200x/-/crop/1200x630/0,300/spb_frontend_social.png' />,
+  <meta
+    key='og:url'
+    property='og:url'
+    content='http://spb-frontend.ru/' />,
+  <meta
+    key='twitter:card'
+    name='twitter:card'
+    content='summary_large_image' />,
+  <meta
+    key='twitter:site'
+    name='twitter:site'
+    content='@spb_frontend' />,
+  <meta
+    key='twitter:image:alt'
+    name='twitter:image:alt'
+    content='SPB Frontend. Frontend artisans' />,
+  <meta
+    key='description'
+    name='description'
+    content='Петербургское сообщество фронтенд-разработчиков' />,
+  <meta
+    key='keywords'
+    name='keywords'
+    content='frontend, spb-frontend' />,
 ]

@@ -28,6 +28,7 @@ module.exports = {
     // },
     // 'gatsby-transformer-remark',
     // 'gatsby-transformer-json',
+    'gatsby-plugin-offline',
     {
       resolve: 'gatsby-source-contentful',
       options: {
@@ -103,6 +104,7 @@ module.exports = {
         name: 'SPB Frontend official site',
         short_name: 'Akurganow',
         start_url: '/',
+        theme_color: '#fff',
         background_color: '#fff',
         display: 'minimal-ui',
         icons: [

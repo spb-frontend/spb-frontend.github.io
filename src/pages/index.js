@@ -51,8 +51,11 @@ const Index = props => (
       нам на почту <a href='mailto:hi@spb-frontend.ru'>hi@spb-frontend.ru</a>.
     </p>
 
-    <Helmet meta={defaultHelmetMeta}>
-      <title>SPB Frontend. Frontend artisans</title>
+    <Helmet>
+      {[
+        ...defaultHelmetMeta,
+        <title key='title'>SPB Frontend. Frontend artisans</title>,
+      ]}
     </Helmet>
   </div>
 )
