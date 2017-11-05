@@ -49,7 +49,7 @@
     "deploy": "gatsby build && gh-pages -d public",
     "develop": "gatsby develop",
     "format":
-      "./node_modules/.bin/prettier-eslint --trailing-comma=\"all\" --no-semi --single-quote --no-bracket-spacing --write  \"gatsby-config.js\" \"gatsby-node.js\"  \"./*.json\" \"./*.js\" \"src/**/*.js\" \"plugins/**/*.js\"",
+      "./node_modules/.bin/prettier-eslint --trailing-comma=\"all\" --no-semi --single-quote --no-bracket-spacing --write  \"gatsby-config.js\" \"gatsby-node.js\"  \"./package.json\" \"./*.js\" \"src/**/*.js\" \"plugins/**/*.js\"",
     "test": "jest",
     "lint":
       "eslint ./src & stylelint \"./src/{components,css}/*.css\" & remark .",

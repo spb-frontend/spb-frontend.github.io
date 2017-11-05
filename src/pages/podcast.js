@@ -4,9 +4,9 @@ import Link from 'gatsby-link'
 
 import styles from './../css/podcast.module.css'
 import {defaultHelmetMeta} from '../layouts/index'
-import {getHumanDate} from '../utils/date'
+import {getHumanDate} from '../../utils/date'
 
-const PostLink = ({title, date, to}) =>
+const PostLink = ({title, date, to}) => (
   <div className={styles.post}>
     <header className={styles.header}>
       <h3 className={styles.header_title}>
@@ -16,23 +16,22 @@ const PostLink = ({title, date, to}) =>
           {title}
         </Link>
       </h3>
-      <date className={styles.header_date}>
-        {getHumanDate(date)}
-      </date>
+      <date className={styles.header_date}>{getHumanDate(date)}</date>
     </header>
   </div>
+)
 
-export default ({data: {allContentfulDrinkcast: {edges}}}) =>
+export default ({data: {allContentfulDrinkcast: {edges}}}) => (
   <div>
     <h2 className={styles.title}>🍻 Drinkcast 🍻</h2>
     <div className={styles.posts}>
-      {edges.map(({node: {title, date}}, index) =>
+      {edges.map(({node: {title, date}}, index) => (
         <PostLink
           key={index}
           title={title}
           date={date}
-          to={`/podcast/${index + 1}`} />,
-      )}
+          to={`/podcast/${index + 1}`} />
+      ))}
     </div>
 
     <Helmet>
@@ -47,6 +46,7 @@ export default ({data: {allContentfulDrinkcast: {edges}}}) =>
       ]}
     </Helmet>
   </div>
+)
 
 export const pageQuery = graphql`
   query MyQueryName {
