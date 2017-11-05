@@ -25,7 +25,7 @@ const PostLink = ({title, formatedDate, date, to}) => (
 )
 
 export default props => {
-  const {pathContext: {data: {allContentfulDrinkcast: {edges}}}} = props
+  const {data: {allContentfulDrinkcast: {edges}}} = props
   return (
     <div>
       <h2 className={styles.title}>🍻 Drinkcast 🍻</h2>

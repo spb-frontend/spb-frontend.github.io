@@ -31,6 +31,7 @@ exports.createPages = async ({graphql, boundActionCreators}) => {
   if (result.errors) {
     throw new Error(result.errors)
   }
+
   const finalEdges = result.data.allContentfulDrinkcast.edges.map(edge => {
     return {
       node: Object.assign({}, edge.node, {
