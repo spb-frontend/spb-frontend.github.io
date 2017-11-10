@@ -1,7 +1,7 @@
 'use strict'
 import React, {Component} from 'react'
 import styles from './style.module.css'
-import Link from 'gatsby-link'
+import Link, {navigateTo} from 'gatsby-link'
 import marked from 'marked'
 import {Box, Thread} from 'react-disqussion'
 import {timestampToSeconds} from '../../utils/time'
@@ -12,6 +12,8 @@ class PodcastPage extends Component {
   constructor(props) {
     super(props)
     this.handleTimeClick = this.handleTimeClick.bind(this)
+    this.handleTimeUpdate = this.handleTimeUpdate.bind(this)
+    this.initialTimeHash = `#t=${this.getInitialTime()}`
   }
 
   handleTimeClick(e) {
@@ -24,6 +26,16 @@ class PodcastPage extends Component {
 
   handleSpeedClick(speed) {
     this.audioEl.playbackRate = speed
+  }
+
+  handleTimeUpdate() {
+    const time = Math.trunc(this.audioEl.currentTime)
+    navigateTo(`${location.pathname}?time=${time}`)
+  }
+
+  getInitialTime() {
+    const rgexRes = location.search.match(/time=(\d+)/)
+    return rgexRes ? rgexRes[1] : 0
   }
 
   render() {
@@ -46,7 +58,8 @@ class PodcastPage extends Component {
             className={styles.player_audio}
             controls='controls'
             preload='metadata'
-            src={link}
+            src={link + this.initialTimeHash}
+            onTimeUpdate={this.handleTimeUpdate}
             ref={el => (this.audioEl = el)} />
           <div className={styles.player_controls}>
             {PLAYBACK_RATES.map(speed => (
