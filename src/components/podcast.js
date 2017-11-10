@@ -60,7 +60,7 @@ export default props => {
         </a>
       </div>
       <div className={styles.posts}>
-        {edges.reverse().map(({node: {title, date, formatedDate}}, index) => {
+        {edges.map(({node: {title, date, formatedDate}}, index) => {
           return (
             <PostLink
               key={index}
