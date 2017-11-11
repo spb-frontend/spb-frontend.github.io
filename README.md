@@ -9,7 +9,7 @@ The official site of SPB Frontend
 ## Development
 Site works on [gatsby engine](https://github.com/gatsbyjs/gatsby)
 
-- Install dependencies `npm run install`
+- Install dependencies `npm install`
 - Run development server `npm run develop`
 
 ## Deploy
