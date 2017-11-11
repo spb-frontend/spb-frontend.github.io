@@ -25,12 +25,12 @@ export default ({data: {allContentfulDrinkcast: {edges}}}) => (
   <div>
     <h2 className={styles.title}>🍻 Drinkcast 🍻</h2>
     <div className={styles.posts}>
-      {edges.map(({node: {title, date}}, index) => (
+      {edges.map(({node: {title, date, number}}, index) => (
         <PostLink
           key={index}
           title={title}
           date={date}
-          to={`/podcast/${index + 1}`} />
+          to={`/podcast/${number}`} />
       ))}
     </div>
 
@@ -55,6 +55,7 @@ export const pageQuery = graphql`
         node {
           title
           date
+          number
         }
       }
     }
