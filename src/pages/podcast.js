@@ -21,7 +21,7 @@ const PostLink = ({title, date, to}) => (
   </div>
 )
 
-export default ({data: {allContentfulDrinkcast: {edges}}}) => (
+export default ({pathContext: {data: {allContentfulDrinkcast: {edges}}}}) => (
   <div>
     <h2 className={styles.title}>🍻 Drinkcast 🍻</h2>
     <div className={styles.posts}>

@@ -107,8 +107,7 @@ dl {
 
 @media screen and (min-width: 700px) {
   .page {
-    flex-direction: column;
-    flex-wrap: wrap;
+    flex-flow: column wrap;
     align-content: flex-start;
   }
 

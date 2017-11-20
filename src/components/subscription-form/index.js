@@ -31,7 +31,9 @@ class SubscriptionForm extends Component {
     event.preventDefault()
     const form = event.currentTarget
     const formData = serialize(form)
-    const url = `//vk.us13.list-manage.com/subscribe/post-json?${formData}&id=8651e5fe3f&u=e16bb3d05ec796d0d4d06c13d&c=formLoginRequestSuccess`
+    const url = `//vk.us13.list-manage.com/subscribe/post-json?${
+      formData
+    }&id=8651e5fe3f&u=e16bb3d05ec796d0d4d06c13d&c=formLoginRequestSuccess`
     const script = document.createElement('script')
 
     script.type = 'text/javascript'
