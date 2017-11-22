@@ -29,11 +29,19 @@ class PodcastPage extends Component {
   }
 
   handleTimeUpdate() {
+    if (!location) {
+      return
+    }
+
     const time = Math.trunc(this.audioEl.currentTime)
     navigateTo(`${location.pathname}?time=${time}`)
   }
 
   getInitialTime() {
+    if (!location) {
+      return 0
+    }
+
     const rgexRes = location.search.match(/time=(\d+)/)
     return rgexRes ? rgexRes[1] : 0
   }
