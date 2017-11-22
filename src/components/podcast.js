@@ -60,14 +60,14 @@ export default props => {
         </a>
       </div>
       <div className={styles.posts}>
-        {edges.map(({node: {title, date, formatedDate, number}}, index) => {
+        {edges.map(({node: {title, date, formatedDate}}, index) => {
           return (
             <PostLink
               key={index}
               title={title}
               date={date}
               formatedDate={formatedDate}
-              to={`/podcast/${number}`} />
+              to={`/podcast/${index + 1}`} />
           )
         })}
       </div>
