@@ -29,7 +29,7 @@ class PodcastPage extends Component {
   }
 
   handleTimeUpdate() {
-    if (!location) {
+    if (typeof location === 'undefined') {
       return
     }
 
@@ -38,7 +38,7 @@ class PodcastPage extends Component {
   }
 
   getInitialTime() {
-    if (!location) {
+    if (typeof location === 'undefined') {
       return 0
     }
 
