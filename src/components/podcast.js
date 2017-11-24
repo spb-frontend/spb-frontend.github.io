@@ -24,8 +24,7 @@ const PostLink = ({title, formatedDate, date, to}) => (
 )
 
 export default props => {
-  const {pathContext: {data: {allContentfulDrinkcast: {edges}}}} = props;
-  const podcasts = edges.concat().reverse();
+  const {pathContext: {data: {episodes}}} = props;
 
   return (
     <div>
@@ -61,18 +60,14 @@ export default props => {
         </a>
       </div>
       <div className={styles.posts}>
-        {podcasts.map(({node: {title, date, formatedDate}}, index) => {
-          const key = `/podcast/${podcasts.length - index}`;
-
-          return (
-            <PostLink
-              key={key}
-              title={title}
-              date={date}
-              formatedDate={formatedDate}
-              to={key} />
-          )
-        })}
+        {episodes.map(({node: {title, date, number, formatedDate}}, index) => (
+          <PostLink
+            key={number+title}
+            title={title}
+            date={date}
+            formatedDate={formatedDate}
+            to={`/podcast/${number}`} />
+        ))}
       </div>
 
       <Helmet meta={defaultHelmetMeta}>
