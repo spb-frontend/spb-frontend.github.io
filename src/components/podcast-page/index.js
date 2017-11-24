@@ -47,7 +47,7 @@ class PodcastPage extends Component {
 
   render() {
     const {data, id} = this.props.pathContext
-    const {node: {title, link, notes, formatedDate}} = data
+    const {title, link, notes, formatedDate} = data
 
     return (
       <div>
