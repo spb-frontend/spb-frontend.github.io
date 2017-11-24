@@ -25,7 +25,9 @@ const PostLink = ({title, formatedDate, date, to}) => (
 )
 
 export default props => {
-  const {pathContext: {data: {allContentfulDrinkcast: {edges}}}} = props
+  const {pathContext: {data: {allContentfulDrinkcast: {edges}}}} = props;
+  const podcasts = edges.concat().reverse();
+
   return (
     <div>
       <h2 className={styles.title}>🍻 Drinkcast 🍻</h2>
@@ -60,14 +62,16 @@ export default props => {
         </a>
       </div>
       <div className={styles.posts}>
-        {edges.map(({node: {title, date, formatedDate}}, index) => {
+        {podcasts.map(({node: {title, date, formatedDate}}, index) => {
+          const key = `/podcast/${podcasts.length - index}`;
+
           return (
             <PostLink
-              key={index}
+              key={key}
               title={title}
               date={date}
               formatedDate={formatedDate}
-              to={`/podcast/${index + 1}`} />
+              to={key} />
           )
         })}
       </div>
