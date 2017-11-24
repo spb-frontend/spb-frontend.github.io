@@ -17,7 +17,7 @@ const serialize = ({ site, allContentfulDrinkcast }) =>
     return Object.assign({}, edge.node, {
       title: edge.node.title,
       description: edge.node.description ? edge.node.description : '',
-      url: edge.node.link,
+      url: edge.node.file,
       guid: edge.node.id,
       custom_elements: [
         {'content:encoded': html},
