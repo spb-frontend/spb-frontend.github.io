@@ -46,8 +46,8 @@ class PodcastPage extends Component {
   }
 
   render() {
-    const {data, id} = this.props.pathContext
-    const {title, link, notes, formatedDate} = data
+    const {data} = this.props.pathContext
+    const {title, number, file, notes, formatedDate} = data
 
     return (
       <div>
@@ -65,7 +65,7 @@ class PodcastPage extends Component {
             className={styles.player_audio}
             controls='controls'
             preload='metadata'
-            src={link + this.initialTimeHash}
+            src={file + this.initialTimeHash}
             onTimeUpdate={this.handleTimeUpdate}
             ref={el => (this.audioEl = el)} />
           <div className={styles.player_controls}>
@@ -87,9 +87,9 @@ class PodcastPage extends Component {
 
         <Box shortname='http-spb-frontend-ru'>
           <Thread
-            url={`http://spb-frontend.ru/podcast/${id + 1}`}
+            url={`http://spb-frontend.ru/podcast/${number}`}
             title={title}
-            identifier={`podcast-${id + 1}`} />
+            identifier={`podcast-${number}`} />
         </Box>
       </div>
     )
