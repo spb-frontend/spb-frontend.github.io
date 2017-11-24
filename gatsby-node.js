@@ -1,4 +1,3 @@
-'use strict'
 const path = require('path')
 const slug = require('slug')
 const slash = require('slash')

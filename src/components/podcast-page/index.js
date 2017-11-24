@@ -1,4 +1,3 @@
-'use strict'
 import React, {Component} from 'react'
 import styles from './style.module.css'
 import Link, {navigateTo} from 'gatsby-link'
