@@ -73,7 +73,6 @@ module.exports = {
                         notes
                       }
                       id
-                      link
                       file
                       title
                       date

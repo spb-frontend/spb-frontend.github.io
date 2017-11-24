@@ -1,4 +1,3 @@
-'use strict'
 import React, {Component} from 'react'
 import styles from './style.module.css'
 import Link, {navigateTo} from 'gatsby-link'
@@ -48,7 +47,7 @@ class PodcastPage extends Component {
 
   render() {
     const {data, id} = this.props.pathContext
-    const {node: {title, link, notes, formatedDate}} = data
+    const {title, link, notes, formatedDate} = data
 
     return (
       <div>
