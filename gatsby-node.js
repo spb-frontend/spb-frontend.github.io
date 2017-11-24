@@ -3,6 +3,9 @@ const slug = require('slug')
 const slash = require('slash')
 const {getHumanDate} = require('./utils/date')
 
+const podcastPageTemplate = path.resolve(process.cwd(), 'src/components/podcast.js')
+const postTemplate = path.resolve(process.cwd(), 'src/components/podcast-page/index.js')
+
 exports.createPages = async ({graphql, boundActionCreators}) => {
   const {createPage} = boundActionCreators
 
@@ -11,11 +14,12 @@ exports.createPages = async ({graphql, boundActionCreators}) => {
       {
         allContentfulDrinkcast(
           limit: 1000
-          sort: {order: ASC, fields: [date]}
+          sort: {order: DESC, fields: [date]}
         ) {
           edges {
             node {
-              link
+              number
+              file
               title
               date
               notes {
@@ -39,28 +43,22 @@ exports.createPages = async ({graphql, boundActionCreators}) => {
     }
   })
 
-  const podcastPageTemplate = path.resolve('src/components/podcast.js')
-
   createPage({
     path: '/podcast',
     component: slash(podcastPageTemplate),
     context: {
-      data: {allContentfulDrinkcast: {edges: finalEdges}},
+      data: {episodes: finalEdges},
     },
   })
 
-  const postTemplate = path.resolve('src/components/podcast-page/index.js')
-
-  Array.from(finalEdges).forEach((edge, id) => {
+  finalEdges.forEach(({node}, id) => {
     createPage({
-      path: `/podcast/${slug(id + 1)}`,
+      path: `/podcast/${slug(node.number)}`,
       component: slash(postTemplate),
       context: {
-        data: edge,
+        data: node,
         id,
       },
     })
   })
-
-  return
 }
