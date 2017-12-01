@@ -4,6 +4,7 @@ import Link, {navigateTo} from 'gatsby-link'
 import marked from 'marked'
 import {Box, Thread} from 'react-disqussion'
 import {timestampToSeconds} from '../../utils/time'
+import throttle from 'lodash.throttle'
 
 const PLAYBACK_RATES = [1.0, 1.2, 1.4, 1.6, 1.8, 2.0]
 
@@ -33,7 +34,7 @@ class PodcastPage extends Component {
     }
 
     const time = Math.trunc(this.audioEl.currentTime)
-    navigateTo(`${location.pathname}?time=${time}`)
+    history.replaceState(null, null, `${location.pathname}?time=${time}`)
   }
 
   getInitialTime() {
@@ -66,7 +67,7 @@ class PodcastPage extends Component {
             controls='controls'
             preload='metadata'
             src={file + this.initialTimeHash}
-            onTimeUpdate={this.handleTimeUpdate}
+            onTimeUpdate={throttle(this.handleTimeUpdate, 1000)}
             ref={el => (this.audioEl = el)} />
           <div className={styles.player_controls}>
             {PLAYBACK_RATES.map(speed => (

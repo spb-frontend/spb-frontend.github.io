@@ -24,7 +24,7 @@ const PostLink = ({title, formatedDate, date, to}) => (
 )
 
 export default props => {
-  const {pathContext: {data: {episodes}}} = props;
+  const {pathContext: {data: {episodes}}} = props
 
   return (
     <div>
@@ -62,7 +62,7 @@ export default props => {
       <div className={styles.posts}>
         {episodes.map(({node: {title, date, number, formatedDate}}, index) => (
           <PostLink
-            key={number+title}
+            key={number + title}
             title={title}
             date={date}
             formatedDate={formatedDate}
