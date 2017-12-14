@@ -1,3 +1,5 @@
+const keys = require('./keys.js')
+
 module.exports = {
   siteMetadata: {
     title: 'SPB Frontend',
@@ -31,8 +33,8 @@ module.exports = {
     {
       resolve: 'gatsby-source-contentful',
       options: {
-        spaceId: process.env.CONTENTFUL_SPACE_ID,
-        accessToken: process.env.CONTENTFUL_TOKEN,
+        spaceId: process.env.CONTENTFUL_SPACE_ID || keys.contentful.space_id,
+        accessToken: process.env.CONTENTFUL_TOKEN || keys.contentful.token,
       },
     },
     {
