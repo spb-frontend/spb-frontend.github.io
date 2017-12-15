@@ -1,3 +1,4 @@
+export {Sound} from './Sound'
 export {Play} from './Play'
 export {Volume} from './Volume'
 export {Timer} from './Timer'
