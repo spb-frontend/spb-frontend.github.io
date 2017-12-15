@@ -1,0 +1,116 @@
+.volume {
+  display: flex;
+  padding: 0 8px;
+}
+
+.range:focus,
+.button:focus + .range,
+.volume:hover .range {
+  width: 100px;
+  opacity: 1;
+}
+
+.range {
+  width: 0;
+  opacity: 0;
+  margin-left: 8px;
+  transition: width 150ms ease, opacity 150ms ease;
+  -webkit-appearance: none;
+  outline: none;
+}
+
+.range::-webkit-slider-runnable-track {
+  background: #df4b26;
+  height: 4px;
+  border-radius: 2px;
+  border: none;
+  cursor: pointer;
+}
+
+.range::-moz-range-track {
+  background: #df4b26;
+  height: 4px;
+  border-radius: 2px;
+  border: none;
+  cursor: pointer;
+}
+
+.range::-ms-track {
+  background: #df4b26;
+  height: 4px;
+  border-radius: 2px;
+  border: none;
+  cursor: pointer;
+}
+
+.range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background: #fff;
+  border: 1px solid #df4b26;
+  width: 16px;
+  height: 16px;
+  margin-top: -6px;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1);
+  cursor: pointer;
+  transition: box-shadow .3s, background .3s;
+
+  &:hover,
+  &:focus,
+  &:active {
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, .3);
+  }
+
+  &:focus,
+  &:active {
+    background-color: #f6f6f6;
+  }
+}
+
+.range::-moz-range-thumb {
+  -webkit-appearance: none;
+  background: #fff;
+  border: 1px solid #df4b26;
+  width: 16px;
+  height: 16px;
+  margin-top: -6px;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1);
+  cursor: pointer;
+  transition: box-shadow .3s, background .3s;
+
+  &:hover,
+  &:focus,
+  &:active {
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, .3);
+  }
+
+  &:focus,
+  &:active {
+    background-color: #f6f6f6;
+  }
+}
+
+.range::-ms-thumb {
+  -webkit-appearance: none;
+  background: #fff;
+  border: 1px solid #df4b26;
+  width: 16px;
+  height: 16px;
+  margin-top: -6px;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1);
+  cursor: pointer;
+  transition: box-shadow .3s, background .3s;
+
+  &:hover,
+  &:focus,
+  &:active {
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, .3);
+  }
+
+  &:focus,
+  &:active {
+    background-color: #f6f6f6;
+  }
+}
