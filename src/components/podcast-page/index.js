@@ -7,8 +7,6 @@ import {Player} from '../Player'
 import {timestampToSeconds} from '../../utils/time'
 import throttle from 'lodash.throttle'
 
-const PLAYBACK_RATES = [1.0, 1.2, 1.4, 1.6, 1.8, 2.0]
-
 class PodcastPage extends Component {
   state = {
     time: 0
@@ -50,26 +48,6 @@ class PodcastPage extends Component {
         <Player
           position={this.state.time}
           file={file} />
-
-        {/*<div className={st.player}>
-          <audio
-            className={st.player_audio}
-            controls='controls'
-            preload='metadata'
-            src={file + this.initialTimeHash}
-            onTimeUpdate={throttle(this.handleTimeUpdate, 1000)}
-            />
-          <div className={st.player_controls}>
-            {PLAYBACK_RATES.map(speed => (
-              <button
-                key={speed}
-                className={st.player_controls_item}
-                onClick={() => this.handleSpeedClick(speed)}>
-                {speed}
-              </button>
-            ))}
-          </div>
-        </div>*/}
 
         <footer
           onClick={this.handleTimeClick}
