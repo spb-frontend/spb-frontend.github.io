@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
-import Sound from 'react-sound'
 import cn from 'classnames'
 import throttle from 'lodash.throttle'
 import { timestampToSeconds } from '../../utils/time'
-import { Play, Volume, Timer, Progress, Speed } from './components'
+import { Sound, Play, Volume, Timer, Progress, Speed } from './components'
 import st from './style.module.css'
 
 export class Player extends Component {
@@ -12,6 +11,7 @@ export class Player extends Component {
     position: 0,
     duration: 0,
     volume: 100,
+    speed: 1,
   }
 
   componentWillReceiveProps(nextProps) {
@@ -32,7 +32,7 @@ export class Player extends Component {
 
   render() {
     const { file } = this.props
-    const { playStatus, position, duration, volume } = this.state
+    const { playStatus, position, duration, volume, speed } = this.state
 
     return (
       <div className={st.player}>
@@ -43,6 +43,10 @@ export class Player extends Component {
               [st.play] : playStatus === 'STOPPED' || playStatus === 'PAUSED',
               [st.pause] : playStatus === 'PLAYING',
             })} />
+          <Speed
+            player={this}
+            speed={speed}
+            className={cn(st.control, st.small)} />
           <Volume
             player={this}
             volume={volume}
@@ -56,14 +60,11 @@ export class Player extends Component {
         <Timer
           position={position}
           className={st.timer} />
-        {/*
-      <Speed
-        {...this.props}
-        className={st.speed} />*/}
 
         <Sound
           position={position}
           volume={volume}
+          speed={speed}
           onPlaying={this.handlePlaying}
           onLoading={this.handleLoading}
           playStatus={playStatus}
