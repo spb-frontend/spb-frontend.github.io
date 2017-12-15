@@ -24,7 +24,7 @@ export class Volume extends Component {
     const {player} = this.props
     const {target: {value}} = event
 
-    player.setState({volume: value})
+    player.setState({volume: parseInt(value)})
   }
 
   getIcon = () => {

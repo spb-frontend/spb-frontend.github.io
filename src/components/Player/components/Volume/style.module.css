@@ -8,13 +8,13 @@
 .volume:hover .range {
   width: 100px;
   opacity: 1;
+  margin-left: 8px;
 }
 
 .range {
   width: 0;
   opacity: 0;
-  margin-left: 8px;
-  transition: width 150ms ease, opacity 150ms ease;
+  transition: margin 150ms ease, width 150ms ease, opacity 150ms ease;
   -webkit-appearance: none;
   outline: none;
 }
