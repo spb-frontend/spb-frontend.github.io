@@ -11,7 +11,7 @@ ghpages.publish(
       email: 'me@akurganow.ru',
     },
     repo:
-      'https://' + process.env.GH_TOKEN + '@github.com/Cuba28/cuba-site.git',
+      'https://' + process.env.GH_TOKEN + '@github.com/spb-frontend/spb-frontend.ru.git',
     message: 'Updates [ci skip]',
   },
   () => {
