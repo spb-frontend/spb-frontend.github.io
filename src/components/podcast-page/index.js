@@ -1,49 +1,33 @@
 import React, {Component} from 'react'
-import styles from './style.module.css'
+import st from './style.module.css'
 import Link, {navigateTo} from 'gatsby-link'
 import marked from 'marked'
 import {Box, Thread} from 'react-disqussion'
+import {Player} from '../Player'
 import {timestampToSeconds} from '../../utils/time'
 import throttle from 'lodash.throttle'
 
-const PLAYBACK_RATES = [1.0, 1.2, 1.4, 1.6, 1.8, 2.0]
-
 class PodcastPage extends Component {
-  constructor(props) {
-    super(props)
-    this.handleTimeClick = this.handleTimeClick.bind(this)
-    this.handleTimeUpdate = this.handleTimeUpdate.bind(this)
-    this.initialTimeHash = `#t=${this.getInitialTime()}`
+  state = {
+    time: 0
   }
 
-  handleTimeClick(e) {
-    const {target} = e
+  componentDidMount() {
+    this.getInitialTime()
+  }
+
+  handleTimeClick = (event) => {
+    const {target} = event
     if (target.classList.contains('podcast_time')) {
-      e.preventDefault()
-      this.audioEl.currentTime = timestampToSeconds(target.innerText)
+      event.preventDefault()
+      this.setState({time: timestampToSeconds(target.innerText) * 1000})
     }
-  }
-
-  handleSpeedClick(speed) {
-    this.audioEl.playbackRate = speed
-  }
-
-  handleTimeUpdate() {
-    if (typeof location === 'undefined') {
-      return
-    }
-
-    const time = Math.trunc(this.audioEl.currentTime)
-    history.replaceState(null, null, `${location.pathname}?time=${time}`)
   }
 
   getInitialTime() {
-    if (typeof location === 'undefined') {
-      return 0
-    }
-
     const rgexRes = location.search.match(/time=(\d+)/)
-    return rgexRes ? rgexRes[1] : 0
+
+    this.setState({time: rgexRes ? parseInt(rgexRes[1]) * 1000 : 0})
   }
 
   render() {
@@ -52,38 +36,22 @@ class PodcastPage extends Component {
 
     return (
       <div>
-        <div className={styles.back_link}>
+        <div className={st.back_link}>
           <Link to='/podcast/'>{'<'} назад</Link>
         </div>
 
-        <header className={styles.header}>
-          <h3 className={styles.header_title}>{title}</h3>
-          <date className={styles.header_date}>{formatedDate}</date>
+        <header className={st.header}>
+          <h3 className={st.header_title}>{title}</h3>
+          <date className={st.header_date}>{formatedDate}</date>
         </header>
 
-        <div className={styles.player}>
-          <audio
-            className={styles.player_audio}
-            controls='controls'
-            preload='metadata'
-            src={file + this.initialTimeHash}
-            onTimeUpdate={throttle(this.handleTimeUpdate, 1000)}
-            ref={el => (this.audioEl = el)} />
-          <div className={styles.player_controls}>
-            {PLAYBACK_RATES.map(speed => (
-              <button
-                key={speed}
-                className={styles.player_controls_item}
-                onClick={() => this.handleSpeedClick(speed)}>
-                {speed}
-              </button>
-            ))}
-          </div>
-        </div>
+        <Player
+          position={this.state.time}
+          file={file} />
 
         <footer
           onClick={this.handleTimeClick}
-          className={styles.footer}
+          className={st.footer}
           dangerouslySetInnerHTML={{__html: marked(notes.notes)}} />
 
         <Box shortname='http-spb-frontend-ru'>

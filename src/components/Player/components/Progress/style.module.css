@@ -1,0 +1,21 @@
+.progress_wrapper {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  margin-right: 15px;
+}
+
+.progress {
+  width: 100%;
+  height: 4px;
+  background-color: #e7e7e7;
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: 15px;
+}
+
+.progress_inner {
+  height: 100%;
+  background-color: #df4b26;
+  border-radius: 2px;
+}
