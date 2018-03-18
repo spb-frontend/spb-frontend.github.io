@@ -1,4 +1,16 @@
-const keys = require('./keys.js')
+let keys
+
+try {
+  keys = require('./keys.js')
+}
+catch (err) {
+  keys = {
+    contentful: {
+      space_id: '',
+      token: ''
+    }
+  }
+}
 
 module.exports = {
   siteMetadata: {
