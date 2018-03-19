@@ -9,8 +9,7 @@ export class Play extends Component {
 
     if (playStatus === 'STOPPED' || playStatus === 'PAUSED') {
       player.setState({playStatus: 'PLAYING'})
-    }
-    else {
+    } else {
       player.setState({playStatus: 'PAUSED'})
     }
   }
@@ -20,17 +19,18 @@ export class Play extends Component {
 
     if (playStatus === 'STOPPED' || playStatus === 'PAUSED') {
       return <PlayIcon />
-    }
-    else {
+    } else {
       return <PauseIcon />
     }
   }
 
   render() {
-    return <button
-      className={this.props.className}
-      onClick={this.switch}>
-      {this.getIcon()}
-    </button>
+    return (
+      <button
+        className={this.props.className}
+        onClick={this.switch}>
+        {this.getIcon()}
+      </button>
+    )
   }
 }
