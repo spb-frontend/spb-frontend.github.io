@@ -6,8 +6,8 @@ import VkIcon from '-!svg-react-loader?name=Icon!../../../static/vk.svg'
 import SlackIcon from '-!svg-react-loader?name=Icon!../../../static/slack.svg'
 import TwitterIcon from '-!svg-react-loader?name=Icon!../../../static/twitter.svg'
 
-const SocialIcon = ({link, children}) => {
-  const icon = link ? (
+const SocialIcon = ({user, link, children}) => {
+  const icon = user ? (
     <span className={st.social_icon}>
       <a
         target='_blank'
@@ -47,16 +47,24 @@ export default ({
           </h2>
           <div className={st.company}>{company}</div>
           <div className={st.social}>
-            <SocialIcon link={`https://vk.com/${vk}`}>
+            <SocialIcon
+              link={`https://vk.com/${vk}`}
+              user={vk}>
               <VkIcon />
             </SocialIcon>
-            <SocialIcon link={`https://t.me/${telegram}`}>
+            <SocialIcon
+              link={`https://t.me/${telegram}`}
+              user={telegram}>
               <TelegramIcon />
             </SocialIcon>
-            <SocialIcon link={twitter}>
+            <SocialIcon
+              link={twitter}
+              user={twitter}>
               <TwitterIcon />
             </SocialIcon>
-            <SocialIcon link='https://spb-frontend.slack.com/'>
+            <SocialIcon
+              link='https://spb-frontend.slack.com/'
+              user={slack}>
               <SlackIcon />
             </SocialIcon>
           </div>
