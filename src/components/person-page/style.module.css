@@ -38,13 +38,21 @@
 
 .social_icon {
   display: inline-block;
-  width: 30px;
-  height: 30px;
-  margin: 5px;
+  width: 22px;
+  margin: 10px 10px 10px 0;
 }
 
 .social_icon a {
-  border-bottom: none;
+  color: #000;
+}
+
+.slack_icon svg {
+  width: 22px;
+}
+
+.slack_name {
+  bottom: 6px;
+  position: relative;
 }
 
 @media screen and (min-width: 768px) {
