@@ -119,7 +119,10 @@ export class Sound extends React.Component {
       }
 
       if (this.props.position != null) {
-        if (sound.position !== this.props.position && Math.round(sound.position) !== Math.round(this.props.position)) {
+        if (
+          sound.position !== this.props.position &&
+          Math.round(sound.position) !== Math.round(this.props.position)
+        ) {
           sound.setPosition(this.props.position)
         }
       }
@@ -183,7 +186,10 @@ export class Sound extends React.Component {
           props.onStop(this)
         },
         onfinish() {
-          if (that.props.loop && that.props.playStatus === playStatuses.PLAYING) {
+          if (
+            that.props.loop &&
+            that.props.playStatus === playStatuses.PLAYING
+          ) {
             that.sound.play()
           } else {
             props.onFinishedPlaying()

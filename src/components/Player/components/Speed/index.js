@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import cn from 'classnames'
 import st from './style.module.css'
 
@@ -10,32 +10,32 @@ export class Speed extends Component {
   }
 
   handleChange = event => {
-    const { player } = this.props
-    const { target } = event
-    const { dataset } = target
+    const {player} = this.props
+    const {target} = event
+    const {dataset} = target
 
     if (target.classList.contains(st.speed_link)) {
-      const { value } = dataset
-      player.setState({ speed: value })
+      const {value} = dataset
+      player.setState({speed: value})
     }
   }
 
   focus = event => {
-    this.setState({ focus: true })
+    this.setState({focus: true})
   }
 
   blur = event => {
-    this.setState({ focus: false })
+    this.setState({focus: false})
   }
 
   render() {
-    const { className, speed } = this.props
+    const {className, speed} = this.props
 
     return (
       <div
         onFocus={this.focus}
         onBlur={this.blur}
-        className={cn(st.speed, { [st.focus]: this.state.focus })}>
+        className={cn(st.speed, {[st.focus]: this.state.focus})}>
         <button className={cn(className, st.value)}>{speed}x</button>
         <ul
           onClick={this.handleChange}

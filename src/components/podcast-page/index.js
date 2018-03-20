@@ -9,14 +9,14 @@ import throttle from 'lodash.throttle'
 
 class PodcastPage extends Component {
   state = {
-    time: 0
+    time: 0,
   }
 
   componentDidMount() {
     this.getInitialTime()
   }
 
-  handleTimeClick = (event) => {
+  handleTimeClick = event => {
     const {target} = event
     if (target.classList.contains('podcast_time')) {
       event.preventDefault()

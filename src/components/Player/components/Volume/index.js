@@ -6,21 +6,20 @@ import VolumeOff from './volume-off-icon'
 
 export class Volume extends Component {
   state = {
-    prevVolume: 100
+    prevVolume: 100,
   }
 
   switch = () => {
     const {player, volume} = this.props
     if (volume === 0) {
       player.setState({volume: this.state.prevVolume})
-    }
-    else {
+    } else {
       player.setState({volume: 0})
       this.setState({prevVolume: volume})
     }
   }
 
-  change = (event) => {
+  change = event => {
     const {player} = this.props
     const {target: {value}} = event
 
@@ -32,8 +31,7 @@ export class Volume extends Component {
 
     if (volume >= 1) {
       return <VolumeOn />
-    }
-    else {
+    } else {
       return <VolumeOff />
     }
   }
@@ -41,21 +39,23 @@ export class Volume extends Component {
   render() {
     const {volume} = this.props
 
-    return <div className={st.volume}>
-      <button
-        className={cn(st.button, this.props.className)}
-        onClick={this.switch}>
-        {this.getIcon()}
-      </button>
+    return (
+      <div className={st.volume}>
+        <button
+          className={cn(st.button, this.props.className)}
+          onClick={this.switch}>
+          {this.getIcon()}
+        </button>
 
-      <input
-        onChange={this.change}
-        className={st.range}
-        min='0'
-        max='100'
-        step='1'
-        value={volume}
-        type='range' />
-    </div>
+        <input
+          onChange={this.change}
+          className={st.range}
+          min='0'
+          max='100'
+          step='1'
+          value={volume}
+          type='range' />
+      </div>
+    )
   }
 }

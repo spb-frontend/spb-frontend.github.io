@@ -2,13 +2,12 @@ let keys
 
 try {
   keys = require('./keys.js')
-}
-catch (err) {
+} catch (err) {
   keys = {
     contentful: {
       space_id: '',
-      token: ''
-    }
+      token: '',
+    },
   }
 }
 
