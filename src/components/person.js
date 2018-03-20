@@ -5,12 +5,22 @@ import RSSIcon from '-!svg-react-loader?name=Icon!../../static/rss-symbol.svg'
 import ITunesIcon from '-!svg-react-loader?name=Icon!../../static/itunes.svg'
 import TelegramIcon from '-!svg-react-loader?name=Icon!../../static/telegram.svg'
 
-import styles from './../css/podcast.module.css'
+import styles from './../css/person.module.css'
 import {defaultHelmetMeta} from '../layouts/index'
+import {getPersonId} from './../../utils/person'
 
-const Person = ({node: {id, name, lastname}}) => (
-  <div>
-    <Link to={`/person/${id}`}>
+const Person = ({node: {name, lastname, photo}}) => (
+  <div className={styles.item}>
+    <div className={styles.photo}>
+      <Link to={`/person/${getPersonId(name, lastname)}`}>
+        {photo ? (
+          <img src={`https:${photo.file.url}?fit=thumb&h=100&w=100`} />
+        ) : (
+          <img src='/Person-placeholder.jpg' />
+        )}
+      </Link>
+    </div>
+    <Link to={`/person/${getPersonId(name, lastname)}`}>
       {name} {lastname}
     </Link>
   </div>
@@ -20,7 +30,7 @@ export default props => {
   const {pathContext: {data: person}} = props
   return (
     <div>
-      <div>
+      <div className={styles.list}>
         {person.map(({node}, index) => {
           return <Person
             key={index}

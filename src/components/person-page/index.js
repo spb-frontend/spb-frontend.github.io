@@ -62,11 +62,11 @@ export default ({
               user={twitter}>
               <TwitterIcon />
             </SocialIcon>
-            <SocialIcon
-              link='https://spb-frontend.slack.com/'
-              user={slack}>
-              <SlackIcon />
-            </SocialIcon>
+            {slack ? (
+              <span className={st.slack_icon}>
+                <SlackIcon /> <span className={st.slack_name}>{slack}</span>
+              </span>
+            ) : null}
           </div>
         </div>
         <div className={st.person_image}>
