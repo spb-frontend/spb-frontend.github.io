@@ -8,7 +8,13 @@ import TelegramIcon from '-!svg-react-loader?name=Icon!../../static/telegram.svg
 import styles from './../css/podcast.module.css'
 import {defaultHelmetMeta} from '../layouts/index'
 
-import Person from '../components/person-page'
+const Person = ({node: {id, name, lastname}}) => (
+  <div>
+    <Link to={`/person/${id}`}>
+      {name} {lastname}
+    </Link>
+  </div>
+)
 
 export default props => {
   const {pathContext: {data: person}} = props

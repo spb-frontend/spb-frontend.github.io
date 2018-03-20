@@ -1,44 +1,90 @@
 import React from 'react'
+import st from './style.module.css'
+import Link, {navigateTo} from 'gatsby-link'
+import TelegramIcon from '-!svg-react-loader?name=Icon!../../../static/telegram.svg'
+import VkIcon from '-!svg-react-loader?name=Icon!../../../static/vk.svg'
+import SlackIcon from '-!svg-react-loader?name=Icon!../../../static/slack.svg'
+import TwitterIcon from '-!svg-react-loader?name=Icon!../../../static/twitter.svg'
+
+const SocialIcon = ({link, children}) => {
+  const icon = link ? (
+    <span className={st.social_icon}>
+      <a
+        target='_blank'
+        href={link}>
+        {children}
+      </a>
+    </span>
+  ) : null
+  return icon
+}
 
 export default ({
-  node: {
-    name,
-    lastname,
-    position,
-    vk,
-    telegram,
-    twitter,
-    slack,
-    company,
-    podcasts,
-    photo,
+  pathContext: {
+    data: {
+      name,
+      lastname,
+      position,
+      vk,
+      telegram,
+      twitter,
+      slack,
+      company,
+      podcasts,
+      photo,
+    },
   },
 }) => {
   return (
     <div>
-      <div>
-        {name} {lastname}
+      <div className={st.back_link}>
+        <Link to='/person/'>{'<'} назад</Link>
       </div>
-      <div>{company}</div>
-      <div>
-        {vk}
-        {telegram}
-        {twitter}
-        {slack}
-      </div>
-      <div>{photo ? <img src={`https:${photo.file.url}?w=200`} /> : null}</div>
-      {podcasts.map(({title, number}, index) => {
-        return (
-          <div key={index}>
-            <a
-              target='_blank'
-              href={`/podcast/${number}`}>
-              {title}
-            </a>
+      <div className={st.person}>
+        <div className={st.person_info}>
+          <h2>
+            {name} {lastname}
+          </h2>
+          <div className={st.company}>{company}</div>
+          <div className={st.social}>
+            <SocialIcon link={`https://vk.com/${vk}`}>
+              <VkIcon />
+            </SocialIcon>
+            <SocialIcon link={`https://t.me/${telegram}`}>
+              <TelegramIcon />
+            </SocialIcon>
+            <SocialIcon link={twitter}>
+              <TwitterIcon />
+            </SocialIcon>
+            <SocialIcon link='https://spb-frontend.slack.com/'>
+              <SlackIcon />
+            </SocialIcon>
           </div>
-        )
-      })}
-      <hr />
+        </div>
+        <div className={st.person_image}>
+          {photo ? (
+            <img src={`https:${photo.file.url}?fit=thumb&h=200&w=200`} />
+          ) : (
+            <img src='/Person-placeholder.jpg' />
+          )}
+        </div>
+      </div>
+      <div>
+        <h4>Подкасты:</h4>
+        {podcasts.map(({title, number}, index) => {
+          return (
+            <div
+              className={st.podcast_item}
+              key={index}>
+              <Link
+                target='_blank'
+                to={`/podcast/${number}`}>
+                {title}
+              </Link>
+            </div>
+          )
+        })}
+      </div>
     </div>
   )
 }
