@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import st from './style.module.css'
 import Link, { navigateTo } from 'gatsby-link'
+import BackButton from '../back-button'
 import marked from 'marked'
 import { Box, Thread } from 'react-disqussion'
 import { Player } from '../Player'
@@ -37,7 +38,7 @@ class PodcastPage extends Component {
     return (
       <div>
         <div className={st.back_link}>
-          <Link to='/podcast/'>{'<'} назад</Link>
+          <BackButton history={this.props.history} />
         </div>
 
         <header className={st.header}>
