@@ -1,14 +1,10 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Helmet from 'react-helmet'
 import Link from 'gatsby-link'
 import moment from 'moment'
-import RSSIcon from '-!svg-react-loader?name=Icon!../../static/rss-symbol.svg'
-import ITunesIcon from '-!svg-react-loader?name=Icon!../../static/itunes.svg'
-import TelegramIcon from '-!svg-react-loader?name=Icon!../../static/telegram.svg'
 
 import styles from './../css/person.module.css'
 import { defaultHelmetMeta } from '../layouts/index'
-import { getPersonId } from './../../utils/person'
 
 function getLastPodcast(array) {
   const newArray = array.map(podcast => podcast.number)
@@ -34,8 +30,7 @@ function sortPersons(array) {
   return newArray
 }
 
-const Person = ({ node: { name, lastname, photo } }) => {
-  const personId = getPersonId(name, lastname)
+const Person = ({ node: { name, lastname, photo, personId } }) => {
 
   return (
     <div className={styles.item}>

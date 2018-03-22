@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React from 'react'
 import Helmet from 'react-helmet'
 import Link from 'gatsby-link'
 import RSSIcon from '-!svg-react-loader?name=Icon!../../static/rss-symbol.svg'
