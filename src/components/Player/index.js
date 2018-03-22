@@ -11,7 +11,7 @@ export class Player extends Component {
     position: 0,
     duration: 0,
     volume: 100,
-    speed: 1,
+    playbackRate: 1,
   }
 
   componentWillReceiveProps(nextProps) {
@@ -23,7 +23,7 @@ export class Player extends Component {
 
     history.replaceState(null, null, `${location.pathname}?time=${seconds}`)
 
-    this.setState({...opts})
+    this.setState(opts)
   }
 
   handleLoading = opts => {
@@ -31,8 +31,8 @@ export class Player extends Component {
   }
 
   render() {
-    const {file} = this.props
-    const {playStatus, position, duration, volume, speed} = this.state
+    const { file } = this.props
+    const { playStatus, position, duration, volume, playbackRate } = this.state
 
     return (
       <div className={st.player}>
@@ -45,7 +45,7 @@ export class Player extends Component {
             })} />
           <Speed
             player={this}
-            speed={speed}
+            playbackRate={playbackRate}
             className={cn(st.control, st.small)} />
           <Volume
             player={this}
@@ -64,7 +64,7 @@ export class Player extends Component {
         <Sound
           position={position}
           volume={volume}
-          speed={speed}
+          playbackRate={playbackRate}
           onPlaying={this.handlePlaying}
           onLoading={this.handleLoading}
           playStatus={playStatus}
