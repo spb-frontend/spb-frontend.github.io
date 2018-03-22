@@ -32,3 +32,4 @@ public/
 
 keys.js
 .DS_Store
+/yarn.lock
