@@ -85,7 +85,6 @@ export default ({
               className={st.podcast_item}
               key={index}>
               <Link
-                target='_blank'
                 to={`/podcast/${number}`}>
                 {title}
               </Link>
