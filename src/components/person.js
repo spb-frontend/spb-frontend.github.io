@@ -1,37 +1,63 @@
-import React, {Component} from 'react'
+import React from 'react'
 import Helmet from 'react-helmet'
 import Link from 'gatsby-link'
-import RSSIcon from '-!svg-react-loader?name=Icon!../../static/rss-symbol.svg'
-import ITunesIcon from '-!svg-react-loader?name=Icon!../../static/itunes.svg'
-import TelegramIcon from '-!svg-react-loader?name=Icon!../../static/telegram.svg'
+import moment from 'moment'
 
 import styles from './../css/person.module.css'
-import {defaultHelmetMeta} from '../layouts/index'
-import {getPersonId} from './../../utils/person'
+import { defaultHelmetMeta } from '../layouts/index'
 
-const Person = ({node: {name, lastname, photo}}) => (
-  <div className={styles.item}>
-    <div className={styles.photo}>
-      <Link to={`/person/${getPersonId(name, lastname)}`}>
-        {photo ? (
-          <img src={`https:${photo.file.url}?fit=thumb&h=100&w=100`} />
-        ) : (
-          <img src='/Person-placeholder.jpg' />
-        )}
+function getLastPodcast(array) {
+  const newArray = array.map(podcast => podcast.number)
+  const last = Math.max.apply(null, newArray)
+
+  return last
+}
+
+function sortPersons(array) {
+  const newArray = [...array]
+    .sort((prev, next) => {
+      if (prev.node.podcasts.length !== next.node.podcasts.length) {
+        return next.node.podcasts.length - prev.node.podcasts.length
+      }
+      else {
+        const nextLastPodcast = getLastPodcast(next.node.podcasts)
+        const prevLastPodcast = getLastPodcast(prev.node.podcasts)
+
+        return nextLastPodcast - prevLastPodcast
+      }
+    })
+
+  return newArray
+}
+
+const Person = ({ node: { name, lastname, photo, personId } }) => {
+
+  return (
+    <div className={styles.item}>
+      <div className={styles.photo}>
+        <Link to={`/person/${personId}`}>
+          {photo ? (
+            <img src={`https:${photo.file.url}?fit=thumb&h=100&w=100`} />
+          ) : (
+            <img src='/Person-placeholder.jpg' />
+          )}
+        </Link>
+      </div>
+      <Link to={`/person/${personId}`}>
+        {name} {lastname}
       </Link>
     </div>
-    <Link to={`/person/${getPersonId(name, lastname)}`}>
-      {name} {lastname}
-    </Link>
-  </div>
-)
+  )
+}
 
 export default props => {
-  const {pathContext: {data: person}} = props
+  const { pathContext: { data: person } } = props
+  const sortedPersons = sortPersons(person)
+
   return (
     <div>
       <div className={styles.list}>
-        {person.map(({node}, index) => {
+        {sortedPersons.map(({ node }, index) => {
           return <Person
             key={index}
             node={node} />

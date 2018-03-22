@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import cn from 'classnames'
 import st from './style.module.css'
 
-const speeds = ['1', '1.2', '1.4', '1.6', '1.8', '2']
+const rates = ['1', '1.2', '1.4', '1.6', '1.8', '2']
 
 export class Speed extends Component {
   state = {
@@ -15,8 +15,8 @@ export class Speed extends Component {
     const {dataset} = target
 
     if (target.classList.contains(st.speed_link)) {
-      const {value} = dataset
-      player.setState({speed: value})
+      const { value } = dataset
+      player.setState({ playbackRate: parseFloat(value) })
     }
   }
 
@@ -29,25 +29,25 @@ export class Speed extends Component {
   }
 
   render() {
-    const {className, speed} = this.props
+    const { className, playbackRate } = this.props
 
     return (
       <div
         onFocus={this.focus}
         onBlur={this.blur}
-        className={cn(st.speed, {[st.focus]: this.state.focus})}>
-        <button className={cn(className, st.value)}>{speed}x</button>
+        className={cn(st.speed, { [st.focus]: this.state.focus })}>
+        <button className={cn(className, st.value)}>{playbackRate}x</button>
         <ul
           onClick={this.handleChange}
           className={st.dropdown}>
-          {speeds.map(speed => (
+          {rates.map(playbackRate => (
             <li
-              key={speed}
+              key={playbackRate}
               className={st.dropdown_item}>
               <button
-                data-value={speed}
+                data-value={playbackRate}
                 className={st.speed_link}>
-                {speed}x
+                {playbackRate}x
               </button>
             </li>
           ))}

@@ -1,6 +1,7 @@
 import React from 'react'
 import st from './style.module.css'
 import Link, {navigateTo} from 'gatsby-link'
+import BackButton from '../back-button'
 import TelegramIcon from '-!svg-react-loader?name=Icon!../../../static/telegram.svg'
 import VkIcon from '-!svg-react-loader?name=Icon!../../../static/vk.svg'
 import SlackIcon from '-!svg-react-loader?name=Icon!../../../static/slack.svg'
@@ -20,6 +21,7 @@ const SocialIcon = ({user, link, children}) => {
 }
 
 export default ({
+  history,
   pathContext: {
     data: {
       name,
@@ -38,7 +40,7 @@ export default ({
   return (
     <div>
       <div className={st.back_link}>
-        <Link to='/person/'>{'<'} назад</Link>
+        <BackButton history={history} />
       </div>
       <div className={st.person}>
         <div className={st.person_info}>
@@ -85,7 +87,6 @@ export default ({
               className={st.podcast_item}
               key={index}>
               <Link
-                target='_blank'
                 to={`/podcast/${number}`}>
                 {title}
               </Link>

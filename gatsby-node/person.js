@@ -40,7 +40,12 @@ module.exports = async ({ graphql, boundActionCreators: { createPage } }) => {
       }
     `
   );
-  const finalEdges = result.data.allContentfulPerson.edges;
+  const finalEdges = result.data.allContentfulPerson.edges.map(edge => {
+    edge.node.personId = getPersonId(edge.node.name, edge.node.lastname)
+
+    return edge
+  });
+
   createPage({
     path: '/person',
     component: slash(person),

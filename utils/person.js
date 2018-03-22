@@ -1,7 +1,7 @@
-const tr = require('transliteration');
+const tr = require('transliteration')
 
-const getPersonId = (name, lastname) => tr.slugify(`${name} ${lastname}`);
+const getPersonId = (name, lastname) => tr.slugify(`${name} ${lastname}`)
 
 module.exports = {
-  getPersonId
-};
+  getPersonId,
+}

@@ -1,4 +1,4 @@
-export {Sound} from './Sound'
+export {default as Sound} from 'react-sound'
 export {Play} from './Play'
 export {Volume} from './Volume'
 export {Timer} from './Timer'
