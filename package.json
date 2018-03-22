@@ -17,7 +17,6 @@
     "lodash.throttle": "^4.1.1",
     "marked": "^0.3.6",
     "moment": "^2.18.1",
-    "prop-types": "^15.6.0",
     "react-disqussion": "^1.1.0",
     "react-sound": "^0.10.0",
     "rss": "^1.2.2",
@@ -65,9 +64,6 @@
     ],
     "*.{css,pcss}": [
       "stylelint"
-    ],
-    "*.{md,markdown}": [
-      "remark"
     ]
   }
 }
