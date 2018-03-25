@@ -15,8 +15,8 @@ function getLastPodcast(array) {
 function sortPersons(array) {
   const newArray = [...array]
     .sort((prev, next) => {
-      if (!prev.node.podcasts) return -1
-      if (!next.node.podcasts) return 1
+      if (!prev.node.podcasts) return 1
+      if (!next.node.podcasts) return -1
 
       if (prev.node.podcasts.length !== next.node.podcasts.length) {
         return next.node.podcasts.length - prev.node.podcasts.length
