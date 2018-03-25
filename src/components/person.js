@@ -1,7 +1,6 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import Link from 'gatsby-link'
-import moment from 'moment'
 
 import styles from './../css/person.module.css'
 import { defaultHelmetMeta } from '../layouts/index'
@@ -16,12 +15,15 @@ function getLastPodcast(array) {
 function sortPersons(array) {
   const newArray = [...array]
     .sort((prev, next) => {
+      if (!prev.node.podcasts) return 1
+      if (!next.node.podcasts) return -1
+
       if (prev.node.podcasts.length !== next.node.podcasts.length) {
         return next.node.podcasts.length - prev.node.podcasts.length
       }
       else {
-        const nextLastPodcast = getLastPodcast(next.node.podcasts)
-        const prevLastPodcast = getLastPodcast(prev.node.podcasts)
+        const nextLastPodcast = next.node.podcasts ? getLastPodcast(next.node.podcasts) : 0
+        const prevLastPodcast = prev.node.podcasts ? getLastPodcast(prev.node.podcasts) : 0
 
         return nextLastPodcast - prevLastPodcast
       }
