@@ -81,7 +81,7 @@ export default ({
       </div>
       <div>
         <h4>Подкасты:</h4>
-        {podcasts.map(({title, number}, index) => {
+        {podcasts && podcasts.map(({title, number}, index) => {
           return (
             <div
               className={st.podcast_item}

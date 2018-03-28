@@ -1,6 +1,6 @@
-const tr = require('transliteration')
+const { slugify } = require('transliteration')
 
-const getPersonId = (name, lastname) => tr.slugify(`${name} ${lastname}`)
+const getPersonId = (name, lastname) => slugify(`${name} ${lastname}`)
 
 module.exports = {
   getPersonId,
