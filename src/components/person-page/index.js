@@ -34,7 +34,7 @@ export default ({
           <h2>
             {name} {lastname}
             <br />
-            {position && <small>{position}</small>}
+            {position && <small className={st.person_position}>{position}</small>}
           </h2>
           <div className={st.company}>{company}</div>
           <div className={st.social}>

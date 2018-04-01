@@ -24,6 +24,12 @@
   padding: 0;
 }
 
+.person_position {
+  color: #777;
+  font-size: 18px;
+  font-weight: normal;
+}
+
 .podcast_item {
   margin-bottom: 10px;
 }
