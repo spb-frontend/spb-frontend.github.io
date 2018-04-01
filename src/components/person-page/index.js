@@ -1,13 +1,13 @@
 import React from 'react'
 import st from './style.module.css'
-import Link, {navigateTo} from 'gatsby-link'
+import Link, { navigateTo } from 'gatsby-link'
 import BackButton from '../back-button'
 import TelegramIcon from '-!svg-react-loader?name=Icon!../../../static/telegram.svg'
 import VkIcon from '-!svg-react-loader?name=Icon!../../../static/vk.svg'
 import SlackIcon from '-!svg-react-loader?name=Icon!../../../static/slack.svg'
 import TwitterIcon from '-!svg-react-loader?name=Icon!../../../static/twitter.svg'
 
-const SocialIcon = ({user, link, children}) => {
+const SocialIcon = ({ user, link, children }) => {
   const icon = user ? (
     <span className={st.social_icon}>
       <a
@@ -22,20 +22,7 @@ const SocialIcon = ({user, link, children}) => {
 
 export default ({
   history,
-  pathContext: {
-    data: {
-      name,
-      lastname,
-      position,
-      vk,
-      telegram,
-      twitter,
-      slack,
-      company,
-      podcasts,
-      photo,
-    },
-  },
+  pathContext: { data: { name, lastname, position, vk, telegram, twitter, slack, company, podcasts, photo } },
 }) => {
   return (
     <div>
@@ -59,9 +46,8 @@ export default ({
               user={telegram}>
               <TelegramIcon />
             </SocialIcon>
-            <SocialIcon
-              link={twitter}
-              user={`https://twitter.com/${twitter}`}>
+            <SocialIcon link={`https://twitter.com/${twitter}`}>
+              user={twitter}
               <TwitterIcon />
             </SocialIcon>
             {slack ? (
@@ -81,22 +67,20 @@ export default ({
       </div>
       <div>
         <h4>Подкасты:</h4>
-        {podcasts && podcasts
-          .sort((prev, next) => {
-            return parseInt(next.number) - parseInt(prev.number)
-          })
-          .map(({title, number}) => {
-            return (
-              <div
-                className={st.podcast_item}
-                key={number}>
-                <Link
-                  to={`/podcast/${number}`}>
-                  {title}
-                </Link>
-              </div>
-            )
-          })}
+        {podcasts &&
+          podcasts
+            .sort((prev, next) => {
+              return parseInt(next.number) - parseInt(prev.number)
+            })
+            .map(({ title, number }) => {
+              return (
+                <div
+                  className={st.podcast_item}
+                  key={number}>
+                  <Link to={`/podcast/${number}`}>{title}</Link>
+                </div>
+              )
+            })}
       </div>
     </div>
   )
