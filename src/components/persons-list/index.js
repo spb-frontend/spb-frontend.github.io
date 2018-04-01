@@ -1,17 +1,18 @@
 import React from 'react'
 import Link from 'gatsby-link'
+import cn from 'classnames'
 
 import st from './styles.module.css'
 
 export default props => {
   return (
-    <ul className={st.list}>
-      {props.collection.map(({ node: { name, lastname, photo, personId } }) => (
+    <ul className={cn(st.list, props.className)}>
+      {props.collection.map(({ name, lastname, photo, slug }) => (
         <li
-          key={`${personId}`}
+          key={`${slug}`}
           className={st.item}>
           <div className={st.photo}>
-            <Link to={`/person/${personId}`}>
+            <Link to={`/persons/${slug}`}>
               {photo ? (
                 <img src={`https:${photo.file.url}?fit=thumb&h=100&w=100`} />
               ) : (
@@ -20,7 +21,7 @@ export default props => {
             </Link>
           </div>
 
-          <Link to={`/person/${personId}`}>
+          <Link to={`/persons/${slug}`}>
             {name} {lastname}
           </Link>
         </li>

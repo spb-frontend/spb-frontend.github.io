@@ -5,6 +5,7 @@ import BackButton from '../back-button'
 import marked from 'marked'
 import { Box, Thread } from 'react-disqussion'
 import { Player } from '../Player'
+import PersonsList from '../persons-list'
 import { timestampToSeconds } from '../../../utils'
 import throttle from 'lodash.throttle'
 
@@ -33,7 +34,7 @@ class PodcastPage extends Component {
 
   render() {
     const { data } = this.props.pathContext
-    const { title, number, file, notes, formatedDate } = data
+    const { title, number, file, notes, formatedDate, persons } = data
 
     return (
       <div>
@@ -50,17 +51,14 @@ class PodcastPage extends Component {
           position={this.state.time}
           file={file} />
 
+        {persons && <PersonsList
+          collection={persons}
+          className={st.personsList} />}
+
         <footer
           onClick={this.handleTimeClick}
           className={st.footer}
           dangerouslySetInnerHTML={{ __html: marked(notes.notes) }} />
-
-        <Box shortname='http-spb-frontend-ru'>
-          <Thread
-            url={`http://spb-frontend.ru/podcast/${number}`}
-            title={title}
-            identifier={`podcast-${number}`} />
-        </Box>
       </div>
     )
   }

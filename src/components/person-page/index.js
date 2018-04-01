@@ -61,7 +61,7 @@ export default ({
             </SocialIcon>
             <SocialIcon
               link={twitter}
-              user={twitter}>
+              user={`https://twitter.com/${twitter}`}>
               <TwitterIcon />
             </SocialIcon>
             {slack ? (

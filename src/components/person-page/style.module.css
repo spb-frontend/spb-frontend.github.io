@@ -40,10 +40,20 @@
   display: inline-block;
   width: 22px;
   margin: 10px 10px 10px 0;
-}
-
-.social_icon a {
+  text-decoration: none;
+  transition: transform 150ms ease;
   color: #000;
+
+  &:hover,
+  &:focus {
+    transform: scale(1.1);
+  }
+
+  & a {
+    text-decoration: none;
+    border-bottom: none;
+    color: inherit;
+  }
 }
 
 .slack_icon svg {
