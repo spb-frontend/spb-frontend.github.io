@@ -11,7 +11,7 @@ const SocialIcon = ({ user, link, children }) => {
   const icon = user ? (
     <span className={st.social_icon}>
       <a
-        target="_blank"
+        target='_blank'
         href={link}>
         {children}
       </a>
@@ -48,8 +48,9 @@ export default ({
               user={telegram}>
               <TelegramIcon />
             </SocialIcon>
-            <SocialIcon link={`https://twitter.com/${twitter}`}>
-              user={twitter}
+            <SocialIcon
+              link={`https://twitter.com/${twitter}`}
+              user={twitter}>
               <TwitterIcon />
             </SocialIcon>
             {slack ? (
@@ -63,7 +64,7 @@ export default ({
           {photo ? (
             <img src={`https:${photo.file.url}?fit=thumb&h=200&w=200`} />
           ) : (
-            <img src="/Person-placeholder.jpg" />
+            <img src='/Person-placeholder.jpg' />
           )}
         </div>
       </div>
