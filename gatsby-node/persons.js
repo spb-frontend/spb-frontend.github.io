@@ -2,8 +2,8 @@ const slash = require('slash')
 const path = require('path')
 const { getPersonId } = require('../utils/person')
 
-const person = path.resolve(process.cwd(), 'src/components/persons.js')
-const personTemplate = path.resolve(process.cwd(), 'src/components/persons-page/index.js')
+const persons = path.resolve(process.cwd(), 'src/components/persons.js')
+const personTemplate = path.resolve(process.cwd(), 'src/components/person-page/index.js')
 
 module.exports = async ({ graphql, boundActionCreators: { createPage } }) => {
   const result = await graphql(
@@ -45,8 +45,8 @@ module.exports = async ({ graphql, boundActionCreators: { createPage } }) => {
   })
 
   createPage({
-    path: '/person',
-    component: slash(person),
+    path: '/persons',
+    component: slash(persons),
     context: {
       data: finalEdges,
     },
@@ -54,7 +54,7 @@ module.exports = async ({ graphql, boundActionCreators: { createPage } }) => {
 
   finalEdges.forEach(({ node }, id) => {
     createPage({
-      path: `/person/${node.personId}`,
+      path: `/persons/${node.personId}`,
       component: slash(personTemplate),
       context: {
         data: node,
