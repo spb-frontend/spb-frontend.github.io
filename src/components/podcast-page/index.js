@@ -59,6 +59,13 @@ class PodcastPage extends Component {
           onClick={this.handleTimeClick}
           className={st.footer}
           dangerouslySetInnerHTML={{ __html: marked(notes.notes) }} />
+
+        <Box shortname='http-spb-frontend-ru'>
+          <Thread
+            url={`http://spb-frontend.ru/podcast/${number}`}
+            title={title}
+            identifier={`podcast-${number}`} />
+        </Box>
       </div>
     )
   }
