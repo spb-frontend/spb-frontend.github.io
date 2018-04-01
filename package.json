@@ -80,7 +80,7 @@
   },
   "lint-staged": {
     "*.{js,jsx}": [
-      "eslint"
+      "eslint --fix"
     ],
     "*.{css,pcss}": [
       "stylelint"
