@@ -81,18 +81,22 @@ export default ({
       </div>
       <div>
         <h4>Подкасты:</h4>
-        {podcasts && podcasts.map(({title, number}, index) => {
-          return (
-            <div
-              className={st.podcast_item}
-              key={index}>
-              <Link
-                to={`/podcast/${number}`}>
-                {title}
-              </Link>
-            </div>
-          )
-        })}
+        {podcasts && podcasts
+          .sort((prev, next) => {
+            return parseInt(next.number) - parseInt(prev.number)
+          })
+          .map(({title, number}) => {
+            return (
+              <div
+                className={st.podcast_item}
+                key={number}>
+                <Link
+                  to={`/podcast/${number}`}>
+                  {title}
+                </Link>
+              </div>
+            )
+          })}
       </div>
     </div>
   )
