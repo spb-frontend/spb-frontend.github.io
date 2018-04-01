@@ -1,6 +1,6 @@
 import React from 'react'
 import st from './style.module.css'
-import Link, { navigateTo } from 'gatsby-link'
+import Link from 'gatsby-link'
 import BackButton from '../back-button'
 import TelegramIcon from '-!svg-react-loader?name=Icon!../../../static/telegram.svg'
 import VkIcon from '-!svg-react-loader?name=Icon!../../../static/vk.svg'
@@ -11,7 +11,7 @@ const SocialIcon = ({ user, link, children }) => {
   const icon = user ? (
     <span className={st.social_icon}>
       <a
-        target='_blank'
+        target="_blank"
         href={link}>
         {children}
       </a>
@@ -33,6 +33,8 @@ export default ({
         <div className={st.person_info}>
           <h2>
             {name} {lastname}
+            <br />
+            {position && <small>{position}</small>}
           </h2>
           <div className={st.company}>{company}</div>
           <div className={st.social}>
@@ -61,12 +63,12 @@ export default ({
           {photo ? (
             <img src={`https:${photo.file.url}?fit=thumb&h=200&w=200`} />
           ) : (
-            <img src='/Person-placeholder.jpg' />
+            <img src="/Person-placeholder.jpg" />
           )}
         </div>
       </div>
       <div>
-        <h4>Подкасты:</h4>
+        {podcasts && <h4>Подкасты:</h4>}
         {podcasts &&
           podcasts
             .sort((prev, next) => {
