@@ -56,6 +56,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  outline: none;
+
+  &:focus {
+    box-shadow: 0 6px 0 0 white, 0 7px 0 0 #df4b26;
+  }
 }
 
 .timer {
