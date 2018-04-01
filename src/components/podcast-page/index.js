@@ -5,7 +5,7 @@ import BackButton from '../back-button'
 import marked from 'marked'
 import { Box, Thread } from 'react-disqussion'
 import { Player } from '../Player'
-import { timestampToSeconds } from '../../utils/time'
+import { timestampToSeconds } from '../../../utils'
 import throttle from 'lodash.throttle'
 
 class PodcastPage extends Component {

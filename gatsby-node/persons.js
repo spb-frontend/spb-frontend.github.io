@@ -2,8 +2,8 @@ const slash = require('slash')
 const path = require('path')
 const { getPersonId } = require('../utils/person')
 
-const person = path.resolve(process.cwd(), 'src/components/person.js')
-const personTemplate = path.resolve(process.cwd(), 'src/components/person-page/index.js')
+const person = path.resolve(process.cwd(), 'src/components/persons.js')
+const personTemplate = path.resolve(process.cwd(), 'src/components/persons-page/index.js')
 
 module.exports = async ({ graphql, boundActionCreators: { createPage } }) => {
   const result = await graphql(
