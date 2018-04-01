@@ -37,7 +37,7 @@ function sortPersons(array) {
 
 export default props => {
   const { pathContext: { data: person } } = props
-  const sortedPersons = sortPersons(person)
+  const sortedPersons = sortPersons(person).map(edge => edge.node)
 
   return (
     <div>
