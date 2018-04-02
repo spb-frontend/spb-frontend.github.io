@@ -32,10 +32,6 @@ export class Player extends Component {
     40: () => { this.decreaseVolume() },
   }
 
-  refPlayer = (el) => {
-    this.playerEl = el;
-  }
-
   togglePlaying() {
     let { playStatus } = this.state
 
@@ -59,6 +55,14 @@ export class Player extends Component {
   }
 
   changeVolume(value) {
+    if (value > 100) {
+      value = 100
+    }
+
+    if (value < 0) {
+      value = 0
+    }
+
     this.setState(({ volume }) => ({
       volume: value,
       prevVolume: volume
@@ -118,8 +122,10 @@ export class Player extends Component {
   handlePlayerKeyDown = event => {
     const { playStatus } = this.state
     const handler = this.keysHandlersHash[event.keyCode]
+    const isSpace = event.keyCode === 32
+    const focusedTag = document.activeElement.tagName.toLocaleLowerCase()
 
-    if (handler && this.playerEl === document.activeElement) {
+    if (handler && (!isSpace || focusedTag !== 'button')) {
       event.preventDefault()
       handler()
     }
@@ -131,9 +137,7 @@ export class Player extends Component {
 
     return (
       <div
-        tabIndex='0'
         className={st.player}
-        ref={this.refPlayer}
         onKeyDown={this.handlePlayerKeyDown}>
         <div className={st.controls}>
           <Play
