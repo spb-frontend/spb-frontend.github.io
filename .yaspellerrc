@@ -1,0 +1,26 @@
+{
+  "excludeFiles": [
+    ".git",
+    "libs",
+    "node_modules",
+    "yaspeller"
+  ],
+  "lang": "ru",
+  "fileExtensions": [
+    ".md",
+    ".js"
+  ],
+  "ignoreCapitalization": true,
+  "dictionary": [
+    "фронтенд",
+    "дринкап",
+    "вконтакте",
+    "ВКонтакте",
+    "твиттер",
+    "телеграм",
+    "слак",
+    "инвайт",
+    "ютуб",
+    "гитхаб"
+  ]
+}
