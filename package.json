@@ -78,11 +78,12 @@
     },
     "transform": { "^.+\\.js$": "<rootDir>/jest/transformer.js" }
   },
+  "lint-staged": {
     "*.{js}": [
       "eslint",
       "yaspeller-ci"
     ],
-    "*.{css,pcss}": [
+    "*.{css}": [
       "stylelint"
     ],
     "*.md": [
