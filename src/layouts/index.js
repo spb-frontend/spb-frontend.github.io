@@ -34,7 +34,7 @@ const Template = props => (
           <dd className='contacts--desc'>
             <a href='https://vk.com/spb_frontend'>spb_frontend</a>
           </dd>
-          <dt className='contacts--term'>Твитер</dt>
+          <dt className='contacts--term'>Твиттер</dt>
           <dd className='contacts--desc'>
             <a href='https://twitter.com/spb_frontend'>@spb_frontend</a>
           </dd>
