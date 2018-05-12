@@ -12,6 +12,10 @@ function positionToTime(position) {
   return `${hours > 0 ? hours + ':' : ''}${minutesString}:${secondsString}`
 }
 
-export const Timer = ({position, className}) => {
-  return <div className={className}>{positionToTime(position)}</div>
+export const Timer = ({ position, toggleTimerType, className }) => {
+  return <button
+    className={className}
+    onClick={toggleTimerType}>
+    {positionToTime(position)}
+  </button>
 }
