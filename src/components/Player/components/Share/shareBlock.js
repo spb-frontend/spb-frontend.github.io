@@ -101,7 +101,7 @@ export default class ShareBlock extends Component {
         <label
           className={st.time}
           htmlFor='timecode'>
-          <span>Добавить таймкод</span>
+          <span>Добавить тайм-код</span>
         </label>
       </div>
     )
