@@ -32,10 +32,11 @@ export default class ShareBlock extends Component {
   }
 
   getUrl = (position) => {
+    const location = this.location ? this.location : ''
     if (!this.state.timeCode) {
-      return location.origin + location.pathname
+      return location
     }
-    return `${location.origin + location.pathname}?time=${Math.floor(position / 1000)}`
+    return `${location}?time=${Math.floor(position / 1000)}`
   }
 
   selectText = (ev) => {
@@ -47,7 +48,8 @@ export default class ShareBlock extends Component {
     timeCode: true
   }
 
-  componentDidMount() {
+  componentDidMount = () => {
+    this.location = location.origin + location.pathname
     document.addEventListener('click', this.props.closeBlock)
   }
 
