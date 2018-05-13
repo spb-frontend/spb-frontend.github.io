@@ -106,4 +106,12 @@
   width: 24px;
   height: 24px;
   color: #ce340d;
+
+  &:hover {
+    color: #df4b26;
+  }
+
+  &:focus {
+    color: #df4b26;
+  }
 }
