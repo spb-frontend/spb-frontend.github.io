@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import cn from 'classnames'
 import st from './style.module.css'
 import TwitterIcon from './Icons/twitter'
@@ -20,18 +20,17 @@ const social = [
     name: 'twitter',
     icon: TwitterIcon,
     link: 'https://twitter.com/home?status=',
-  }
+  },
 ]
 
 export default class ShareBlock extends Component {
-
   toggleTimeCode = () => {
-    this.setState((prevState) => {
-      return { timeCode: !prevState.timeCode }
+    this.setState(prevState => {
+      return {timeCode: !prevState.timeCode}
     })
   }
 
-  getUrl = (position) => {
+  getUrl = position => {
     const location = this.location ? this.location : ''
     if (!this.state.timeCode) {
       return location
@@ -39,13 +38,13 @@ export default class ShareBlock extends Component {
     return `${location}?time=${Math.floor(position / 1000)}`
   }
 
-  selectText = (ev) => {
+  selectText = ev => {
     const el = ev.target
     el.setSelectionRange(0, el.value.length)
   }
 
   state = {
-    timeCode: true
+    timeCode: true,
   }
 
   componentDidMount = () => {
@@ -58,49 +57,47 @@ export default class ShareBlock extends Component {
   }
 
   render() {
-    const { opened, position } = this.props
-    const { timeCode } = this.state
+    const {opened, position} = this.props
+    const {timeCode} = this.state
     return (
       <div
-        className={cn(st.shareBlock, { [st.visible]: opened })}
-        onClick={ev => ev.nativeEvent.stopImmediatePropagation()} >
+        className={cn(st.shareBlock, {[st.visible]: opened})}
+        onClick={ev => ev.nativeEvent.stopImmediatePropagation()}
+      >
         <div className={st.social}>
           <span>Поделиться:</span>
           <ul className={st.socialList}>
-            {
-              social.map(item => {
-                const Icon = item.icon;
-                return (
-                  <li
-                    key={item.name}
-                    className={st.socialItem}>
-                    <a
-                      className={st.socialLink}
-                      target='_blank'
-                      href={item.link + this.getUrl(position)}>
-                      <Icon />
-                    </a>
-                  </li>
-                )
-              })
-            }
+            {social.map(item => {
+              const Icon = item.icon
+              return (
+                <li key={item.name} className={st.socialItem}>
+                  <a
+                    className={st.socialLink}
+                    target="_blank"
+                    href={item.link + this.getUrl(position)}
+                  >
+                    <Icon />
+                  </a>
+                </li>
+              )
+            })}
           </ul>
         </div>
         <input
-          type='text'
+          type="text"
           onFocus={this.selectText}
           className={st.input}
           value={this.getUrl(position)}
-          readOnly={true} />
+          readOnly={true}
+        />
         <input
-          type='checkbox'
-          id='timecode'
+          type="checkbox"
+          id="timecode"
           onChange={this.toggleTimeCode}
           className={st.checkbox}
-          checked={timeCode} />
-        <label
-          className={st.time}
-          htmlFor='timecode'>
+          checked={timeCode}
+        />
+        <label className={st.time} htmlFor="timecode">
           <span>Добавить тайм-код</span>
         </label>
       </div>

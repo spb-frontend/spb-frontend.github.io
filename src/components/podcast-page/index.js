@@ -1,12 +1,12 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import st from './style.module.css'
-import Link, { navigateTo } from 'gatsby-link'
+import Link, {navigateTo} from 'gatsby-link'
 import BackButton from '../back-button'
 import marked from 'marked'
-import { Box, Thread } from 'react-disqussion'
-import { Player } from '../Player'
+import {Box, Thread} from 'react-disqussion'
+import {Player} from '../Player'
 import PersonsList from '../persons-list'
-import { timestampToSeconds } from '../../../utils'
+import {timestampToSeconds} from '../../../utils'
 import throttle from 'lodash.throttle'
 
 class PodcastPage extends Component {
@@ -19,22 +19,22 @@ class PodcastPage extends Component {
   }
 
   handleTimeClick = event => {
-    const { target } = event
+    const {target} = event
     if (target.classList.contains('podcast_time')) {
       event.preventDefault()
-      this.setState({ time: timestampToSeconds(target.innerText) * 1000 })
+      this.setState({time: timestampToSeconds(target.innerText) * 1000})
     }
   }
 
   getInitialTime() {
     const rgexRes = location.search.match(/time=(\d+)/)
 
-    this.setState({ time: rgexRes ? parseInt(rgexRes[1]) * 1000 : 0 })
+    this.setState({time: rgexRes ? parseInt(rgexRes[1]) * 1000 : 0})
   }
 
   render() {
-    const { data } = this.props.pathContext
-    const { title, number, file, notes, formatedDate, persons } = data
+    const {data} = this.props.pathContext
+    const {title, number, file, notes, formatedDate, persons} = data
 
     return (
       <div>
@@ -47,24 +47,24 @@ class PodcastPage extends Component {
           <date className={st.header_date}>{formatedDate}</date>
         </header>
 
-        <Player
-          position={this.state.time}
-          file={file} />
+        <Player position={this.state.time} file={file} />
 
-        {persons && <PersonsList
-          collection={persons}
-          className={st.personsList} />}
+        {persons && (
+          <PersonsList collection={persons} className={st.personsList} />
+        )}
 
         <footer
           onClick={this.handleTimeClick}
           className={st.footer}
-          dangerouslySetInnerHTML={{ __html: marked(notes.notes) }} />
+          dangerouslySetInnerHTML={{__html: marked(notes.notes)}}
+        />
 
-        <Box shortname='http-spb-frontend-ru'>
+        <Box shortname="http-spb-frontend-ru">
           <Thread
             url={`http://spb-frontend.ru/podcast/${number}`}
             title={title}
-            identifier={`podcast-${number}`} />
+            identifier={`podcast-${number}`}
+          />
         </Box>
       </div>
     )

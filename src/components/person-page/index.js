@@ -7,12 +7,10 @@ import VkIcon from '-!svg-react-loader?name=Icon!../../../static/vk.svg'
 import SlackIcon from '-!svg-react-loader?name=Icon!../../../static/slack.svg'
 import TwitterIcon from '-!svg-react-loader?name=Icon!../../../static/twitter.svg'
 
-const SocialIcon = ({ user, link, children }) => {
+const SocialIcon = ({user, link, children}) => {
   const icon = user ? (
     <span className={st.social_icon}>
-      <a
-        target='_blank'
-        href={link}>
+      <a target="_blank" href={link}>
         {children}
       </a>
     </span>
@@ -22,7 +20,20 @@ const SocialIcon = ({ user, link, children }) => {
 
 export default ({
   history,
-  pathContext: { data: { name, lastname, position, vk, telegram, twitter, slack, company, podcasts, photo } },
+  pathContext: {
+    data: {
+      name,
+      lastname,
+      position,
+      vk,
+      telegram,
+      twitter,
+      slack,
+      company,
+      podcasts,
+      photo,
+    },
+  },
 }) => {
   return (
     <div>
@@ -34,23 +45,19 @@ export default ({
           <h2>
             {name} {lastname}
             <br />
-            {position && <small className={st.person_position}>{position}</small>}
+            {position && (
+              <small className={st.person_position}>{position}</small>
+            )}
           </h2>
           <div className={st.company}>{company}</div>
           <div className={st.social}>
-            <SocialIcon
-              link={`https://vk.com/${vk}`}
-              user={vk}>
+            <SocialIcon link={`https://vk.com/${vk}`} user={vk}>
               <VkIcon />
             </SocialIcon>
-            <SocialIcon
-              link={`https://t.me/${telegram}`}
-              user={telegram}>
+            <SocialIcon link={`https://t.me/${telegram}`} user={telegram}>
               <TelegramIcon />
             </SocialIcon>
-            <SocialIcon
-              link={`https://twitter.com/${twitter}`}
-              user={twitter}>
+            <SocialIcon link={`https://twitter.com/${twitter}`} user={twitter}>
               <TwitterIcon />
             </SocialIcon>
             {slack ? (
@@ -64,7 +71,7 @@ export default ({
           {photo ? (
             <img src={`https:${photo.file.url}?fit=thumb&h=200&w=200`} />
           ) : (
-            <img src='/Person-placeholder.jpg' />
+            <img src="/Person-placeholder.jpg" />
           )}
         </div>
       </div>
@@ -75,11 +82,9 @@ export default ({
             .sort((prev, next) => {
               return parseInt(next.number) - parseInt(prev.number)
             })
-            .map(({ title, number }) => {
+            .map(({title, number}) => {
               return (
-                <div
-                  className={st.podcast_item}
-                  key={number}>
+                <div className={st.podcast_item} key={number}>
                   <Link to={`/podcast/${number}`}>{title}</Link>
                 </div>
               )

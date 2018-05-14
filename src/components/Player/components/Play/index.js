@@ -19,9 +19,7 @@ export class Play extends Component {
 
   render() {
     return (
-      <button
-        className={this.props.className}
-        onClick={this.switch}>
+      <button className={this.props.className} onClick={this.switch}>
         {this.getIcon()}
       </button>
     )
