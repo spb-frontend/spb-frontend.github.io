@@ -10,15 +10,14 @@ class SiteHeader extends Component {
     return (
       <div className={style.header}>
         <div className={style.wrapper}>
-          <Link
-            className={style.logo}
-            to='/'>
+          <Link className={style.logo} to="/">
             <Icon className={style.icon} />
           </Link>
           <Link
             className={style.menuItem}
             activeClassName={style.active}
-            to='/podcast'>
+            to="/podcast"
+          >
             Drinkcast
           </Link>
         </div>

@@ -19,7 +19,7 @@
   }
 
   &:focus {
-    box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
   }
 
   & + & {
@@ -48,7 +48,9 @@
 
 .controls {
   display: flex;
+  flex-flow: row, nowrap;
   align-items: flex-end;
+  align-content: flex-start;
 }
 
 .player {
@@ -59,11 +61,13 @@
 }
 
 .timer {
+  cursor: pointer;
   background-color: transparent;
   border: none;
   padding: 0;
   margin-top: 16px;
-  font-family: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+    'Courier New', monospace;
   line-height: 1;
 }
 

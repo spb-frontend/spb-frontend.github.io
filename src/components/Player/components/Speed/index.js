@@ -15,8 +15,8 @@ export class Speed extends Component {
     const {dataset} = target
 
     if (target.classList.contains(st.speed_link)) {
-      const { value } = dataset
-      player.setState({ playbackRate: parseFloat(value) })
+      const {value} = dataset
+      player.setState({playbackRate: parseFloat(value)})
     }
   }
 
@@ -29,24 +29,19 @@ export class Speed extends Component {
   }
 
   render() {
-    const { className, playbackRate } = this.props
+    const {className, playbackRate} = this.props
 
     return (
       <div
         onFocus={this.focus}
         onBlur={this.blur}
-        className={cn(st.speed, { [st.focus]: this.state.focus })}>
+        className={cn(st.speed, {[st.focus]: this.state.focus})}
+      >
         <button className={cn(className, st.value)}>{playbackRate}x</button>
-        <ul
-          onClick={this.handleChange}
-          className={st.dropdown}>
+        <ul onClick={this.handleChange} className={st.dropdown}>
           {rates.map(playbackRate => (
-            <li
-              key={playbackRate}
-              className={st.dropdown_item}>
-              <button
-                data-value={playbackRate}
-                className={st.speed_link}>
+            <li key={playbackRate} className={st.dropdown_item}>
+              <button data-value={playbackRate} className={st.speed_link}>
                 {playbackRate}x
               </button>
             </li>
