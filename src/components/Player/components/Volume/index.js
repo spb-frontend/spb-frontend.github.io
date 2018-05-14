@@ -37,18 +37,20 @@ export class Volume extends Component {
       <div className={st.volume}>
         <button
           className={cn(st.button, this.props.className)}
-          onClick={this.switch}>
+          onClick={this.switch}
+        >
           {this.getIcon()}
         </button>
 
         <input
           onChange={this.change}
           className={st.range}
-          min='0'
-          max='100'
-          step='1'
+          min="0"
+          max="100"
+          step="1"
           value={volume}
-          type='range' />
+          type="range"
+        />
       </div>
     )
   }
