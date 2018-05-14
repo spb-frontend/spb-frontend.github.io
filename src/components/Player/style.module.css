@@ -19,7 +19,7 @@
   }
 
   &:focus {
-    box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
   }
 
   & + & {
@@ -61,12 +61,13 @@
 }
 
 .timer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  justify-self: flex-end;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  padding: 0;
   margin-top: 16px;
-  font-family: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+    'Courier New', monospace;
   line-height: 1;
 }
 

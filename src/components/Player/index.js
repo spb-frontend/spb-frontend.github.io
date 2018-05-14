@@ -6,6 +6,7 @@ import st from './style.module.css'
 export class Player extends Component {
   state = {
     playStatus: 'STOPPED',
+    timerType: 'ELAPSED',
     position: 0,
     duration: 0,
     volume: 100,
@@ -137,9 +138,23 @@ export class Player extends Component {
     }
   }
 
+  toggleTimerType = () => {
+    const {timerType} = this.state
+    this.setState({
+      timerType: timerType === 'ELAPSED' ? 'REMAINING' : 'ELAPSED',
+    })
+  }
+
   render() {
     const {file} = this.props
-    const {playStatus, position, duration, volume, playbackRate} = this.state
+    const {
+      playStatus,
+      position,
+      duration,
+      volume,
+      playbackRate,
+      timerType,
+    } = this.state
 
     return (
       <div>
@@ -150,8 +165,11 @@ export class Player extends Component {
             duration={duration}
             className={st.progress}
           />
-          <Timer position={position} className={st.timer} />
-
+          <Timer
+            position={timerType === 'ELAPSED' ? position : duration - position}
+            toggleTimerType={this.toggleTimerType}
+            className={st.timer}
+          />
           <Sound
             position={position}
             volume={volume}
@@ -176,6 +194,7 @@ export class Player extends Component {
             playbackRate={playbackRate}
             className={cn(st.control, st.small)}
           />
+
           <Volume
             player={this}
             volume={volume}
