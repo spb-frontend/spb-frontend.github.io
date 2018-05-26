@@ -1,6 +1,15 @@
 import React, {Component} from 'react'
 import cn from 'classnames'
-import {Sound, Play, Volume, Timer, Progress, Speed, Share} from './components'
+import {
+  Sound,
+  Play,
+  Volume,
+  Timer,
+  Progress,
+  Speed,
+  Share,
+  Download,
+} from './components'
 import st from './style.module.css'
 
 export class Player extends Component {
@@ -146,7 +155,7 @@ export class Player extends Component {
   }
 
   render() {
-    const {file} = this.props
+    const {file, title} = this.props
     const {
       playStatus,
       position,
@@ -164,12 +173,12 @@ export class Player extends Component {
             position={position}
             duration={duration}
             className={st.progress}
-          />
+            />
           <Timer
             position={timerType === 'ELAPSED' ? position : duration - position}
             toggleTimerType={this.toggleTimerType}
             className={st.timer}
-          />
+            />
           <Sound
             position={position}
             volume={volume}
@@ -179,7 +188,7 @@ export class Player extends Component {
             playStatus={playStatus}
             autoLoad={true}
             url={file}
-          />
+            />
         </div>
         <div className={st.controls}>
           <Play
@@ -188,19 +197,23 @@ export class Player extends Component {
               [st.play]: playStatus === 'STOPPED' || playStatus === 'PAUSED',
               [st.pause]: playStatus === 'PLAYING',
             })}
-          />
+            />
           <Speed
             player={this}
             playbackRate={playbackRate}
             className={cn(st.control, st.small)}
-          />
+            />
 
           <Volume
             player={this}
             volume={volume}
             className={cn(st.control, st.small)}
-          />
+            />
           <Share position={position} classNames={[st.control, st.small]} />
+          <Download
+            className={cn(st.control, st.small)}
+            url={file}
+            title={title} />
         </div>
       </div>
     )
