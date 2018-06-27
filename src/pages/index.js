@@ -13,8 +13,7 @@ const Index = props => (
     </p>
 
     <p>
-      Если хотите <strong>выступить с докладом</strong>, подавайте заявку через{' '}
-      <a href="https://goo.gl/nKg4YT">форму</a>.
+      Если хотите <strong>выступить с докладом</strong>, напишите письмо на <a href="mailto:hi@spb-frontend.ru">hi@spb-frontend.ru</a>.
     </p>
 
     <p>
