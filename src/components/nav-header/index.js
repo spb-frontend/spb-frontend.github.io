@@ -1,29 +1,36 @@
-'use strict'
-import React, {Component} from 'react'
-import Link from 'gatsby-link'
+'use strict';
+import React, { Component } from 'react';
+import Link from 'gatsby-link';
 
-import style from './style.module.css'
-import Icon from '-!svg-react-loader?name=Icon!./spbf-logo-white.svg'
+import style from './style.module.css';
+import Icon from '-!svg-react-loader?name=Icon!./spbf-logo-white.svg';
 
 class SiteHeader extends Component {
   render() {
     return (
       <div className={style.header}>
         <div className={style.wrapper}>
-          <Link className={style.logo} to="/">
+          <Link
+            className={style.logo}
+            to='/'>
             <Icon className={style.icon} />
           </Link>
           <Link
             className={style.menuItem}
             activeClassName={style.active}
-            to="/podcast"
-          >
+            to='/podcast'>
             Drinkcast
+          </Link>
+          <Link
+            className={style.menuItem}
+            activeClassName={style.active}
+            to='/meetup'>
+            Meetup
           </Link>
         </div>
       </div>
-    )
+    );
   }
 }
 
-export {SiteHeader}
+export { SiteHeader };

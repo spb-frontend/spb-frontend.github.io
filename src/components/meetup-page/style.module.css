@@ -1,0 +1,33 @@
+.header {
+  display: flex;
+  font-weight: 200;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 20px;
+}
+
+.header_title {
+  font-weight: 200;
+  margin: 0;
+}
+
+.header_date {
+  font-weight: 200;
+  color: #7b7b7b;
+}
+
+.back_link {
+  margin-bottom: 10px;
+}
+
+.personsList {
+  margin: 64px 0 32px;
+}
+.personName {
+  color: #7b7b7b;
+  font-size: 0.7rem;
+}
+
+.talkTitle {
+  font-weight: 200;
+}

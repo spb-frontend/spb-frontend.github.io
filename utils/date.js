@@ -8,7 +8,9 @@ const getHumanDate = dateAsText => {
 
   return dateToConvert.format(format);
 };
+const getMeetupPath = dateAsText => moment(dateAsText).format('YYYY-MM-DD');
 
 module.exports = {
   getHumanDate,
+  getMeetupPath,
 };
