@@ -24,7 +24,7 @@ class SiteHeader extends Component {
           <Link
             className={style.menuItem}
             activeClassName={style.active}
-            to='/meetup'>
+            to='/meetups'>
             Meetup
           </Link>
         </div>

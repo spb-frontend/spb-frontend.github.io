@@ -33,7 +33,7 @@ export default props => {
             title={title}
             date={date}
             formatedDate={formatedDate}
-            to={`/meetup/${path}`} />
+            to={`/meetups/${path}`} />
         ))}
       </div>
 

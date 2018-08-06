@@ -1,7 +1,8 @@
 const slash = require('slash');
 const path = require('path');
 const { slugify } = require('transliteration');
-const { getHumanDate, getMeetupPath } = require('../utils/date');
+const { getHumanDate } = require('../utils/date');
+const { getMeetupPath } = require('../utils/paths');
 
 const meetupPageTemplate = path.resolve(
   process.cwd(),
@@ -62,7 +63,7 @@ module.exports = async ({ graphql, boundActionCreators: { createPage } }) => {
   });
 
   createPage({
-    path: '/meetup',
+    path: '/meetups',
     component: slash(meetupPageTemplate),
     context: {
       data: { meetups: finalEdges },
@@ -71,7 +72,7 @@ module.exports = async ({ graphql, boundActionCreators: { createPage } }) => {
 
   finalEdges.forEach(({ node }, id) => {
     createPage({
-      path: `/meetup/${slugify(getMeetupPath(node.startDatetime))}`,
+      path: `/meetups/${slugify(getMeetupPath(node.startDatetime))}`,
       component: slash(postTemplate),
       context: {
         data: node,
