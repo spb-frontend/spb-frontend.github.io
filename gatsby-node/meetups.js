@@ -6,7 +6,7 @@ const { getMeetupPath } = require('../utils/paths');
 
 const meetupPageTemplate = path.resolve(
   process.cwd(),
-  'src/components/meetup.js',
+  'src/components/meetups.js',
 );
 const postTemplate = path.resolve(
   process.cwd(),
@@ -46,18 +46,23 @@ module.exports = async ({ graphql, boundActionCreators: { createPage } }) => {
     }
   `);
 
-  const joinPersons = talks => {
-    return talks.map(talk => {
-      return talk.persons[0];
-    });
-  };
+  const joinPersons = talks =>
+    talks.map(talk => talk.persons[0]).filter(x => !!x);
+
+  const formatTalks = talks =>
+    talks.map(talk =>
+      Object.assign({}, talk, {
+        person: talk.persons[0],
+      }),
+    );
 
   const finalEdges = result.data.allContentfulMeetup.edges.map(edge => {
     return {
       node: Object.assign({}, edge.node, {
         formatedDate: getHumanDate(edge.node.startDatetime),
         path: getMeetupPath(edge.node.startDatetime),
-        persons: [...joinPersons(edge.node.talks)],
+        persons: joinPersons(edge.node.talks),
+        talks: formatTalks(edge.node.talks),
       }),
     };
   });

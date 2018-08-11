@@ -22,15 +22,16 @@ class MeetupPage extends Component {
             collection={persons}
             className={st.personsList} />
         )}
-        {talks.map(({ title }, index) => (
+        {talks.map(({ title, person }, index) => (
           <div key={index}>
             <div>
               <h4 className={st.talkTitle}>
                 {title}{' '}
-                <span className={st.personName}>
-                  ({talks[index].persons[0].name}{' '}
-                  {talks[index].persons[0].lastname})
-                </span>
+                {person && (
+                  <span className={st.personName}>
+                    ({person.name} {person.lastname})
+                  </span>
+                )}
               </h4>
             </div>
           </div>

@@ -38,7 +38,7 @@ export default props => {
       </div>
 
       <Helmet meta={defaultHelmetMeta}>
-        <title>SPB Frontend. Meetup</title>
+        <title>SPB Frontend. Meetups</title>
       </Helmet>
     </div>
   );
