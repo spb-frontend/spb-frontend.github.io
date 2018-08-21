@@ -20,6 +20,7 @@ module.exports = async ({graphql, boundActionCreators: {createPage}}) => {
         edges {
           node {
             title
+            date
             id
             talks {
               title
@@ -57,8 +58,8 @@ module.exports = async ({graphql, boundActionCreators: {createPage}}) => {
   const finalEdges = result.data.allContentfulMeetup.edges.map(edge => {
     return {
       node: Object.assign({}, edge.node, {
-        formatedDate: getHumanDate(edge.node.startDatetime),
-        path: getMeetupPath(edge.node.startDatetime),
+        formatedDate: getHumanDate(edge.node.date),
+        path: getMeetupPath(edge.node.date),
         persons: joinPersons(edge.node.talks),
         talks: formatTalks(edge.node.talks),
       }),
@@ -75,7 +76,7 @@ module.exports = async ({graphql, boundActionCreators: {createPage}}) => {
 
   finalEdges.forEach(({node}, id) => {
     createPage({
-      path: `/meetups/${slugify(getMeetupPath(node.startDatetime))}`,
+      path: `/meetups/${slugify(getMeetupPath(node.date))}`,
       component: slash(postTemplate),
       context: {
         data: node,
