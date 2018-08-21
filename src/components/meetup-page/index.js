@@ -1,12 +1,13 @@
-import React, {Component} from 'react'
-import st from './style.module.css'
-import BackButton from '../back-button'
-import PersonsList from '../persons-list'
+import React, {Component} from 'react';
+import st from './style.module.css';
+import BackButton from '../back-button';
+import PersonsList from '../persons-list';
 
 class MeetupPage extends Component {
   render() {
-    const {data} = this.props.pathContext
-    const {title, formatedDate, persons, talks} = data
+    const {data} = this.props.pathContext;
+    const {title, formatedDate, persons, talks} = data;
+
     return (
       <div>
         <div className={st.back_link}>
@@ -20,23 +21,28 @@ class MeetupPage extends Component {
         {persons && (
           <PersonsList collection={persons} className={st.personsList} />
         )}
-        {talks.map(({title, person}, index) => (
-          <div key={index}>
-            <div>
-              <h4 className={st.talkTitle}>
-                {title}{' '}
-                {person && (
-                  <span className={st.personName}>
-                    ({person.name} {person.lastname})
-                  </span>
-                )}
-              </h4>
-            </div>
+        {talks.map(({title, person, slides, video}, index) => (
+          <div key={index} style={{marginBottom: 30}}>
+            <div className={st.talkTitle}>{title} </div>
+            {slides && (
+              <div className={st.talkTitle}>
+                <a className={st.personName} href={slides}>
+                  Слайды
+                </a>
+              </div>
+            )}
+            {video && (
+              <div className={st.talkTitle}>
+                <a className={st.personName} href={video}>
+                  Видео
+                </a>
+              </div>
+            )}
           </div>
         ))}
       </div>
-    )
+    );
   }
 }
 
-export default MeetupPage
+export default MeetupPage;

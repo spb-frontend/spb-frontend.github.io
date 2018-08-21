@@ -16,7 +16,7 @@ const postTemplate = path.resolve(
 module.exports = async ({graphql, boundActionCreators: {createPage}}) => {
   const result = await graphql(`
     {
-      allContentfulMeetup {
+      allContentfulMeetup(limit: 1000, sort: {order: DESC, fields: [date]}) {
         edges {
           node {
             title
@@ -25,6 +25,8 @@ module.exports = async ({graphql, boundActionCreators: {createPage}}) => {
             talks {
               title
               id
+              video
+              slides
               createdAt
               persons {
                 id
