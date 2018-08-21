@@ -1,8 +1,8 @@
 const slash = require('slash');
 const path = require('path');
-const { slugify } = require('transliteration');
-const { getHumanDate } = require('../utils/date');
-const { getMeetupPath } = require('../utils/paths');
+const {slugify} = require('transliteration');
+const {getHumanDate} = require('../utils/date');
+const {getMeetupPath} = require('../utils/paths');
 
 const meetupPageTemplate = path.resolve(
   process.cwd(),
@@ -13,7 +13,7 @@ const postTemplate = path.resolve(
   'src/components/meetup-page/index.js',
 );
 
-module.exports = async ({ graphql, boundActionCreators: { createPage } }) => {
+module.exports = async ({graphql, boundActionCreators: {createPage}}) => {
   const result = await graphql(`
     {
       allContentfulMeetup {
@@ -21,8 +21,6 @@ module.exports = async ({ graphql, boundActionCreators: { createPage } }) => {
           node {
             title
             id
-            startDatetime
-            endDatetime
             talks {
               title
               id
@@ -47,12 +45,12 @@ module.exports = async ({ graphql, boundActionCreators: { createPage } }) => {
   `);
 
   const joinPersons = talks =>
-    talks.map(talk => talk.persons[0]).filter(x => !!x);
+    talks.map(talk => talk.persons && talk.persons[0]).filter(x => !!x);
 
   const formatTalks = talks =>
     talks.map(talk =>
       Object.assign({}, talk, {
-        person: talk.persons[0],
+        person: talk.persons && talk.persons[0],
       }),
     );
 
@@ -71,11 +69,11 @@ module.exports = async ({ graphql, boundActionCreators: { createPage } }) => {
     path: '/meetups',
     component: slash(meetupPageTemplate),
     context: {
-      data: { meetups: finalEdges },
+      data: {meetups: finalEdges},
     },
   });
 
-  finalEdges.forEach(({ node }, id) => {
+  finalEdges.forEach(({node}, id) => {
     createPage({
       path: `/meetups/${slugify(getMeetupPath(node.startDatetime))}`,
       component: slash(postTemplate),

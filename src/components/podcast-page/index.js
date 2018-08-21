@@ -47,10 +47,7 @@ class PodcastPage extends Component {
           <date className={st.header_date}>{formatedDate}</date>
         </header>
 
-        <Player
-          position={this.state.time}
-          file={file}
-          title={title} />
+        <Player position={this.state.time} file={file} title={title} />
 
         {persons && (
           <PersonsList collection={persons} className={st.personsList} />

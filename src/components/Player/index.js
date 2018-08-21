@@ -173,12 +173,12 @@ export class Player extends Component {
             position={position}
             duration={duration}
             className={st.progress}
-            />
+          />
           <Timer
             position={timerType === 'ELAPSED' ? position : duration - position}
             toggleTimerType={this.toggleTimerType}
             className={st.timer}
-            />
+          />
           <Sound
             position={position}
             volume={volume}
@@ -188,7 +188,7 @@ export class Player extends Component {
             playStatus={playStatus}
             autoLoad={true}
             url={file}
-            />
+          />
         </div>
         <div className={st.controls}>
           <Play
@@ -197,23 +197,24 @@ export class Player extends Component {
               [st.play]: playStatus === 'STOPPED' || playStatus === 'PAUSED',
               [st.pause]: playStatus === 'PLAYING',
             })}
-            />
+          />
           <Speed
             player={this}
             playbackRate={playbackRate}
             className={cn(st.control, st.small)}
-            />
+          />
 
           <Volume
             player={this}
             volume={volume}
             className={cn(st.control, st.small)}
-            />
+          />
           <Share position={position} classNames={[st.control, st.small]} />
           <Download
             className={cn(st.control, st.small)}
             url={file}
-            title={title} />
+            title={title}
+          />
         </div>
       </div>
     )

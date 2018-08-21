@@ -47,7 +47,7 @@ export class Download extends Component {
       })
       .then(({status, data}) => {
         if (status === 200) {
-          this.saveFile(data);
+          this.saveFile(data)
         }
       })
       .catch(error => {
@@ -63,11 +63,10 @@ export class Download extends Component {
       <FetchingIcon
         className={cn(className, margin)}
         loaded={loaded}
-        total={total} />
+        total={total}
+      />
     ) : (
-      <button
-        className={cn(className, margin)}
-        onClick={this.fetchFile}>
+      <button className={cn(className, margin)} onClick={this.fetchFile}>
         <DownloadIcon />
       </button>
     )

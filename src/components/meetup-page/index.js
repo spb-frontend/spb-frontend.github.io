@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import st from './style.module.css';
-import BackButton from '../back-button';
-import PersonsList from '../persons-list';
+import React, {Component} from 'react'
+import st from './style.module.css'
+import BackButton from '../back-button'
+import PersonsList from '../persons-list'
 
 class MeetupPage extends Component {
   render() {
-    const { data } = this.props.pathContext;
-    const { title, formatedDate, persons, talks } = data;
+    const {data} = this.props.pathContext
+    const {title, formatedDate, persons, talks} = data
     return (
       <div>
         <div className={st.back_link}>
@@ -18,11 +18,9 @@ class MeetupPage extends Component {
           <date className={st.header_date}>{formatedDate}</date>
         </header>
         {persons && (
-          <PersonsList
-            collection={persons}
-            className={st.personsList} />
+          <PersonsList collection={persons} className={st.personsList} />
         )}
-        {talks.map(({ title, person }, index) => (
+        {talks.map(({title, person}, index) => (
           <div key={index}>
             <div>
               <h4 className={st.talkTitle}>
@@ -37,8 +35,8 @@ class MeetupPage extends Component {
           </div>
         ))}
       </div>
-    );
+    )
   }
 }
 
-export default MeetupPage;
+export default MeetupPage
