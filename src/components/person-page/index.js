@@ -36,6 +36,7 @@ export default ({
     },
   },
 }) => {
+  console.log(talks);
   return (
     <div>
       <div className={st.back_link}>

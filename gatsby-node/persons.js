@@ -68,7 +68,7 @@ module.exports = async ({graphql, boundActionCreators: {createPage}}) => {
     },
   });
 
-  result.data.allContentfulPerson.edges.forEach(({node}, id) => {
+  finalEdges.forEach(({node}, id) => {
     createPage({
       path: `/persons/${node.slug}`,
       component: slash(personTemplate),
