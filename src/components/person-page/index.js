@@ -6,8 +6,6 @@ import TelegramIcon from '-!svg-react-loader?name=Icon!../../../static/telegram.
 import VkIcon from '-!svg-react-loader?name=Icon!../../../static/vk.svg';
 import SlackIcon from '-!svg-react-loader?name=Icon!../../../static/slack.svg';
 import TwitterIcon from '-!svg-react-loader?name=Icon!../../../static/twitter.svg';
-const translitRusEng = require('translit-rus-eng');
-const {slugify} = require('transliteration');
 
 const SocialIcon = ({user, link, children}) => {
   const icon = user ? (
@@ -101,12 +99,10 @@ export default ({
             .sort((prev, next) => {
               return next.path - prev.path;
             })
-            .map(({title, ptitleth}, key) => {
+            .map(({title, slug}, key) => {
               return (
                 <div className={st.podcast_item} key={key}>
-                  <Link to={`/talks/${slugify(translitRusEng(title))}`}>
-                    {title}
-                  </Link>
+                  <Link to={`/talks/${slug}`}>{title}</Link>
                 </div>
               );
             })}
