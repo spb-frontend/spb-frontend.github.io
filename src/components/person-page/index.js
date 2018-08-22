@@ -1,11 +1,11 @@
-import React from 'react'
-import st from './style.module.css'
-import Link from 'gatsby-link'
-import BackButton from '../back-button'
-import TelegramIcon from '-!svg-react-loader?name=Icon!../../../static/telegram.svg'
-import VkIcon from '-!svg-react-loader?name=Icon!../../../static/vk.svg'
-import SlackIcon from '-!svg-react-loader?name=Icon!../../../static/slack.svg'
-import TwitterIcon from '-!svg-react-loader?name=Icon!../../../static/twitter.svg'
+import React from 'react';
+import st from './style.module.css';
+import Link from 'gatsby-link';
+import BackButton from '../back-button';
+import TelegramIcon from '-!svg-react-loader?name=Icon!../../../static/telegram.svg';
+import VkIcon from '-!svg-react-loader?name=Icon!../../../static/vk.svg';
+import SlackIcon from '-!svg-react-loader?name=Icon!../../../static/slack.svg';
+import TwitterIcon from '-!svg-react-loader?name=Icon!../../../static/twitter.svg';
 
 const SocialIcon = ({user, link, children}) => {
   const icon = user ? (
@@ -14,9 +14,9 @@ const SocialIcon = ({user, link, children}) => {
         {children}
       </a>
     </span>
-  ) : null
-  return icon
-}
+  ) : null;
+  return icon;
+};
 
 export default ({
   history,
@@ -31,6 +31,7 @@ export default ({
       slack,
       company,
       podcasts,
+      talks,
       photo,
     },
   },
@@ -75,21 +76,38 @@ export default ({
           )}
         </div>
       </div>
-      <div>
-        {podcasts && <h4>Подкасты:</h4>}
-        {podcasts &&
-          podcasts
+      {podcasts && (
+        <div>
+          <h4>Подкасты:</h4>
+          {podcasts
             .sort((prev, next) => {
-              return parseInt(next.number) - parseInt(prev.number)
+              return parseInt(next.number) - parseInt(prev.number);
             })
             .map(({title, number}) => {
               return (
                 <div className={st.podcast_item} key={number}>
                   <Link to={`/podcast/${number}`}>{title}</Link>
                 </div>
-              )
+              );
             })}
-      </div>
+        </div>
+      )}
+      {talks && (
+        <div style={{marginTop: 50}}>
+          <h4>Доклады:</h4>
+          {talks
+            .sort((prev, next) => {
+              return parseInt(next.number) - parseInt(prev.number);
+            })
+            .map(({title, number}) => {
+              return (
+                <div className={st.podcast_item} key={number}>
+                  <Link to={`/talks/${number}`}>{title}</Link>
+                </div>
+              );
+            })}
+        </div>
+      )}
     </div>
-  )
-}
+  );
+};

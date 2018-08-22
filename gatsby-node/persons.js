@@ -1,11 +1,14 @@
-const slash = require('slash')
-const path = require('path')
-const { getPersonId } = require('../utils/person')
+const slash = require('slash');
+const path = require('path');
+const {getPersonId} = require('../utils/person');
 
-const persons = path.resolve(process.cwd(), 'src/components/persons.js')
-const personTemplate = path.resolve(process.cwd(), 'src/components/person-page/index.js')
+const persons = path.resolve(process.cwd(), 'src/components/persons.js');
+const personTemplate = path.resolve(
+  process.cwd(),
+  'src/components/person-page/index.js',
+);
 
-module.exports = async ({ graphql, boundActionCreators: { createPage } }) => {
+module.exports = async ({graphql, boundActionCreators: {createPage}}) => {
   const result = await graphql(
     `
       {
@@ -27,6 +30,9 @@ module.exports = async ({ graphql, boundActionCreators: { createPage } }) => {
                 }
               }
               company
+              talks {
+                title
+              }
               podcasts {
                 title
                 number
@@ -36,7 +42,7 @@ module.exports = async ({ graphql, boundActionCreators: { createPage } }) => {
         }
       }
     `,
-  )
+  );
 
   createPage({
     path: '/persons',
@@ -44,9 +50,9 @@ module.exports = async ({ graphql, boundActionCreators: { createPage } }) => {
     context: {
       data: result.data.allContentfulPerson.edges,
     },
-  })
+  });
 
-  result.data.allContentfulPerson.edges.forEach(({ node }, id) => {
+  result.data.allContentfulPerson.edges.forEach(({node}, id) => {
     createPage({
       path: `/persons/${node.slug}`,
       component: slash(personTemplate),
@@ -54,6 +60,6 @@ module.exports = async ({ graphql, boundActionCreators: { createPage } }) => {
         data: node,
         id,
       },
-    })
-  })
-}
+    });
+  });
+};
