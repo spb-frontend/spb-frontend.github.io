@@ -1,0 +1,86 @@
+.back_link {
+  margin-bottom: 10px;
+}
+
+.person {
+  display: flex;
+  flex-direction: column;
+}
+
+.person_info {
+  order: 2;
+}
+
+.person_image {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.person_image img {
+  margin: 0;
+  padding: 0;
+}
+
+.person_position {
+  color: #777;
+  font-size: 18px;
+  font-weight: normal;
+}
+
+.podcast_item {
+  margin-bottom: 10px;
+}
+
+.company {
+  font-style: italic;
+}
+
+.social {
+  margin-bottom: 20px;
+}
+
+.social_icon {
+  display: inline-block;
+  width: 22px;
+  margin: 10px 10px 10px 0;
+  text-decoration: none;
+  transition: transform 150ms ease;
+  color: #000;
+
+  &:hover,
+  &:focus {
+    transform: scale(1.1);
+  }
+
+  & a {
+    text-decoration: none;
+    border-bottom: none;
+    color: inherit;
+  }
+}
+
+.slack_icon svg {
+  width: 22px;
+}
+
+.slack_name {
+  bottom: 6px;
+  position: relative;
+}
+
+@media screen and (min-width: 768px) {
+  .person {
+    flex-direction: row;
+  }
+
+  .person_info {
+    order: 1;
+  }
+
+  .person_image {
+    order: 1;
+  }
+}

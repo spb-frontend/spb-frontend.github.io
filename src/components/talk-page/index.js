@@ -1,13 +1,10 @@
 import React from 'react';
-import st from './style.module.css';
-import Link from 'gatsby-link';
 import BackButton from '../back-button';
+import st from './style.module.css';
 import TelegramIcon from '-!svg-react-loader?name=Icon!../../../static/telegram.svg';
 import VkIcon from '-!svg-react-loader?name=Icon!../../../static/vk.svg';
 import SlackIcon from '-!svg-react-loader?name=Icon!../../../static/slack.svg';
 import TwitterIcon from '-!svg-react-loader?name=Icon!../../../static/twitter.svg';
-const translitRusEng = require('translit-rus-eng');
-const {slugify} = require('transliteration');
 
 const SocialIcon = ({user, link, children}) => {
   const icon = user ? (
@@ -24,20 +21,17 @@ export default ({
   history,
   pathContext: {
     data: {
-      name,
-      lastname,
-      position,
-      vk,
-      telegram,
-      twitter,
-      slack,
-      company,
-      podcasts,
-      talks,
-      photo,
+      title,
+      description: {description},
+      persons,
+      slides,
+      video,
     },
   },
 }) => {
+  const [
+    {photo, name, lastname, position, company, vk, telegram, twitter, slack},
+  ] = persons || [];
   return (
     <div>
       <div className={st.back_link}>
@@ -78,40 +72,26 @@ export default ({
           )}
         </div>
       </div>
-      {podcasts && (
-        <div>
-          <h4>Подкасты:</h4>
-          {podcasts
-            .sort((prev, next) => {
-              return parseInt(next.number) - parseInt(prev.number);
-            })
-            .map(({title, number}) => {
-              return (
-                <div className={st.podcast_item} key={number}>
-                  <Link to={`/podcast/${number}`}>{title}</Link>
-                </div>
-              );
-            })}
-        </div>
-      )}
-      {talks && (
-        <div style={{marginTop: 50}}>
-          <h4>Доклады:</h4>
-          {talks
-            .sort((prev, next) => {
-              return next.path - prev.path;
-            })
-            .map(({title, ptitleth}, key) => {
-              return (
-                <div className={st.podcast_item} key={key}>
-                  <Link to={`/talks/${slugify(translitRusEng(title))}`}>
-                    {title}
-                  </Link>
-                </div>
-              );
-            })}
-        </div>
-      )}
+
+      <div style={{marginTop: 10}}>{title}</div>
+      <div style={{marginTop: 10}}>{description}</div>
+
+      <div style={{marginTop: 20}}>
+        {slides && (
+          <div className={st.talkTitle}>
+            <a className={st.personName} href={slides}>
+              Слайды
+            </a>
+          </div>
+        )}
+        {video && (
+          <div className={st.talkTitle}>
+            <a className={st.personName} href={video}>
+              Видео
+            </a>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

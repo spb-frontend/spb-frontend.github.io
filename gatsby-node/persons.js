@@ -1,6 +1,5 @@
 const slash = require('slash');
 const path = require('path');
-const {getPersonId} = require('../utils/person');
 
 const persons = path.resolve(process.cwd(), 'src/components/persons.js');
 const personTemplate = path.resolve(
