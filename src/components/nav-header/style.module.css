@@ -1,4 +1,3 @@
-
 .header {
   position: fixed;
   left: 0;
@@ -8,7 +7,7 @@
   background: #222;
   color: #fafafa;
   height: 50px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
   width: 100%;
   z-index: 100;
 }
@@ -64,4 +63,30 @@
   width: 75px;
   height: 100%;
   margin: 0;
+}
+
+@media (max-width: 500px) {
+  .header {
+    height: auto;
+  }
+  .wrapper {
+    flex-wrap: wrap;
+  }
+  .logo {
+    padding-top: 7px;
+    padding-bottom: 8px;
+  }
+  .menuItem {
+    width: 100%;
+    padding: 10px 20px;
+    display: none;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .menuItemLast {
+    margin-bottom: 10px;
+  }
+  .isOpen {
+    display: block;
+  }
 }
