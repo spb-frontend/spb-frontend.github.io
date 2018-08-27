@@ -167,18 +167,18 @@ export class Player extends Component {
 
     return (
       <div>
-        <div className={st.player} onKeyDown={this.handlePlayerKeyDown}>
+        <div
+          className={st.player}
+          onKeyDown={this.handlePlayerKeyDown}>
           <Progress
             player={this}
             position={position}
             duration={duration}
-            className={st.progress}
-          />
+            className={st.progress} />
           <Timer
             position={timerType === 'ELAPSED' ? position : duration - position}
             toggleTimerType={this.toggleTimerType}
-            className={st.timer}
-          />
+            className={st.timer} />
           <Sound
             position={position}
             volume={volume}
@@ -187,8 +187,7 @@ export class Player extends Component {
             onLoading={this.handleLoading}
             playStatus={playStatus}
             autoLoad={true}
-            url={file}
-          />
+            url={file} />
         </div>
         <div className={st.controls}>
           <Play
@@ -196,25 +195,23 @@ export class Player extends Component {
             className={cn(st.control, {
               [st.play]: playStatus === 'STOPPED' || playStatus === 'PAUSED',
               [st.pause]: playStatus === 'PLAYING',
-            })}
-          />
+            })} />
           <Speed
             player={this}
             playbackRate={playbackRate}
-            className={cn(st.control, st.small)}
-          />
+            className={cn(st.control, st.small)} />
 
           <Volume
             player={this}
             volume={volume}
-            className={cn(st.control, st.small)}
-          />
-          <Share position={position} classNames={[st.control, st.small]} />
+            className={cn(st.control, st.small)} />
+          <Share
+            position={position}
+            classNames={[st.control, st.small]} />
           <Download
             className={cn(st.control, st.small)}
             url={file}
-            title={title}
-          />
+            title={title} />
         </div>
       </div>
     )

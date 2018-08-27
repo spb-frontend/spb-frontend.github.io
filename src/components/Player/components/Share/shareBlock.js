@@ -62,20 +62,20 @@ export default class ShareBlock extends Component {
     return (
       <div
         className={cn(st.shareBlock, {[st.visible]: opened})}
-        onClick={ev => ev.nativeEvent.stopImmediatePropagation()}
-      >
+        onClick={ev => ev.nativeEvent.stopImmediatePropagation()}>
         <div className={st.social}>
           <span>Поделиться:</span>
           <ul className={st.socialList}>
             {social.map(item => {
               const Icon = item.icon
               return (
-                <li key={item.name} className={st.socialItem}>
+                <li
+                  key={item.name}
+                  className={st.socialItem}>
                   <a
                     className={st.socialLink}
-                    target="_blank"
-                    href={item.link + this.getUrl(position)}
-                  >
+                    target='_blank'
+                    href={item.link + this.getUrl(position)}>
                     <Icon />
                   </a>
                 </li>
@@ -84,20 +84,20 @@ export default class ShareBlock extends Component {
           </ul>
         </div>
         <input
-          type="text"
+          type='text'
           onFocus={this.selectText}
           className={st.input}
           value={this.getUrl(position)}
-          readOnly={true}
-        />
+          readOnly={true} />
         <input
-          type="checkbox"
-          id="timecode"
+          type='checkbox'
+          id='timecode'
           onChange={this.toggleTimeCode}
           className={st.checkbox}
-          checked={timeCode}
-        />
-        <label className={st.time} htmlFor="timecode">
+          checked={timeCode} />
+        <label
+          className={st.time}
+          htmlFor='timecode'>
           <span>Добавить тайм-код</span>
         </label>
       </div>

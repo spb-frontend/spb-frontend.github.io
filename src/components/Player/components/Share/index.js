@@ -29,15 +29,13 @@ export class Share extends Component {
         <button
           className={cn(...classNames)}
           style={{marginLeft: 'auto'}}
-          onClick={ev => this.toggleBlock(ev)}
-        >
+          onClick={ev => this.toggleBlock(ev)}>
           <Icon />
         </button>
         <ShareBlock
           position={position}
           opened={opened}
-          closeBlock={this.closeBlock}
-        />
+          closeBlock={this.closeBlock} />
       </div>
     )
   }

@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import st from './style.module.css';
-import BackButton from '../back-button';
-import PersonsList from '../persons-list';
+import React, {Component} from 'react'
+import st from './style.module.css'
+import BackButton from '../back-button'
+import PersonsList from '../persons-list'
 
 class MeetupPage extends Component {
   render() {
-    const { data } = this.props.pathContext;
-    const { title, persons, talks } = data;
+    const {data} = this.props.pathContext
+    const {title, persons, talks} = data
 
     return (
       <div>
@@ -22,10 +22,10 @@ class MeetupPage extends Component {
             collection={persons}
             className={st.personsList} />
         )}
-        {talks.map(({ title, slides, video }, index) => (
+        {talks.map(({title, slides, video}, index) => (
           <div
             key={index}
-            style={{ marginBottom: 30 }}>
+            style={{marginBottom: 30}}>
             <div className={st.talkTitle}>{title} </div>
             {slides && (
               <div className={st.talkTitle}>
@@ -48,8 +48,8 @@ class MeetupPage extends Component {
           </div>
         ))}
       </div>
-    );
+    )
   }
 }
 
-export default MeetupPage;
+export default MeetupPage

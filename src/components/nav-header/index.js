@@ -1,30 +1,30 @@
-'use strict';
-import React, { Component } from 'react';
-import Link from 'gatsby-link';
-import cn from 'classnames';
-import MenuButton from '../menu-button';
+'use strict'
+import React, {Component} from 'react'
+import Link from 'gatsby-link'
+import cn from 'classnames'
+import MenuButton from '../menu-button'
 
-import style from './style.module.css';
-import Icon from '-!svg-react-loader?name=Icon!./spbf-logo-white.svg';
+import style from './style.module.css'
+import Icon from '-!svg-react-loader?name=Icon!./spbf-logo-white.svg'
 
 class SiteHeader extends Component {
   closeMenu = () => {
     this.setState({
       isOpen: false,
-    });
-  };
+    })
+  }
   toggleMenu = () => {
     this.setState({
       isOpen: !this.state.isOpen,
-    });
-  };
+    })
+  }
 
   state = {
     isOpen: false,
-  };
+  }
 
   render() {
-    const { isOpen } = this.state;
+    const {isOpen} = this.state
     return (
       <div className={style.header}>
         <div className={style.wrapper}>
@@ -64,8 +64,8 @@ class SiteHeader extends Component {
             className={isOpen} />
         </div>
       </div>
-    );
+    )
   }
 }
 
-export { SiteHeader };
+export {SiteHeader}

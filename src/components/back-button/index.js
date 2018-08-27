@@ -8,7 +8,9 @@ export default class BackButton extends Component {
 
   render() {
     return (
-      <a href="#" onClick={this.goBack}>
+      <a
+        href='#'
+        onClick={this.goBack}>
         {'<'} назад
       </a>
     )

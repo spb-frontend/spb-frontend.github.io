@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import cn from 'classnames';
-import style from './style.module.css';
+import React, {Component} from 'react'
+import cn from 'classnames'
+import style from './style.module.css'
 
 export default class MenuButton extends Component {
   render() {
@@ -15,6 +15,6 @@ export default class MenuButton extends Component {
         <span />
         <span />
       </button>
-    );
+    )
   }
 }

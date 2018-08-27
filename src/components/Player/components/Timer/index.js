@@ -14,7 +14,9 @@ function positionToTime(position) {
 
 export const Timer = ({position, toggleTimerType, className}) => {
   return (
-    <button className={className} onClick={toggleTimerType}>
+    <button
+      className={className}
+      onClick={toggleTimerType}>
       {positionToTime(position)}
     </button>
   )

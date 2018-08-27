@@ -1,38 +1,38 @@
-import React, {Component} from 'react';
-import st from './style.module.css';
-import BackButton from '../back-button';
-import marked from 'marked';
-import {Box, Thread} from 'react-disqussion';
-import {Player} from '../Player';
-import PersonsList from '../persons-list';
-import {timestampToSeconds} from '../../../utils';
+import React, {Component} from 'react'
+import st from './style.module.css'
+import BackButton from '../back-button'
+import marked from 'marked'
+import {Box, Thread} from 'react-disqussion'
+import {Player} from '../Player'
+import PersonsList from '../persons-list'
+import {timestampToSeconds} from '../../../utils'
 
 class PodcastPage extends Component {
   handleTimeClick = event => {
-    const {target} = event;
+    const {target} = event
     if (target.classList.contains('podcast_time')) {
-      event.preventDefault();
-      this.setState({time: timestampToSeconds(target.innerText) * 1000});
+      event.preventDefault()
+      this.setState({time: timestampToSeconds(target.innerText) * 1000})
     }
-  };
+  }
 
   state = {
     time: 0,
-  };
+  }
 
   componentDidMount() {
-    this.getInitialTime();
+    this.getInitialTime()
   }
 
   getInitialTime() {
-    const rgexRes = location.search.match(/time=(\d+)/);
+    const rgexRes = location.search.match(/time=(\d+)/)
 
-    this.setState({time: rgexRes ? parseInt(rgexRes[1]) * 1000 : 0});
+    this.setState({time: rgexRes ? parseInt(rgexRes[1]) * 1000 : 0})
   }
 
   render() {
-    const {data} = this.props.pathContext;
-    const {title, number, file, notes, formatedDate, persons} = data;
+    const {data} = this.props.pathContext
+    const {title, number, file, notes, formatedDate, persons} = data
 
     return (
       <div>
@@ -45,28 +45,31 @@ class PodcastPage extends Component {
           <date className={st.header_date}>{formatedDate}</date>
         </header>
 
-        <Player position={this.state.time} file={file} title={title} />
+        <Player
+          position={this.state.time}
+          file={file}
+          title={title} />
 
         {persons && (
-          <PersonsList collection={persons} className={st.personsList} />
+          <PersonsList
+            collection={persons}
+            className={st.personsList} />
         )}
 
         <footer
           onClick={this.handleTimeClick}
           className={st.footer}
-          dangerouslySetInnerHTML={{__html: marked(notes.notes)}}
-        />
+          dangerouslySetInnerHTML={{__html: marked(notes.notes)}} />
 
-        <Box shortname="http-spb-frontend-ru">
+        <Box shortname='http-spb-frontend-ru'>
           <Thread
             url={`http://spb-frontend.ru/podcast/${number}`}
             title={title}
-            identifier={`podcast-${number}`}
-          />
+            identifier={`podcast-${number}`} />
         </Box>
       </div>
-    );
+    )
   }
 }
 
-export default PodcastPage;
+export default PodcastPage

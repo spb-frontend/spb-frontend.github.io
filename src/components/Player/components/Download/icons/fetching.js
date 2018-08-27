@@ -17,18 +17,16 @@ export default ({total, loaded, className}) => {
   return (
     <svg
       className={className}
-      width="24px"
-      height="24px"
-      viewBox="0 0 24 24"
-      preserveAspectRatio="xMidYMid meet"
-    >
+      width='24px'
+      height='24px'
+      viewBox='0 0 24 24'
+      preserveAspectRatio='xMidYMid meet'>
       <circle
         className={st.sector}
-        r="6"
-        cx="12"
-        cy="12"
-        strokeDasharray={strokeDasharray}
-      />
+        r='6'
+        cx='12'
+        cy='12'
+        strokeDasharray={strokeDasharray} />
     </svg>
   )
 }
