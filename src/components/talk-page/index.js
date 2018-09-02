@@ -22,9 +22,10 @@ const SocialIcon = ({user, link, children}) => {
 export default ({
   history,
   pathContext: {
-    data: {title, description: {description}, persons, slides, video},
+    data: {title, description: description_, persons, slides, video},
   },
 }) => {
+  const {description} = description_ || {}
   const [
     {photo, name, lastname, position, company, vk, telegram, twitter, slack},
   ] =
