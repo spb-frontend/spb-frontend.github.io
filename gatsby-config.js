@@ -44,12 +44,12 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'GatsbyJS',
-        short_name: 'GatsbyJS',
+        name: 'SPB Frontend',
+        short_name: 'SPB Frontend',
         start_url: '/',
         background_color: '#f7f0eb',
         theme_color: '#a2466c',
-        display: 'minimal-ui',
+        display: 'browser',
         icon: 'static/favicon.png',
       },
     },
