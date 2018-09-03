@@ -7,7 +7,7 @@
     "classnames": "^2.2.5",
     "gatsby": "^1.9.277",
     "gatsby-link": "^1.6.39",
-    "gatsby-plugin-manifest": "^1.0.15",
+    "gatsby-plugin-manifest": "^1.0.27",
     "gatsby-plugin-react-helmet": "^2.0.8",
     "gatsby-plugin-remove-serviceworker": "^1.0.0",
     "gatsby-source-contentful": "^1.3.44",

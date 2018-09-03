@@ -1,14 +1,14 @@
-let keys
+let keys;
 
 try {
-  keys = require('./keys.js')
+  keys = require('./keys.js');
 } catch (err) {
   keys = {
     contentful: {
       space_id: '',
       token: '',
     },
-  }
+  };
 }
 
 module.exports = {
@@ -41,6 +41,18 @@ module.exports = {
     // },
     // 'gatsby-transformer-remark',
     // 'gatsby-transformer-json',
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: 'GatsbyJS',
+        short_name: 'GatsbyJS',
+        start_url: '/',
+        background_color: '#f7f0eb',
+        theme_color: '#a2466c',
+        display: 'minimal-ui',
+        icon: 'static/favicon.png',
+      },
+    },
     {
       resolve: 'gatsby-source-contentful',
       options: {
@@ -134,4 +146,4 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-remove-serviceworker',
   ],
-}
+};
