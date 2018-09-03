@@ -52,9 +52,11 @@ export default ({history, pathContext: {data}}) => {
           {name: 'twitter:card', content: 'summary'},
           {name: 'twitter:description', content: description},
           {name: 'twitter:site', content: title},
-          {name: 'twitter:creator', content: title},
+          {name: 'twitter:creator', content: 'spb_frontend'},
           {name: 'twitter:title', content: title},
           {name: 'twitter:image', content: twitterImage},
+          {name: 'twitter:image:width', content: '300'},
+          {name: 'twitter:image:height', content: '157'},
 
           {property: 'og:title', content: title},
           {property: 'og:site_name', content: title},
