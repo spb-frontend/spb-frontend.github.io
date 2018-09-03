@@ -25,7 +25,7 @@ const correctRussianEnding = num => {
   if (num === 1) {
     return '';
   }
-  if (num === 2) {
+  if (num > 1 && num <= 4) {
     return 'а';
   }
   if (num > 4) {
@@ -58,7 +58,7 @@ export default ({history, pathContext: {data}}) => {
   }`;
 
   const title = `${name} ${lastname}`;
-  const description = bio ? `${bio.bio}; ${stats}` : stats;
+  const description = bio ? `${bio.bio} ${stats}` : stats;
   const metaImage = `${photo.file.url}?w=450&h=315&q=100`;
   const twitterImage = `https:${photo.file.url}?w=300&h=157&q=100`;
 
