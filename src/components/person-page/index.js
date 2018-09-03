@@ -31,7 +31,7 @@ export default ({history, pathContext: {data}}) => {
     twitter,
     slack,
     bio,
-    company,
+
     podcasts,
     talks,
     photo,
@@ -83,12 +83,7 @@ export default ({history, pathContext: {data}}) => {
         <div className={st.person_info}>
           <h2>
             {name} {lastname}
-            <br />
-            {position && (
-              <small className={st.person_position}>{position}</small>
-            )}
           </h2>
-          <div className={st.company}>{company}</div>
           <div className={st.social}>
             <SocialIcon link={`https://vk.com/${vk}`} user={vk}>
               <VkIcon />

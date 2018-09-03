@@ -20,7 +20,6 @@ module.exports = async ({graphql, boundActionCreators: {createPage}}) => {
               slug
               name
               lastname
-              position
               vk
               bio {
                 bio
@@ -33,7 +32,7 @@ module.exports = async ({graphql, boundActionCreators: {createPage}}) => {
                   url
                 }
               }
-              company
+
               talks {
                 title
               }
