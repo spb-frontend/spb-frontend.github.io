@@ -40,6 +40,9 @@ export default ({history, pathContext: {data}}) => {
 
   const title = `${name} ${lastname}`;
   const description = bio ? bio.bio : ' ';
+  const metaImage = `${photo.file.url}?w=450&h=315&q=100`;
+  const twitterImage = `${photo.file.url}?w=300&h=157&q=100`;
+
   return (
     <div>
       <Helmet
@@ -51,7 +54,7 @@ export default ({history, pathContext: {data}}) => {
           {name: 'twitter:site', content: title},
           {name: 'twitter:creator', content: title},
           {name: 'twitter:title', content: title},
-          {name: 'twitter:image', content: photo.file.url},
+          {name: 'twitter:image', content: twitterImage},
 
           {property: 'og:title', content: title},
           {property: 'og:site_name', content: title},
@@ -62,7 +65,7 @@ export default ({history, pathContext: {data}}) => {
             content: `https://spb-frontend.ru/persons/${slug}`,
           },
           {property: 'og:description', content: description},
-          {property: 'og:image', content: photo.file.url},
+          {property: 'og:image', content: metaImage},
           {property: 'og:site_name', content: title},
 
           {name: 'viewport', content: 'width=device-width, maximum-scale=1'},
