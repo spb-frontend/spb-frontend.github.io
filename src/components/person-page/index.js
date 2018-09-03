@@ -38,7 +38,7 @@ export default ({history, pathContext: {data}}) => {
     shrug,
   } = data;
 
-  const title = 'SPB Frontend. Person';
+  const title = `${name} ${lastname}`;
   return (
     <div>
       <Helmet
