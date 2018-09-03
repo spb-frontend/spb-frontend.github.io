@@ -1,7 +1,9 @@
 import React from 'react';
 import st from './style.module.css';
 import Link from 'gatsby-link';
+import Helmet from 'react-helmet';
 import marked from 'marked';
+import {defaultHelmetMeta} from '../layouts/index';
 import BackButton from '../back-button';
 import TelegramIcon from '-!svg-react-loader?name=Icon!../../../static/telegram.svg';
 import VkIcon from '-!svg-react-loader?name=Icon!../../../static/vk.svg';
@@ -37,6 +39,9 @@ export default ({history, pathContext: {data}}) => {
 
   return (
     <div>
+      <Helmet meta={defaultHelmetMeta}>
+        <title>SPB Frontend. Person</title>
+      </Helmet>
       <div className={st.back_link}>
         <BackButton history={history} />
       </div>
