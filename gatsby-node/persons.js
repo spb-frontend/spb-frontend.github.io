@@ -22,6 +22,9 @@ module.exports = async ({graphql, boundActionCreators: {createPage}}) => {
               lastname
               position
               vk
+              bio {
+                bio
+              }
               telegram
               twitter
               slack
