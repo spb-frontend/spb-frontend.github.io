@@ -35,7 +35,7 @@ export default ({history, pathContext: {data}}) => {
     podcasts,
     talks,
     photo,
-    shrug,
+    slug,
   } = data;
 
   const title = `${name} ${lastname}`;
@@ -55,7 +55,7 @@ export default ({history, pathContext: {data}}) => {
           {property: 'og:type', content: 'website'},
           {
             property: 'og:url',
-            content: `https://spb-frontend.ru/persons/${shrug}`,
+            content: `https://spb-frontend.ru/persons/${slug}`,
           },
           {property: 'og:description', content: bio},
           {property: 'og:image', content: photo.file.url},
