@@ -25,13 +25,11 @@ export default ({history, pathContext: {data}}) => {
   const {
     name,
     lastname,
-    position,
     vk,
     telegram,
     twitter,
     slack,
     bio,
-
     podcasts,
     talks,
     photo,
@@ -39,7 +37,9 @@ export default ({history, pathContext: {data}}) => {
   } = data;
 
   const title = `${name} ${lastname}`;
-  const description = bio ? bio.bio : `${name} ${lastname}`;
+  const description = bio
+    ? bio.bio
+    : `${podcasts.length} подкастов; ${talks.length} докладов;`;
   const metaImage = `${photo.file.url}?w=450&h=315&q=100`;
   const twitterImage = `https:${photo.file.url}?w=300&h=157&q=100`;
 
