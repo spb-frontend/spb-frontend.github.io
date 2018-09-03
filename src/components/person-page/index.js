@@ -39,7 +39,7 @@ export default ({history, pathContext: {data}}) => {
   } = data;
 
   const title = `${name} ${lastname}`;
-  const description = bio ? bio.bio : ' ';
+  const description = bio ? bio.bio : `${name} ${lastname}`;
   const metaImage = `${photo.file.url}?w=450&h=315&q=100`;
   const twitterImage = `${photo.file.url}?w=300&h=157&q=100`;
 
