@@ -53,6 +53,7 @@ export default ({history, pathContext: {data}}) => {
           {property: 'og:title', content: title},
           {property: 'og:site_name', content: title},
           {property: 'og:type', content: 'website'},
+          {property: 'og:updated_time', content: new Date().valueOf()},
           {
             property: 'og:url',
             content: `https://spb-frontend.ru/persons/${slug}`,
