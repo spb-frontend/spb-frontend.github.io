@@ -22,6 +22,7 @@ module.exports = async ({graphql, boundActionCreators: {createPage}}) => {
               lastname
               position
               vk
+              shrug
               bio {
                 bio
               }

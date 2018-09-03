@@ -57,7 +57,7 @@ export default ({history, pathContext: {data}}) => {
             property: 'og:url',
             content: `https://spb-frontend.ru/persons/${shrug}`,
           },
-          {property: 'og:description', content: title},
+          {property: 'og:description', content: bio},
           {property: 'og:image', content: photo.file.url},
           {property: 'og:site_name', content: title},
 
