@@ -39,8 +39,9 @@ export default ({history, pathContext: {data}}) => {
   const title = `${name} ${lastname}`;
   const description = bio
     ? bio.bio
-    : `${podcasts && `${podcasts.length} подкастов; `}${talks &&
-        `${talks.length} докладов;`}`;
+    : `${podcasts ? `${podcasts.length} подкастов; ` : ''}${
+        talks ? `${talks.length} докладов;` : ''
+      }`;
   const metaImage = `${photo.file.url}?w=450&h=315&q=100`;
   const twitterImage = `https:${photo.file.url}?w=300&h=157&q=100`;
 
