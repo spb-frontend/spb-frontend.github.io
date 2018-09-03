@@ -54,9 +54,7 @@ export default ({history, pathContext: {data}}) => {
       ? `${podcasts.length} подкаст${correctRussianEnding(podcasts.length)}; `
       : ''
   }${
-    talks
-      ? `${talks.length} доклад${correctRussianEnding(podcasts.length)};`
-      : ''
+    talks ? `${talks.length} доклад${correctRussianEnding(talks.length)};` : ''
   }`;
 
   const title = `${name} ${lastname}`;
