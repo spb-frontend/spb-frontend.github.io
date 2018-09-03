@@ -39,6 +39,7 @@ export default ({history, pathContext: {data}}) => {
   } = data;
 
   const title = `${name} ${lastname}`;
+  const description = bio ? bio.bio : ' ';
   return (
     <div>
       <Helmet
@@ -46,7 +47,7 @@ export default ({history, pathContext: {data}}) => {
           {name: 'author', content: title},
 
           {name: 'twitter:card', content: 'summary'},
-          {name: 'twitter:description', content: bio ? bio.bio : ''},
+          {name: 'twitter:description', content: description},
           {name: 'twitter:site', content: title},
           {name: 'twitter:creator', content: title},
           {name: 'twitter:title', content: title},
@@ -55,12 +56,12 @@ export default ({history, pathContext: {data}}) => {
           {property: 'og:title', content: title},
           {property: 'og:site_name', content: title},
           {property: 'og:type', content: 'website'},
-          {property: 'og:updated_time', content: new Date().valueOf()},
+
           {
             property: 'og:url',
             content: `https://spb-frontend.ru/persons/${slug}`,
           },
-          {property: 'og:description', content: bio ? bio.bio : ''},
+          {property: 'og:description', content: description},
           {property: 'og:image', content: photo.file.url},
           {property: 'og:site_name', content: title},
 
