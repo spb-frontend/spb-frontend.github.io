@@ -43,6 +43,7 @@ export default ({history, pathContext: {data}}) => {
   const metaImage = `${photo.file.url}?w=450&h=315&q=100`;
   const twitterImage = `${photo.file.url}?w=300&h=157&q=100&4362984378`;
 
+  const url = `https://spb-frontend.ru/persons/${slug}`;
   return (
     <div>
       <Helmet
@@ -54,6 +55,7 @@ export default ({history, pathContext: {data}}) => {
           {name: 'twitter:site', content: '@spb_frontend'},
           {name: 'twitter:creator', content: '@spb_frontend'},
           {name: 'twitter:title', content: title},
+          {name: 'twitter:url', content: url},
           {name: 'twitter:image', content: twitterImage},
           {name: 'twitter:image:src', content: twitterImage},
           {name: 'twitter:image:width', content: '300'},
@@ -65,7 +67,7 @@ export default ({history, pathContext: {data}}) => {
 
           {
             property: 'og:url',
-            content: `https://spb-frontend.ru/persons/${slug}`,
+            content: url,
           },
           {property: 'og:description', content: description},
           {property: 'og:image', content: metaImage},
