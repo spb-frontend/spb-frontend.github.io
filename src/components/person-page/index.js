@@ -35,13 +35,35 @@ export default ({history, pathContext: {data}}) => {
     podcasts,
     talks,
     photo,
+    shrug,
   } = data;
 
+  const title = 'SPB Frontend. Person';
   return (
     <div>
-      <Helmet meta={defaultHelmetMeta}>
-        <title>SPB Frontend. Person</title>
-      </Helmet>
+      <Helmet
+        meta={[
+          {name: 'author', content: title},
+
+          {name: 'twitter:site', content: title},
+          {name: 'twitter:creator', content: title},
+          {name: 'twitter:title', content: title},
+          {name: 'twitter:image', content: photo.file.url},
+
+          {property: 'og:title', content: title},
+          {property: 'og:site_name', content: title},
+          {property: 'og:type', content: 'website'},
+          {
+            property: 'og:url',
+            content: `https://spb-frontend.ru/persons/${shrug}`,
+          },
+          {property: 'og:description', content: title},
+          {property: 'og:image', content: photo.file.url},
+          {property: 'og:site_name', content: title},
+
+          {name: 'viewport', content: 'width=device-width, maximum-scale=1'},
+        ]}
+      />
       <div className={st.back_link}>
         <BackButton history={history} />
       </div>
