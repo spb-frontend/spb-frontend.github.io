@@ -33,7 +33,6 @@ module.exports = async ({graphql, boundActionCreators: {createPage}}) => {
                 slug
                 name
                 lastname
-                company
                 photo {
                   file {
                     url
