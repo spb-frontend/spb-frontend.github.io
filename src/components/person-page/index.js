@@ -45,6 +45,8 @@ export default ({history, pathContext: {data}}) => {
         meta={[
           {name: 'author', content: title},
 
+          {name: 'twitter:card', content: 'summary'},
+          {name: 'twitter:description', content: bio ? bio.bio : ''},
           {name: 'twitter:site', content: title},
           {name: 'twitter:creator', content: title},
           {name: 'twitter:title', content: title},
