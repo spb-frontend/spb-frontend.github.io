@@ -51,8 +51,8 @@ export default ({history, pathContext: {data}}) => {
 
           {name: 'twitter:card', content: 'summary'},
           {name: 'twitter:description', content: description},
-          {name: 'twitter:site', content: title},
-          {name: 'twitter:creator', content: 'spb_frontend'},
+          {name: 'twitter:site', content: '@spb_frontend'},
+          {name: 'twitter:creator', content: '@spb_frontend'},
           {name: 'twitter:title', content: title},
           {name: 'twitter:image', content: twitterImage},
           {name: 'twitter:image:src', content: twitterImage},
