@@ -49,20 +49,18 @@ export default ({history, pathContext: {data}}) => {
     slug,
   } = data;
 
+  const stats = `${
+    podcasts
+      ? `${podcasts.length} подкаст${correctRussianEnding(podcasts.length)}; `
+      : ''
+  }${
+    talks
+      ? `${talks.length} доклад${correctRussianEnding(podcasts.length)};`
+      : ''
+  }`;
+
   const title = `${name} ${lastname}`;
-  const description = bio
-    ? bio.bio
-    : `${
-        podcasts
-          ? `${podcasts.length} подкаст${correctRussianEnding(
-              podcasts.length,
-            )}; `
-          : ''
-      }${
-        talks
-          ? `${talks.length} доклад${correctRussianEnding(podcasts.length)};`
-          : ''
-      }`;
+  const description = bio ? `${bio.bio}; ${stats}` : stats;
   const metaImage = `${photo.file.url}?w=450&h=315&q=100`;
   const twitterImage = `https:${photo.file.url}?w=300&h=157&q=100`;
 
