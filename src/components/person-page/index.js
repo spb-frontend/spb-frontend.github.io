@@ -41,7 +41,7 @@ export default ({history, pathContext: {data}}) => {
   const title = `${name} ${lastname}`;
   const description = bio ? bio.bio : `${name} ${lastname}`;
   const metaImage = `${photo.file.url}?w=450&h=315&q=100`;
-  const twitterImage = `${photo.file.url}?w=300&h=157&q=100`;
+  const twitterImage = `${photo.file.url}?w=300&h=157&q=100&4362984378`;
 
   return (
     <div>
@@ -55,6 +55,7 @@ export default ({history, pathContext: {data}}) => {
           {name: 'twitter:creator', content: 'spb_frontend'},
           {name: 'twitter:title', content: title},
           {name: 'twitter:image', content: twitterImage},
+          {name: 'twitter:image:src', content: twitterImage},
           {name: 'twitter:image:width', content: '300'},
           {name: 'twitter:image:height', content: '157'},
 
