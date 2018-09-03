@@ -3,7 +3,7 @@ import st from './style.module.css';
 import Link from 'gatsby-link';
 import Helmet from 'react-helmet';
 import marked from 'marked';
-import {defaultHelmetMeta} from '../layouts/index';
+import {defaultHelmetMeta} from '../../layouts/index';
 import BackButton from '../back-button';
 import TelegramIcon from '-!svg-react-loader?name=Icon!../../../static/telegram.svg';
 import VkIcon from '-!svg-react-loader?name=Icon!../../../static/vk.svg';
