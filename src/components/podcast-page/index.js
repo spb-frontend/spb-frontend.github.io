@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import st from './style.module.css'
-import BackButton from '../back-button'
 import marked from 'marked'
 import {Box, Thread} from 'react-disqussion'
 import {Player} from '../Player'
@@ -36,10 +35,6 @@ class PodcastPage extends Component {
 
     return (
       <div>
-        <div className={st.back_link}>
-          <BackButton history={this.props.history} />
-        </div>
-
         <header className={st.header}>
           <h3 className={st.header_title}>{title}</h3>
           <date className={st.header_date}>{formatedDate}</date>

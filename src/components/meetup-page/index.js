@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import st from './style.module.css'
-import BackButton from '../back-button'
+
 import PersonsList from '../persons-list'
 
 class MeetupPage extends Component {
@@ -10,10 +10,6 @@ class MeetupPage extends Component {
 
     return (
       <div>
-        <div className={st.back_link}>
-          <BackButton history={this.props.history} />
-        </div>
-
         <header className={st.header}>
           <h3 className={st.header_title}>{title}</h3>
         </header>
