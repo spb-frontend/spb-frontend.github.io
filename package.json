@@ -6,7 +6,6 @@
     "@jacobmischka/gatsby-plugin-react-svg": "^1.1.0",
     "classnames": "^2.2.5",
     "gatsby": "^2.0.35",
-    "gatsby-plugin-feed": "^2.0.9",
     "gatsby-plugin-manifest": "^2.0.7",
     "gatsby-plugin-react-helmet": "^3.0.1",
     "gatsby-plugin-remove-serviceworker": "^1.0.0",
@@ -31,6 +30,7 @@
     "node": "^8.9.1"
   },
   "devDependencies": {
+    "@babel/register": "^7.0.0",
     "babel-eslint": "^8.2.2",
     "babel-preset-env": "^1.6.1",
     "eslint": "^4.19.1",

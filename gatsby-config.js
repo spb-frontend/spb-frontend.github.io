@@ -61,7 +61,7 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-feed',
+      resolve: 'plugin-feed',
       options: {
         query: `
           {
