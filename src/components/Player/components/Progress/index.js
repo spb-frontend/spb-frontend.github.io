@@ -7,7 +7,7 @@ export class Progress extends Component {
     if (duration === 0) {
       return 0
     } else {
-      return position / duration * 100
+      return (position / duration) * 100
     }
   }
 
@@ -16,7 +16,7 @@ export class Progress extends Component {
     const {offsetWidth, offsetLeft} = this.progressEl
     const {clientX} = event
     const newPosition =
-      duration / 100 * ((clientX - offsetLeft) / offsetWidth * 100)
+      (duration / 100) * (((clientX - offsetLeft) / offsetWidth) * 100)
 
     player.setState({position: newPosition})
   }

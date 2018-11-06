@@ -1,11 +1,11 @@
-'use strict';
-import React from 'react';
+'use strict'
+import React from 'react'
 
-import { SubscriptionForm } from '../components/subscription-form';
-import { SiteHeader } from '../components/nav-header/index';
+import {SubscriptionForm} from '../components/subscription-form'
+import {SiteHeader} from '../components/nav-header/index'
 
-import '../css/typography.css';
-import '../css/index.css';
+import '../css/typography.css'
+import '../css/index.css'
 
 export const Layout = props => (
   <div className='page'>
@@ -80,7 +80,7 @@ export const Layout = props => (
       </div>
     </footer>
   </div>
-);
+)
 
 export const defaultHelmetMeta = [
   <meta
@@ -119,4 +119,4 @@ export const defaultHelmetMeta = [
     key='keywords'
     name='keywords'
     content='frontend, spb-frontend' />,
-];
+]

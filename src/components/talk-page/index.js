@@ -1,11 +1,11 @@
-import React from 'react';
-import st from './style.module.css';
-import TelegramIcon from '-!svg-react-loader?name=Icon!../../../static/telegram.svg';
-import VkIcon from '-!svg-react-loader?name=Icon!../../../static/vk.svg';
-import SlackIcon from '-!svg-react-loader?name=Icon!../../../static/slack.svg';
-import TwitterIcon from '-!svg-react-loader?name=Icon!../../../static/twitter.svg';
+import React from 'react'
+import st from './style.module.css'
+import TelegramIcon from '-!svg-react-loader?name=Icon!../../../static/telegram.svg'
+import VkIcon from '-!svg-react-loader?name=Icon!../../../static/vk.svg'
+import SlackIcon from '-!svg-react-loader?name=Icon!../../../static/slack.svg'
+import TwitterIcon from '-!svg-react-loader?name=Icon!../../../static/twitter.svg'
 
-const SocialIcon = ({ user, link, children }) => {
+const SocialIcon = ({user, link, children}) => {
   const icon = user ? (
     <span className={st.social_icon}>
       <a
@@ -14,19 +14,18 @@ const SocialIcon = ({ user, link, children }) => {
         {children}
       </a>
     </span>
-  ) : null;
-  return icon;
-};
+  ) : null
+  return icon
+}
 
 export default ({
   history,
   pageContext: {
-    data: { title, description: description_, persons, slides, video },
+    data: {title, description: description_, persons, slides, video},
   },
 }) => {
-  const { description } = description_ || {};
-  const [{ photo, name, lastname, vk, telegram, twitter, slack }] =
-    persons || [];
+  const {description} = description_ || {}
+  const [{photo, name, lastname, vk, telegram, twitter, slack}] = persons || []
   return (
     <div>
       <div className={st.person}>
@@ -67,10 +66,10 @@ export default ({
         </div>
       </div>
 
-      <div style={{ marginTop: 10 }}>{title}</div>
-      <div style={{ marginTop: 10 }}>{description}</div>
+      <div style={{marginTop: 10}}>{title}</div>
+      <div style={{marginTop: 10}}>{description}</div>
 
-      <div style={{ marginTop: 20 }}>
+      <div style={{marginTop: 20}}>
         {slides && (
           <div className={st.talkTitle}>
             <a
@@ -91,5 +90,5 @@ export default ({
         )}
       </div>
     </div>
-  );
-};
+  )
+}

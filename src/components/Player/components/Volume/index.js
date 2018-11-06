@@ -15,7 +15,9 @@ export class Volume extends Component {
 
   change = event => {
     const {player} = this.props
-    const {target: {value}} = event
+    const {
+      target: {value},
+    } = event
 
     this.props.player.changeVolume(parseInt(value))
   }

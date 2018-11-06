@@ -1,7 +1,7 @@
-'use strict';
-import React from 'react';
-import Helmet from 'react-helmet';
-import { defaultHelmetMeta, Layout } from '../components/layout';
+'use strict'
+import React from 'react'
+import Helmet from 'react-helmet'
+import {defaultHelmetMeta, Layout} from '../components/layout'
 
 const Index = () => (
   <Layout>
@@ -26,7 +26,8 @@ const Index = () => (
 
     <p>
       Чтобы следить за новыми событиями сообщества, подписывайтесь на{' '}
-      <a href='https://vk.com/spb_frontend'>группу ВКонтакте</a>,&nbsp;
+      <a href='https://vk.com/spb_frontend'>группу ВКонтакте</a>
+      ,&nbsp;
       <a href='https://twitter.com/spb_frontend'>Твиттер</a> или{' '}
       <a href='https://t.me/spb_frontend'>Телеграм канал</a>.
     </p>
@@ -58,6 +59,6 @@ const Index = () => (
       ]}
     </Helmet>
   </Layout>
-);
+)
 
-export default Index;
+export default Index
