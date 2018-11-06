@@ -1,14 +1,14 @@
-let keys
+let keys;
 
 try {
-  keys = require('./keys.js')
+  keys = require('./keys.js');
 } catch (err) {
   keys = {
     contentful: {
       space_id: '',
       token: '',
     },
-  }
+  };
 }
 
 module.exports = {
@@ -61,7 +61,7 @@ module.exports = {
       },
     },
     {
-      resolve: 'plugin-feed',
+      resolve: 'gatsby-plugin-feed',
       options: {
         query: `
           {
@@ -123,4 +123,4 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-remove-serviceworker',
   ],
-}
+};
