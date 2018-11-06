@@ -1,10 +1,10 @@
-'use strict'
-import React from 'react'
-import Helmet from 'react-helmet'
-import {defaultHelmetMeta} from '../layouts/index'
+'use strict';
+import React from 'react';
+import Helmet from 'react-helmet';
+import { defaultHelmetMeta, Layout } from '../components/layout';
 
-const Index = props => (
-  <div>
+const Index = () => (
+  <Layout>
     <p>
       SPB Frontend — петербургское сообщество фронтенд-разработчиков. Мы
       регулярно проводим встречи с 2014 года. Обычно это встречи с докладами по
@@ -57,7 +57,7 @@ const Index = props => (
         <title key='title'>SPB Frontend. Frontend artisans</title>,
       ]}
     </Helmet>
-  </div>
-)
+  </Layout>
+);
 
-export default Index
+export default Index;

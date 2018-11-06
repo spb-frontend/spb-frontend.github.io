@@ -1,18 +1,18 @@
-import React from 'react'
+import React from 'react';
 
-const BUILD_TIME = new Date().getTime()
+const BUILD_TIME = new Date().getTime();
 
 export default class HTML extends React.Component {
   render() {
-    let css
-    let analytics
+    let css;
+    let analytics;
     if (process.env.NODE_ENV === 'production') {
       css = (
         <style
           dangerouslySetInnerHTML={{
             __html: require('!raw!../public/styles.css'),
           }} />
-      )
+      );
       analytics = (
         <script
           dangerouslySetInnerHTML={{
@@ -24,7 +24,7 @@ export default class HTML extends React.Component {
             ga('create', 'UA-102437066-1', 'auto');
             ga('send', 'pageview');`,
           }} />
-      )
+      );
     }
 
     return (
@@ -44,11 +44,11 @@ export default class HTML extends React.Component {
           <div
             id='___gatsby'
             className='app'
-            dangerouslySetInnerHTML={{__html: this.props.body}} />
+            dangerouslySetInnerHTML={{ __html: this.props.body }} />
           {this.props.postBodyComponents}
           {analytics}
         </body>
       </html>
-    )
+    );
   }
 }

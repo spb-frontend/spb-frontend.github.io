@@ -1,13 +1,13 @@
-import React from 'react'
-import Link from 'gatsby-link'
-import cn from 'classnames'
+import React from 'react';
+import { Link } from 'gatsby';
+import cn from 'classnames';
 
-import st from './styles.module.css'
+import st from './styles.module.css';
 
 export default props => {
   return (
     <ul className={cn(props.className, st.list)}>
-      {props.collection.map(({name, lastname, photo, slug}) => (
+      {props.collection.map(({ name, lastname, photo, slug }) => (
         <li
           key={`${slug}`}
           className={st.item}>
@@ -27,5 +27,5 @@ export default props => {
         </li>
       ))}
     </ul>
-  )
-}
+  );
+};

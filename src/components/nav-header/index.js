@@ -1,6 +1,6 @@
 'use strict'
 import React, {Component} from 'react'
-import Link from 'gatsby-link'
+import {Link} from 'gatsby'
 import cn from 'classnames'
 import MenuButton from '../menu-button'
 

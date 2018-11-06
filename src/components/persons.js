@@ -1,32 +1,31 @@
-import React from 'react'
-import Helmet from 'react-helmet'
-import Link from 'gatsby-link'
+import React from 'react';
+import Helmet from 'react-helmet';
 
-import PersonsList from '../components/persons-list'
-import {defaultHelmetMeta} from '../layouts/index'
+import PersonsList from '../components/persons-list';
+import { defaultHelmetMeta, Layout } from './layout';
 
-import styles from './../css/person.module.css'
+import styles from './../css/person.module.css';
 
 function getLastPodcast(array) {
-  const newArray = array.map(podcast => podcast.number)
-  const last = Math.max.apply(null, newArray)
+  const newArray = array.map(podcast => podcast.number);
+  const last = Math.max.apply(null, newArray);
 
-  return last
+  return last;
 }
 
 function sortPersons(array) {
   const newArray = [...array].sort((prev, next) => {
     const prevNodePodcastsNumber = !prev.node.podcasts
       ? 0
-      : prev.node.podcasts.length
+      : prev.node.podcasts.length;
 
     const nextNodePodcastsNumber = !next.node.podcasts
       ? 0
-      : next.node.podcasts.length
+      : next.node.podcasts.length;
 
-    const prevNodeTalksNumber = !prev.node.talks ? 0 : prev.node.talks.length
+    const prevNodeTalksNumber = !prev.node.talks ? 0 : prev.node.talks.length;
 
-    const nextNodeTalksNumber = !next.node.talks ? 0 : next.node.talks.length
+    const nextNodeTalksNumber = !next.node.talks ? 0 : next.node.talks.length;
 
     if (
       prevNodePodcastsNumber + prevNodeTalksNumber !==
@@ -36,28 +35,28 @@ function sortPersons(array) {
         nextNodePodcastsNumber +
         nextNodeTalksNumber -
         (prevNodePodcastsNumber + prevNodeTalksNumber)
-      )
+      );
     } else {
       const nextLastPodcast = next.node.podcasts
         ? getLastPodcast(next.node.podcasts)
-        : 0
+        : 0;
       const prevLastPodcast = prev.node.podcasts
         ? getLastPodcast(prev.node.podcasts)
-        : 0
+        : 0;
 
-      return nextLastPodcast - prevLastPodcast
+      return nextLastPodcast - prevLastPodcast;
     }
-  })
+  });
 
-  return newArray
+  return newArray;
 }
 
 export default props => {
-  const {pathContext: {data: person}} = props
-  const sortedPersons = sortPersons(person).map(edge => edge.node)
+  const { pageContext: { data: person } } = props;
+  const sortedPersons = sortPersons(person).map(edge => edge.node);
 
   return (
-    <div>
+    <Layout>
       <div className={styles.list}>
         <PersonsList collection={sortedPersons} />
       </div>
@@ -65,6 +64,6 @@ export default props => {
       <Helmet meta={defaultHelmetMeta}>
         <title>SPB Frontend. Persons</title>
       </Helmet>
-    </div>
-  )
-}
+    </Layout>
+  );
+};

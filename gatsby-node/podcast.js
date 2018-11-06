@@ -1,7 +1,7 @@
 const slash = require('slash');
 const path = require('path');
-const {slugify} = require('transliteration');
-const {getHumanDate} = require('../utils/date');
+const { slugify } = require('transliteration');
+const { getHumanDate } = require('../utils/date');
 
 const podcastPageTemplate = path.resolve(
   process.cwd(),
@@ -12,10 +12,13 @@ const postTemplate = path.resolve(
   'src/components/podcast-page/index.js',
 );
 
-module.exports = async ({graphql, boundActionCreators: {createPage}}) => {
+module.exports = async ({ graphql, actions: { createPage } }) => {
   const result = await graphql(`
     {
-      allContentfulDrinkcast(limit: 1000, sort: {order: DESC, fields: [date]}) {
+      allContentfulDrinkcast(
+        limit: 1000
+        sort: { order: DESC, fields: [date] }
+      ) {
         edges {
           node {
             number
@@ -55,11 +58,11 @@ module.exports = async ({graphql, boundActionCreators: {createPage}}) => {
     path: '/podcast',
     component: slash(podcastPageTemplate),
     context: {
-      data: {episodes: finalEdges},
+      data: { episodes: finalEdges },
     },
   });
 
-  finalEdges.forEach(({node}, id) => {
+  finalEdges.forEach(({ node }, id) => {
     createPage({
       path: `/podcast/${slugify(node.number)}`,
       component: slash(postTemplate),
