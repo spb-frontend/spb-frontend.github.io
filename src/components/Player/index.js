@@ -96,7 +96,7 @@ export class Player extends Component {
     this.setState({playStatus})
   }
 
-  UNSAFE__componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     this.setState({position: nextProps.position})
   }
 
@@ -163,7 +163,6 @@ export class Player extends Component {
       playbackRate,
       timerType,
     } = this.state
-
     return (
       <div>
         <div

@@ -18,7 +18,7 @@ const social = [
   },
   {
     name: 'twitter',
-    icon: TwitterIcon,
+    icon: TwitterIcon, 
     link: 'https://twitter.com/home?status=',
   },
 ]
