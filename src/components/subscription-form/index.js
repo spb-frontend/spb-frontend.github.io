@@ -2,23 +2,10 @@
 'use strict'
 
 import React, {Component} from 'react'
-import {getJSON, postJSON, serialize} from '../../../utils'
+import {serialize} from '../../../utils'
 import st from './style.module.css'
 
 class SubscriptionForm extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      errors: [],
-      status: 'form',
-    }
-  }
-
-  componentDidMount() {
-    window.formLoginRequestSuccess = this.invited
-  }
-
   invited = resp => {
     if (resp.result === 'success') {
       this.showSuccess(resp)
@@ -46,8 +33,21 @@ class SubscriptionForm extends Component {
     this.setState({errors: [resp]})
   }
 
-  showSuccess = resp => {
+  showSuccess = () => {
     this.setState({status: 'success'})
+  }
+
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      errors: [],
+      status: 'form',
+    }
+  }
+
+  componentDidMount() {
+    window.formLoginRequestSuccess = this.invited
   }
 
   render() {
@@ -56,9 +56,7 @@ class SubscriptionForm extends Component {
         id='mc_embed_signup'
         className={st.subscription}>
         {this.state.status === 'success' && (
-          <span className={st.success}>
-            Спасибо, проверьте вашу почту и подтвердите подписку
-          </span>
+          <span>Спасибо, проверьте вашу почту и подтвердите подписку</span>
         )}
         {this.state.status === 'form' && (
           <form

@@ -75,6 +75,7 @@ export default class ShareBlock extends Component {
                   <a
                     className={st.socialLink}
                     target='_blank'
+                    rel='noopener noreferrer'
                     href={item.link + this.getUrl(position)}>
                     <Icon />
                   </a>

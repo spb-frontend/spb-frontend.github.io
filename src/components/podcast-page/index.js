@@ -33,7 +33,6 @@ class PodcastPage extends Component {
   render() {
     const {data} = this.props.pageContext
     const {title, number, file, notes, formatedDate, persons} = data
-
     return (
       <Layout>
         <header className={st.header}>

@@ -24,10 +24,6 @@
   padding-right: 20px;
 }
 
-.menu {
-  display: flex;
-}
-
 .logo,
 .menuItem {
   display: flex;

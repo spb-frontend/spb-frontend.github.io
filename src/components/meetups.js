@@ -5,7 +5,7 @@ import {Link} from 'gatsby'
 import styles from './../css/meetup.module.css'
 import {defaultHelmetMeta, Layout} from './layout'
 
-const PostLink = ({title, date, to}) => (
+const PostLink = ({title, to}) => (
   <div className={styles.post}>
     <header className={styles.header}>
       <h3 className={styles.header_title}>
@@ -29,7 +29,7 @@ export default props => {
     <Layout>
       <h2 className={styles.title}>🎤 Meetup 🎤</h2>
 
-      <div className={styles.posts}>
+      <div>
         {meetups.map(({node: {title, date, path, formatedDate}}, index) => (
           <PostLink
             key={index}

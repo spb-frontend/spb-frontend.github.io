@@ -4,7 +4,7 @@
   margin-top: 20px;
 }
 
-.form {
+.form { 
   width: 100%;
   display: block;
   box-sizing: border-box;
@@ -34,12 +34,10 @@
   padding: calc(var(--base-size) / 2) var(--base-size);
   transition: background-color 150ms ease;
   cursor: pointer;
-
-  &:hover {
-    background-color: var(--color-grey);
-  }
 }
-
+.button:hover {
+  background-color: var(--color-grey);
+}
 /* .subscription--success {
 } */
 

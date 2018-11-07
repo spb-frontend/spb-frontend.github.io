@@ -1,7 +1,5 @@
 import React from 'react'
 
-const BUILD_TIME = new Date().getTime()
-
 export default class HTML extends React.Component {
   render() {
     let analytics

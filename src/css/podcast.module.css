@@ -42,16 +42,6 @@
   white-space: nowrap;
 }
 
-.footer {
-  margin-top: 10px;
-  color: #777;
-}
-
-.footer ul {
-  list-style: none;
-  margin-left: 0;
-}
-
 .rss_icon {
   width: 13px;
   height: 13px;

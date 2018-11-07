@@ -8,7 +8,7 @@ import TelegramIcon from '-!svg-react-loader?name=Icon!../../static/telegram.svg
 import styles from './../css/podcast.module.css'
 import {defaultHelmetMeta, Layout} from './layout'
 
-const PostLink = ({title, formatedDate, date, to}) => (
+const PostLink = ({title, formatedDate, to}) => (
   <div className={styles.post}>
     <header className={styles.header}>
       <h3 className={styles.header_title}>
@@ -63,8 +63,8 @@ export default props => {
           <TelegramIcon className={styles.telegram_icon} /> Телеграм
         </a>
       </div>
-      <div className={styles.posts}>
-        {episodes.map(({node: {title, date, number, formatedDate}}, index) => (
+      <div>
+        {episodes.map(({node: {title, date, number, formatedDate}}) => (
           <PostLink
             key={number + title}
             title={title}
