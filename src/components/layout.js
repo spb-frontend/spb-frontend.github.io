@@ -1,8 +1,8 @@
 'use strict'
 import React from 'react'
 
-import {SubscriptionForm} from '../components/subscription-form'
-import {SiteHeader} from '../components/nav-header/index'
+import { SubscriptionForm } from '../components/subscription-form'
+import { SiteHeader } from '../components/nav-header/index'
 
 import '../css/typography.css'
 import '../css/index.css'
@@ -38,7 +38,7 @@ export const Layout = props => (
           <dd className='contacts--desc'>
             <a href='https://twitter.com/spb_frontend'>@spb_frontend</a>
           </dd>
-          <dt className='contacts--term'>Канал в Телеграме</dt>
+          <dt className='contacts--term'>Канал в Телеграмме</dt>
           <dd className='contacts--desc'>
             <a href='https://t.me/spb_frontend'>@spb_frontend</a>
           </dd>
