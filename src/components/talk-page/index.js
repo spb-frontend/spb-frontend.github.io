@@ -4,6 +4,7 @@ import TelegramIcon from '-!svg-react-loader?name=Icon!../../../static/telegram.
 import VkIcon from '-!svg-react-loader?name=Icon!../../../static/vk.svg'
 import SlackIcon from '-!svg-react-loader?name=Icon!../../../static/slack.svg'
 import TwitterIcon from '-!svg-react-loader?name=Icon!../../../static/twitter.svg'
+import {Layout} from '../layout'
 
 const SocialIcon = ({user, link, children}) => {
   const icon = user ? (
@@ -27,7 +28,7 @@ export default ({
   const {description} = description_ || {}
   const [{photo, name, lastname, vk, telegram, twitter, slack}] = persons || []
   return (
-    <div>
+    <Layout>
       <div className={st.person}>
         <div className={st.person_info}>
           <h2>
@@ -89,6 +90,6 @@ export default ({
           </div>
         )}
       </div>
-    </div>
+    </Layout>
   )
 }

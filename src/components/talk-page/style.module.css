@@ -49,17 +49,14 @@
   text-decoration: none;
   transition: transform 150ms ease;
   color: #000;
-
-  &:hover,
-  &:focus {
-    transform: scale(1.1);
-  }
-
-  & a {
-    text-decoration: none;
+}
+.social_icon:hover, .social_icon:focus {
+  transform: scale(1.1);
+}
+.social_icon a {
+  text-decoration: none;
     border-bottom: none;
     color: inherit;
-  }
 }
 
 .slack_icon svg {
