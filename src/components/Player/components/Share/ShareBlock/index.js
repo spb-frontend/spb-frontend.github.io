@@ -1,9 +1,9 @@
 import React, {Component} from 'react'
 import cn from 'classnames'
 import st from './style.module.css'
-import TwitterIcon from './Icons/twitter'
-import VkIcon from './Icons/vk'
-import FacebookIcon from './Icons/facebook'
+import TwitterIcon from '../Icons/twitter'
+import VkIcon from '../Icons/vk'
+import FacebookIcon from '../Icons/facebook'
 
 const social = [
   {
