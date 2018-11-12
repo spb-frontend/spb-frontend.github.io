@@ -18,9 +18,9 @@ jobs:
 
       - restore_cache:
           keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
+            - v1-dependencies-{{ checksum "package.json" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
 
       - run: npm install
 
@@ -30,6 +30,7 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       - run: npm run build:ci
+
   test:
     docker:
       - image: circleci/node:10.13
@@ -43,13 +44,7 @@ jobs:
 
   deploy:
     docker:
-      # specify the version you desire here
       - image: circleci/node:10.13
-
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/mongo:3.4.4
 
     working_directory: ~/repo
 
@@ -58,29 +53,25 @@ jobs:
 
 workflows:
   version: 2.1
-  test:
+  build_and_test:
     jobs:
       - build
       - test:
-        requires:
-          - build
-        filters:
-          branches:
-            ignore: gh-pages
+          filters:
+            branches:
+              ignore: gh-pages
 
-  deploy:
+  build_test_and_deploy:
     jobs:
       - build
       - test:
-        requires:
-          - build
-        filters:
-          branches:
-            ignore: gh-pages
+          filters:
+            branches:
+              ignore: gh-pages
       - deploy:
-        requires:
-          - build
-          - test
-        filters:
-          branches:
-            only: master
+          requires:
+            - build
+            - test
+          filters:
+            branches:
+              only: master
