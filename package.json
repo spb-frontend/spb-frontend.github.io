@@ -28,7 +28,7 @@
     "transliteration": "^1.6.2"
   },
   "engines": {
-    "node": "^8.9.1"
+    "node": "^10.13.0"
   },
   "devDependencies": {
     "@babel/register": "^7.0.0",
