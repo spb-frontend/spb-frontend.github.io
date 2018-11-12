@@ -57,6 +57,8 @@ workflows:
     jobs:
       - build
       - test:
+          requires:
+            - build
           filters:
             branches:
               ignore: gh-pages
@@ -65,6 +67,8 @@ workflows:
     jobs:
       - build
       - test:
+          requires:
+            - build
           filters:
             branches:
               ignore: gh-pages
