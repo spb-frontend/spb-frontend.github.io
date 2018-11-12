@@ -5,12 +5,12 @@ const pify = require('pify')
 const writeFile = pify(fs.writeFile)
 
 const runQuery = (handler, query) =>
-  handler(query).then(r => {
-    if (r.errors) {
-      throw new Error(r.errors.join(', '))
+  handler(query).then(result => {
+    if (result.errors) {
+      throw new Error(result.errors.join(', '))
     }
 
-    return r.data
+    return result.data
   })
 
 const defaultOptions = {

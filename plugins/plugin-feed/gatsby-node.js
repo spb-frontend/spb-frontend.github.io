@@ -10,7 +10,7 @@ const { defaultOptions, runQuery, writeFile } = require('./internals');
 const publicPath = './public';
 
 // A default function to transform query data into feed entries.
-const serialize = ({ site, allContentfulDrinkcast }) =>
+const serialize = ({ allContentfulDrinkcast }) =>
   allContentfulDrinkcast.edges.map(edge => {
     const html = marked(edge.node.notes.notes);
 
@@ -65,16 +65,16 @@ exports.onPostBuild = async ({ graphql }, pluginOptions) => {
   /* TODO: придумать решение получше */
   globals.site.siteMetadata = globals.site.siteMetadata.podcast;
 
-  for (let f of feeds) {
+  for (let fd of feeds) {
     let locals = {};
-    if (f.query) {
-      locals = await runQuery(graphql, f.query);
+    if (fd.query) {
+      locals = await runQuery(graphql, fd.query);
     }
 
-    const output = path.join(publicPath, f.output);
+    const output = path.join(publicPath, fd.output);
     const ctx = Object.assign({}, globals, locals);
     const feed = new RSS(setup(Object.assign({}, rest, ctx)));
-    const items = f.serialize ? f.serialize(ctx) : serialize(ctx);
+    const items = fd.serialize ? fd.serialize(ctx) : serialize(ctx);
 
     /* TODO: Вынести настройки в конфиг */
     feed.custom_namespaces = {
@@ -107,12 +107,12 @@ exports.onPostBuild = async ({ graphql }, pluginOptions) => {
         ],
       },
     ];
-    items.forEach(i => feed.item(i));
+    items.forEach(idx => feed.item(idx));
 
     // console.log(feed)
 
     await writeFile(output, feed.xml());
   }
 
-  return Promise.resolve();
+  return Promise.resolve(); //eslint-disable-line
 };
