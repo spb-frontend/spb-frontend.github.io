@@ -20,11 +20,11 @@ export class Speed extends Component {
     }
   }
 
-  focus = event => {
+  focus = () => {
     this.setState({focus: true})
   }
 
-  blur = event => {
+  blur = () => {
     this.setState({focus: false})
   }
 

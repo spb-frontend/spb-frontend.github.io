@@ -1,6 +1,6 @@
 'use strict'
-import React, {Component} from 'react'
-import Link from 'gatsby-link'
+import React, { Component } from 'react'
+import { Link } from 'gatsby'
 import cn from 'classnames'
 import MenuButton from '../menu-button'
 
@@ -24,7 +24,7 @@ class SiteHeader extends Component {
   }
 
   render() {
-    const {isOpen} = this.state
+    const { isOpen } = this.state
     return (
       <div className={style.header}>
         <div className={style.wrapper}>
@@ -68,4 +68,4 @@ class SiteHeader extends Component {
   }
 }
 
-export {SiteHeader}
+export { SiteHeader }

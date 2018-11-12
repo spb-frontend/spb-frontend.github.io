@@ -22,10 +22,6 @@ export class Player extends Component {
     playbackRate: 1,
   }
 
-  componentWillReceiveProps(nextProps) {
-    this.setState({position: nextProps.position})
-  }
-
   keysHandlersHash = {
     // space
     32: () => {
@@ -52,6 +48,42 @@ export class Player extends Component {
     },
   }
 
+  toggleTimerType = () => {
+    const {timerType} = this.state
+    this.setState({
+      timerType: timerType === 'ELAPSED' ? 'REMAINING' : 'ELAPSED',
+    })
+  }
+
+  handlePlayerKeyDown = event => {
+    const handler = this.keysHandlersHash[event.keyCode]
+    const isSpace = event.keyCode === 32
+    const focusedTag = document.activeElement.tagName.toLocaleLowerCase()
+
+    if (handler && (!isSpace || focusedTag !== 'button')) {
+      event.preventDefault()
+      handler()
+    }
+  }
+
+  handlePlaying = opts => {
+    this.setState(opts)
+  }
+
+  handleLoading = opts => {
+    this.setState({duration: opts.duration})
+  }
+
+  toggleMute() {
+    const {volume, prevVolume = 100} = this.state
+
+    if (volume) {
+      this.setState({volume: 0, prevVolume: volume})
+    } else {
+      this.setState({volume: prevVolume})
+    }
+  }
+
   togglePlaying() {
     let {playStatus} = this.state
 
@@ -64,14 +96,8 @@ export class Player extends Component {
     this.setState({playStatus})
   }
 
-  toggleMute() {
-    const {volume, prevVolume = 100} = this.state
-
-    if (volume) {
-      this.setState({volume: 0, prevVolume: volume})
-    } else {
-      this.setState({volume: prevVolume})
-    }
+  UNSAFE_componentWillReceiveProps(nextProps) {
+    this.setState({position: nextProps.position})
   }
 
   changeVolume(value) {
@@ -127,33 +153,6 @@ export class Player extends Component {
     this.changePosition(position - 5000)
   }
 
-  handlePlaying = opts => {
-    this.setState(opts)
-  }
-
-  handleLoading = opts => {
-    this.setState({duration: opts.duration})
-  }
-
-  handlePlayerKeyDown = event => {
-    const {playStatus} = this.state
-    const handler = this.keysHandlersHash[event.keyCode]
-    const isSpace = event.keyCode === 32
-    const focusedTag = document.activeElement.tagName.toLocaleLowerCase()
-
-    if (handler && (!isSpace || focusedTag !== 'button')) {
-      event.preventDefault()
-      handler()
-    }
-  }
-
-  toggleTimerType = () => {
-    const {timerType} = this.state
-    this.setState({
-      timerType: timerType === 'ELAPSED' ? 'REMAINING' : 'ELAPSED',
-    })
-  }
-
   render() {
     const {file, title} = this.props
     const {
@@ -164,7 +163,6 @@ export class Player extends Component {
       playbackRate,
       timerType,
     } = this.state
-
     return (
       <div>
         <div

@@ -1,11 +1,11 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import Link from 'gatsby-link'
+import {Link} from 'gatsby'
 
 import styles from './../css/meetup.module.css'
-import {defaultHelmetMeta} from '../layouts/index'
+import {defaultHelmetMeta, Layout} from './layout'
 
-const PostLink = ({title, date, to}) => (
+const PostLink = ({title, to}) => (
   <div className={styles.post}>
     <header className={styles.header}>
       <h3 className={styles.header_title}>
@@ -20,12 +20,16 @@ const PostLink = ({title, date, to}) => (
 )
 
 export default props => {
-  const {pathContext: {data: {meetups}}} = props
+  const {
+    pageContext: {
+      data: {meetups},
+    },
+  } = props
   return (
-    <div>
+    <Layout>
       <h2 className={styles.title}>🎤 Meetup 🎤</h2>
 
-      <div className={styles.posts}>
+      <div>
         {meetups.map(({node: {title, date, path, formatedDate}}, index) => (
           <PostLink
             key={index}
@@ -39,6 +43,6 @@ export default props => {
       <Helmet meta={defaultHelmetMeta}>
         <title>SPB Frontend. Meetups</title>
       </Helmet>
-    </div>
+    </Layout>
   )
 }

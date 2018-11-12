@@ -1,14 +1,14 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import Link from 'gatsby-link'
+import {Link} from 'gatsby'
 import RSSIcon from '-!svg-react-loader?name=Icon!../../static/rss-symbol.svg'
 import ITunesIcon from '-!svg-react-loader?name=Icon!../../static/itunes.svg'
 import TelegramIcon from '-!svg-react-loader?name=Icon!../../static/telegram.svg'
 
 import styles from './../css/podcast.module.css'
-import {defaultHelmetMeta} from '../layouts/index'
+import {defaultHelmetMeta, Layout} from './layout'
 
-const PostLink = ({title, formatedDate, date, to}) => (
+const PostLink = ({title, formatedDate, to}) => (
   <div className={styles.post}>
     <header className={styles.header}>
       <h3 className={styles.header_title}>
@@ -24,10 +24,14 @@ const PostLink = ({title, formatedDate, date, to}) => (
 )
 
 export default props => {
-  const {pathContext: {data: {episodes}}} = props
+  const {
+    pageContext: {
+      data: {episodes},
+    },
+  } = props
 
   return (
-    <div>
+    <Layout>
       <h2 className={styles.title}>🍻 Drinkcast 🍻</h2>
       <div className={styles.links}>
         <a
@@ -59,8 +63,8 @@ export default props => {
           <TelegramIcon className={styles.telegram_icon} /> Телеграм
         </a>
       </div>
-      <div className={styles.posts}>
-        {episodes.map(({node: {title, date, number, formatedDate}}, index) => (
+      <div>
+        {episodes.map(({node: {title, date, number, formatedDate}}) => (
           <PostLink
             key={number + title}
             title={title}
@@ -77,6 +81,6 @@ export default props => {
           type='application/rss+xml'
           href='/podcast.xml' />
       </Helmet>
-    </div>
+    </Layout>
   )
 }

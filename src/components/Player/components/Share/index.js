@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import Icon from './Icons/share'
-import ShareBlock from './shareBlock'
+import ShareBlock from './ShareBlock'
 import cn from 'classnames'
 import {wrap} from './style.module.css'
 

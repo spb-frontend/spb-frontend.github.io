@@ -1,9 +1,9 @@
 import React, {Component} from 'react'
 import cn from 'classnames'
 import st from './style.module.css'
-import TwitterIcon from './Icons/twitter'
-import VkIcon from './Icons/vk'
-import FacebookIcon from './Icons/facebook'
+import TwitterIcon from '../Icons/twitter'
+import VkIcon from '../Icons/vk'
+import FacebookIcon from '../Icons/facebook'
 
 const social = [
   {
@@ -18,7 +18,7 @@ const social = [
   },
   {
     name: 'twitter',
-    icon: TwitterIcon,
+    icon: TwitterIcon, 
     link: 'https://twitter.com/home?status=',
   },
 ]
@@ -75,6 +75,7 @@ export default class ShareBlock extends Component {
                   <a
                     className={st.socialLink}
                     target='_blank'
+                    rel='noopener noreferrer'
                     href={item.link + this.getUrl(position)}>
                     <Icon />
                   </a>

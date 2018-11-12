@@ -9,7 +9,7 @@ const personTemplate = path.resolve(
   'src/components/person-page/index.js',
 );
 
-module.exports = async ({graphql, boundActionCreators: {createPage}}) => {
+module.exports = async ({graphql, actions: {createPage}}) => {
   const result = await graphql(
     `
       {
