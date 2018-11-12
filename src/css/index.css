@@ -1,4 +1,4 @@
-@import 'config.css';
+@import "config.css";
 
 html,
 body {
@@ -36,10 +36,12 @@ a:focus {
 p,
 dl {
   margin: 0;
-  padding: .5em 0;
+  padding: 0.5em 0;
 }
-
 .app {
+  width: 100%;
+}
+.app > div {
   display: flex;
   min-width: 100%;
   min-height: 100%;
@@ -60,7 +62,7 @@ dl {
 
 .page--heading {
   margin: 0;
-  padding: 0 0 .5em;
+  padding: 0 0 0.5em;
 }
 
 .page--aside {
@@ -90,7 +92,7 @@ dl {
 .page--footer {
   box-sizing: border-box;
   padding: 40px 1em;
-  font-size: .9em;
+  font-size: 0.9em;
 }
 
 /* .contacts--term {

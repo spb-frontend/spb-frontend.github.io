@@ -1,19 +1,20 @@
 import React from 'react'
 import st from './style.module.css'
-import Link from 'gatsby-link'
+import { Link } from 'gatsby'
 import Helmet from 'react-helmet'
 import marked from 'marked'
-import {defaultHelmetMeta} from '../../layouts/index'
+import { Layout } from '../layout'
 import TelegramIcon from '-!svg-react-loader?name=Icon!../../../static/telegram.svg'
 import VkIcon from '-!svg-react-loader?name=Icon!../../../static/vk.svg'
 import SlackIcon from '-!svg-react-loader?name=Icon!../../../static/slack.svg'
 import TwitterIcon from '-!svg-react-loader?name=Icon!../../../static/twitter.svg'
 
-const SocialIcon = ({user, link, children}) => {
+const SocialIcon = ({ user, link, children }) => {
   const icon = user ? (
     <span className={st.social_icon}>
       <a
         target='_blank'
+        rel='noopener noreferrer'
         href={link}>
         {children}
       </a>
@@ -35,7 +36,7 @@ const correctRussianEnding = num => {
   return ''
 }
 
-export default ({history, pathContext: {data}}) => {
+export default ({ pageContext: { data } }) => {
   const {
     name,
     lastname,
@@ -65,35 +66,35 @@ export default ({history, pathContext: {data}}) => {
 
   const url = `https://spb-frontend.ru/persons/${slug}`
   return (
-    <div>
+    <Layout>
       <Helmet
         meta={[
-          {name: 'author', content: title},
+          { name: 'author', content: title },
 
-          {name: 'twitter:card', content: 'summary'},
-          {name: 'twitter:description', content: description},
-          {name: 'twitter:site', content: '@spb_frontend'},
-          {name: 'twitter:creator', content: '@spb_frontend'},
-          {name: 'twitter:title', content: title},
-          {name: 'twitter:url', content: url},
-          {name: 'twitter:image', content: twitterImage},
-          {name: 'twitter:image:src', content: twitterImage},
-          {name: 'twitter:image:width', content: '300'},
-          {name: 'twitter:image:height', content: '157'},
+          { name: 'twitter:card', content: 'summary' },
+          { name: 'twitter:description', content: description },
+          { name: 'twitter:site', content: '@spb_frontend' },
+          { name: 'twitter:creator', content: '@spb_frontend' },
+          { name: 'twitter:title', content: title },
+          { name: 'twitter:url', content: url },
+          { name: 'twitter:image', content: twitterImage },
+          { name: 'twitter:image:src', content: twitterImage },
+          { name: 'twitter:image:width', content: '300' },
+          { name: 'twitter:image:height', content: '157' },
 
-          {property: 'og:title', content: title},
-          {property: 'og:site_name', content: title},
-          {property: 'og:type', content: 'website'},
+          { property: 'og:title', content: title },
+          { property: 'og:site_name', content: title },
+          { property: 'og:type', content: 'website' },
 
           {
             property: 'og:url',
             content: url,
           },
-          {property: 'og:description', content: description},
-          {property: 'og:image', content: metaImage},
-          {property: 'og:site_name', content: title},
+          { property: 'og:description', content: description },
+          { property: 'og:image', content: metaImage },
+          { property: 'og:site_name', content: title },
 
-          {name: 'viewport', content: 'width=device-width, maximum-scale=1'},
+          { name: 'viewport', content: 'width=device-width, maximum-scale=1' },
         ]} />
       <div className={st.person}>
         <div className={st.person_info}>
@@ -121,7 +122,9 @@ export default ({history, pathContext: {data}}) => {
                 <SlackIcon /> <span className={st.slack_name}>{slack}</span>
               </span>
             ) : null}
-            {bio && <div dangerouslySetInnerHTML={{__html: marked(bio.bio)}} />}
+            {bio && (
+              <div dangerouslySetInnerHTML={{ __html: marked(bio.bio) }} />
+            )}
           </div>
         </div>
         <div className={st.person_image}>
@@ -139,7 +142,7 @@ export default ({history, pathContext: {data}}) => {
             .sort((prev, next) => {
               return parseInt(next.number) - parseInt(prev.number)
             })
-            .map(({title, number}) => {
+            .map(({ title, number }) => {
               return (
                 <div
                   className={st.podcast_item}
@@ -151,13 +154,13 @@ export default ({history, pathContext: {data}}) => {
         </div>
       )}
       {talks && (
-        <div style={{marginTop: 50}}>
+        <div style={{ marginTop: 50 }}>
           <h4>Доклады:</h4>
           {talks
             .sort((prev, next) => {
               return next.path - prev.path
             })
-            .map(({title, slug}, key) => {
+            .map(({ title, slug }, key) => {
               return (
                 <div
                   className={st.podcast_item}
@@ -168,6 +171,6 @@ export default ({history, pathContext: {data}}) => {
             })}
         </div>
       )}
-    </div>
+    </Layout>
   )
 }

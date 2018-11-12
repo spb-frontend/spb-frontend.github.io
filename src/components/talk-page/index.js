@@ -4,12 +4,14 @@ import TelegramIcon from '-!svg-react-loader?name=Icon!../../../static/telegram.
 import VkIcon from '-!svg-react-loader?name=Icon!../../../static/vk.svg'
 import SlackIcon from '-!svg-react-loader?name=Icon!../../../static/slack.svg'
 import TwitterIcon from '-!svg-react-loader?name=Icon!../../../static/twitter.svg'
+import { Layout } from '../layout'
 
-const SocialIcon = ({user, link, children}) => {
+const SocialIcon = ({ user, link, children }) => {
   const icon = user ? (
     <span className={st.social_icon}>
       <a
         target='_blank'
+        rel='noopener noreferrer'
         href={link}>
         {children}
       </a>
@@ -19,15 +21,15 @@ const SocialIcon = ({user, link, children}) => {
 }
 
 export default ({
-  history,
-  pathContext: {
-    data: {title, description: description_, persons, slides, video},
+  pageContext: {
+    data: { title, description: description_, persons, slides, video },
   },
 }) => {
-  const {description} = description_ || {}
-  const [{photo, name, lastname, vk, telegram, twitter, slack}] = persons || []
+  const { description } = description_ || {}
+  const [{ photo, name, lastname, vk, telegram, twitter, slack }] =
+    persons || []
   return (
-    <div>
+    <Layout>
       <div className={st.person}>
         <div className={st.person_info}>
           <h2>
@@ -66,10 +68,10 @@ export default ({
         </div>
       </div>
 
-      <div style={{marginTop: 10}}>{title}</div>
-      <div style={{marginTop: 10}}>{description}</div>
+      <div style={{ marginTop: 10 }}>{title}</div>
+      <div style={{ marginTop: 10 }}>{description}</div>
 
-      <div style={{marginTop: 20}}>
+      <div style={{ marginTop: 20 }}>
         {slides && (
           <div className={st.talkTitle}>
             <a
@@ -89,6 +91,6 @@ export default ({
           </div>
         )}
       </div>
-    </div>
+    </Layout>
   )
 }

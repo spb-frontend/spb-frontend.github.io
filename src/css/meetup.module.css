@@ -36,12 +36,6 @@
   margin: 0;
 }
 
-.header_date {
-  font-weight: 200;
-  color: #7b7b7b;
-  white-space: nowrap;
-}
-
 @media screen and (min-width: 700px) {
   .title {
     height: 256px;

@@ -5,15 +5,6 @@ import {margin} from './style.module.css'
 import {DownloadIcon, FetchingIcon} from './icons'
 
 export class Download extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      fetching: false,
-      total: 0,
-      loaded: 0,
-    }
-  }
-
   saveFile = data => {
     const {title, url} = this.props
     const ext = url.split('.').pop()
@@ -56,6 +47,14 @@ export class Download extends Component {
       })
   }
 
+  constructor(props) {
+    super(props)
+    this.state = {
+      fetching: false,
+      total: 0,
+      loaded: 0,
+    }
+  }
   render() {
     const {className} = this.props
     const {fetching, total, loaded} = this.state

@@ -120,6 +120,12 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: 'gatsby-plugin-purgecss',
+      options: {
+        printRejected: true,
+      },
+    },
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-remove-serviceworker',
   ],

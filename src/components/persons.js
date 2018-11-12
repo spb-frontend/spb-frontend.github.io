@@ -1,9 +1,8 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import Link from 'gatsby-link'
 
 import PersonsList from '../components/persons-list'
-import {defaultHelmetMeta} from '../layouts/index'
+import {defaultHelmetMeta, Layout} from './layout'
 
 import styles from './../css/person.module.css'
 
@@ -53,11 +52,13 @@ function sortPersons(array) {
 }
 
 export default props => {
-  const {pathContext: {data: person}} = props
+  const {
+    pageContext: {data: person},
+  } = props
   const sortedPersons = sortPersons(person).map(edge => edge.node)
 
   return (
-    <div>
+    <Layout>
       <div className={styles.list}>
         <PersonsList collection={sortedPersons} />
       </div>
@@ -65,6 +66,6 @@ export default props => {
       <Helmet meta={defaultHelmetMeta}>
         <title>SPB Frontend. Persons</title>
       </Helmet>
-    </div>
+    </Layout>
   )
 }

@@ -4,6 +4,7 @@ import marked from 'marked'
 import {Box, Thread} from 'react-disqussion'
 import {Player} from '../Player'
 import PersonsList from '../persons-list'
+import {Layout} from '../layout'
 import {timestampToSeconds} from '../../../utils'
 
 class PodcastPage extends Component {
@@ -30,11 +31,10 @@ class PodcastPage extends Component {
   }
 
   render() {
-    const {data} = this.props.pathContext
+    const {data} = this.props.pageContext
     const {title, number, file, notes, formatedDate, persons} = data
-
     return (
-      <div>
+      <Layout>
         <header className={st.header}>
           <h3 className={st.header_title}>{title}</h3>
           <date className={st.header_date}>{formatedDate}</date>
@@ -62,7 +62,7 @@ class PodcastPage extends Component {
             title={title}
             identifier={`podcast-${number}`} />
         </Box>
-      </div>
+      </Layout>
     )
   }
 }

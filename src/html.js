@@ -1,18 +1,9 @@
 import React from 'react'
 
-const BUILD_TIME = new Date().getTime()
-
 export default class HTML extends React.Component {
   render() {
-    let css
     let analytics
     if (process.env.NODE_ENV === 'production') {
-      css = (
-        <style
-          dangerouslySetInnerHTML={{
-            __html: require('!raw!../public/styles.css'),
-          }} />
-      )
       analytics = (
         <script
           dangerouslySetInnerHTML={{
@@ -38,7 +29,6 @@ export default class HTML extends React.Component {
             name='viewport'
             content='width=device-width, initial-scale=1.0' />
           {this.props.headComponents}
-          {css}
         </head>
         <body>
           <div

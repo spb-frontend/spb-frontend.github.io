@@ -5,9 +5,9 @@ const getStrokeDasharray = (total, loaded) => {
   if (!total) {
     return '0,100'
   }
-  const part = loaded / total * 100
+  const part = (loaded / total) * 100
   const width = 12 * Math.PI
-  const result = width / 100 * part
+  const result = (width / 100) * part
   return `${result},${width}`
 }
 

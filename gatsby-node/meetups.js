@@ -13,7 +13,7 @@ const postTemplate = path.resolve(
   'src/components/meetup-page/index.js',
 );
 
-module.exports = async ({graphql, boundActionCreators: {createPage}}) => {
+module.exports = async ({graphql, actions: {createPage}}) => {
   const result = await graphql(`
     {
       allContentfulMeetup(limit: 1000, sort: {order: DESC, fields: [date]}) {

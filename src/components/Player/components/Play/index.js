@@ -8,7 +8,11 @@ export class Play extends Component {
   }
 
   getIcon = () => {
-    const {player: {state: {playStatus}}} = this.props
+    const {
+      player: {
+        state: {playStatus},
+      },
+    } = this.props
 
     if (playStatus === 'STOPPED' || playStatus === 'PAUSED') {
       return <PlayIcon />
