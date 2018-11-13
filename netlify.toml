@@ -1,6 +1,6 @@
 [build]
-  command = "npm run build:ci"
-  publish = "public"
+  command = "gatsby build"
+  publish = "public/"
 
 [context.deploy-preview]
   command = "npm run build"
