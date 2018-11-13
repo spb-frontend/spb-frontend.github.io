@@ -6,6 +6,7 @@
     "@jacobmischka/gatsby-plugin-react-svg": "^1.1.0",
     "classnames": "^2.2.5",
     "gatsby": "^2.0.45",
+    "gatsby-cli": "^2.4.5",
     "gatsby-plugin-manifest": "^2.0.8",
     "gatsby-plugin-purgecss": "^2.4.0",
     "gatsby-plugin-react-helmet": "^3.0.1",
