@@ -58,7 +58,7 @@
   "main": "n/a",
   "scripts": {
     "build": "gatsby build",
-    "build:ci": "rm -rf public && gatsby build",
+    "build:ci": "rm -rf public && npm install && gatsby build",
     "deploy": "rm -rf public && gatsby build && gh-pages -d public -m Updates [ci skip]",
     "deploy:ci": "node ghpages.js",
     "develop": "gatsby develop",
