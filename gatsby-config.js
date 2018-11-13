@@ -41,18 +41,34 @@ module.exports = {
     // },
     // 'gatsby-transformer-remark',
     // 'gatsby-transformer-json',
-    // {
-    //   resolve: 'gatsby-plugin-manifest',
-    //   options: {
-    //     name: 'SPB Frontend',
-    //     short_name: 'SPB Frontend',
-    //     start_url: '/',
-    //     background_color: '#f7f0eb',
-    //     theme_color: '#a2466c',
-    //     display: 'browser',
-    //     icon: './static/favicon.png',
-    //   },
-    // },
+    {
+      resolve: 'gatsby-plugin-favicon',
+      options: {
+        logo: './src/favicon.png',
+        name: 'SPB Frontend',
+        short_name: 'SPB Frontend',
+        start_url: '/',
+        background_color: '#f7f0eb',
+        theme_color: '#a2466c',
+        display: 'standalone',
+        lang: 'ru-RU',
+        orientation: 'any',
+        version: '1.0',
+
+        icons: {
+          android: true,
+          appleIcon: true,
+          appleStartup: true,
+          coast: true,
+          favicons: true,
+          firefox: true,
+          opengraph: true,
+          twitter: true,
+          yandex: true,
+          windows: true
+        }
+      },
+    },
     {
       resolve: 'gatsby-source-contentful',
       options: {
