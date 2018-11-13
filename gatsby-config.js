@@ -44,7 +44,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-favicon',
       options: {
-        logo: './src/favicon.png',
+        logo: './src/assets/favicon.png',
         name: 'SPB Frontend',
         short_name: 'SPB Frontend',
         start_url: '/',
