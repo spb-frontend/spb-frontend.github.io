@@ -82,6 +82,7 @@ dl {
 .page--logo {
   float: right;
   padding: 1em 0;
+  max-width: 200px;
 }
 
 .page--content {

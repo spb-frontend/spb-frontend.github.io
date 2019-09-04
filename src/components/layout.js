@@ -6,6 +6,7 @@ import { SiteHeader } from '../components/nav-header/index'
 
 import '../css/typography.css'
 import '../css/index.css'
+import logo from "../assets/logo.jpg"
 
 export const Layout = props => (
   <div className='page'>
@@ -16,17 +17,10 @@ export const Layout = props => (
         <a
           className='no-border'
           href='/'>
-          <picture className='logo page--logo'>
-            <source
-              type='image/webp'
-              srcSet='
-              https://ucarecdn.com/3d33c161-b440-4710-b3dd-ad980640dba8/-/preview/-/resize/200x/-/format/webp/spb_frontend_logo.webp 1x,
-              https://ucarecdn.com/3d33c161-b440-4710-b3dd-ad980640dba8/-/preview/-/resize/400x/-/format/webp/-/quality/lightest/spb_frontend_logo@2x.webp 2x' />
-            <img
-              src='https://ucarecdn.com/3d33c161-b440-4710-b3dd-ad980640dba8/-/preview/-/resize/200x/spb_frontend_logo.png'
-              srcSet='https://ucarecdn.com/3d33c161-b440-4710-b3dd-ad980640dba8/-/preview/-/resize/400x/-/quality/lightest/spb_frontend_logo@2x.png 2x'
-              alt='SPB Frontend. Frontend artisans' />
-          </picture>
+          <img
+            src={logo}
+            className='page--logo'
+            alt='SPB Frontend. Frontend artisans' />
         </a>
 
         <dl className='contacts'>
