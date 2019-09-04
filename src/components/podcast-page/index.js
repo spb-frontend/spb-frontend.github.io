@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import st from './style.module.css'
 import marked from 'marked'
-import {Box, Thread} from 'react-disqussion'
 import {Player} from '../Player'
 import PersonsList from '../persons-list'
 import {Layout} from '../layout'
@@ -32,7 +31,7 @@ class PodcastPage extends Component {
 
   render() {
     const {data} = this.props.pageContext
-    const {title, number, file, notes, formatedDate, persons} = data
+    const {title, file, notes, formatedDate, persons} = data
     return (
       <Layout>
         <header className={st.header}>
@@ -55,13 +54,6 @@ class PodcastPage extends Component {
           onClick={this.handleTimeClick}
           className={st.footer}
           dangerouslySetInnerHTML={{__html: marked(notes.notes)}} />
-
-        <Box shortname='http-spb-frontend-ru'>
-          <Thread
-            url={`http://spb-frontend.ru/podcast/${number}`}
-            title={title}
-            identifier={`podcast-${number}`} />
-        </Box>
       </Layout>
     )
   }
