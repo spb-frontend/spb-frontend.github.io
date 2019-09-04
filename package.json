@@ -60,8 +60,6 @@
   "scripts": {
     "build": "gatsby build",
     "build:ci": "rm -rf public && npm install && gatsby build",
-    "deploy": "rm -rf public && gatsby build && gh-pages -d public -m Updates [ci skip]",
-    "deploy:ci": "node ghpages.js",
     "develop": "gatsby develop",
     "format": "./node_modules/.bin/prettier-eslint --trailing-comma=\"all\" --no-semi --single-quote --no-bracket-spacing --write  \"gatsby-config.js\" \"gatsby-node.js\"  \"./*.js\" \"src/**/*.js\" \"plugins/**/*.js\"",
     "test": "echo test",
