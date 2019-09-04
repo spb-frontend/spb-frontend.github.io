@@ -3,6 +3,9 @@
   "description": "SPB Frontend official site",
   "version": "1.0.0",
   "dependencies": {
+    "babel-eslint": "^10.0.1",
+    "babel-preset-env": "^1.6.1",
+    "@babel/register": "^7.5.5",
     "@jacobmischka/gatsby-plugin-react-svg": "^1.1.0",
     "babel-polyfill": "^6.26.0",
     "classnames": "^2.2.5",
@@ -33,9 +36,7 @@
     "node": "^10.13.0"
   },
   "devDependencies": {
-    "@babel/register": "^7.5.5",
-    "babel-eslint": "^10.0.1",
-    "babel-preset-env": "^1.6.1",
+   
     "eslint": "^5.9.0",
     "eslint-plugin-compat": "^2.2.0",
     "eslint-plugin-css-modules": "^2.7.5",
