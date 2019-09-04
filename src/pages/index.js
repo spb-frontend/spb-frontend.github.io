@@ -14,11 +14,11 @@ const Index = () => (
 
     <p>
       Если хотите <strong>выступить с докладом</strong>, напишите письмо на{' '}
-      <a href='mailto:hi@spb-frontend.ru'>hi@spb-frontend.ru</a>.
+      <a href="mailto:hi@spb-frontend.ru">hi@spb-frontend.ru</a>.
     </p>
 
     <p>
-      Иногда мы проводим дринкапы: встречи в барах без докладов, просто чтобы
+      Иногда мы проводим дринкап ы : встречи в барах без докладов, просто чтобы
       пообщаться друг с другом, познакомиться, поговорить о наболевшем.
     </p>
 
@@ -26,22 +26,22 @@ const Index = () => (
 
     <p>
       Чтобы следить за новыми событиями сообщества, подписывайтесь на{' '}
-      <a href='https://vk.com/spb_frontend'>группу ВКонтакте</a>
+      <a href="https://vk.com/spb_frontend">группу ВКонтакте</a>
       ,&nbsp;
-      <a href='https://twitter.com/spb_frontend'>Твиттер</a> или{' '}
-      <a href='https://t.me/spb_frontend'>Телеграм канал</a>.
+      <a href="https://twitter.com/spb_frontend">Твиттер</a> или{' '}
+      <a href="https://t.me/spb_frontend">Телеграм канал</a>.
     </p>
 
     <p>
-      Еще у нас есть <a href='https://spb-frontend.slack.com/'>Слак-чат</a> для
+      Еще у нас есть <a href="https://spb-frontend.slack.com/">Слак-чат</a> для
       свободного общения на фронт-темы. Вопросы приветствуются. Получить инвайт
       в чат можно{' '}
-      <a href='http://slack.spb-frontend.ru/'>на специальной странице</a>.
+      <a href="http://slack.spb-frontend.ru/">на специальной странице</a>.
     </p>
 
     <p>
       Если хотите предложить вакансию, то это можно сделать только в канале{' '}
-      <a href='https://spb-frontend.slack.com/messages/jobs-list/'>
+      <a href="https://spb-frontend.slack.com/messages/jobs-list/">
         #jobs-list
       </a>{' '}
       нашего Слак-чата.
@@ -49,13 +49,13 @@ const Index = () => (
 
     <p>
       Если хотите предложить спонсорство или площадку (от 100 человек), пишите
-      нам на почту <a href='mailto:hi@spb-frontend.ru'>hi@spb-frontend.ru</a>.
+      нам на почту <a href="mailto:hi@spb-frontend.ru">hi@spb-frontend.ru</a>.
     </p>
 
     <Helmet>
       {[
         ...defaultHelmetMeta,
-        <title key='title'>SPB Frontend. Frontend artisans</title>,
+        <title key="title">SPB Frontend. Frontend artisans</title>,
       ]}
     </Helmet>
   </Layout>
