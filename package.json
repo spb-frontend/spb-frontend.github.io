@@ -1,0 +1,7 @@
+{
+  "name": "spb-frontend.ru",
+  "version": "2.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:spb-frontend/spb-frontend.ru.git",
+  "license": "MIT"
+}
