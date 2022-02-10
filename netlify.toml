@@ -1,7 +1,0 @@
-[build]
-  command = "gatsby build"
-  publish = "public/"
-
-[context.deploy-preview]
-  command = "npm run build"
-  environment = { NODE_ENV = "production" }

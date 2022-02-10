@@ -1,8 +1,0 @@
-{
-  "bracketSpacing": false,
-  "singleQuote": true,
-  "trailingComma": "all",
-  "jsxBracketSameLine": false,
-  "parser": "babylon",
-  "semi": false
-}
