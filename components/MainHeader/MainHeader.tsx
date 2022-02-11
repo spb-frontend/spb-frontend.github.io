@@ -125,20 +125,15 @@ const Description = styled.div`
 `;
 
 const ButtonsWrapper = styled.div`
-  @media (min-width: 480px) {
+  position: relative;
+  z-index: 2;
+
+  @media (min-width: 670px) {
     display: flex;
     justify-content: center;
 
-    @media (min-width: 480px) {
-      & > * + * {
-        margin-left: 47px;
-      }
-    }
-
-    @media (min-width: 670px) {
-      & > * + * {
-        margin-left: 25px;
-      }
+    & > * + * {
+      margin-left: 25px;
     }
   }
 `;
