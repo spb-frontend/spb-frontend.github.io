@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
 import styled from 'styled-components';
+import { useRouter } from 'next/router';
 import logo from './logo.svg';
 
 const Wrapper = styled.header`
@@ -31,7 +32,7 @@ const LogoLink = styled.a`
   }
 
   @media (min-width: 1025px) {
-    width: 180px;
+    width: 118px;
     height: 60px;
   }
 `;
@@ -40,6 +41,10 @@ const MenuButton = styled.a`
   width: 43px;
   height: 43px;
   position: relative;
+
+  @media (min-width: 1025px) {
+    display: none;
+  }
 
   &:before,
   &:after {
@@ -102,7 +107,7 @@ const MobileMenuWrapper = styled.div`
   }
 `;
 
-const MenuList = styled.div`
+const MobileMenuList = styled.div`
   grid-area: 1 / 1 / 2 / 2;
   display: flex;
   align-items: center;
@@ -114,7 +119,7 @@ const Socials = styled.div`
   grid-area: 2 / 1 / 3 / 2;
 `;
 
-const MenuItem = styled.a`
+const MobileMenuItem = styled.a`
   display: block;
   color: #fff;
   font-weight: bold;
@@ -131,6 +136,48 @@ const MenuItem = styled.a`
 
   & + & {
     margin-top: 50px;
+  }
+`;
+
+const MenuList = styled.div`
+  justify-content: center;
+  flex-direction: row;
+  display: none;
+
+  @media (min-width: 1025px) {
+    display: flex;
+  }
+`;
+
+const MenuItem = styled.a`
+  display: block;
+  margin-top: -40px;
+  padding: 59px 27px 0;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: right;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  position: relative;
+
+  &::before {
+    content: '';
+    width: calc(100% - 27px * 2);
+    height: 5px;
+    position: absolute;
+    top: 0;
+    left: 27px;
+  }
+
+  &:hover,
+  &.active {
+    color: #fff;
+
+    &::before {
+      background-color: #7963fb;
+    }
   }
 `;
 
@@ -154,12 +201,14 @@ const menuItems = [
 ];
 
 export const Header = () => {
+  const router = useRouter();
   const [isMenuOpen, setMenuOpen] = useState(false);
 
   return (
     <>
       <Wrapper>
         <LogoLink href="/" />
+
         <MenuButton
           href="#"
           className={classNames({ active: isMenuOpen })}
@@ -168,14 +217,22 @@ export const Header = () => {
             setMenuOpen(!isMenuOpen);
           }}
         />
+
+        <MenuList>
+          {menuItems.map((item) => (
+            <MenuItem href={item.url} className={classNames({ active: router.asPath === item.url })}>
+              {item.title}
+            </MenuItem>
+          ))}
+        </MenuList>
       </Wrapper>
 
       <MobileMenuWrapper className={classNames({ open: isMenuOpen })}>
-        <MenuList>
+        <MobileMenuList>
           {menuItems.map((item) => (
-            <MenuItem href={item.url}>{item.title}</MenuItem>
+            <MobileMenuItem href={item.url}>{item.title}</MobileMenuItem>
           ))}
-        </MenuList>
+        </MobileMenuList>
         <Socials></Socials>
       </MobileMenuWrapper>
     </>

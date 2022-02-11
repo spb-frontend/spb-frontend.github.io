@@ -162,4 +162,12 @@ export const GlobalStyles = createGlobalStyle`
     font-size: 14px;
     font-family: 'Formular', sans-serif;
   }
+
+  a {
+    color: #7963FB;
+
+    &:hover {
+      color: #fff;
+    }
+  }
 `;

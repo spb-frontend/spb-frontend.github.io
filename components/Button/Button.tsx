@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import classNames from 'classnames';
 
 const Wrapper = styled.a`
+  color: #fff;
   display: block;
   padding: 22px 40px 22px;
   text-align: center;
