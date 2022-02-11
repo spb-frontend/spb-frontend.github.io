@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import Head from 'next/head';
 import { getEntryList } from '../lib/api';
 import { DRINKCAST, MEETUP } from '../constants/contentType';
+import { Header } from '../components/Header/Header';
+import { MainHeader } from '../components/MainHeader/MainHeader';
 
 export async function getServerSideProps(context) {
   const drinkcastList = await getEntryList({ contentType: DRINKCAST, limit: 3 });
@@ -26,7 +28,8 @@ export default function Home(props) {
         <title>Hello world</title>
       </Head>
 
-      <div>Hello world</div>
+      <Header />
+      <MainHeader />
     </>
   );
 }
