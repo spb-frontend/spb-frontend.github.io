@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import Head from 'next/head';
 import { getEntryList } from '../lib/api';
 import { DRINKCAST, MEETUP } from '../constants/contentType';
-import { Header } from '../components/Header/Header';
 import { MainHeader } from '../components/MainHeader/MainHeader';
 
 export async function getServerSideProps(context) {
@@ -28,7 +27,6 @@ export default function Home(props) {
         <title>Hello world</title>
       </Head>
 
-      <Header />
       <MainHeader />
     </>
   );
