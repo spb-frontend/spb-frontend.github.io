@@ -100,68 +100,53 @@ const AboutList = styled.div`
   }
 `;
 
-type Props = PropsWithChildren<{
-  //
-}>;
-
-export const About = (props: Props) => {
+export const About = () => {
   return (
     <Wrapper>
       <Content>
         <AboutTitle>О нас</AboutTitle>
         <AboutDesc>
-          Мы&nbsp;регулярно проводим встречи с&nbsp;2014&nbsp;года. Обычно это
-          встречи с докладами по&nbsp;30&nbsp;минут, но&nbsp;бывают разные
-          форматы. Встречаемся обычно в пространствах в&nbsp;центре города.
+          SPB Frontend — сообщество петербургских фронтенд-разработчиков. Мы&nbsp;регулярно проводим встречи
+          с&nbsp;2014&nbsp;года. Обычно это встречи с докладами по&nbsp;30&nbsp;минут, но&nbsp;бывают разные форматы
         </AboutDesc>
 
         <AboutList>
-          <AboutItem type='mail'>
+          <AboutItem type="mail">
             Если хотите <b>выступить с&nbsp;докладом</b>, напишите письмо на{' '}
-            <a href='mailto:hi@spb-frontend.ru' target='_blank'>
+            <a href="mailto:hi@spb-frontend.ru" target="_blank" className="nowrap">
               hi@spb-frontend.ru
             </a>
-            .
           </AboutItem>
-          <AboutItem type='breakfast'>
-            Ещё по четвергам теперь бывают фронтенд-завтраки в центре города.
-          </AboutItem>
-          <AboutItem type='tg'>
-            Если хотите предложить вакансию, то&nbsp;это можно сделать только в
-            телеграм-чате сообщества{' '}
-            <a href='https://t.me/spb_frontend_chat' target='_blank'>
+          <AboutItem type="breakfast">Ещё по четвергам теперь бывают фронтенд-завтраки в центре города.</AboutItem>
+          <AboutItem type="tg">
+            Также, у нас есть Телеграм-чат, где мы общаемся и задаём вопросы:{' '}
+            <a href="https://t.me/spb_frontend_chat" target="_blank" className="nowrap">
               SPB Frontend
             </a>
-            .
           </AboutItem>
-          <AboutItem type='networking'>
-            Иногда мы&nbsp;проводим дринкапы: встречи в&nbsp;барах без докладов,
-            просто чтобы пообщаться друг с&nbsp;другом, познакомиться,
-            поговорить о&nbsp;наболевшем.
+          <AboutItem type="networking">
+            Иногда мы&nbsp;проводим дринкапы: встречи в&nbsp;барах без докладов, просто чтобы пообщаться друг
+            с&nbsp;другом, познакомиться, поговорить о&nbsp;наболевшем
           </AboutItem>
-          <AboutItem type='social'>
-            Чтобы следить за&nbsp;новыми событиями сообщества, подписывайтесь
-            на&nbsp;
-            <a href='https://vk.com/spb_frontend' target='_blank'>
+          <AboutItem type="social">
+            Чтобы следить за&nbsp;новыми событиями сообщества, подписывайтесь на&nbsp;
+            <a href="https://vk.com/spb_frontend" target="_blank" className="nowrap">
               группу ВКонтакте
             </a>
             ,{' '}
-            <a href='https://twitter.com/spb_frontend' target='_blank'>
+            <a href="https://twitter.com/spb_frontend" target="_blank" className="nowrap">
               Твиттер
             </a>{' '}
             или{' '}
-            <a href='https://t.me/spb_frontend' target='_blank'>
+            <a href="https://t.me/spb_frontend" target="_blank" className="nowrap">
               Телеграм канал
             </a>
-            .
           </AboutItem>
-          <AboutItem type='sponsor'>
-            Если хотите предложить спонсорство или площадку (от 100 человек),
-            пишите нам на почту{' '}
-            <a href='mailto:hi@spb-frontend.ru' target='_blank'>
+          <AboutItem type="sponsor">
+            Если хотите предложить спонсорство или площадку (от 100 человек), пишите нам на почту{' '}
+            <a href="mailto:hi@spb-frontend.ru" target="_blank" className="nowrap">
               hi@spb-frontend.ru
             </a>
-            .
           </AboutItem>
         </AboutList>
       </Content>

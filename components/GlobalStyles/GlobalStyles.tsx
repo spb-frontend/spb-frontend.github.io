@@ -170,4 +170,8 @@ export const GlobalStyles = createGlobalStyle`
       color: #fff;
     }
   }
+
+  .nowrap {
+    white-space: nowrap;
+  }
 `;
