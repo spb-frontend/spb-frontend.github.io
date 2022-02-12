@@ -1,3 +1,4 @@
+import { Footer } from '../components/Footer/Footer';
 import { GlobalStyles } from '../components/GlobalStyles/GlobalStyles';
 import { Header } from '../components/Header/Header';
 
@@ -8,6 +9,7 @@ export default function MyApp({ Component, pageProps }) {
 
       <Header />
       <Component {...pageProps} />
+      <Footer />
     </>
   );
 }

@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { useRouter } from 'next/router';
 import logo from './logo.svg';
 import { SocialsList } from '../SocialsList/SocialsList';
+import { navigation } from '../../constants/navigation';
 
 const Wrapper = styled.header`
   position: absolute;
@@ -194,25 +195,6 @@ const SocialsTitle = styled.div`
   margin-bottom: 24px;
 `;
 
-const menuItems = [
-  {
-    url: '/drinkcast',
-    title: 'Дринкаст',
-  },
-  {
-    url: '/meetups',
-    title: 'Митапы',
-  },
-  {
-    url: '/breakfast',
-    title: 'Завтраки',
-  },
-  {
-    url: '/people',
-    title: 'Люди',
-  },
-];
-
 export const Header = () => {
   const router = useRouter();
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -232,7 +214,7 @@ export const Header = () => {
         />
 
         <MenuList>
-          {menuItems.map((item, i) => (
+          {navigation.map((item, i) => (
             <MenuItem key={i} href={item.url} className={classNames({ active: router.asPath === item.url })}>
               {item.title}
             </MenuItem>
@@ -242,7 +224,7 @@ export const Header = () => {
 
       <MobileMenuWrapper className={classNames({ open: isMenuOpen })}>
         <MobileMenuList>
-          {menuItems.map((item, i) => (
+          {navigation.map((item, i) => (
             <MobileMenuItem key={i} href={item.url}>
               {item.title}
             </MobileMenuItem>
