@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import classNames from 'classnames';
 
@@ -87,13 +87,7 @@ const Item = styled.div`
 `;
 
 type Props = {
-  type:
-    | 'mail'
-    | 'breakfast'
-    | 'tg'
-    | 'networking'
-    | 'social'
-    | 'sponsor';
+  type: 'mail' | 'breakfast' | 'tg' | 'networking' | 'social' | 'sponsor';
   children?: any;
 };
 
