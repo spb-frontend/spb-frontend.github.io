@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
 import logo from './logo.svg';
+import { SocialsList } from '../SocialsList/SocialsList';
 
 const Wrapper = styled.header`
   position: absolute;
@@ -121,6 +122,10 @@ const MobileMenuList = styled.div`
 
 const Socials = styled.div`
   grid-area: 2 / 1 / 3 / 2;
+  padding-bottom: 55px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const MobileMenuItem = styled.a`
@@ -185,6 +190,10 @@ const MenuItem = styled.a`
   }
 `;
 
+const SocialsTitle = styled.div`
+  margin-bottom: 24px;
+`;
+
 const menuItems = [
   {
     url: '/drinkcast',
@@ -239,7 +248,10 @@ export const Header = () => {
             </MobileMenuItem>
           ))}
         </MobileMenuList>
-        <Socials></Socials>
+        <Socials>
+          <SocialsTitle>Свяжитесь с нами:</SocialsTitle>
+          <SocialsList />
+        </Socials>
       </MobileMenuWrapper>
     </>
   );

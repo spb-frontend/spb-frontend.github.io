@@ -1,13 +1,14 @@
 import React, { PropsWithChildren } from 'react';
 import styled from 'styled-components';
 import { Button } from '../Button/Button';
+import { SocialsList } from '../SocialsList/SocialsList';
 import bridgeLeft from './bridge-header-1m.svg';
 import bridgeRight from './bridge-header-2m.svg';
 
 const Wrapper = styled.section`
   background: url('/header.jpeg') 50% no-repeat;
   background-size: cover;
-  padding: 100px 0;
+  padding-top: 100px;
   position: relative;
 
   &::before {
@@ -138,6 +139,17 @@ const ButtonsWrapper = styled.div`
   }
 `;
 
+const SocialsWrapper = styled.div`
+  margin-top: 43px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+`;
+
+const SocialsTitle = styled.div`
+  margin-bottom: 24px;
+`;
+
 type Props = PropsWithChildren<{
   //
 }>;
@@ -161,6 +173,11 @@ export const MainHeader = (props: Props) => {
             Подписаться в соцсетях
           </Button>
         </ButtonsWrapper>
+
+        <SocialsWrapper>
+          <SocialsTitle>Свяжитесь с нами:</SocialsTitle>
+          <SocialsList />
+        </SocialsWrapper>
       </HeaderContent>
     </Wrapper>
   );
