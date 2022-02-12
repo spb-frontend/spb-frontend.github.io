@@ -4,7 +4,6 @@ import classNames from 'classnames';
 
 import mail from './icons/mail.svg';
 import breakfast from './icons/breakfast.svg';
-import slack from './icons/slack.svg';
 import tg from './icons/tg.svg';
 import networking from './icons/networking.svg';
 import social from './icons/social.svg';
@@ -91,7 +90,6 @@ type Props = {
   type:
     | 'mail'
     | 'breakfast'
-    | 'slack'
     | 'tg'
     | 'networking'
     | 'social'
