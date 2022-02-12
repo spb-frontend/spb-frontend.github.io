@@ -166,7 +166,7 @@ export const MainHeader = (props: Props) => {
         </Description>
 
         <ButtonsWrapper>
-          <Button type="primary" href="#">
+          <Button type="primary" href="#about">
             Подробнее о нас
           </Button>
           <Button type="secondary" href="#">

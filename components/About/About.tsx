@@ -104,7 +104,7 @@ export const About = () => {
   return (
     <Wrapper>
       <Content>
-        <AboutTitle>О нас</AboutTitle>
+        <AboutTitle id="about">О нас</AboutTitle>
         <AboutDesc>
           SPB Frontend — сообщество петербургских фронтенд-разработчиков. Мы&nbsp;регулярно проводим встречи
           с&nbsp;2014&nbsp;года. Обычно это встречи с докладами по&nbsp;30&nbsp;минут, но&nbsp;бывают разные форматы
