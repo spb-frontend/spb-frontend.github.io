@@ -3,9 +3,13 @@ import Head from 'next/head';
 import { getEntryList } from '../lib/api';
 import { DRINKCAST, MEETUP } from '../constants/contentType';
 import { MainHeader } from '../components/MainHeader/MainHeader';
+import { About } from '../components/About/About';
 
 export async function getServerSideProps(context) {
-  const drinkcastList = await getEntryList({ contentType: DRINKCAST, limit: 3 });
+  const drinkcastList = await getEntryList({
+    contentType: DRINKCAST,
+    limit: 3,
+  });
   const meetupList = await getEntryList({ contentType: MEETUP, limit: 6 });
 
   return {
@@ -28,6 +32,8 @@ export default function Home(props) {
       </Head>
 
       <MainHeader />
+
+      <About />
     </>
   );
 }
