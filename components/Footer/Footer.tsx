@@ -165,7 +165,7 @@ export const Footer = () => {
               </SocBody>
             </SocBlock>
             <SocBlock>
-              <SocHeader>Телеграм на YouTube</SocHeader>
+              <SocHeader>Канал на YouTube</SocHeader>
               <SocBody>
                 <a href="//youtube.com/channel/UCWjDubFXv8I1vWEb47s9_IA">SPB Frontend</a>
               </SocBody>
