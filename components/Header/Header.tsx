@@ -14,6 +14,10 @@ const Wrapper = styled.header`
   justify-content: space-between;
   z-index: 100;
 
+  &.open {
+    position: fixed;
+  }
+
   @media (min-width: 480px) {
     padding: 40px 58px;
   }
@@ -206,7 +210,7 @@ export const Header = () => {
 
   return (
     <>
-      <Wrapper>
+      <Wrapper className={classNames({ open: isMenuOpen })}>
         <LogoLink href="/" />
 
         <MenuButton
@@ -219,8 +223,8 @@ export const Header = () => {
         />
 
         <MenuList>
-          {menuItems.map((item) => (
-            <MenuItem href={item.url} className={classNames({ active: router.asPath === item.url })}>
+          {menuItems.map((item, i) => (
+            <MenuItem key={i} href={item.url} className={classNames({ active: router.asPath === item.url })}>
               {item.title}
             </MenuItem>
           ))}
@@ -229,8 +233,10 @@ export const Header = () => {
 
       <MobileMenuWrapper className={classNames({ open: isMenuOpen })}>
         <MobileMenuList>
-          {menuItems.map((item) => (
-            <MobileMenuItem href={item.url}>{item.title}</MobileMenuItem>
+          {menuItems.map((item, i) => (
+            <MobileMenuItem key={i} href={item.url}>
+              {item.title}
+            </MobileMenuItem>
           ))}
         </MobileMenuList>
         <Socials></Socials>

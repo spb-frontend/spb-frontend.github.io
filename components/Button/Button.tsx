@@ -13,6 +13,7 @@ const Wrapper = styled.a`
   margin: 14px 0;
   font-weight: bold;
   border: 3px solid #7963fb;
+  text-decoration: none;
 
   &.primary {
     background: #7963fb;
@@ -23,11 +24,12 @@ type Props = PropsWithChildren<{
   type: 'primary' | 'secondary';
   href?: string;
   classNames?: string;
+  onClick?: React.MouseEventHandler<HTMLAnchorElement>;
 }>;
 
 export const Button = (props: Props) => {
   return (
-    <Wrapper className={classNames(props.type, props.classNames)} href={props.href}>
+    <Wrapper className={classNames(props.type, props.classNames)} href={props.href} onClick={props.onClick}>
       {props.children}
     </Wrapper>
   );

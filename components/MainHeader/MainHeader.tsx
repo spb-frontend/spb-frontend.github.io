@@ -154,8 +154,12 @@ export const MainHeader = (props: Props) => {
         </Description>
 
         <ButtonsWrapper>
-          <Button type="primary">Подробнее о нас</Button>
-          <Button type="secondary">Подписаться в соцсетях</Button>
+          <Button type="primary" href="#">
+            Подробнее о нас
+          </Button>
+          <Button type="secondary" href="#">
+            Подписаться в соцсетях
+          </Button>
         </ButtonsWrapper>
       </HeaderContent>
     </Wrapper>
