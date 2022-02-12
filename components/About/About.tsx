@@ -1,6 +1,5 @@
 import React, { PropsWithChildren } from 'react';
 import styled from 'styled-components';
-import classNames from 'classnames';
 import { AboutItem } from '../AboutItem/AboutItem';
 import { Content } from '../Content/Content';
 
@@ -107,7 +106,7 @@ type Props = PropsWithChildren<{
 
 export const About = (props: Props) => {
   return (
-    <Wrapper className=''>
+    <Wrapper>
       <Content>
         <AboutTitle>О нас</AboutTitle>
         <AboutDesc>
