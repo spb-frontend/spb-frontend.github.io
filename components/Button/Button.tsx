@@ -1,10 +1,11 @@
 import React, { PropsWithChildren } from 'react';
 import styled from 'styled-components';
 import classNames from 'classnames';
+import Link from 'next/link';
 
 const Wrapper = styled.a`
   color: #fff;
-  display: block;
+  display: inline-block;
   padding: 22px 40px 22px;
   text-align: center;
   text-transform: uppercase;
@@ -18,10 +19,15 @@ const Wrapper = styled.a`
   &.primary {
     background: #7963fb;
   }
+
+  &.fullWidth {
+    display: block;
+  }
 `;
 
 type Props = PropsWithChildren<{
   type: 'primary' | 'secondary';
+  isFullWidth?: boolean;
   href?: string;
   classNames?: string;
   onClick?: React.MouseEventHandler<HTMLAnchorElement>;
@@ -29,8 +35,14 @@ type Props = PropsWithChildren<{
 
 export const Button = (props: Props) => {
   return (
-    <Wrapper className={classNames(props.type, props.classNames)} href={props.href} onClick={props.onClick}>
-      {props.children}
-    </Wrapper>
+    <Link href={props.href}>
+      <Wrapper
+        className={classNames(props.type, props.classNames, { fullWidth: props.isFullWidth })}
+        href={props.href}
+        onClick={props.onClick}
+      >
+        {props.children}
+      </Wrapper>
+    </Link>
   );
 };

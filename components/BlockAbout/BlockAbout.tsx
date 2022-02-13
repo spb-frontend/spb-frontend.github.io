@@ -1,9 +1,9 @@
 import React, { PropsWithChildren } from 'react';
 import styled from 'styled-components';
 import { BlockAboutItem } from '../BlockAboutItem/BlockAboutItem';
+import { BlockTitle } from '../BlockTitle/BlockTitle';
 import { Content } from '../Content/Content';
 
-import titleBridge from './title-bridge.svg';
 import bgTilda from './bg-tilda.svg';
 
 const Wrapper = styled.section`
@@ -15,7 +15,7 @@ const Wrapper = styled.section`
   background-image: url(${bgTilda});
   background-size: contain;
 
-  @media (min-width: 670px) {
+  @media (min-width: 480px) {
     padding-top: 122px;
     padding-bottom: 60px;
     background-position: center top 261px;
@@ -28,52 +28,13 @@ const Wrapper = styled.section`
   }
 `;
 
-const AboutTitle = styled.h2`
-  font-size: 36px;
-  line-height: 44px;
-  font-weight: bold;
-  color: #fff;
-  text-transform: uppercase;
-  margin-bottom: 50px;
-  position: relative;
-  padding-left: 38px;
-
-  @media (min-width: 670px) {
-    margin-bottom: 46px;
-    font-size: 48px;
-    line-height: 59px;
-  }
-
-  @media (min-width: 1025px) {
-    margin-bottom: 67px;
-  }
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 6.5px;
-    left: 0;
-    width: 20px;
-    height: 29px;
-    background-image: url(${titleBridge});
-    background-repeat: no-repeat;
-    background-size: contain;
-
-    @media (min-width: 670px) {
-      width: 24px;
-      height: 35px;
-      top: 10px;
-    }
-  }
-`;
-
 const AboutDesc = styled.p`
   font-size: 18px;
   line-height: 22px;
   color: #fff;
   margin-bottom: 70px;
 
-  @media (min-width: 670px) {
+  @media (min-width: 480px) {
     margin-bottom: 72px;
     font-size: 24px;
     line-height: 29px;
@@ -89,7 +50,7 @@ const AboutList = styled.div`
   grid-template-columns: 1fr;
   grid-gap: 50px;
 
-  @media (min-width: 670px) {
+  @media (min-width: 480px) {
     grid-gap: 75px 52px;
     grid-template-columns: 1fr 1fr;
   }
@@ -104,7 +65,7 @@ export const BlockAbout = () => {
   return (
     <Wrapper id="about">
       <Content>
-        <AboutTitle>О нас</AboutTitle>
+        <BlockTitle>О нас</BlockTitle>
         <AboutDesc>
           SPB Frontend — сообщество петербургских фронтенд-разработчиков. Мы&nbsp;регулярно проводим встречи
           с&nbsp;2014&nbsp;года. Обычно это встречи с докладами по&nbsp;30&nbsp;минут, но&nbsp;бывают разные форматы
@@ -118,7 +79,7 @@ export const BlockAbout = () => {
             </a>
           </BlockAboutItem>
           <BlockAboutItem type="breakfast">
-            Ещё по четвергам теперь бывают фронтенд-завтраки в центре города.
+            Ещё по четвергам теперь бывают фронтенд-завтраки в центре города
           </BlockAboutItem>
           <BlockAboutItem type="tg">
             Также, у нас есть Телеграм-чат, где мы общаемся и задаём вопросы:{' '}

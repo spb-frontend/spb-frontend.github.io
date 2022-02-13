@@ -1,18 +1,42 @@
 import fetch from 'isomorphic-fetch';
+import { createClient, Asset } from 'contentful';
+import { DRINKCAST } from '../constants/contentType';
 import keys from '../keys';
 
-const HOST_URL = `https://cdn.contentful.com`;
-const BASE = `${HOST_URL}/spaces/${keys.contentful.space_id}/environments/master/entries?access_token=${keys.contentful.token}`;
+const client = createClient({
+  space: keys.contentful.space_id,
+  accessToken: keys.contentful.token,
+});
 
-type GetDrinkcastListOptions = {
-  contentType: string;
-  limit?: number;
+export type PodcastData = {
+  title: string;
+  date: string;
+  image: Asset;
+  file: string;
+  explicit: boolean;
+  duration: string;
+  length: string;
+  notes: string;
+  number: number;
+  persons: any;
 };
 
-export async function getEntryList(params: GetDrinkcastListOptions) {
-  const { contentType, limit = 100 } = params;
-  const items = await fetch(`${BASE}&limit=${limit}&content_type=${contentType}`);
-  const json = await items.json();
+/**
+ * Uses to get drinkcast list in main page
+ */
+export async function getMainDrinkcastList() {
+  const entries = await client.getEntries<PodcastData>({
+    content_type: DRINKCAST,
+    limit: 3,
+    order: '-sys.createdAt',
+  });
 
-  return json.items;
+  console.log(entries.items[0]);
+
+  return entries.items.map((item) => ({
+    number: item.fields.number,
+    title: item.fields.title,
+    date: item.fields.date,
+    image: item.fields.image.fields.file.url,
+  }));
 }
