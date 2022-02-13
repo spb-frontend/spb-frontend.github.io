@@ -142,7 +142,11 @@ export const Footer = () => {
 
             <NavWrapper>
               {navigation.map((item, i) => {
-                return <NavLink href={item.url}>{item.title}</NavLink>;
+                return (
+                  <NavLink href={item.url} key={i}>
+                    {item.title}
+                  </NavLink>
+                );
               })}
             </NavWrapper>
           </Block>
