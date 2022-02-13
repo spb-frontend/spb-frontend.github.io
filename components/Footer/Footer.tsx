@@ -5,6 +5,10 @@ import { Content } from '../Content/Content';
 import logo from './logo.svg';
 
 const Wrapper = styled.div`
+  background: #11171e;
+`;
+
+const FlexWrapper = styled.div`
   padding: 65px 0 29px;
   font-size: 14px;
   line-height: 17px;
@@ -121,64 +125,66 @@ const SocBody = styled.div``;
 
 export const Footer = () => {
   return (
-    <Content>
-      <Wrapper>
-        <Block className="first">
-          <Logo />
-          <CooperationInfo>
-            По вопросам сотрудничества:
-            <br />
-            <a href="mailto:hi@spb-frontend.ru">hi@spb-frontend.ru</a>
-          </CooperationInfo>
-        </Block>
+    <Wrapper>
+      <Content>
+        <FlexWrapper>
+          <Block className="first">
+            <Logo />
+            <CooperationInfo>
+              По вопросам сотрудничества:
+              <br />
+              <a href="mailto:hi@spb-frontend.ru">hi@spb-frontend.ru</a>
+            </CooperationInfo>
+          </Block>
 
-        <Block className="second">
-          <BlockTitle>Навигация</BlockTitle>
+          <Block className="second">
+            <BlockTitle>Навигация</BlockTitle>
 
-          <NavWrapper>
-            {navigation.map((item, i) => {
-              return <NavLink href={item.url}>{item.title}</NavLink>;
-            })}
-          </NavWrapper>
-        </Block>
+            <NavWrapper>
+              {navigation.map((item, i) => {
+                return <NavLink href={item.url}>{item.title}</NavLink>;
+              })}
+            </NavWrapper>
+          </Block>
 
-        <Block className="third">
-          <BlockTitle>Социальные сети</BlockTitle>
+          <Block className="third">
+            <BlockTitle>Социальные сети</BlockTitle>
 
-          <SocialsWrapper>
-            <SocBlock>
-              <SocHeader>ВКонтакте</SocHeader>
-              <SocBody>
-                <a href="//vk.com/spb_frontend">spb_frontend</a>
-              </SocBody>
-            </SocBlock>
-            <SocBlock>
-              <SocHeader>Твиттер</SocHeader>
-              <SocBody>
-                <a href="//twitter.com/spb_frontend">@spb_frontend</a>
-              </SocBody>
-            </SocBlock>
-            <SocBlock>
-              <SocHeader>Телеграм-канал</SocHeader>
-              <SocBody>
-                <a href="//t.me/spb_frontend">@spb_frontend</a>
-              </SocBody>
-            </SocBlock>
-            <SocBlock>
-              <SocHeader>Канал на YouTube</SocHeader>
-              <SocBody>
-                <a href="//youtube.com/channel/UCWjDubFXv8I1vWEb47s9_IA">SPB Frontend</a>
-              </SocBody>
-            </SocBlock>
-            <SocBlock>
-              <SocHeader>Гитхаб</SocHeader>
-              <SocBody>
-                <a href="//github.com/spb-frontend/">spb-frontend</a>
-              </SocBody>
-            </SocBlock>
-          </SocialsWrapper>
-        </Block>
-      </Wrapper>
-    </Content>
+            <SocialsWrapper>
+              <SocBlock>
+                <SocHeader>ВКонтакте</SocHeader>
+                <SocBody>
+                  <a href="//vk.com/spb_frontend">spb_frontend</a>
+                </SocBody>
+              </SocBlock>
+              <SocBlock>
+                <SocHeader>Твиттер</SocHeader>
+                <SocBody>
+                  <a href="//twitter.com/spb_frontend">@spb_frontend</a>
+                </SocBody>
+              </SocBlock>
+              <SocBlock>
+                <SocHeader>Телеграм-канал</SocHeader>
+                <SocBody>
+                  <a href="//t.me/spb_frontend">@spb_frontend</a>
+                </SocBody>
+              </SocBlock>
+              <SocBlock>
+                <SocHeader>Канал на YouTube</SocHeader>
+                <SocBody>
+                  <a href="//youtube.com/channel/UCWjDubFXv8I1vWEb47s9_IA">SPB Frontend</a>
+                </SocBody>
+              </SocBlock>
+              <SocBlock>
+                <SocHeader>Гитхаб</SocHeader>
+                <SocBody>
+                  <a href="//github.com/spb-frontend/">spb-frontend</a>
+                </SocBody>
+              </SocBlock>
+            </SocialsWrapper>
+          </Block>
+        </FlexWrapper>
+      </Content>
+    </Wrapper>
   );
 };
