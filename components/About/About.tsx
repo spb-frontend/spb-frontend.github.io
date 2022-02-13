@@ -102,9 +102,9 @@ const AboutList = styled.div`
 
 export const About = () => {
   return (
-    <Wrapper>
+    <Wrapper id="about">
       <Content>
-        <AboutTitle id="about">О нас</AboutTitle>
+        <AboutTitle>О нас</AboutTitle>
         <AboutDesc>
           SPB Frontend — сообщество петербургских фронтенд-разработчиков. Мы&nbsp;регулярно проводим встречи
           с&nbsp;2014&nbsp;года. Обычно это встречи с докладами по&nbsp;30&nbsp;минут, но&nbsp;бывают разные форматы
