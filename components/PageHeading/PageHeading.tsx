@@ -17,7 +17,7 @@ const Heading = styled.h1`
     line-height: 52px;
   }
 
-  @media (min-width: 1205px) {
+  @media (min-width: 1025px) {
     font-size: 64px;
     line-height: 78px;
     margin: 0 auto;
