@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Link from 'next/link';
 import { navigation } from '../../constants/navigation';
 import { Content } from '../Content/Content';
 import logo from './logo.svg';
@@ -143,9 +144,9 @@ export const Footer = () => {
             <NavWrapper>
               {navigation.map((item, i) => {
                 return (
-                  <NavLink href={item.url} key={i}>
-                    {item.title}
-                  </NavLink>
+                  <Link href={item.url} key={i}>
+                    <NavLink href={item.url}>{item.title}</NavLink>
+                  </Link>
                 );
               })}
             </NavWrapper>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import classNames from 'classnames';
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 import logo from './logo.svg';
 import { SocialsList } from '../SocialsList/SocialsList';
 import { navigation } from '../../constants/navigation';
@@ -199,10 +200,16 @@ export const Header = () => {
   const router = useRouter();
   const [isMenuOpen, setMenuOpen] = useState(false);
 
+  const handleCloseMenu = () => {
+    setMenuOpen(false);
+  };
+
   return (
     <>
       <Wrapper className={classNames({ open: isMenuOpen })}>
-        <LogoLink href="/" />
+        <Link href="/">
+          <LogoLink href="/" onClick={handleCloseMenu} />
+        </Link>
 
         <MenuButton
           href="#"
@@ -215,9 +222,11 @@ export const Header = () => {
 
         <MenuList>
           {navigation.map((item, i) => (
-            <MenuItem key={i} href={item.url} className={classNames({ active: router.asPath === item.url })}>
-              {item.title}
-            </MenuItem>
+            <Link href={item.url} key={i}>
+              <MenuItem href={item.url} className={classNames({ active: router.asPath === item.url })}>
+                {item.title}
+              </MenuItem>
+            </Link>
           ))}
         </MenuList>
       </Wrapper>
@@ -225,9 +234,11 @@ export const Header = () => {
       <MobileMenuWrapper className={classNames({ open: isMenuOpen })}>
         <MobileMenuList>
           {navigation.map((item, i) => (
-            <MobileMenuItem key={i} href={item.url}>
-              {item.title}
-            </MobileMenuItem>
+            <Link href={item.url} key={i}>
+              <MobileMenuItem href={item.url} onClick={handleCloseMenu}>
+                {item.title}
+              </MobileMenuItem>
+            </Link>
           ))}
         </MobileMenuList>
         <Socials>
