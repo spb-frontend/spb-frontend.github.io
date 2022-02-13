@@ -14,6 +14,7 @@ const FlexWrapper = styled.div`
   line-height: 17px;
   display: flex;
   flex-wrap: wrap;
+  gap: 54px 0;
 
   @media (min-width: 480px) {
     padding: 93px 0 117px;
@@ -34,7 +35,6 @@ const FlexWrapper = styled.div`
 
 const Block = styled.div`
   flex: 0 0 100%;
-  margin-bottom: 54px;
 
   @media (min-width: 480px) {
     &.first {
