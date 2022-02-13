@@ -1,6 +1,6 @@
 import React, { PropsWithChildren } from 'react';
 import styled from 'styled-components';
-import { AboutItem } from '../AboutItem/AboutItem';
+import { BlockAboutItem } from '../BlockAboutItem/BlockAboutItem';
 import { Content } from '../Content/Content';
 
 import titleBridge from './title-bridge.svg';
@@ -100,7 +100,7 @@ const AboutList = styled.div`
   }
 `;
 
-export const About = () => {
+export const BlockAbout = () => {
   return (
     <Wrapper id="about">
       <Content>
@@ -111,24 +111,26 @@ export const About = () => {
         </AboutDesc>
 
         <AboutList>
-          <AboutItem type="mail">
+          <BlockAboutItem type="mail">
             Если хотите <b>выступить с&nbsp;докладом</b>, напишите письмо на{' '}
             <a href="mailto:hi@spb-frontend.ru" target="_blank" className="nowrap">
               hi@spb-frontend.ru
             </a>
-          </AboutItem>
-          <AboutItem type="breakfast">Ещё по четвергам теперь бывают фронтенд-завтраки в центре города.</AboutItem>
-          <AboutItem type="tg">
+          </BlockAboutItem>
+          <BlockAboutItem type="breakfast">
+            Ещё по четвергам теперь бывают фронтенд-завтраки в центре города.
+          </BlockAboutItem>
+          <BlockAboutItem type="tg">
             Также, у нас есть Телеграм-чат, где мы общаемся и задаём вопросы:{' '}
             <a href="https://t.me/spb_frontend_chat" target="_blank" className="nowrap">
               SPB Frontend
             </a>
-          </AboutItem>
-          <AboutItem type="networking">
+          </BlockAboutItem>
+          <BlockAboutItem type="networking">
             Иногда мы&nbsp;проводим дринкапы: встречи в&nbsp;барах без докладов, просто чтобы пообщаться друг
             с&nbsp;другом, познакомиться, поговорить о&nbsp;наболевшем
-          </AboutItem>
-          <AboutItem type="social">
+          </BlockAboutItem>
+          <BlockAboutItem type="social">
             Чтобы следить за&nbsp;новыми событиями сообщества, подписывайтесь на&nbsp;
             <a href="https://vk.com/spb_frontend" target="_blank" className="nowrap">
               группу ВКонтакте
@@ -141,13 +143,13 @@ export const About = () => {
             <a href="https://t.me/spb_frontend" target="_blank" className="nowrap">
               Телеграм канал
             </a>
-          </AboutItem>
-          <AboutItem type="sponsor">
+          </BlockAboutItem>
+          <BlockAboutItem type="sponsor">
             Если хотите предложить спонсорство или площадку (от 100 человек), пишите нам на почту{' '}
             <a href="mailto:hi@spb-frontend.ru" target="_blank" className="nowrap">
               hi@spb-frontend.ru
             </a>
-          </AboutItem>
+          </BlockAboutItem>
         </AboutList>
       </Content>
     </Wrapper>

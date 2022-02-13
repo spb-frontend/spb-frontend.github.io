@@ -91,6 +91,6 @@ type Props = {
   children?: any;
 };
 
-export const AboutItem = (props: Props) => {
+export const BlockAboutItem = (props: Props) => {
   return <Item className={classNames(props.type)}>{props.children}</Item>;
 };

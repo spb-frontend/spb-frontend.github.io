@@ -1,15 +1,13 @@
 import React, { useEffect } from 'react';
 import Head from 'next/head';
-import { getEntryList } from '../lib/api';
+import { getEntryList, getMainDrinkcastList } from '../lib/api';
 import { DRINKCAST, MEETUP } from '../constants/contentType';
 import { MainHeader } from '../components/MainHeader/MainHeader';
-import { About } from '../components/About/About';
+import { BlockAbout } from '../components/BlockAbout/BlockAbout';
+import { BlockDrinkcast } from '../components/BlockDrinkcast/BlockDrinkcast';
 
 export async function getServerSideProps(context) {
-  const drinkcastList = await getEntryList({
-    contentType: DRINKCAST,
-    limit: 3,
-  });
+  const drinkcastList = await getMainDrinkcastList();
   const meetupList = await getEntryList({ contentType: MEETUP, limit: 6 });
 
   return {
@@ -33,7 +31,7 @@ export default function Home(props) {
 
       <MainHeader />
 
-      <About />
+      <BlockAbout />
     </>
   );
 }
