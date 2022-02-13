@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Head from 'next/head';
 import { MeetupsHeader } from '../components/MeetupsHeader/MeetupsHeader';
-// import { Meetups } from '../components/Meetups/Meetups';
+import { MeetupsList } from '../components/MeetupsList/MeetupsList';
 
 export default function MeetupsPage(props) {
   useEffect(() => {
@@ -16,7 +16,7 @@ export default function MeetupsPage(props) {
 
       <MeetupsHeader />
 
-      {/* <Meetups /> */}
+      <MeetupsList />
     </>
   );
 }
