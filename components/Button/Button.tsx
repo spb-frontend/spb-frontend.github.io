@@ -1,7 +1,6 @@
 import React, { PropsWithChildren } from 'react';
 import styled from 'styled-components';
 import classNames from 'classnames';
-import Link from 'next/link';
 
 const Wrapper = styled.a`
   color: #fff;
@@ -35,14 +34,12 @@ type Props = PropsWithChildren<{
 
 export const Button = (props: Props) => {
   return (
-    <Link href={props.href}>
-      <Wrapper
-        className={classNames(props.type, props.classNames, { fullWidth: props.isFullWidth })}
-        href={props.href}
-        onClick={props.onClick}
-      >
-        {props.children}
-      </Wrapper>
-    </Link>
+    <Wrapper
+      className={classNames(props.type, props.classNames, { fullWidth: props.isFullWidth })}
+      href={props.href}
+      onClick={props.onClick}
+    >
+      {props.children}
+    </Wrapper>
   );
 };

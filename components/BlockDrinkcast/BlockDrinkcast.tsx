@@ -131,9 +131,11 @@ export const BlockDrinkcast = (props: Props) => {
         <BlockTitle>Дринкаст</BlockTitle>
 
         <TopButtonWrapper>
-          <Button href="/drinkcast" type="primary">
-            Cмотреть все
-          </Button>
+          <Link href="/drinkcast">
+            <Button href="/drinkcast" type="primary">
+              Cмотреть все
+            </Button>
+          </Link>
         </TopButtonWrapper>
 
         <Brige />
