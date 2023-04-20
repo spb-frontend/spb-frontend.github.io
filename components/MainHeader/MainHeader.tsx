@@ -166,10 +166,10 @@ export const MainHeader = (props: Props) => {
         </Description>
 
         <ButtonsWrapper>
-          <Button type="primary" href="#about">
+          <Button type="primary" href="#about" isFullWidth>
             Подробнее о нас
           </Button>
-          <Button type="secondary" href="#">
+          <Button type="secondary" href="#" isFullWidth>
             Подписаться в соцсетях
           </Button>
         </ButtonsWrapper>

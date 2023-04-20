@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Content = styled.div`
+  position: relative;
   padding: 0 20px;
 
   @media (min-width: 480px) {
