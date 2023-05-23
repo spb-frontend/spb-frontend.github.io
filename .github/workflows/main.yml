@@ -16,9 +16,12 @@ jobs:
           persist-credentials: false
 
       - name: Install 🔧
-        run: yarn install
+        run: |
+          yarn install
 
       - name: Build and static exports 🏗️
+        env:
+          TIMEPAD_TOKEN: ${{ secrets.TIMEPAD_TOKEN }}
         run: |
           yarn build
           yarn export

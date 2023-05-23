@@ -11,6 +11,11 @@ export const getUpcomingMeetup = async (): Promise<{
     address: string;
   };
 } | null> => {
+  if (!process.env.TIMEPAD_TOKEN) {
+    console.error('Invalid timepad token!');
+    return null;
+  }
+
   try {
     return await fetch(`https://api.timepad.ru/v1/events?organization_ids=${timepadId}`, {
       headers: {
