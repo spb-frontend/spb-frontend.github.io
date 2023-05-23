@@ -27,7 +27,6 @@ const Wrapper = styled.section`
 
 const AboutDesc = styled.div`
   font-size: var(--font-size-m);
-  margin-bottom: var(--spacer-l);
 `;
 
 const SocialsWrapper = styled.div`
