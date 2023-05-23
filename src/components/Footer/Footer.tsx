@@ -14,7 +14,7 @@ const FlexWrapper = styled.div`
   font-size: var(--font-size-s);
   display: flex;
   flex-wrap: wrap;
-  gap: 54px 0;
+  gap: var(--spacer-l) 0;
 `;
 
 const FooterBlock = styled.div`
@@ -46,7 +46,7 @@ const BlockTitle = styled.div`
   font-weight: bold;
   font-size: var(--font-size-s);
   text-transform: uppercase;
-  margin-bottom: 20px;
+  margin-bottom: var(--spacer-s);
 `;
 
 const Logo = styled.div`
@@ -72,6 +72,7 @@ const NavWrapper = styled.div`
 
 const NavLink = styled(Link)`
   display: block;
+  line-height: 1.7em;
 
   &::after {
     display: inline-block;
@@ -80,8 +81,9 @@ const NavLink = styled(Link)`
   }
 
   @media (min-width: 480px) {
+    line-height: inherit;
     & + & {
-      margin-top: 15px;
+      margin-top: var(--spacer-s);
     }
   }
 `;
@@ -94,11 +96,11 @@ export const Footer = () => {
           <FlexWrapper>
             <FooterBlock className="first">
               <Logo />
-              <CooperationInfo>
-                {/* По вопросам сотрудничества:
+              {/* <CooperationInfo>
+                По вопросам сотрудничества:
               <br />
-              <a href="mailto:hi@spb-frontend.ru">hi@spb-frontend.ru</a> */}
-              </CooperationInfo>
+              <a href="mailto:hi@spb-frontend.ru">hi@spb-frontend.ru</a>
+              </CooperationInfo> */}
             </FooterBlock>
 
             <FooterBlock className="second">
