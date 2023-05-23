@@ -19,6 +19,11 @@ export const getUpcomingMeetup = async (): Promise<{
     })
       .then((res) => res.json())
       .then((data) => {
+        if (!data) {
+          console.error(data);
+          throw new Error('Wrong received data from timepad');
+        }
+
         const eventList = data?.values ?? [];
         const upcomingEvent = eventList.find((item) => {
           const date = new Date(item.starts_at);
