@@ -151,7 +151,7 @@ const SubHeading = styled.h2`
 `;
 
 const ButtonsWrapper = styled.div`
-  margin-top: var(--spacer-lxl);
+  margin-top: var(--spacer-xxl);
   position: relative;
   z-index: 2;
   width: 100%;

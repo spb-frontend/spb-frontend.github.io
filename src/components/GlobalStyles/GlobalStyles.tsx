@@ -33,8 +33,8 @@ const variables = css`
   --spacer-s: 15px;
   --spacer-m: 20px;
   --spacer-l: 30px;
-  --spacer-ll: 40px;
-  --spacer-lxl: 50px;
+  --spacer-xl: 40px;
+  --spacer-xxl: 50px;
 `;
 
 const common = css`

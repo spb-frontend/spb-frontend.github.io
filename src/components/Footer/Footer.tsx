@@ -88,6 +88,11 @@ const NavLink = styled(Link)`
   }
 `;
 
+const CopyrightLine = styled.div`
+  margin-top: var(--spacer-xxl);
+  color: rgb(var(--color-black) / 0.5);
+`;
+
 export const Footer = () => {
   return (
     <Wrapper className="theme-light">
@@ -148,6 +153,8 @@ export const Footer = () => {
               </NavWrapper>
             </FooterBlock>
           </FlexWrapper>
+
+          <CopyrightLine>&copy; SPB Frontend, 2014—{new Date().getFullYear()}</CopyrightLine>
         </Content>
       </Block>
     </Wrapper>
