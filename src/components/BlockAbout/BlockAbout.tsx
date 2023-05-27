@@ -29,12 +29,6 @@ const AboutDesc = styled.div`
   font-size: var(--font-size-m);
 `;
 
-const SocialsWrapper = styled.div`
-  display: flex;
-  align-items: start;
-  flex-direction: column;
-`;
-
 export const BlockAbout = () => {
   return (
     <Wrapper id="about" className="theme-light">
@@ -48,6 +42,7 @@ export const BlockAbout = () => {
               полезными как новички, так и опытные разработчики. Мы помогаем специалистам обмениваться знаниями,
               налаживать профессиональные связи, вдохновляться и мотивироваться.
             </p>
+
             <p>
               С 2014-го года мы проводим митапы для фронтенд-разработчиков, которые представляют из себя бесплатную
               оффлайн-платформу для обмена знаниями и опытом для всех желающих. Следите за нашими новостями в{' '}

@@ -1,8 +1,6 @@
-import React, { PropsWithChildren, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import styled from 'styled-components';
 import { Button } from '../Button/Button';
-import bridgeRight from './bridge-header-1m.svg';
-import bridgeLeft from './bridge-header-2m.svg';
 import wave from './wave.svg';
 import { Content } from '../Content/Content';
 import { Block } from '../Block/Block';

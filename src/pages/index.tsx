@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Head from 'next/head';
 import { UpcomingMeetupInfo } from '../components/UpcomingMeetupInfo/UpcomingMeetupInfo';
 import { getUpcomingMeetup } from '../lib/timepad';
