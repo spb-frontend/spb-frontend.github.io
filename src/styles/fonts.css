@@ -1,7 +1,7 @@
 /* Bold italic */
 @font-face {
   font-family: 'Formular';
-  src: url('./fonts/Formular-BoldItalic.woff2') format('woff2'), url('./fonts/Formular-BoldItalic.woff') format('woff');
+  src: url('/fonts/Formular-BoldItalic.woff2') format('woff2'), url('/fonts/Formular-BoldItalic.woff') format('woff');
   font-weight: bold;
   font-style: italic;
   font-display: swap;
@@ -10,8 +10,8 @@
 /* Medium italic */
 /* @font-face {
   font-family: 'Formular';
-  src: url('./fonts/Formular-MediumItalic.woff2') format('woff2'),
-    url('./fonts/Formular-MediumItalic.woff') format('woff');
+  src: url('/fonts/Formular-MediumItalic.woff2') format('woff2'),
+    url('/fonts/Formular-MediumItalic.woff') format('woff');
   font-weight: 500;
   font-style: italic;
   font-display: swap;
@@ -20,7 +20,7 @@
 /* Bold normal */
 @font-face {
   font-family: 'Formular';
-  src: url('./fonts/Formular-Bold.woff2') format('woff2'), url('./fonts/Formular-Bold.woff') format('woff');
+  src: url('/fonts/Formular-Bold.woff2') format('woff2'), url('/fonts/Formular-Bold.woff') format('woff');
   font-weight: bold;
   font-style: normal;
   font-display: swap;
@@ -29,7 +29,7 @@
 /* Black normal */
 /* @font-face {
   font-family: 'Formular';
-  src: url('./fonts/Formular-Black.woff2') format('woff2'), url('./fonts/Formular-Black.woff') format('woff');
+  src: url('/fonts/Formular-Black.woff2') format('woff2'), url('/fonts/Formular-Black.woff') format('woff');
   font-weight: 900;
   font-style: normal;
   font-display: swap;
@@ -38,8 +38,8 @@
 /* Black italic */
 /* @font-face {
   font-family: 'Formular';
-  src: url('./fonts/Formular-BlackItalic.woff2') format('woff2'),
-    url('./fonts/Formular-BlackItalic.woff') format('woff');
+  src: url('/fonts/Formular-BlackItalic.woff2') format('woff2'),
+    url('/fonts/Formular-BlackItalic.woff') format('woff');
   font-weight: 900;
   font-style: italic;
   font-display: swap;
@@ -48,7 +48,7 @@
 /* Light normal */
 @font-face {
   font-family: 'Formular';
-  src: url('./fonts/Formular-Light.woff2') format('woff2'), url('./fonts/Formular-Light.woff') format('woff');
+  src: url('/fonts/Formular-Light.woff2') format('woff2'), url('/fonts/Formular-Light.woff') format('woff');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -57,8 +57,7 @@
 /* Light italic */
 @font-face {
   font-family: 'Formular';
-  src: url('./fonts/Formular-LightItalic.woff2') format('woff2'),
-    url('./fonts/Formular-LightItalic.woff') format('woff');
+  src: url('/fonts/Formular-LightItalic.woff2') format('woff2'), url('/fonts/Formular-LightItalic.woff') format('woff');
   font-weight: 300;
   font-style: italic;
   font-display: swap;
@@ -67,7 +66,7 @@
 /* Normal normal */
 /* @font-face {
   font-family: 'Formular';
-  src: url('./fonts/Formular.woff2') format('woff2'), url('./fonts/Formular.woff') format('woff');
+  src: url('/fonts/Formular.woff2') format('woff2'), url('/fonts/Formular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -76,7 +75,7 @@
 /* Normal italic */
 /* @font-face {
   font-family: 'Formular';
-  src: url('./fonts/Formular-Italic.woff2') format('woff2'), url('./fonts/Formular-Italic.woff') format('woff');
+  src: url('/fonts/Formular-Italic.woff2') format('woff2'), url('/fonts/Formular-Italic.woff') format('woff');
   font-weight: normal;
   font-style: italic;
   font-display: swap;
@@ -85,7 +84,7 @@
 /* Medium normal */
 /* @font-face {
   font-family: 'Formular';
-  src: url('./fonts/Formular-Medium.woff2') format('woff2'), url('./fonts/Formular-Medium.woff') format('woff');
+  src: url('/fonts/Formular-Medium.woff2') format('woff2'), url('/fonts/Formular-Medium.woff') format('woff');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
