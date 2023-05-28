@@ -19,11 +19,11 @@ export const BlockNearestMeetup = (props: Props) => {
     <>
       <section className={styles.section}>
         <div className={styles.poster}>
-          <div
+          <img
             className={styles.posterImage}
-            style={{
-              backgroundImage: `url('${props.poster}/-/resize/720/')`,
-            }}
+            src={`${props.poster}/-/resize/720/`}
+            srcSet={`${props.poster}/-/resize/460/`}
+            alt="Meetup poster"
           />
         </div>
 
