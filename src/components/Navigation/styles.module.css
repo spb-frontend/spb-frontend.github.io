@@ -129,7 +129,7 @@
 
 .mobileMenuLink {
   --link-color: rgb(var(--color-white));
-  font-weight: bold;
+  font-weight: var(--font-weight-bold);
   font-size: var(--font-size-l);
   height: 44px;
   text-align: center;

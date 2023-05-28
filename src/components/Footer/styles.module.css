@@ -35,7 +35,7 @@
 }
 
 .blockTitle {
-  font-weight: bold;
+  font-weight: var(--font-weight-bold);
   font-size: var(--font-size-s);
   text-transform: uppercase;
   margin-bottom: var(--spacer-s);

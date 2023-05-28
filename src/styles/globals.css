@@ -18,11 +18,9 @@ body {
   color: rgb(var(--color-black));
   font-size: var(--font-size-s);
   font-family: 'Formular', sans-serif;
-  font-weight: 300;
+  font-weight: var(--font-weight-regular);
   height: 100%;
-}
-
-#__next {
+  line-height: 1.2;
 }
 
 a {
@@ -55,7 +53,7 @@ p {
 
 b,
 strong {
-  font-weight: 500;
+  font-weight: var(--font-weight-bold);
 }
 
 .nowrap {

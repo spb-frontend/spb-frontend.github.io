@@ -32,6 +32,8 @@ export const Navigation = (props: Props) => {
       headerElement.style.backgroundColor = `rgb(var(--color-black) / ${opacity})`;
     };
 
+    handleScroll();
+
     window.addEventListener('scroll', handleScroll);
 
     return () => {

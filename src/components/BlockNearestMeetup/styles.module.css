@@ -107,7 +107,7 @@
   font-size: 5em;
   position: relative;
   z-index: 2;
-  font-weight: 600;
+  font-weight: var(--font-weight-bold);
   color: rgb(var(--color-white));
   text-align: center;
   line-height: 0.7em;
