@@ -15,9 +15,8 @@
     "fixall": "eslint --fix"
   },
   "browserslist": [
-    ">0.3%",
-    "not dead",
-    "not op_mini all"
+    "defaults and supports es6-module",
+    "maintained node versions"
   ],
   "dependencies": {
     "classnames": "^2.3.1",

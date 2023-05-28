@@ -22,7 +22,7 @@ export const BlockNearestMeetup = (props: Props) => {
           <div
             className={styles.posterImage}
             style={{
-              backgroundImage: `url('${props.poster}/-/resize/1980/')`,
+              backgroundImage: `url('${props.poster}/-/resize/720/')`,
             }}
           />
         </div>

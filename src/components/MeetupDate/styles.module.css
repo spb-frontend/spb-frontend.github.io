@@ -8,7 +8,7 @@
   display: flex;
   align-items: center;
   text-transform: uppercase;
-  font-weight: bold;
+  font-weight: var(--font-weight-bold);
 
   &.pastEvent {
     background-color: rgb(var(--color-white));

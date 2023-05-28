@@ -1,6 +1,6 @@
 .blockTitle {
   font-size: var(--font-size-l);
-  font-weight: bold;
+  font-weight: var(--font-weight-bold);
   text-transform: uppercase;
   margin-bottom: var(--spacer-l);
   position: relative;
