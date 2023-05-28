@@ -6,6 +6,7 @@ import styles from './styles.module.css';
 import { MeetupDate } from '../MeetupDate/MeetupDate';
 
 type Props = {
+  isUpcomingEvent: boolean;
   poster: string;
   date: number;
   address: string;
@@ -13,8 +14,6 @@ type Props = {
 };
 
 export const BlockNearestMeetup = (props: Props) => {
-  const isUpcomingEvent = props.date >= new Date().getTime();
-
   return (
     <>
       <section className={styles.section}>
@@ -40,7 +39,7 @@ export const BlockNearestMeetup = (props: Props) => {
               </div>
 
               <div className={styles.meetupInfoDetails}>
-                <MeetupDate date={props.date} isPastEvent={!isUpcomingEvent} />
+                <MeetupDate date={props.date} isPastEvent={!props.isUpcomingEvent} />
 
                 <h2 className={styles.subHeading}>
                   Неформальная&nbsp;встреча веб&#8209;разработчиков в&nbsp;Санкт&#8209;Петербурге
@@ -60,7 +59,7 @@ export const BlockNearestMeetup = (props: Props) => {
                 </div>
 
                 <div className={styles.buttonsWrapper}>
-                  {isUpcomingEvent && (
+                  {props.isUpcomingEvent && (
                     <Button
                       type="primary"
                       href={props.url + '#register'}

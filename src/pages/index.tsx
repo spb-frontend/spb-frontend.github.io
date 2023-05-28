@@ -8,7 +8,7 @@ import { BlockAbout } from '../components/BlockAbout/BlockAbout';
 import { Footer } from '../components/Footer/Footer';
 
 type Props = {
-  upcomingMeetup?: {
+  nearestEvent?: {
     date: number;
     url: string;
     poster: string;
@@ -22,30 +22,31 @@ type Props = {
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const list = await getMeetupList();
-  const upcomingMeetup = await getLastMeetup(list);
+  const nearestEvent = list ? (await getLastMeetup(list)) ?? undefined : undefined;
 
   return {
     props: {
-      upcomingMeetup,
+      nearestEvent,
     },
   };
 };
 
-export default function Home({ upcomingMeetup }: Props) {
+export default function Home({ nearestEvent }: Props) {
   return (
     <>
       <Head>
         <title>SPB Frontend</title>
       </Head>
 
-      <Navigation withUpcomingMeetup={!!upcomingMeetup} />
+      <Navigation withUpcomingMeetup={!!nearestEvent} />
 
-      {upcomingMeetup && (
+      {nearestEvent && (
         <BlockNearestMeetup
-          poster={upcomingMeetup.poster}
-          date={upcomingMeetup.date}
-          address={upcomingMeetup.location.address}
-          url={upcomingMeetup.url}
+          isUpcomingEvent={nearestEvent.date >= new Date().getTime()}
+          poster={nearestEvent.poster}
+          date={nearestEvent.date}
+          address={nearestEvent.location.address}
+          url={nearestEvent.url}
         />
       )}
 

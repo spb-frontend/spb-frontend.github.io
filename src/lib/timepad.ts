@@ -177,7 +177,7 @@ export const getMeetupList = async () => {
         }
 
         const eventsSummaryList = data.values.filter((item: any) => item.moderation_status === 'shown');
-        const eventsDetailList: any[] = [];
+        const eventsDetailList: TimepadEvent[] = [];
 
         for (let i = 0; i < eventsSummaryList.length; i++) {
           const eventSummary = eventsSummaryList[i];
