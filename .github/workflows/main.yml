@@ -22,6 +22,14 @@ jobs:
           yarn install
 
       - name: Build and static exports 🏗️
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.yarn
+            ${{ github.workspace }}/.next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
+          restore-keys: |
+            ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}
         env:
           TIMEPAD_TOKEN: ${{ secrets.TIMEPAD_TOKEN }}
         run: |
