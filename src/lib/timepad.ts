@@ -177,7 +177,7 @@ export const getMeetupList = async () => {
         }
 
         const eventsSummaryList = data.values.filter((item: any) => item.moderation_status === 'shown');
-        const eventsDetailList = [];
+        const eventsDetailList: any[] = [];
 
         for (let i = 0; i < eventsSummaryList.length; i++) {
           const eventSummary = eventsSummaryList[i];
@@ -233,6 +233,11 @@ export const getLastMeetup = async (
 
   try {
     const nearestEventDetails = findNearestEvent(eventsList);
+
+    if (nearestEventDetails == null) {
+      console.log('Unable to get nearest event from timepad data');
+      return null;
+    }
 
     return {
       date: new Date(nearestEventDetails.starts_at).getTime(),
