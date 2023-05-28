@@ -105,6 +105,16 @@ export interface Question {
   };
 }
 
+const saveDataToJson = (data: any, filePath: string) => {
+  const directory = path.dirname(filePath);
+
+  if (!fs.existsSync(directory)) {
+    fs.mkdirSync(directory, { recursive: true });
+  }
+
+  fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
+};
+
 /**
  * The function returns the nearest upcoming event,
  * but if there are no upcoming events, it returns the last past event
@@ -187,11 +197,14 @@ export const getMeetupList = async () => {
         };
 
         // Side effect
-        fs.writeFileSync(TIMEPAD_EVENTS_FILE, JSON.stringify(eventsListCache, null, 2));
 
-        return eventsSummaryList;
+        saveDataToJson(eventsListCache, TIMEPAD_EVENTS_FILE);
+
+        return eventsDetailList;
       });
   } catch (err) {
+    console.log('Error during getting timepad events: ' + err.message);
+    console.log(err);
     return null;
   }
 };
@@ -210,6 +223,11 @@ export const getLastMeetup = async (
 } | null> => {
   if (!process.env.TIMEPAD_TOKEN) {
     console.error('Invalid timepad token!');
+    return null;
+  }
+
+  if (!Array.isArray(eventsList) || eventsList.length === 0) {
+    console.log('Timepad event list is empty');
     return null;
   }
 
