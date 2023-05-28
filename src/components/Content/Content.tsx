@@ -1,16 +1,7 @@
-import styled from 'styled-components';
+import React from 'react';
+import { PropsWithChildren } from 'react';
+import styles from './styles.module.css';
 
-export const Content = styled.div`
-  position: relative;
-  padding: 0 20px;
-
-  @media (min-width: 480px) {
-    padding: 0 58px;
-  }
-
-  @media (min-width: 1025px) {
-    padding: 0 50px;
-    margin: 0 auto;
-    max-width: 1327px;
-  }
-`;
+export const Content = (props: PropsWithChildren) => {
+  return <div className={styles.content}>{props.children}</div>;
+};

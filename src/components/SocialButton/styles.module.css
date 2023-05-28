@@ -1,0 +1,30 @@
+
+.link {
+  text-decoration: none;
+  display: inline-block;
+  transition: 0.15s ease-out;
+  transition-property: opacity;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.socialIcon {
+  background-color: currentColor;
+  mask: no-repeat center;
+  mask-size: contain;
+
+  &.twitter {
+    mask-image: url('./icons/twitter.svg');
+  }
+  &.telegram {
+    mask-image: url('./icons/telegram.svg');
+  }
+  &.youtube {
+    mask-image: url('./icons/youtube.svg');
+  }
+  &.github {
+    mask-image: url('./icons/github.svg');
+  }
+}

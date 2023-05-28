@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
-import { UpcomingMeetupInfo } from '../components/UpcomingMeetupInfo/UpcomingMeetupInfo';
+import { BlockUpcomingMeetup } from '../components/BlockUpcomingMeetup/BlockUpcomingMeetup';
 import { getUpcomingMeetup } from '../lib/timepad';
 import { Navigation } from '../components/Navigation/Navigation';
 import { GetStaticProps } from 'next';
@@ -40,7 +40,7 @@ export default function Home({ upcomingMeetup }: Props) {
       <Navigation withUpcomingMeetup={!!upcomingMeetup} />
 
       {upcomingMeetup && (
-        <UpcomingMeetupInfo
+        <BlockUpcomingMeetup
           poster={upcomingMeetup.poster}
           date={upcomingMeetup.date}
           address={upcomingMeetup.location.address}

@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
-import { GlobalStyles } from '../components/GlobalStyles/GlobalStyles';
 import { AppProps } from 'next/app';
+import './../styles/globals.css';
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -16,7 +16,6 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         <meta name="theme-color" content="#ffffff" />
       </Head>
 
-      <GlobalStyles />
       <Component {...pageProps} />
     </>
   );

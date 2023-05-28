@@ -1,21 +1,6 @@
-import styled from 'styled-components';
-import titleBridge from './title-bridge.svg';
+import React, { PropsWithChildren } from 'react';
+import styles from './styles.module.css';
 
-export const BlockTitle = styled.h2`
-  font-size: var(--font-size-l);
-  font-weight: bold;
-  text-transform: uppercase;
-  margin-bottom: var(--spacer-l);
-  position: relative;
-  display: flex;
-  align-items: center;
-
-  &::before {
-    content: '';
-    flex: 0 0 35px;
-    height: 29px;
-    background: url(${titleBridge}) 0 50%;
-    background-repeat: no-repeat;
-    background-size: contain;
-  }
-`;
+export const BlockTitle = (props: PropsWithChildren) => {
+  return <h2 className={styles.blockTitle}>{props.children}</h2>;
+};

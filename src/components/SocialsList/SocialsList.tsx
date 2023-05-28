@@ -1,12 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
 import { SocialButton } from '../SocialButton/SocialButton';
-
-const Wrapper = styled.div`
-  & > * + * {
-    margin-left: 25px;
-  }
-`;
+import styles from './styles.module.css';
 
 type Props = {
   size?: number;
@@ -15,7 +9,7 @@ type Props = {
 
 export const SocialsList = (props: Props) => {
   return (
-    <Wrapper>
+    <div className={styles.wrapper}>
       <SocialButton
         size={props.size}
         color={props.color}
@@ -44,6 +38,6 @@ export const SocialsList = (props: Props) => {
         title="GitHub"
         href="https://github.com/spb-frontend"
       />
-    </Wrapper>
+    </div>
   );
 };

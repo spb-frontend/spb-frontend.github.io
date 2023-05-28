@@ -1,0 +1,63 @@
+@import url('./reset.css');
+@import url('./fonts.css');
+@import url('./variables.css');
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overscroll-behavior: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: rgb(var(--color-white));
+  color: rgb(var(--color-black));
+  font-size: var(--font-size-s);
+  font-family: 'Formular', sans-serif;
+  font-weight: 300;
+  height: 100%;
+}
+
+#__next {
+}
+
+a {
+  --stroke-opacity: 0.3;
+  --stroke-width: 2px;
+  --stroke-color: rgb(var(--link-color) / var(--stroke-opacity));
+  color: var(--link-color);
+  -webkit-text-decoration-color: var(--stroke-color);
+  text-decoration-color: var(--stroke-color);
+  -webkit-text-decoration-line: underline;
+  text-decoration-line: underline;
+  -webkit-text-decoration-skip: ink;
+  text-decoration-skip-ink: auto;
+  text-decoration-thickness: min(1px, var(--stroke-width, 0.05em));
+  text-underline-offset: var(--stroke-offset, 0.2em);
+  text-underline-position: auto;
+  transition: 0.15s ease;
+  transition-property: color, -webkit-text-decoration-color;
+  transition-property: color, text-decoration-color;
+  transition-property: color, text-decoration-color, -webkit-text-decoration-color;
+
+  &:hover {
+    --stroke-opacity: 0.7;
+  }
+}
+
+p {
+  margin: 1.2em 0;
+}
+
+b,
+strong {
+  font-weight: 500;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
