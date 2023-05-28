@@ -26,7 +26,7 @@ export const Footer = () => {
 
               <div className={styles.navWrapper}>
                 {navigation.map((item, i) => (
-                  <Link className={styles.navLink} key={i} href={item.href}>
+                  <Link className={styles.navLink} key={i} href={item.href} title={item.title}>
                     {item.title}
                   </Link>
                 ))}
@@ -59,7 +59,7 @@ export const Footer = () => {
                     title: 'GitHub',
                   },
                 ].map((item, i) => (
-                  <Link className={styles.navLink} key={i} href={item.href}>
+                  <Link className={styles.navLink} key={i} href={item.href} title={item.title}>
                     {item.title}
                   </Link>
                 ))}

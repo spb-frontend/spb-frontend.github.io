@@ -3,10 +3,16 @@ import Head from 'next/head';
 import { AppProps } from 'next/app';
 import './../styles/globals.css';
 
-export default function MyApp({ Component, pageProps }: AppProps) {
+export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
+        <meta name="language" content="Russian" />
+        <meta name="title" content="SPB Frontend" />
+        <meta name="description" content="Cообщество петербургских фронтенд-разработчиков" />
+        <meta name="robots" content="index, follow" />
+        <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+
         <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />

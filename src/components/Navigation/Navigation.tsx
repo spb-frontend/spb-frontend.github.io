@@ -48,7 +48,7 @@ export const Navigation = (props: Props) => {
         })}
         ref={headerElementRef}
       >
-        <Link className={styles.logoLink} href="/" onClick={handleCloseMenu} />
+        <Link className={styles.logoLink} href="/" onClick={handleCloseMenu} title="Главная страница" />
 
         <a
           href="#"
@@ -67,6 +67,7 @@ export const Navigation = (props: Props) => {
               target={item.target}
               rel={item.rel}
               className={classNames(styles.menuLink, { [styles.active]: router.asPath === item.href })}
+              title={item.title}
             >
               <item.Icon size={25} />
               &nbsp;{item.title}
@@ -85,6 +86,7 @@ export const Navigation = (props: Props) => {
               target={item.target}
               rel={item.rel}
               onClick={handleCloseMenu}
+              title={item.title}
             >
               <item.Icon size={48} />
               &nbsp;

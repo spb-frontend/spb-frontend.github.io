@@ -10,7 +10,13 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: ['@typescript-eslint', 'react', 'unused-imports'],
-  extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'plugin:react/recommended', 'prettier'],
+  extends: [
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:react/recommended',
+    'prettier',
+    'plugin:react-hooks/recommended',
+  ],
   overrides: [{ files: ['*.ts', '*.tsx'] }],
   rules: {
     indent: 'off',

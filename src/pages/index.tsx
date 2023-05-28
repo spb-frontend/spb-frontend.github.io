@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
-import { BlockUpcomingMeetup } from '../components/BlockUpcomingMeetup/BlockUpcomingMeetup';
-import { getUpcomingMeetup } from '../lib/timepad';
+import { BlockNearestMeetup } from '../components/BlockNearestMeetup/BlockNearestMeetup';
+import { getMeetupList, getLastMeetup } from '../lib/timepad';
 import { Navigation } from '../components/Navigation/Navigation';
 import { GetStaticProps } from 'next';
 import { BlockAbout } from '../components/BlockAbout/BlockAbout';
@@ -21,7 +21,8 @@ type Props = {
 };
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const upcomingMeetup = await getUpcomingMeetup();
+  const list = await getMeetupList();
+  const upcomingMeetup = await getLastMeetup(list);
 
   return {
     props: {
@@ -40,7 +41,7 @@ export default function Home({ upcomingMeetup }: Props) {
       <Navigation withUpcomingMeetup={!!upcomingMeetup} />
 
       {upcomingMeetup && (
-        <BlockUpcomingMeetup
+        <BlockNearestMeetup
           poster={upcomingMeetup.poster}
           date={upcomingMeetup.date}
           address={upcomingMeetup.location.address}

@@ -1,8 +1,9 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { Button } from '../Button/Button';
 import { Content } from '../Content/Content';
 import { Block } from '../Block/Block';
 import styles from './styles.module.css';
+import { MeetupDate } from '../MeetupDate/MeetupDate';
 
 type Props = {
   poster: string;
@@ -11,31 +12,8 @@ type Props = {
   url: string;
 };
 
-export const BlockUpcomingMeetup = (props: Props) => {
-  const dateRender = useMemo(() => {
-    const months = [
-      'января',
-      'февраля',
-      'марта',
-      'апреля',
-      'мая',
-      'июня',
-      'июля',
-      'августа',
-      'сентября',
-      'ноября',
-      'декабря',
-    ];
-
-    const date = new Date(props.date);
-
-    return (
-      <>
-        {date.getDate()}&nbsp;{months[date.getMonth()]}&nbsp;{date.getFullYear()}, в&nbsp;
-        {date.getHours().toString().padStart(2, '0')}:{date.getMinutes().toString().padStart(2, '0')}
-      </>
-    );
-  }, [props.date]);
+export const BlockNearestMeetup = (props: Props) => {
+  const isUpcomingEvent = props.date >= new Date().getTime();
 
   return (
     <>
@@ -62,7 +40,7 @@ export const BlockUpcomingMeetup = (props: Props) => {
               </div>
 
               <div className={styles.meetupInfoDetails}>
-                <div className={styles.meetupDate}>{dateRender}</div>
+                <MeetupDate date={props.date} isPastEvent={!isUpcomingEvent} />
 
                 <h2 className={styles.subHeading}>
                   Неформальная&nbsp;встреча веб&#8209;разработчиков в&nbsp;Санкт&#8209;Петербурге
@@ -82,15 +60,18 @@ export const BlockUpcomingMeetup = (props: Props) => {
                 </div>
 
                 <div className={styles.buttonsWrapper}>
-                  <Button
-                    type="primary"
-                    href={props.url + '#register'}
-                    isFullWidth
-                    target="_blank"
-                    rel="noreferrer noopener nofollow"
-                  >
-                    Бесплатная регистрация
-                  </Button>
+                  {isUpcomingEvent && (
+                    <Button
+                      type="primary"
+                      href={props.url + '#register'}
+                      isFullWidth
+                      target="_blank"
+                      rel="noreferrer noopener nofollow"
+                      title="Бесплатная регистрация"
+                    >
+                      Бесплатная регистрация
+                    </Button>
+                  )}
 
                   <Button
                     type="secondary"
@@ -98,6 +79,7 @@ export const BlockUpcomingMeetup = (props: Props) => {
                     isFullWidth
                     target="_blank"
                     rel="noreferrer noopener nofollow"
+                    title="Подробнее"
                   >
                     Подробнее
                   </Button>

@@ -1,0 +1,23 @@
+.meetupDate {
+  padding: 0 20px;
+  height: 40px;
+  border-radius: 25px;
+  font-size: var(--font-size-s);
+  background-color: rgb(var(--color-folly));
+  margin-bottom: var(--spacer-m);
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  font-weight: bold;
+
+  &.pastEvent {
+    background-color: rgb(var(--color-white));
+    color: rgb(var(--color-black));
+    padding-left: 10px;
+  }
+}
+
+.pastEventIcon {
+  color: rgb(var(--color-folly));
+  margin-right: 5px;
+}

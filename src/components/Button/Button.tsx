@@ -5,6 +5,7 @@ import styles from './styles.module.css';
 
 type Props = AnchorHTMLAttributes<HTMLAnchorElement> & {
   type: 'primary' | 'secondary';
+  title: string;
   isFullWidth?: boolean;
   href?: string;
   className?: string;
@@ -21,6 +22,7 @@ export const Button = ({ type, isFullWidth, href, className, onClick, children, 
       })}
       href={href}
       onClick={onClick}
+      title={props.title}
       {...props}
     >
       {children}
