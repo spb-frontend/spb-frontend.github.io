@@ -5,7 +5,7 @@ import path from 'path';
 import { DAY } from '../constants/date';
 
 const TIMEPAD_EVENTS_FILE = path.resolve(process.cwd(), './.tmp/timepadEvents.json');
-const UPDATE_INTERVAL = DAY;
+const UPDATE_INTERVAL = DAY / 2;
 
 export interface TimepadEventsJson {
   updateTime: number;
