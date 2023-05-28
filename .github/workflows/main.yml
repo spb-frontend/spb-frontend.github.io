@@ -25,6 +25,7 @@ jobs:
         env:
           TIMEPAD_TOKEN: ${{ secrets.TIMEPAD_TOKEN }}
         run: |
+          yarn typecheck
           yarn build
           yarn export
 

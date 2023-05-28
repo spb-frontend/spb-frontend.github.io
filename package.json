@@ -12,7 +12,8 @@
     "precommit": "lint-staged",
     "prepare": "husky install",
     "find-deadcode": "ts-prune",
-    "fixall": "eslint --fix"
+    "fixall": "eslint --fix",
+    "typecheck": "tsc --noEmit"
   },
   "browserslist": [
     "defaults and supports es6-module",
