@@ -4,6 +4,7 @@ import { Content } from '../Content/Content';
 import { Block } from '../Block/Block';
 import styles from './styles.module.css';
 import { MeetupDate } from '../MeetupDate/MeetupDate';
+import classNames from 'classnames';
 
 type Props = {
   isUpcomingEvent: boolean;
@@ -16,7 +17,7 @@ type Props = {
 export const BlockNearestMeetup = (props: Props) => {
   return (
     <>
-      <section className={styles.section}>
+      <section className={classNames(styles.section, 'theme-dark')}>
         <div className={styles.poster}>
           <img
             className={styles.posterImage}

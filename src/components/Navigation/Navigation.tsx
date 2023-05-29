@@ -29,7 +29,7 @@ export const Navigation = (props: Props) => {
     const handleScroll = () => {
       const opacity = Math.min(window.scrollY || window.pageYOffset, 300) / 300;
 
-      headerElement.style.backgroundColor = `rgb(var(--color-black) / ${opacity})`;
+      headerElement.style.backgroundColor = `rgb(var(--background-color-dark) / ${opacity})`;
     };
 
     handleScroll();
@@ -44,7 +44,7 @@ export const Navigation = (props: Props) => {
   return (
     <>
       <header
-        className={classNames(styles.header, {
+        className={classNames('theme-dark', styles.header, {
           [styles.open]: isMenuOpen,
           [styles.transparent]: props.withUpcomingMeetup,
         })}

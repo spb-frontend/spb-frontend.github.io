@@ -1,27 +1,27 @@
 .buttonLink {
-  color: #fff;
+  color: rgb(var(--button-color));
   display: inline-block;
   padding: 18px 30px;
   text-align: center;
   text-transform: uppercase;
   font-size: var(--font-size-s);
   font-weight: var(--font-weight-bold);
-  border: 3px solid rgb(var(--color-white));
+  border: 3px solid rgb(var(--button-color));
   text-decoration: none;
   transition: 0.15s ease-out;
   transition-property: background-color, border-color;
 
   &:hover {
-    background: rgb(var(--color-white) / 0.1);
+    background: rgb(var(--button-color) / 0.1);
   }
 
   &.primary {
     border-color: transparent;
-    background: rgb(var(--color-white));
-    color: rgb(var(--color-black));
+    background: rgb(var(--button-color));
+    color: rgb(var(--button-text-color));
 
     &:hover {
-      background: rgb(var(--color-white) / 0.8);
+      background: rgb(var(--button-color) / 0.8);
     }
   }
 

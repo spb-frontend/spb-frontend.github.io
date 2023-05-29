@@ -20,7 +20,7 @@ export const SocialButton = (props: Props) => {
     >
       <div
         className={classNames(styles.socialIcon, {
-          [styles.github]: props.type == 'github',
+          [styles.twitter]: props.type == 'twitter',
           [styles.telegram]: props.type == 'telegram',
           [styles.youtube]: props.type == 'youtube',
           [styles.github]: props.type == 'github',

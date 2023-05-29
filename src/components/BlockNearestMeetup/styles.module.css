@@ -2,7 +2,7 @@
   transform-style: inherit;
   position: relative;
   padding-top: 81px;
-  color: rgb(var(--color-white));
+  color: rgb(var(--text-color));
 }
 
 .poster {
@@ -36,7 +36,7 @@
     width: 100%;
     height: 100%;
     z-index: 2;
-    background-color: rgb(var(--color-black) / 0.8);
+    background-color: rgb(var(--background-color) / 0.8);
     background-image: linear-gradient(45deg, rgba(var(--color-blue) / 0.2) 0%, rgba(var(--color-folly) / 0.2) 100%);
   }
 }
@@ -64,7 +64,7 @@
   }
 
   a {
-    color: rgb(var(--color-white));
+    color: rgb(var(--text-color));
   }
 }
 
@@ -109,7 +109,7 @@
   position: relative;
   z-index: 2;
   font-weight: var(--font-weight-bold);
-  color: rgb(var(--color-white));
+  color: rgb(var(--text-color));
   text-align: center;
   line-height: 0.7em;
 

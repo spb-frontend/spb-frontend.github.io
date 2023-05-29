@@ -1,14 +1,36 @@
 :root {
+  /* Pallette */
   --color-black: 13 19 26;
   --color-blue: 121 99 251;
   --color-folly: 255 51 102;
   --color-white: 255 255 255;
   --color-cream: 242 247 242;
 
-  --link-color: var(--color-white);
+  /* Design colors */
+  --background-color-dark: var(--color-black);
+  --background-color-light: var(--color-white);
+  --text-color-black: var(--color-black);
+  --text-color-white: var(--color-white);
+
+  /* Theme colors*/
+  .theme-dark {
+    --background-color: var(--background-color-dark);
+    --text-color: var(--text-color-white);
+    --link-color: var(--text-color-white);
+    --button-color: var(--text-color-white);
+    --button-text-color: var(--text-color-black);
+    --border-color: var(--text-color-white);
+    background-color: rgb(var(--background-color));
+  }
 
   .theme-light {
-    --link-color: var(--color-black);
+    --background-color: var(--background-color-light);
+    --text-color: var(--text-color-black);
+    --link-color: var(--text-color-black);
+    --button-color: var(--text-color-black);
+    --button-text-color: var(--text-color-white);
+    --border-color: var(--text-color-black);
+    background-color: rgb(var(--background-color));
   }
 
   --font-size-s: 14px;
