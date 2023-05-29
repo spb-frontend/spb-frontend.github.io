@@ -3,21 +3,27 @@
   height: 40px;
   border-radius: 25px;
   font-size: var(--font-size-s);
-  background-color: rgb(var(--color-folly));
+  background-color: rgb(var(--background-color) / 0.5);
   margin-bottom: var(--spacer-m);
   display: flex;
   align-items: center;
+  justify-content: center;
   text-transform: uppercase;
   font-weight: var(--font-weight-bold);
+  padding-left: 15px;
 
   &.pastEvent {
-    background-color: rgb(var(--background-color));
-    color: rgb(var(--text-color));
     padding-left: 10px;
   }
 }
 
 .pastEventIcon {
   color: rgb(var(--color-folly));
-  margin-right: 5px;
+  margin-right: 7px;
+}
+
+.upcomingEventIcon {
+  color: rgb(var(--color-folly));
+  margin-right: 7px;
+  margin-bottom: 2px;
 }

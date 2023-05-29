@@ -9,6 +9,7 @@ import { Footer } from '../components/Footer/Footer';
 
 type Props = {
   nearestEvent?: {
+    title: string;
     date: number;
     url: string;
     poster: string;
@@ -43,6 +44,7 @@ export default function Home({ nearestEvent }: Props) {
       {nearestEvent && (
         <BlockNearestMeetup
           isUpcomingEvent={nearestEvent.date >= new Date().getTime()}
+          title={nearestEvent.title}
           poster={nearestEvent.poster}
           date={nearestEvent.date}
           address={nearestEvent.location.address}

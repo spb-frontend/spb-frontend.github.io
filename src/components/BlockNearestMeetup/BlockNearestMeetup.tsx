@@ -8,6 +8,7 @@ import classNames from 'classnames';
 
 type Props = {
   isUpcomingEvent: boolean;
+  title: string;
   poster: string;
   date: number;
   address: string;
@@ -43,10 +44,12 @@ export const BlockNearestMeetup = (props: Props) => {
                 <MeetupDate date={props.date} isPastEvent={!props.isUpcomingEvent} />
 
                 <h2 className={styles.subHeading}>
-                  Неформальная&nbsp;встреча веб&#8209;разработчиков в&nbsp;Санкт&#8209;Петербурге
+                  Неформальная&nbsp;встреча <wbr />
+                  веб&#8209;разработчиков <wbr />
+                  в&nbsp;Санкт&#8209;Петербурге
                 </h2>
 
-                <div className={styles.meetupAddress}>
+                <address className={styles.meetupAddress}>
                   <a
                     href={`http://maps.yandex.ru/?text=${props.address}`}
                     target="_blank"
@@ -57,7 +60,7 @@ export const BlockNearestMeetup = (props: Props) => {
                       .map((item) => item.replace(/\s/g, ' '))
                       .join(', ')}
                   </a>{' '}
-                </div>
+                </address>
 
                 <div className={styles.buttonsWrapper}>
                   {props.isUpcomingEvent && (

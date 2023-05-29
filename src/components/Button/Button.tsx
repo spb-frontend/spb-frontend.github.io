@@ -23,6 +23,7 @@ export const Button = ({ type, isFullWidth, href, className, onClick, children, 
       href={href}
       onClick={onClick}
       title={props.title}
+      role="button"
       {...props}
     >
       {children}

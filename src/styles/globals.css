@@ -52,7 +52,7 @@ a {
 p {
   margin: 1.2em 0;
 
-  span[title] {
+  dfn[title] {
     --stroke-opacity: 0.3;
     --stroke-width: 0.1em;
     --stroke-color: rgb(var(--link-color) / var(--stroke-opacity));
