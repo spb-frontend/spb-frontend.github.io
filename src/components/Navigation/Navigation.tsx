@@ -61,7 +61,7 @@ export const Navigation = (props: Props) => {
           }}
         />
 
-        <div className={styles.menuList}>
+        <nav className={styles.menuList}>
           {navigation.map((item, i) => (
             <Link
               key={i}
@@ -75,11 +75,11 @@ export const Navigation = (props: Props) => {
               &nbsp;{item.title}
             </Link>
           ))}
-        </div>
+        </nav>
       </header>
 
       <div className={classNames(styles.mobileMenuWrapper, { [styles.open]: isMenuOpen })}>
-        <div className={styles.mobileMenuList}>
+        <nav className={styles.mobileMenuList}>
           {navigation.map((item, i) => (
             <Link
               className={styles.mobileMenuLink}
@@ -95,7 +95,8 @@ export const Navigation = (props: Props) => {
               {item.title}
             </Link>
           ))}
-        </div>
+        </nav>
+
         <div className={styles.socials}>
           <div className={styles.socialsTitle}>Подписывайтесь на нас в соцсетях:</div>
           <SocialsList />

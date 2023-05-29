@@ -1,10 +1,12 @@
-import React, { useLayoutEffect } from 'react';
+import React, { useEffect, useLayoutEffect } from 'react';
 import Head from 'next/head';
 import { AppProps } from 'next/app';
 import './../styles/globals.css';
 
+const useUniversalLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect;
+
 export default function App({ Component, pageProps }: AppProps) {
-  useLayoutEffect(() => {
+  useUniversalLayoutEffect(() => {
     if (typeof window === 'undefined' || typeof document === 'undefined' || !document.body) {
       return;
     }

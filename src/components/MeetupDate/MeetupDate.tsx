@@ -2,6 +2,7 @@ import React, { useMemo } from 'react';
 import styles from './styles.module.css';
 import classNames from 'classnames';
 import { IoIosAlert } from 'react-icons/io';
+import { MdDateRange } from 'react-icons/md';
 
 const months = [
   'января',
@@ -26,17 +27,28 @@ export const MeetupDate = (props: Props) => {
   const date = useMemo(() => new Date(props.date), [props.date]);
 
   const dateRender = useMemo(() => {
+    const year = date.getFullYear();
+    const month = months[date.getMonth()];
+    const day = date.getDate();
+
     return (
       <>
-        {date.getDate()}&nbsp;{months[date.getMonth()]}&nbsp;{date.getFullYear()}
+        <time dateTime={`${year}-${month}-${day}`}>
+          {day}&nbsp;{month}&nbsp;{year}
+        </time>
       </>
     );
   }, [date]);
 
   const timeRender = useMemo(() => {
+    const hours = date.getHours().toString().padStart(2, '0');
+    const minutes = date.getMinutes().toString().padStart(2, '0');
+
     return (
       <>
-        в&nbsp;{date.getHours().toString().padStart(2, '0')}:{date.getMinutes().toString().padStart(2, '0')}
+        <time dateTime={`${hours}:${minutes}`}>
+          в&nbsp;{hours}:{minutes}
+        </time>
       </>
     );
   }, [date]);
@@ -51,7 +63,8 @@ export const MeetupDate = (props: Props) => {
           </>
         ) : (
           <>
-            {dateRender}, {timeRender}
+            <MdDateRange className={styles.upcomingEventIcon} size={23} />
+            {dateRender},&nbsp;{timeRender}
           </>
         )}
       </div>

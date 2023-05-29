@@ -24,13 +24,13 @@ export const Footer = () => {
             <div className={classNames(styles.footerBlock, styles.second)}>
               <div className={styles.blockTitle}>Навигация</div>
 
-              <div className={styles.navWrapper}>
+              <nav className={styles.navWrapper}>
                 {navigation.map((item, i) => (
                   <Link className={styles.navLink} key={i} href={item.href} title={item.title}>
                     {item.title}
                   </Link>
                 ))}
-              </div>
+              </nav>
             </div>
 
             <div className={classNames(styles.footerBlock, styles.third)}>
