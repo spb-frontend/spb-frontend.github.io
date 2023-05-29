@@ -27,7 +27,7 @@ export const Navigation = (props: Props) => {
     }
 
     const handleScroll = () => {
-      const opacity = Math.min(window.scrollY || window.pageYOffset, 300) / 300;
+      const opacity = (Math.min(window.scrollY || window.pageYOffset, 300) / 300) * 0.85;
 
       headerElement.style.backgroundColor = `rgb(var(--background-color-dark) / ${opacity})`;
     };
