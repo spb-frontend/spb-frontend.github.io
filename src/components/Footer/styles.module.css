@@ -1,5 +1,5 @@
 .wrapper {
-  border-top: 1px solid rgb(var(--color-black) / 0.1);
+  border-top: 1px solid rgb(var(--border-color) / 0.1);
 }
 
 .flexWrapper {
@@ -44,8 +44,13 @@
 .logo {
   width: 89px;
   height: 46px;
-  background: url('./logo.svg') 50% no-repeat;
+  background: 50% no-repeat;
   background-size: contain;
+  background-image: url('./logo-dark.svg');
+}
+
+:global(.theme-dark) .logo {
+  background-image: url('./logo-light.svg');
 }
 
 .cooperationInfo {
@@ -82,5 +87,5 @@
 
 .copyrightLine {
   margin-top: var(--spacer-xxl);
-  color: rgb(var(--color-black) / 0.7);
+  color: rgb(var(--text-color) / 0.7);
 }

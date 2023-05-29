@@ -8,7 +8,7 @@ import classNames from 'classnames';
 
 export const Footer = () => {
   return (
-    <div className={classNames('theme-light', styles.wrapper)}>
+    <div className={styles.wrapper}>
       <Block>
         <Content>
           <div className={styles.flexWrapper}>

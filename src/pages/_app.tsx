@@ -1,9 +1,30 @@
-import React from 'react';
+import React, { useLayoutEffect } from 'react';
 import Head from 'next/head';
 import { AppProps } from 'next/app';
 import './../styles/globals.css';
 
 export default function App({ Component, pageProps }: AppProps) {
+  useLayoutEffect(() => {
+    if (typeof window === 'undefined' || typeof document === 'undefined' || !document.body) {
+      return;
+    }
+
+    const handleDarkmodeChange = (event?: MediaQueryListEvent) => {
+      const isDarkMode = event == null ? window.matchMedia('(prefers-color-scheme: dark)').matches : event.matches;
+
+      document.body.classList.toggle('theme-dark', isDarkMode);
+      document.body.classList.toggle('theme-light', !isDarkMode);
+    };
+
+    handleDarkmodeChange();
+
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', handleDarkmodeChange);
+
+    return () => {
+      window.matchMedia('(prefers-color-scheme: dark)').removeEventListener('change', handleDarkmodeChange);
+    };
+  }, []);
+
   return (
     <>
       <Head>
@@ -38,12 +59,13 @@ export default function App({ Component, pageProps }: AppProps) {
         <link rel="preload" href="/fonts/Formular-LightItalic.woff2" as="font" type="font/woff2" crossOrigin="" />
 
         {/* Favicon */}
-        <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
-        <link rel="manifest" href="/site.webmanifest" />
-        <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5" />
-        <meta name="msapplication-TileColor" content="#da532c" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png?v=1" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png?v=1" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png?v=1" />
+        <link rel="manifest" href="/favicon/site.webmanifest?v=1" />
+        <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg?v=1" color="#7363f7" />
+        <link rel="shortcut icon" href="/favicon/favicon.ico?v=1" />
+        <meta name="msapplication-TileColor" content="#7363f7" />
         <meta name="theme-color" content="#ffffff" />
       </Head>
 

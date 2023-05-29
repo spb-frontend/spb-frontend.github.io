@@ -14,29 +14,27 @@ body {
 body {
   margin: 0;
   padding: 0;
-  background: rgb(var(--color-white));
-  color: rgb(var(--color-black));
+  color: rgb(var(--text-color));
   font-size: var(--font-size-s);
   font-family: 'Formular', sans-serif;
   font-weight: var(--font-weight-regular);
   height: 100%;
   line-height: 1.2;
+
+  background-color: var(--background-color-light);
+
+  @media (prefers-color-scheme: dark) {
+    background-color: var(--background-color-dark);
+  }
 }
 
 a {
   --stroke-opacity: 0.3;
-  --stroke-width: 2px;
+  --stroke-width: 0.05em;
   --stroke-color: rgb(var(--link-color) / var(--stroke-opacity));
   color: var(--link-color);
-  -webkit-text-decoration-color: var(--stroke-color);
-  text-decoration-color: var(--stroke-color);
-  -webkit-text-decoration-line: underline;
-  text-decoration-line: underline;
-  -webkit-text-decoration-skip: ink;
-  text-decoration-skip-ink: auto;
-  text-decoration-thickness: min(1px, var(--stroke-width, 0.05em));
-  text-underline-offset: var(--stroke-offset, 0.2em);
-  text-underline-position: auto;
+  text-decoration: var(--stroke-color) underline var(--stroke-width);
+  text-underline-offset: 0.2em;
   transition: 0.15s ease;
   transition-property: color, -webkit-text-decoration-color;
   transition-property: color, text-decoration-color;
@@ -45,10 +43,24 @@ a {
   &:hover {
     --stroke-opacity: 0.7;
   }
+
+  .theme-light {
+    --link-color: var(--text-color-black);
+  }
 }
 
 p {
   margin: 1.2em 0;
+
+  span[title] {
+    --stroke-opacity: 0.3;
+    --stroke-width: 0.1em;
+    --stroke-color: rgb(var(--link-color) / var(--stroke-opacity));
+    text-decoration: var(--stroke-color) underline dotted var(--stroke-width);
+    text-underline-offset: 0.2em;
+
+    cursor: help;
+  }
 }
 
 b,
