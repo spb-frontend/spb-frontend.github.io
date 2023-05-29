@@ -8,6 +8,7 @@ import classNames from 'classnames';
 
 type Props = {
   isUpcomingEvent: boolean;
+  title: string;
   poster: string;
   date: number;
   address: string;

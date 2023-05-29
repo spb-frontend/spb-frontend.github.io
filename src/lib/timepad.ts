@@ -212,6 +212,7 @@ export const getMeetupList = async () => {
 export const getLastMeetup = async (
   eventsList: TimepadEvent[]
 ): Promise<{
+  title: string;
   date: number;
   url: string;
   poster: string;
@@ -240,6 +241,7 @@ export const getLastMeetup = async (
     }
 
     return {
+      title: nearestEventDetails.name,
       date: new Date(nearestEventDetails.starts_at).getTime(),
       url: nearestEventDetails.url,
       poster: nearestEventDetails.poster_image.uploadcare_url,
