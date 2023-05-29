@@ -55,6 +55,8 @@ export const Navigation = (props: Props) => {
         <a
           href="#"
           className={classNames(styles.hamburgerButton, { [styles.active]: isMenuOpen })}
+          title="Меню"
+          role="button"
           onClick={(e) => {
             e.preventDefault();
             setMenuOpen(!isMenuOpen);
