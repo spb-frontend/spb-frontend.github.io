@@ -43,10 +43,8 @@ export const BlockNearestMeetup = (props: Props) => {
                 <MeetupDate date={props.date} isPastEvent={!props.isUpcomingEvent} />
 
                 <h2 className={styles.subHeading}>
-                  Неформальная&nbsp;встреча
-                  <wbr />
-                  веб&#8209;разработчиков
-                  <wbr />
+                  Неформальная&nbsp;встреча <wbr />
+                  веб&#8209;разработчиков <wbr />
                   в&nbsp;Санкт&#8209;Петербурге
                 </h2>
 
