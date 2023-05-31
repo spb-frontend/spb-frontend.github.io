@@ -6,6 +6,7 @@ import { DAY } from '../constants/date';
 
 const TIMEPAD_EVENTS_FILE = path.resolve(process.cwd(), './.tmp/timepadEvents.json');
 const UPDATE_INTERVAL = DAY / 2;
+const IS_CACHING_ENABLED = false;
 
 export interface TimepadEventsJson {
   updateTime: number;
@@ -143,15 +144,17 @@ const findNearestEvent = (events: TimepadEvent[]): TimepadEvent | undefined => {
 /** Fetches a list of events from timepad, saves the list to temp json file and returns the list */
 export const getMeetupList = async () => {
   try {
-    const eventsListCache = fs.readFileSync(TIMEPAD_EVENTS_FILE, 'utf8');
+    if (IS_CACHING_ENABLED) {
+      const eventsListCache = fs.readFileSync(TIMEPAD_EVENTS_FILE, 'utf8');
 
-    if (eventsListCache) {
-      const eventsListJson: TimepadEventsJson = JSON.parse(eventsListCache);
+      if (eventsListCache) {
+        const eventsListJson: TimepadEventsJson = JSON.parse(eventsListCache);
 
-      if (eventsListJson.updateTime > Date.now() - UPDATE_INTERVAL) {
-        console.log(`Cached timepad events used from ${new Date(eventsListJson.updateTime).toLocaleString()}`);
+        if (eventsListJson.updateTime > Date.now() - UPDATE_INTERVAL) {
+          console.log(`Cached timepad events used from ${new Date(eventsListJson.updateTime).toLocaleString()}`);
 
-        return eventsListJson.eventsList;
+          return eventsListJson.eventsList;
+        }
       }
     }
   } catch (err) {
@@ -164,7 +167,7 @@ export const getMeetupList = async () => {
   }
 
   try {
-    return await fetch(`https://api.timepad.ru/v1/events?organization_ids=${timepadId}`, {
+    return await fetch(`https://api.timepad.ru/v1/events?starts_at_min=2023-05-31&organization_ids=${timepadId}`, {
       headers: {
         Authorization: `Bearer ${process.env.TIMEPAD_TOKEN}`,
       },
@@ -198,7 +201,9 @@ export const getMeetupList = async () => {
 
         // Side effect
 
-        saveDataToJson(eventsListCache, TIMEPAD_EVENTS_FILE);
+        if (IS_CACHING_ENABLED) {
+          saveDataToJson(eventsListCache, TIMEPAD_EVENTS_FILE);
+        }
 
         return eventsDetailList;
       });
