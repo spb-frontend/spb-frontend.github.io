@@ -59,7 +59,8 @@ export const MeetupDate = (props: Props) => {
         {props.isPastEvent ? (
           <>
             <IoIosAlert className={styles.pastEventIcon} size={25} />
-            Завершилось {dateRender}
+            Завершилось&nbsp;
+            {dateRender}
           </>
         ) : (
           <>
