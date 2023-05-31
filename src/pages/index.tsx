@@ -23,7 +23,7 @@ type Props = {
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const list = await getMeetupList();
-  const nearestEvent = list ? (await getLastMeetup(list)) ?? undefined : undefined;
+  const nearestEvent = list ? (await getLastMeetup(list)) ?? null : null;
 
   return {
     props: {
