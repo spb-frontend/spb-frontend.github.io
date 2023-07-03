@@ -116,31 +116,6 @@ const saveDataToJson = (data: any, filePath: string) => {
   fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
 };
 
-/**
- * The function returns the nearest upcoming event,
- * but if there are no upcoming events, it returns the last past event
- */
-const findNearestEvent = (events: TimepadEvent[]): TimepadEvent | undefined => {
-  const now = new Date().toISOString();
-
-  const pastEvents = events.filter((event) => event.starts_at < now);
-
-  if (pastEvents.length > 0) {
-    const lastPastEvent = pastEvents[pastEvents.length - 1];
-    return lastPastEvent;
-  }
-
-  const futureEvents = events
-    .filter((event) => event.starts_at >= now)
-    .sort((a, b) => a.starts_at.localeCompare(b.starts_at));
-
-  if (futureEvents.length > 0) {
-    return futureEvents[0];
-  }
-
-  return undefined;
-};
-
 /** Fetches a list of events from timepad, saves the list to temp json file and returns the list */
 export const getMeetupList = async () => {
   try {
@@ -167,7 +142,7 @@ export const getMeetupList = async () => {
   }
 
   try {
-    return await fetch(`https://api.timepad.ru/v1/events?starts_at_min=2023-05-31&organization_ids=${timepadId}`, {
+    return await fetch(`https://api.timepad.ru/v1/events?starts_at_min=2023-05-01&organization_ids=${timepadId}`, {
       headers: {
         Authorization: `Bearer ${process.env.TIMEPAD_TOKEN}`,
       },
@@ -179,7 +154,7 @@ export const getMeetupList = async () => {
           throw new Error('Wrong received data from timepad');
         }
 
-        const eventsSummaryList = data.values.filter((item: any) => item.moderation_status === 'shown');
+        const eventsSummaryList = data.values; //.filter((item: any) => item.moderation_status === 'shown');
         const eventsDetailList: TimepadEvent[] = [];
 
         for (let i = 0; i < eventsSummaryList.length; i++) {
@@ -212,6 +187,30 @@ export const getMeetupList = async () => {
     console.log(err);
     return null;
   }
+};
+
+/**
+ * The function returns the nearest upcoming event,
+ * but if there are no upcoming events, it returns the last past event
+ */
+const findNearestEvent = (events: TimepadEvent[]): TimepadEvent | undefined => {
+  const now = new Date();
+
+  const futureEvents = events
+    .filter((event) => new Date(event.starts_at) >= now)
+    .sort((a, b) => a.starts_at.localeCompare(b.starts_at));
+
+  if (futureEvents.length > 0) {
+    return futureEvents[0];
+  }
+
+  const pastEvents = events.filter((event) => new Date(event.starts_at) < now);
+
+  if (pastEvents.length > 0) {
+    return pastEvents[pastEvents.length - 1];
+  }
+
+  return undefined;
 };
 
 export const getLastMeetup = async (
