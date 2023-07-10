@@ -1,4 +1,5 @@
 logs
+.idea
 *.log
 pids
 *.pid

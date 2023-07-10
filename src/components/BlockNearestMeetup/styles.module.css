@@ -1,7 +1,7 @@
 .section {
   transform-style: inherit;
   position: relative;
-  padding-top: 81px;
+  padding-top: var(--header-height);
   color: rgb(var(--text-color));
 }
 

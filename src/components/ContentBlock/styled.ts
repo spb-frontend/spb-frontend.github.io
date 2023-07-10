@@ -1,0 +1,20 @@
+import styled from 'styled-components';
+
+export const Container = styled.div`
+  position: relative;
+  padding: 40px 20px;
+
+  @media (min-width: 480px) {
+    padding: 50px 58px;
+  }
+
+  @media (min-width: 670px) {
+    padding: 60px 58px;
+  }
+
+  @media (min-width: 1025px) {
+    padding: 70px 50px;
+    margin: 0 auto;
+    max-width: 1327px;
+  }
+`;

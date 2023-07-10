@@ -1,9 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
-import { useRouter } from 'next/router';
 import Link from 'next/link';
-import { SocialsList } from '../SocialsList/SocialsList';
-import { navigation } from '../../constants/navigation';
+import { useRouter } from 'next/router';
+import React, { useEffect, useRef, useState } from 'react';
+import { SocialsList } from '@/components/SocialsList/SocialsList';
+import { navigation } from '@/constants/navigation';
 import styles from './styles.module.css';
 
 type Props = {
@@ -28,7 +28,6 @@ export const Navigation = (props: Props) => {
 
     const handleScroll = () => {
       const opacity = (Math.min(window.scrollY || window.pageYOffset, 300) / 300) * 0.85;
-
       headerElement.style.backgroundColor = `rgb(var(--background-color-dark) / ${opacity})`;
     };
 
@@ -39,7 +38,7 @@ export const Navigation = (props: Props) => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [headerElementRef.current, props.withUpcomingMeetup]);
+  }, [props.withUpcomingMeetup]);
 
   return (
     <>
@@ -73,7 +72,7 @@ export const Navigation = (props: Props) => {
               className={classNames(styles.menuLink, { [styles.active]: router.asPath === item.href })}
               title={item.title}
             >
-              <item.Icon size={25} />
+              {item.withIcon && <item.Icon size={25} />}
               &nbsp;{item.title}
             </Link>
           ))}
@@ -92,7 +91,7 @@ export const Navigation = (props: Props) => {
               onClick={handleCloseMenu}
               title={item.title}
             >
-              <item.Icon size={48} />
+              {item.withIcon && <item.Icon size={48} />}
               &nbsp;
               {item.title}
             </Link>

@@ -15,13 +15,35 @@
     background: rgb(var(--button-color) / 0.1);
   }
 
-  &.primary {
+  &.contained {
     border-color: transparent;
-    background: rgb(var(--button-color));
-    color: rgb(var(--button-text-color));
 
-    &:hover {
-      background: rgb(var(--button-color) / 0.8);
+    &.primary {
+      background: rgb(var(--button-primary-color));
+      color: rgb(var(--button-primary-text-color));
+
+      &:hover {
+        background: rgb(var(--button-primary-color) / 0.8);
+      }
+    }
+
+    &.secondary {
+      background: rgb(var(--button-color));
+      color: rgb(var(--button-text-color));
+
+      &:hover {
+        background: rgb(var(--button-color) / 0.8);
+      }
+    }
+  }
+
+  &.outlined {
+    &.primary {
+      border-color: rgb(var(--button-primary-color));
+
+      &:hover {
+        border-color: rgb(var(--button-primary-color) / 0.8);
+      }
     }
   }
 

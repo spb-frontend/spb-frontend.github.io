@@ -1,10 +1,10 @@
-import React, { useMemo } from 'react';
-import styles from './styles.module.css';
 import classNames from 'classnames';
+import React, { useMemo } from 'react';
 import { IoIosAlert } from 'react-icons/io';
 import { MdDateRange } from 'react-icons/md';
+import styles from './styles.module.css';
 
-const months = [
+export const months = [
   'января',
   'февраля',
   'марта',
@@ -19,7 +19,7 @@ const months = [
 ];
 
 type Props = {
-  date: number;
+  date: Date;
   isPastEvent?: boolean;
 };
 
