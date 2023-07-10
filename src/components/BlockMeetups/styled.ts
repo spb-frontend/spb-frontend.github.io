@@ -28,12 +28,15 @@ export const MeetupListWrapper = styled.div`
   }
 `;
 
-interface MeetupProps {
-  $future: string;
-}
-export const Meetup = styled.div<MeetupProps>`
+export const MeetupWrapper = styled(Link)`
   padding: 40px;
-  border: 3px solid ${props => props.$future === 'true' ? 'rgb(var(--color-blue))' : 'rgb(25, 27, 43)'};
+  text-decoration: none;
+  color: var(--text-color);
+  border: 3px solid rgb(25, 27, 43);
+  
+  &:hover {
+    border-color: rgb(var(--color-blue));
+  }
 `;
 
 export const MeetupTitle = styled.h3`
@@ -43,12 +46,8 @@ export const MeetupTitle = styled.h3`
   margin-bottom: 18px;
 `;
 
-export const MeetupLink = styled(Link)`
-  font-size: 18px;
-`;
-
 export const PersonTitle = styled.div`
-  margin: 48px 0 6px;
+  margin: 32px 0 6px;
 `;
 
 export const PersonWrapper = styled.div`

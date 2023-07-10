@@ -9,5 +9,6 @@ export const Portrait = styled.img`
 
 export const Name = styled.div`
   font-size: 18px;
+  font-weight: bold;
   margin: 6px 0 24px;
 `;

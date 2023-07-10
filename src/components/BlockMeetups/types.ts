@@ -5,12 +5,20 @@ export interface Meetup {
   date: Date;
   title: string;
   talks: Talk[];
-  poster?: string;
+  poster?: {
+    file: {
+      url: string;
+    }
+  };
   url?: string;
   address?: string;
 }
 
-export type BlockMeetupsProps = {
+export interface BlockMeetupProps {
+  event: Meetup;
+}
+
+export interface BlockMeetupsProps {
   events: Meetup[];
 }
 

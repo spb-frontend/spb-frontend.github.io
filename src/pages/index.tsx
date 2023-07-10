@@ -37,11 +37,7 @@ export default function Home({ nearestEvent, eventList }: Props) {
       {nearestEvent && (
         <BlockNearestMeetup
           isUpcomingEvent={new Date(eventList[0].date) >= new Date()}
-          title={nearestEvent.title}
-          poster={nearestEvent.poster}
-          date={nearestEvent.date}
-          address={nearestEvent.address}
-          url={nearestEvent.url}
+          {...nearestEvent}
         />
       )}
 

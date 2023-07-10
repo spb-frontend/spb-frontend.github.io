@@ -27,14 +27,13 @@ export const TalkBlock = styled.article`
 `;
 
 export const TalkTitle = styled.h4`
-  font-size: 24px;
+  font-size: 18px;
   margin-bottom: 12px;
 `;
 
 export const TalkContent = styled.div`
   display: flex;
   gap: 20px;
-  font-size: 18px;
   
   & a {
     color: rgb(138, 145, 153);

@@ -1,15 +1,8 @@
-import Link from 'next/link';
 import React from 'react';
 import { BlockTitle } from '@/components//BlockTitle/BlockTitle';
 import { ContentBlock } from '@/components/ContentBlock/ContentBlock';
-import { EMAIL, TELEGRAM, TELEGRAM_CHAT, TWITTER } from '@/constants/urls';
-import breakfastIcon from './icons/breakfast.svg';
-import drinkupIcon from './icons/drinkup.svg';
-import mailIcon from './icons/mail.svg';
-import partnerIcon from './icons/partner.svg';
-import shareIcon from './icons/share.svg';
-import tgIcon from './icons/tg.svg';
-import { Card, CardsWrapper, Container, DetailedInfo, Icon } from './styled';
+import { TELEGRAM, TWITTER } from '@/constants/urls';
+import { Container, DetailedInfo } from './styled';
 
 export const BlockAbout = () => (
   <Container id="about">
@@ -48,7 +41,7 @@ export const BlockAbout = () => (
         </p>
       </DetailedInfo>
 
-      <CardsWrapper>
+      {/*<CardsWrapper>
         <Card>
           <Icon src={mailIcon} alt="Email icon" />
           <span>Если хотите <strong>выступить с докладом</strong>, напишите письмо на <Link href={`mailto:${EMAIL}`}>{EMAIL}</Link>.</span>
@@ -78,7 +71,7 @@ export const BlockAbout = () => (
           <Icon src={partnerIcon} alt="Partner icon" />
           <span>Если хотите предложить спонсорство или площадку (от 100 человек), пишите нам на почту <Link href={`mailto:${EMAIL}`}>{EMAIL}</Link>.</span>
         </Card>
-      </CardsWrapper>
+      </CardsWrapper>*/}
     </ContentBlock>
   </Container>
 );

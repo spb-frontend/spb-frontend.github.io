@@ -1,5 +1,5 @@
 import React, { PropsWithChildren, useMemo } from 'react';
-import { months } from '@/components/MeetupDate/MeetupDate';
+import { formatDate } from '@/lib/date';
 import { Content, Wrapper, Heading, EventDate } from './styled';
 
 type Props = PropsWithChildren<{
@@ -10,11 +10,9 @@ type Props = PropsWithChildren<{
 export const MeetupsHeader = ({ title, date }: Props) => {
   const dateRender = useMemo(() => {
     if (!date) {
-      return '';
+      return null;
     }
-    const year = date.getFullYear();
-    const month = months[date.getMonth()];
-    const day = date.getDate();
+    const { day, month, year } = formatDate(date);
 
     return (
       <EventDate dateTime={`${year}-${month}-${day}`}>

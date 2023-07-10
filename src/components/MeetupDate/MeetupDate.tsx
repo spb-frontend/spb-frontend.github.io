@@ -2,21 +2,8 @@ import classNames from 'classnames';
 import React, { useMemo } from 'react';
 import { IoIosAlert } from 'react-icons/io';
 import { MdDateRange } from 'react-icons/md';
+import { formatDate } from '@/lib/date';
 import styles from './styles.module.css';
-
-export const months = [
-  'января',
-  'февраля',
-  'марта',
-  'апреля',
-  'мая',
-  'июня',
-  'июля',
-  'августа',
-  'сентября',
-  'ноября',
-  'декабря',
-];
 
 type Props = {
   date: Date;
@@ -27,9 +14,7 @@ export const MeetupDate = (props: Props) => {
   const date = useMemo(() => new Date(props.date), [props.date]);
 
   const dateRender = useMemo(() => {
-    const year = date.getFullYear();
-    const month = months[date.getMonth()];
-    const day = date.getDate();
+    const { day, month, year } = formatDate(date);
 
     return (
       <>

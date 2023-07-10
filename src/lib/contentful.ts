@@ -37,7 +37,9 @@ const transformData = (incomeData) => {
 
 export const getContentEntries = async (content_type: string, limit?: number): Promise<string> => {
   try {
-    return await client.getEntries({ content_type, limit, include: 2 })
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    return await client.getEntries({ content_type, limit, include: 2, order: '-fields.date' })
       .then(({ items }) => JSON.stringify(items.map(item => transformData(item))));
   } catch (err) {
     console.error(err);

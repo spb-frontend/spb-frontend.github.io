@@ -1,47 +1,52 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { BlockTitle } from '@/components/BlockTitle/BlockTitle';
 import { ContentBlock } from '@/components/ContentBlock/ContentBlock';
+import { formatDate } from '@/lib/date';
 import {
   HeadingWrapper,
-  Meetup,
   MeetupButton,
   MeetupListWrapper,
-  MeetupLink,
+  MeetupWrapper,
   MeetupTitle,
   Person,
   PersonWrapper,
-  PersonTitle
+  PersonTitle,
 } from './styled';
-import { BlockMeetupsProps, MeetupListProps } from './types';
+import { BlockMeetupsProps, MeetupListProps, BlockMeetupProps } from './types';
 
-export const MeetupList = ({ events }: MeetupListProps) => {
-
+const MeetupBlock = ({ event }: BlockMeetupProps) => {
+  const { day, month, year } = useMemo(() => formatDate(event.date), [event.date]);
   return (
-    <MeetupListWrapper>
-      {events.map((event, i) => (
-        <Meetup key={i} $future={(new Date(event.date) >= new Date()).toString()}>
-          <MeetupTitle>{event.title}</MeetupTitle>
+    <MeetupWrapper href={`meetups/${event.id}`}>
+      <MeetupTitle>{event.title}</MeetupTitle>
 
-          <MeetupLink href={'/meetups/' + event.id}>Подробнее</MeetupLink>
+      <time dateTime={`${year}-${month}-${day}`}>
+        {day}&nbsp;{month}&nbsp;{year}
+      </time>
 
-          <PersonTitle>Участники:</PersonTitle>
-          {event.talks.map((talk, index) => (
-            <PersonWrapper key={index}>
-              {talk.persons.map((person, key) => (
-                !!person?.photo && <Person
-                  src={person.photo.file.url}
-                  alt={`${person.name} ${person.lastname}`}
-                  title={`${person.name} ${person.lastname}`}
-                  key={key}
-                />
-              ))}
-            </PersonWrapper>
+      <PersonTitle>Участники:</PersonTitle>
+      {event.talks.map((talk, index) => (
+        <PersonWrapper key={index}>
+          {talk.persons.map((person, key) => (
+            !!person?.photo && <Person
+              src={person.photo.file.url}
+              alt={`${person.name} ${person.lastname}`}
+              title={`${person.name} ${person.lastname}`}
+              key={key}
+            />
           ))}
-        </Meetup>
+        </PersonWrapper>
       ))}
-    </MeetupListWrapper>
+    </MeetupWrapper>
   );
 };
+export const MeetupList = ({ events }: MeetupListProps) => (
+  <MeetupListWrapper>
+    {events.map((event, i) => (
+      <MeetupBlock event={event} key={i} />
+    ))}
+  </MeetupListWrapper>
+);
 
 export const BlockMeetups = (props: BlockMeetupsProps) => (
   <section>
