@@ -1,8 +1,13 @@
+import classNames from 'classnames';
 import React, { PropsWithChildren } from 'react';
-import { Container } from './styled';
+import styles from './styles.module.css';
 
-export const ContentBlock = (props: PropsWithChildren) => (
-  <Container>
+type Props = {
+  dropTopPadding?: boolean;
+};
+
+export const ContentBlock = (props: PropsWithChildren<Props>) => (
+  <div className={classNames(styles.container, { [styles.dropTopPadding]: props.dropTopPadding })}>
     {props.children}
-  </Container>
+  </div>
 );

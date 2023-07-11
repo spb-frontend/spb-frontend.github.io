@@ -1,6 +1,4 @@
-import styled from 'styled-components';
-
-export const Container = styled.div`
+.container {
   position: relative;
   padding: 40px 20px;
 
@@ -17,4 +15,8 @@ export const Container = styled.div`
     margin: 0 auto;
     max-width: 1327px;
   }
-`;
+
+  &.dropTopPadding {
+    padding-top: 0;
+  }
+}

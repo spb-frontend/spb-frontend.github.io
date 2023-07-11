@@ -2,14 +2,14 @@ import React from 'react';
 import { TELEGRAM, TWITTER } from '../../constants/urls';
 import { BlockTitle } from '../BlockTitle/BlockTitle';
 import { ContentBlock } from '../ContentBlock/ContentBlock';
-import { Container, DetailedInfo } from './styled';
+import styles from './styles.module.css';
 
 export const BlockAbout = () => (
-  <Container id="about">
+  <section className={styles.container} id="about">
     <ContentBlock>
       <BlockTitle>О нас</BlockTitle>
 
-      <DetailedInfo>
+      <div className={styles.detailedInfo}>
         <p>
           Привет! Мы — <strong>SPB Frontend</strong>, сообщество{' '}
           <dfn
@@ -39,39 +39,7 @@ export const BlockAbout = () => (
           новостями в <a href={TELEGRAM}>Telegram</a> и <a href={TWITTER}>Twitter</a>, чтобы не пропустить анонсы
           предстоящих событий.
         </p>
-      </DetailedInfo>
-
-      {/*<CardsWrapper>
-        <Card>
-          <Icon src={mailIcon} alt="Email icon" />
-          <span>Если хотите <strong>выступить с докладом</strong>, напишите письмо на <Link href={`mailto:${EMAIL}`}>{EMAIL}</Link>.</span>
-        </Card>
-
-        <Card>
-          <Icon src={breakfastIcon} alt="Breakfast icon" />
-          <span>Еще по четвергам теперь бывают фронтенд-завтраки в центре города.</span>
-        </Card>
-
-        <Card>
-          <Icon src={tgIcon} alt="Telegram icon" />
-          <span>Также, у нас есть Телеграм-чат, где мы общаемся и задаём вопросы: <Link href={TELEGRAM_CHAT} target="_blank">SPB&nbsp;Frontend</Link>.</span>
-        </Card>
-
-        <Card>
-          <Icon src={drinkupIcon} alt="Drinkup icon" />
-          <span>Иногда мы проводим дринкапы: встречи в барах без докладов, просто чтобы пообщаться друг с другом, познакомиться, поговорить о наболевшем.</span>
-        </Card>
-
-        <Card>
-          <Icon src={shareIcon} alt="Share icon" />
-          <span>Чтобы следить за новыми событиями сообщества, подписывайтесь на <Link href={TELEGRAM} target="_blank">Телеграм канал</Link> или <Link href={TWITTER} target="_blank">Твиттер</Link>.</span>
-        </Card>
-
-        <Card>
-          <Icon src={partnerIcon} alt="Partner icon" />
-          <span>Если хотите предложить спонсорство или площадку (от 100 человек), пишите нам на почту <Link href={`mailto:${EMAIL}`}>{EMAIL}</Link>.</span>
-        </Card>
-      </CardsWrapper>*/}
+      </div>
     </ContentBlock>
-  </Container>
+  </section>
 );

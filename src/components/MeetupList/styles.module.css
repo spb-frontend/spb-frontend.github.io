@@ -1,0 +1,63 @@
+.meetupListWrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 20px;
+
+  @media (min-width: 670px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (min-width: 1025px) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.meetupWrapper {
+  padding: var(--spacer-l);
+  /* --link-color: var(--text-color); */
+  text-decoration: none;
+  border: 3px solid rgb(var(--border-color));
+  transition: border 0.15s ease;
+
+  &.upcoming {
+    border: 0;
+    background-color: rgb(var(--color-blue));
+    color: rgb(var(--text-color));
+
+    a {
+      --link-color: var(--text-color);
+    }
+  }
+}
+
+.date {
+  text-style: italic;
+
+  &.upcomingDate {
+    text-style: none;
+    font-weight: var(--font-weight-bold);
+  }
+}
+
+.meetupTitle {
+  text-transform: uppercase;
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-m);
+  margin-bottom: var(--spacer-s);
+}
+
+.speakersTitle {
+  margin: 32px 0 6px;
+}
+
+.personWrapper {
+  display: inline-block;
+  margin: 12px 12px 0 0;
+}
+
+.person {
+  width: 37px;
+  height: 37px;
+  border-radius: 50%;
+  object-fit: cover;
+}

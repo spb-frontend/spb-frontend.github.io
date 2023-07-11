@@ -1,12 +1,12 @@
 import Head from 'next/head';
 import React from 'react';
-import { MeetupList } from '../../components/BlockMeetups/BlockMeetups';
-import { Meetup } from '../../types/meetup';
 import { ContentBlock } from '../../components/ContentBlock/ContentBlock';
 import { Footer } from '../../components/Footer/Footer';
+import { MeetupList } from '../../components/MeetupList/MeetupList';
 import { MeetupsHeader } from '../../components/MeetupsHeader/MeetupsHeader';
 import { Navigation } from '../../components/Navigation/Navigation';
 import { getContentEntries } from '../../lib/contentful';
+import { Meetup } from '../../types/meetup';
 
 interface Props {
   events?: Meetup[];
