@@ -1,4 +1,4 @@
-import { Person } from '@/components/Person/types';
+import { Person } from '../Person/types';
 
 export interface Talk {
   title: string;

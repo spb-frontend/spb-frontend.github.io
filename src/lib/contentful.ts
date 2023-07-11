@@ -20,10 +20,10 @@ const transformData = (incomeData) => {
   };
 
   const iterate = (obj) => {
-    const clearObject = {...obj};
+    const clearObject = { ...obj };
     for (const [key, value] of Object.entries(clearObject)) {
       if (Array.isArray(value)) {
-        clearObject[key] = value.map(item => combineFieldsWithId(item));
+        clearObject[key] = value.map((item) => combineFieldsWithId(item));
       } else if (typeof value === 'object' && Object.hasOwn(value, 'sys')) {
         clearObject[key] = combineFieldsWithId(value);
       }
@@ -37,10 +37,11 @@ const transformData = (incomeData) => {
 
 export const getContentEntries = async (content_type: string, limit?: number): Promise<string> => {
   try {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    return await client.getEntries({ content_type, limit, include: 2, order: '-fields.date' })
-      .then(({ items }) => JSON.stringify(items.map(item => transformData(item))));
+    return await client
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      .getEntries({ content_type, limit, include: 2, order: '-fields.date' })
+      .then(({ items }) => JSON.stringify(items.map((item) => transformData(item))));
   } catch (err) {
     console.error(err);
     return JSON.stringify([]);
@@ -48,8 +49,7 @@ export const getContentEntries = async (content_type: string, limit?: number): P
 };
 export const getContentEntry = async (id: string): Promise<string> => {
   try {
-    return await client.getEntry(id, { include: 2 })
-      .then(res => JSON.stringify(transformData(res)));
+    return await client.getEntry(id, { include: 2 }).then((res) => JSON.stringify(transformData(res)));
   } catch (err) {
     console.error(err);
     return JSON.stringify({});

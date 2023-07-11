@@ -1,5 +1,5 @@
 import React, { PropsWithChildren, useMemo } from 'react';
-import { formatDate } from '@/lib/date';
+import { formatDate } from '../../lib/date';
 import { Content, Wrapper, Heading, EventDate } from './styled';
 
 type Props = PropsWithChildren<{
@@ -25,7 +25,7 @@ export const MeetupsHeader = ({ title, date }: Props) => {
     <Wrapper>
       <Content>
         {!!date && dateRender}
-        <Heading>{ title }</Heading>
+        <Heading>{title}</Heading>
       </Content>
     </Wrapper>
   );

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import styled from 'styled-components';
-import { Button } from '@/components//Button/Button';
+import { Button } from '../Button/Button';
 
 export const HeadingWrapper = styled.div`
   display: flex;
@@ -18,7 +18,7 @@ export const MeetupListWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 20px;
-  
+
   @media (min-width: 670px) {
     grid-template-columns: 1fr 1fr;
   }
@@ -33,7 +33,7 @@ export const MeetupWrapper = styled(Link)`
   text-decoration: none;
   color: var(--text-color);
   border: 3px solid rgb(25, 27, 43);
-  
+
   &:hover {
     border-color: rgb(var(--color-blue));
   }

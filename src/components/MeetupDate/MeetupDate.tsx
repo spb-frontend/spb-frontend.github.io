@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import React, { useMemo } from 'react';
 import { IoIosAlert } from 'react-icons/io';
 import { MdDateRange } from 'react-icons/md';
-import { formatDate } from '@/lib/date';
+import { formatDate } from '../../lib/date';
 import styles from './styles.module.css';
 
 type Props = {

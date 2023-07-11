@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
-import { BlockTitle } from '@/components/BlockTitle/BlockTitle';
-import { ContentBlock } from '@/components/ContentBlock/ContentBlock';
-import { formatDate } from '@/lib/date';
+import { BlockTitle } from '../BlockTitle/BlockTitle';
+import { ContentBlock } from '../ContentBlock/ContentBlock';
+import { formatDate } from '../../lib/date';
 import {
   HeadingWrapper,
   MeetupButton,
@@ -27,14 +27,17 @@ const MeetupBlock = ({ event }: BlockMeetupProps) => {
       <PersonTitle>Участники:</PersonTitle>
       {event.talks.map((talk, index) => (
         <PersonWrapper key={index}>
-          {talk.persons.map((person, key) => (
-            !!person?.photo && <Person
-              src={person.photo.file.url}
-              alt={`${person.name} ${person.lastname}`}
-              title={`${person.name} ${person.lastname}`}
-              key={key}
-            />
-          ))}
+          {talk.persons.map(
+            (person, key) =>
+              !!person?.photo && (
+                <Person
+                  src={person.photo.file.url}
+                  alt={`${person.name} ${person.lastname}`}
+                  title={`${person.name} ${person.lastname}`}
+                  key={key}
+                />
+              )
+          )}
         </PersonWrapper>
       ))}
     </MeetupWrapper>
@@ -53,12 +56,8 @@ export const BlockMeetups = (props: BlockMeetupsProps) => (
     <ContentBlock>
       <HeadingWrapper>
         <BlockTitle>Митапы</BlockTitle>
-        <MeetupButton
-          href="/meetups"
-          variant="contained"
-          type="primary"
-          title="Смотреть все митапы">
-            Смотреть все
+        <MeetupButton href="/meetups" variant="contained" type="primary" title="Смотреть все митапы">
+          Смотреть все
         </MeetupButton>
       </HeadingWrapper>
 

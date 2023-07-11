@@ -1,4 +1,4 @@
-import { Talk } from '@/components/Talks/types';
+import { Talk } from '../Talks/types';
 
 export interface Meetup {
   id: string;
@@ -8,7 +8,7 @@ export interface Meetup {
   poster?: {
     file: {
       url: string;
-    }
+    };
   };
   url?: string;
   address?: string;
