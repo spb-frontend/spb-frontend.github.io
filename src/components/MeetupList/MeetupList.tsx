@@ -35,12 +35,12 @@ const MeetupBlock = ({ event }: BlockMeetupProps) => {
       {isUpcomingMeetup && ' — предстоящий'}
       <div className={styles.speakersTitle}>Спикеры:</div>
       {event.talks.map((talk, index) => (
-        <div className={styles.personWrapper} key={index}>
+        <div className={styles.speakerWrapper} key={index}>
           {talk.persons.map(
             (person, key) =>
               !!person?.photo && (
                 <img
-                  className={styles.person}
+                  className={styles.speakerImage}
                   src={person.photo.file.url}
                   alt={`${person.name} ${person.lastname}`}
                   title={`${person.name} ${person.lastname}`}

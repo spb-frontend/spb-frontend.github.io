@@ -2,12 +2,12 @@ import classNames from 'classnames';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useEffect, useRef, useState } from 'react';
-import { SocialsList } from '../SocialsList/SocialsList';
 import { navigation } from '../../constants/navigation';
+import { SocialsList } from '../SocialsList/SocialsList';
 import styles from './styles.module.css';
 
 type Props = {
-  withUpcomingMeetup: boolean;
+  withUpcomingMeetup?: boolean;
 };
 
 export const Navigation = (props: Props) => {
