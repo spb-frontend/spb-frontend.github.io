@@ -1,7 +1,7 @@
 import React from 'react';
+import { TELEGRAM, TWITTER } from '../../constants/urls';
 import { BlockTitle } from '../BlockTitle/BlockTitle';
 import { ContentBlock } from '../ContentBlock/ContentBlock';
-import { TELEGRAM, TWITTER } from '../../constants/urls';
 import { Container, DetailedInfo } from './styled';
 
 export const BlockAbout = () => (

@@ -1,7 +1,8 @@
 import React, { useMemo } from 'react';
+import { formatDate } from '../../lib/date';
+import { Meetup } from '../../types/meetup';
 import { BlockTitle } from '../BlockTitle/BlockTitle';
 import { ContentBlock } from '../ContentBlock/ContentBlock';
-import { formatDate } from '../../lib/date';
 import {
   HeadingWrapper,
   MeetupButton,
@@ -12,7 +13,10 @@ import {
   PersonWrapper,
   PersonTitle,
 } from './styled';
-import { BlockMeetupsProps, MeetupListProps, BlockMeetupProps } from './types';
+
+export interface MeetupListProps {
+  events: Meetup[];
+}
 
 const MeetupBlock = ({ event }: BlockMeetupProps) => {
   const { day, month, year } = useMemo(() => formatDate(event.date), [event.date]);
@@ -43,6 +47,11 @@ const MeetupBlock = ({ event }: BlockMeetupProps) => {
     </MeetupWrapper>
   );
 };
+
+export interface BlockMeetupsProps {
+  events: Meetup[];
+}
+
 export const MeetupList = ({ events }: MeetupListProps) => (
   <MeetupListWrapper>
     {events.map((event, i) => (
@@ -50,6 +59,10 @@ export const MeetupList = ({ events }: MeetupListProps) => (
     ))}
   </MeetupListWrapper>
 );
+
+export interface BlockMeetupProps {
+  event: Meetup;
+}
 
 export const BlockMeetups = (props: BlockMeetupsProps) => (
   <section>

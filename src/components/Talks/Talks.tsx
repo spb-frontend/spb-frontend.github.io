@@ -1,8 +1,12 @@
 import Link from 'next/link';
 import React from 'react';
+import { Talk } from '../../types/talk';
 import { Person } from '../Person/Person';
 import { Wrapper, TalkContent, TalkTitle, TalkBlock } from './styled';
-import { TalkProps } from './types';
+
+export interface TalkProps {
+  talks: Talk[];
+}
 
 export const Talks = ({ talks }: TalkProps) => (
   <Wrapper>

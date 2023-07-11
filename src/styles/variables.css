@@ -23,7 +23,6 @@
     --button-text-color: var(--text-color-black);
     --border-color: var(--text-color-white);
     background-color: rgb(var(--background-color));
-    --background-image-blend-mode: normal;
   }
 
   .theme-light {
@@ -36,7 +35,6 @@
     --button-text-color: var(--text-color-white);
     --border-color: var(--text-color-black);
     background-color: rgb(var(--background-color));
-    --background-image-blend-mode: difference;
   }
 
   --font-size-s: 14px;

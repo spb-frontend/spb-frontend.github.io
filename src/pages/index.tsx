@@ -2,7 +2,7 @@ import Head from 'next/head';
 import React from 'react';
 import { BlockAbout } from '../components/BlockAbout/BlockAbout';
 import { BlockMeetups } from '../components/BlockMeetups/BlockMeetups';
-import { Meetup } from '../components/BlockMeetups/types';
+import { Meetup } from '../types/meetup';
 import { BlockNearestMeetup } from '../components/BlockNearestMeetup/BlockNearestMeetup';
 import { Footer } from '../components/Footer/Footer';
 import { Navigation } from '../components/Navigation/Navigation';

@@ -14,10 +14,11 @@ export const Container = styled.section`
     height: 100%;
 
     background-repeat: no-repeat;
-    background-position: center 42%;
+    background-position: center 80%;
     background-image: url(${TildaIcon});
-    mix-blend-mode: var(--background-image-blend-mode);
-    background-size: contain; 
+    background-size: contain;
+    filter: blur(10px);
+    opacity: 0.07;
   }
 `;
 

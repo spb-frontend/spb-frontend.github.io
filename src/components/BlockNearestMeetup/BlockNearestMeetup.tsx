@@ -3,8 +3,8 @@ import React from 'react';
 import { Button } from '../Button/Button';
 import { ContentBlock } from '../ContentBlock/ContentBlock';
 import { MeetupDate } from '../MeetupDate/MeetupDate';
+import { NearestMeetupProps } from '../Person/nearestEvent';
 import styles from './styles.module.css';
-import { NearestMeetupProps } from './types';
 
 export const BlockNearestMeetup = (props: NearestMeetupProps) => (
   <section className={classNames(styles.section, 'theme-dark')}>

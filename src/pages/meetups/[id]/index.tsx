@@ -1,7 +1,7 @@
 import { GetStaticPaths } from 'next';
 import Head from 'next/head';
 import React from 'react';
-import { Meetup } from '../../../components/BlockMeetups/types';
+import { Meetup } from '../../../types/meetup';
 import { ContentBlock } from '../../../components/ContentBlock/ContentBlock';
 import { Footer } from '../../../components/Footer/Footer';
 import { MeetupsHeader } from '../../../components/MeetupsHeader/MeetupsHeader';
