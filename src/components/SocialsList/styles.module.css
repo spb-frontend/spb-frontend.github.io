@@ -1,5 +1,0 @@
-.wrapper {
-  & > * + * {
-    margin-left: 25px;
-  }
-}

@@ -70,6 +70,8 @@
 .navLink {
   display: block;
   line-height: 1.7em;
+  color: rgb(var(--text-color));
+  --stroke-color: rgb(var(--text-color) / var(--stroke-opacity));
 
   &::after {
     display: inline-block;

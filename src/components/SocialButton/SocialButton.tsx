@@ -1,5 +1,5 @@
-import React from 'react';
 import classNames from 'classnames';
+import React from 'react';
 import styles from './styles.module.css';
 
 type Props = {
@@ -28,9 +28,9 @@ export const SocialButton = (props: Props) => {
         style={
           props.size
             ? {
-                width: `${props.size}px`,
-                height: `${props.size}px`,
-              }
+              width: `${props.size}px`,
+              height: `${props.size}px`,
+            }
             : undefined
         }
       />

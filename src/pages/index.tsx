@@ -1,38 +1,31 @@
-import React from 'react';
 import Head from 'next/head';
-import { BlockNearestMeetup } from '../components/BlockNearestMeetup/BlockNearestMeetup';
-import { getMeetupList, getLastMeetup } from '../lib/timepad';
-import { Navigation } from '../components/Navigation/Navigation';
-import { GetStaticProps } from 'next';
-import { BlockAbout } from '../components/BlockAbout/BlockAbout';
-import { Footer } from '../components/Footer/Footer';
+import React from 'react';
+import { BlockAbout } from '@/components/BlockAbout/BlockAbout';
+import { BlockMeetups } from '@/components/BlockMeetups/BlockMeetups';
+import { Meetup } from '@/components/BlockMeetups/types';
+import { BlockNearestMeetup } from '@/components/BlockNearestMeetup/BlockNearestMeetup';
+import { Footer } from '@/components/Footer/Footer';
+import { Navigation } from '@/components/Navigation/Navigation';
+import { getContentEntries } from '@/lib/contentful';
 
 type Props = {
-  nearestEvent?: {
-    title: string;
-    date: number;
-    url: string;
-    poster: string;
-    location: {
-      country: string;
-      city: string;
-      address: string;
-    };
-  };
+  nearestEvent?: Meetup;
+  eventList: Meetup[];
 };
 
-export const getStaticProps: GetStaticProps<Props> = async () => {
-  const list = await getMeetupList();
-  const nearestEvent = list ? (await getLastMeetup(list)) ?? null : null;
+export const getStaticProps: () => Promise<{ props: Props }> = async () => {
+  const eventList: Meetup[] = JSON.parse(await getContentEntries('meetup', 6)) ?? [];
+  const nearestEvent = new Date(eventList[0].date) >= new Date()  ? eventList[0] : null;
 
   return {
     props: {
+      eventList,
       nearestEvent,
     },
   };
 };
 
-export default function Home({ nearestEvent }: Props) {
+export default function Home({ nearestEvent, eventList }: Props) {
   return (
     <>
       <Head>
@@ -43,16 +36,14 @@ export default function Home({ nearestEvent }: Props) {
 
       {nearestEvent && (
         <BlockNearestMeetup
-          isUpcomingEvent={nearestEvent.date >= new Date().getTime()}
-          title={nearestEvent.title}
-          poster={nearestEvent.poster}
-          date={nearestEvent.date}
-          address={nearestEvent.location.address}
-          url={nearestEvent.url}
+          isUpcomingEvent={new Date(eventList[0].date) >= new Date()}
+          {...nearestEvent}
         />
       )}
 
       <BlockAbout />
+
+      {!!eventList.length && <BlockMeetups events={eventList} />}
 
       <Footer />
     </>

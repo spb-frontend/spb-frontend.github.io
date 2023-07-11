@@ -16,21 +16,27 @@
   .theme-dark {
     --background-color: var(--background-color-dark);
     --text-color: var(--text-color-white);
-    --link-color: var(--text-color-white);
+    --link-color: var(--color-blue);
     --button-color: var(--text-color-white);
+    --button-primary-color: var(--color-blue);
+    --button-primary-text-color: var(--color-white);
     --button-text-color: var(--text-color-black);
     --border-color: var(--text-color-white);
     background-color: rgb(var(--background-color));
+    --background-image-blend-mode: normal;
   }
 
   .theme-light {
     --background-color: var(--background-color-light);
     --text-color: var(--text-color-black);
-    --link-color: var(--text-color-black);
+    --link-color: var(--color-blue);
     --button-color: var(--text-color-black);
+    --button-primary-color: var(--color-blue);
+    --button-primary-text-color: var(--color-white);
     --button-text-color: var(--text-color-white);
     --border-color: var(--text-color-black);
     background-color: rgb(var(--background-color));
+    --background-image-blend-mode: difference;
   }
 
   --font-size-s: 14px;
@@ -57,4 +63,6 @@
 
   --font-weight-bold: 600;
   --font-weight-regular: 300;
+
+  --header-height: 81px;
 }
