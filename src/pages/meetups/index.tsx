@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import React, { useMemo } from 'react';
-import { BlockTitle } from '../../components/BlockTitle/BlockTitle';
+import { BlockHeading } from '../../components/BlockHeading/BlockHeading';
 import { ContentBlock } from '../../components/ContentBlock/ContentBlock';
 import { Footer } from '../../components/Footer/Footer';
 import { MeetupList } from '../../components/MeetupList/MeetupList';
@@ -33,8 +33,6 @@ export default function Meetups({ events }: Props) {
     [events]
   );
 
-  console.log(eventsByYears);
-
   return (
     <>
       <Head>
@@ -51,10 +49,10 @@ export default function Meetups({ events }: Props) {
               const events = eventsByYears[year];
 
               return (
-                <>
-                  <BlockTitle>{year}</BlockTitle>
+                <div key={year}>
+                  <BlockHeading>{year}</BlockHeading>
                   <MeetupList events={events} key={year} />
-                </>
+                </div>
               );
             })}
         </ContentBlock>

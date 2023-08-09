@@ -22,6 +22,7 @@
     --button-primary-text-color: var(--color-white);
     --button-text-color: var(--text-color-black);
     --border-color: var(--text-color-white);
+    color: rgb(var(--text-color));
     background-color: rgb(var(--background-color));
   }
 
@@ -34,6 +35,7 @@
     --button-primary-text-color: var(--color-white);
     --button-text-color: var(--text-color-white);
     --border-color: var(--text-color-black);
+    color: rgb(var(--text-color));
     background-color: rgb(var(--background-color));
   }
 

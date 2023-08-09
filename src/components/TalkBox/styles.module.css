@@ -1,0 +1,45 @@
+.talkBlock {
+  display: flex;
+  gap: 0 40px;
+  border-bottom: 1px solid rgb(38, 40, 61);
+  padding-bottom: 40px;
+
+  @media (min-width: 1025px) {
+    border: 0;
+    padding-bottom: 0;
+  }
+}
+
+.talkTitle {
+  margin-bottom: 12px;
+}
+
+.talkContent {
+  display: flex;
+  gap: 20px;
+
+  & a {
+    color: rgb(138, 145, 153);
+  }
+}
+
+.speaker {
+  /* font-weight: bold; */
+  display: flex;
+  margin: 6px 0 24px;
+  align-items: center;
+}
+
+.speakerPhoto {
+  flex: 0 0 64px;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: var(--spacer-s);
+  border: 2px solid rgb(var(--border-color) / 0.3);
+}
+
+.speakerName {
+  font-size: var(--font-size-s);
+}

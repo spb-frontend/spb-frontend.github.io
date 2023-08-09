@@ -1,15 +1,20 @@
 import classNames from 'classnames';
 import React from 'react';
+import { Meetup } from '../../types/meetup';
 import { Button } from '../Button/Button';
 import { ContentBlock } from '../ContentBlock/ContentBlock';
 import { MeetupDate } from '../MeetupDate/MeetupDate';
-import { NearestMeetupProps } from '../Person/nearestEvent';
 import styles from './styles.module.css';
+
+export interface NearestMeetupProps extends Meetup {
+  isUpcomingEvent: boolean;
+}
 
 export const BlockNearestMeetup = (props: NearestMeetupProps) => (
   <section className={classNames(styles.section, 'theme-dark')}>
     <div className={styles.poster}>
-      <img className={styles.posterImage} src={props.poster.file.url} alt={props.title} />
+      {/* <img className={styles.posterImage} src={props.poster.file.url} alt={props.title} /> */}
+      {/* <img className={styles.posterImage} src={bg} alt={props.title} /> */}
     </div>
 
     <ContentBlock>

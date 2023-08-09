@@ -6,4 +6,6 @@ export interface PersonType {
       url: string;
     };
   };
+  company?: string;
+  position?: string;
 }

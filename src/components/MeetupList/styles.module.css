@@ -32,6 +32,20 @@
   }
 }
 
+.heading {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--spacer-s);
+}
+
+.upcomingHint {
+  flex: 0 0 auto;
+  background: rgb(var(--background-color) / 0.5);
+  padding: 0 0.7em;
+  border-radius: 0.9em;
+  line-height: 1.8em;
+}
+
 .date {
   text-style: italic;
 
@@ -42,10 +56,10 @@
 }
 
 .meetupTitle {
+  flex: 1 1 auto;
   text-transform: uppercase;
   font-weight: var(--font-weight-bold);
   font-size: var(--font-size-m);
-  margin-bottom: var(--spacer-s);
 }
 
 .speakersTitle {

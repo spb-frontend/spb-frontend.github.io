@@ -1,0 +1,31 @@
+.wrapper {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  margin-bottom: var(--spacer-xxl);
+}
+
+.content {
+}
+
+.eventDate {
+  display: block;
+  font-size: var(--font-size-m);
+  text-transform: uppercase;
+}
+
+.heading {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: var(--font-size-xl);
+  position: relative;
+  line-height: 1.24em;
+  z-index: 2;
+}
+
+.address {
+  /* margin-top: var(--spacer-s); */
+  font-size: var(--font-size-s);
+}

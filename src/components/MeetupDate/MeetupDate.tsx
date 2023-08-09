@@ -14,7 +14,7 @@ export const MeetupDate = (props: Props) => {
   const date = useMemo(() => new Date(props.date), [props.date]);
 
   const dateRender = useMemo(() => {
-    const { day, month, year } = formatDate(date);
+    const { day, monthName: month, year } = formatDate(date);
 
     return (
       <>

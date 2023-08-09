@@ -1,13 +1,13 @@
 import React from 'react';
 import { TELEGRAM, TWITTER } from '../../constants/urls';
-import { BlockTitle } from '../BlockTitle/BlockTitle';
+import { BlockHeading } from '../BlockHeading/BlockHeading';
 import { ContentBlock } from '../ContentBlock/ContentBlock';
 import styles from './styles.module.css';
 
 export const BlockAbout = () => (
   <section className={styles.container} id="about">
     <ContentBlock>
-      <BlockTitle>О нас</BlockTitle>
+      <BlockHeading>О нас</BlockHeading>
 
       <div className={styles.detailedInfo}>
         <p>

@@ -10,7 +10,7 @@ export interface BlockMeetupProps {
 }
 
 const MeetupBlock = ({ event }: BlockMeetupProps) => {
-  const { day, month, year } = useMemo(() => formatDate(event.date), [event.date]);
+  const { day, monthName, year, time } = useMemo(() => formatDate(event.date), [event.date]);
 
   const isUpcomingMeetup = new Date(event.date).getTime() > Date.now();
 
@@ -21,18 +21,23 @@ const MeetupBlock = ({ event }: BlockMeetupProps) => {
         'theme-dark': isUpcomingMeetup,
       })}
     >
-      <h3 className={styles.meetupTitle}>
-        <Link className={styles.meetupLink} href={`meetups/${event.id}`}>
-          {event.title}
-        </Link>
-      </h3>
+      <div className={styles.heading}>
+        <h3 className={styles.meetupTitle}>
+          <Link className={styles.meetupLink} href={`meetups/${event.id}`}>
+            {event.title}
+          </Link>
+        </h3>
+
+        {isUpcomingMeetup && <div className={styles.upcomingHint}>Скоро</div>}
+      </div>
+
       <time
-        dateTime={`${year}-${month}-${day}`}
+        dateTime={`${year}-${monthName}-${day}`}
         className={classNames(styles.date, { [styles.upcomingDate]: isUpcomingMeetup })}
       >
-        {day}&nbsp;{month}&nbsp;{year}
+        {day}&nbsp;{monthName}&nbsp;{year}
+        {isUpcomingMeetup && <>, в {time}</>}
       </time>
-      {isUpcomingMeetup && ' — предстоящий'}
       <div className={styles.speakersTitle}>Спикеры:</div>
       {event.talks.map((talk, index) => (
         <div className={styles.speakerWrapper} key={index}>

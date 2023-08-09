@@ -71,3 +71,19 @@ strong {
 .nowrap {
   white-space: nowrap;
 }
+
+h1 {
+  font-size: var(--font-size-xxl);
+}
+h2 {
+  font-size: var(--font-size-xl);
+}
+h3 {
+  font-size: var(--font-size-l);
+}
+h4 {
+  font-size: var(--font-size-m);
+}
+h5 {
+  font-size: var(--font-size-s);
+}

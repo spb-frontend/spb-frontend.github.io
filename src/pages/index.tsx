@@ -2,11 +2,11 @@ import Head from 'next/head';
 import React from 'react';
 import { BlockAbout } from '../components/BlockAbout/BlockAbout';
 import { BlockMeetups } from '../components/BlockMeetups/BlockMeetups';
-import { Meetup } from '../types/meetup';
 import { BlockNearestMeetup } from '../components/BlockNearestMeetup/BlockNearestMeetup';
 import { Footer } from '../components/Footer/Footer';
 import { Navigation } from '../components/Navigation/Navigation';
 import { getContentEntries } from '../lib/contentful';
+import { Meetup } from '../types/meetup';
 
 type Props = {
   nearestEvent?: Meetup;
@@ -15,7 +15,7 @@ type Props = {
 
 export const getStaticProps: () => Promise<{ props: Props }> = async () => {
   const eventList: Meetup[] = JSON.parse(await getContentEntries('meetup', 6)) ?? [];
-  const nearestEvent = new Date(eventList[0].date) >= new Date() ? eventList[0] : null;
+  const nearestEvent = eventList.length && new Date(eventList[0].date) >= new Date() ? eventList[0] : null;
 
   return {
     props: {

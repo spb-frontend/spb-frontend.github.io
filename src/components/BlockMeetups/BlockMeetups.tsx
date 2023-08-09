@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meetup } from '../../types/meetup';
-import { BlockTitle } from '../BlockTitle/BlockTitle';
+import { BlockHeading } from '../BlockHeading/BlockHeading';
 import { Button } from '../Button/Button';
 import { ContentBlock } from '../ContentBlock/ContentBlock';
 import { MeetupList } from '../MeetupList/MeetupList';
@@ -13,7 +13,7 @@ export const BlockMeetups = (props: BlockMeetupsProps) => (
   <section>
     <ContentBlock dropTopPadding>
       <div className={styles.headingWrapper}>
-        <BlockTitle>Митапы</BlockTitle>
+        <BlockHeading>Митапы</BlockHeading>
         <Button href="/meetups" variant="contained" type="primary" title="Смотреть все митапы">
           Смотреть все
         </Button>

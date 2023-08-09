@@ -1,0 +1,14 @@
+.wrapper {
+  margin-top: var(--spacer-xxl);
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: var(--spacer-xl) var(--spacer-l);
+
+  @media (min-width: 670px) {
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 1025px) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
