@@ -13,8 +13,6 @@
   top: 0;
   overflow: hidden;
   z-index: 1;
-  background-image: url('./bg.png');
-  background-size: 1000px;
 
   .posterImage {
     content: '';

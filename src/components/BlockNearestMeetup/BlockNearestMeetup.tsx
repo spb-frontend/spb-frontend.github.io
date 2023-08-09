@@ -13,8 +13,7 @@ export interface NearestMeetupProps extends Meetup {
 export const BlockNearestMeetup = (props: NearestMeetupProps) => (
   <section className={classNames(styles.section, 'theme-dark')}>
     <div className={styles.poster}>
-      {/* <img className={styles.posterImage} src={props.poster.file.url} alt={props.title} /> */}
-      {/* <img className={styles.posterImage} src={bg} alt={props.title} /> */}
+      <img className={styles.posterImage} src={props.poster.file.url} alt={props.title} />
     </div>
 
     <ContentBlock>
