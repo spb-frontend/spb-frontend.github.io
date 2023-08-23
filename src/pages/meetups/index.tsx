@@ -1,10 +1,7 @@
-import Head from 'next/head';
 import React, { useMemo } from 'react';
 import { BlockHeading } from '../../components/BlockHeading/BlockHeading';
-import { ContentBlock } from '../../components/ContentBlock/ContentBlock';
-import { Footer } from '../../components/Footer/Footer';
+import { Layout } from '../../components/Layout/Layout';
 import { MeetupList } from '../../components/MeetupList/MeetupList';
-import { Navigation } from '../../components/Navigation/Navigation';
 import { getContentEntries } from '../../lib/contentful';
 import { Meetup } from '../../types/meetup';
 
@@ -34,31 +31,21 @@ export default function Meetups({ events }: Props) {
   );
 
   return (
-    <>
-      <Head>
-        <title>Митапы — SPB Frontend</title>
-      </Head>
+    <Layout heading="Митапы" title="Митапы — SPB Frontend">
+      <>
+        {Object.keys(eventsByYears)
+          .sort((a, b) => Number(b) - Number(a))
+          .map((year) => {
+            const events = eventsByYears[year];
 
-      <Navigation />
-
-      <article>
-        <ContentBlock>
-          {Object.keys(eventsByYears)
-            .sort((a, b) => Number(b) - Number(a))
-            .map((year) => {
-              const events = eventsByYears[year];
-
-              return (
-                <div key={year}>
-                  <BlockHeading>{year}</BlockHeading>
-                  <MeetupList events={events} key={year} />
-                </div>
-              );
-            })}
-        </ContentBlock>
-      </article>
-
-      <Footer />
-    </>
+            return (
+              <div key={year}>
+                <BlockHeading>{year}</BlockHeading>
+                <MeetupList events={events} key={year} />
+              </div>
+            );
+          })}
+      </>
+    </Layout>
   );
 }

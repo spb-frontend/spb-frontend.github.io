@@ -1,5 +1,6 @@
 import React, { PropsWithChildren, useMemo } from 'react';
 import { formatDate } from '../../lib/date';
+import { Heading } from '../Heading/Heading';
 import styles from './styles.module.css';
 
 type Props = PropsWithChildren<{
@@ -25,9 +26,9 @@ export const MeetupsHeader = (props: Props) => {
   return (
     <section className={styles.wrapper}>
       <div className={styles.content}>
-        {!!props.date && dateRender}
+        <Heading>{props.title}</Heading>
 
-        <h1 className={styles.heading}>{props.title}</h1>
+        {!!props.date && dateRender}
 
         {!!props.address && <div className={styles.address}>{props.address}</div>}
       </div>
