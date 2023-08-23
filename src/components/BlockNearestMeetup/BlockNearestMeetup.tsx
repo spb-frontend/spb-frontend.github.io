@@ -1,19 +1,19 @@
 import classNames from 'classnames';
 import React from 'react';
-import { Button } from '@/components/Button/Button';
-import { ContentBlock } from '@/components/ContentBlock/ContentBlock';
-import { MeetupDate } from '@/components/MeetupDate/MeetupDate';
+import { Meetup } from '../../types/meetup';
+import { Button } from '../Button/Button';
+import { ContentBlock } from '../ContentBlock/ContentBlock';
+import { MeetupDate } from '../MeetupDate/MeetupDate';
 import styles from './styles.module.css';
-import { NearestMeetupProps } from './types';
+
+export interface NearestMeetupProps extends Meetup {
+  isUpcomingEvent: boolean;
+}
 
 export const BlockNearestMeetup = (props: NearestMeetupProps) => (
   <section className={classNames(styles.section, 'theme-dark')}>
     <div className={styles.poster}>
-      <img
-        className={styles.posterImage}
-        src={props.poster.file.url}
-        alt={props.title}
-      />
+      <img className={styles.posterImage} src={props.poster.file.url} alt={props.title} />
     </div>
 
     <ContentBlock>
@@ -37,11 +37,7 @@ export const BlockNearestMeetup = (props: NearestMeetupProps) => (
           </h2>
 
           <address className={styles.meetupAddress}>
-            <a
-              href={`http://maps.yandex.ru/?text=${props.address}`}
-              target="_blank"
-              rel="noreferrer noopener nofollow"
-            >
+            <a href={`http://maps.yandex.ru/?text=${props.address}`} target="_blank" rel="noreferrer noopener nofollow">
               {props.address
                 .split(', ')
                 .map((item) => item.replace(/\s/g, ' '))

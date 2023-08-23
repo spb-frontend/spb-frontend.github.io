@@ -14,15 +14,18 @@ export const months = [
 
 interface FormattedDateObject {
   day: number;
-  month: string;
+  monthName: string;
   year: number;
+  time: string;
 }
 
 export const formatDate = (timestamp: Date): FormattedDateObject => {
   const date = new Date(timestamp);
   const day = date.getDate();
-  const month = months[date.getMonth()];
+  const monthName = months[date.getMonth()];
   const year = date.getFullYear();
 
-  return { day, month, year};
+  const time = date.getHours().toString().padStart(2, '0') + ':' + date.getMinutes().toString().padStart(2, '0');
+
+  return { day, monthName, year, time };
 };

@@ -1,32 +1,36 @@
 import React, { PropsWithChildren, useMemo } from 'react';
-import { formatDate } from '@/lib/date';
-import { Content, Wrapper, Heading, EventDate } from './styled';
+import { formatDate } from '../../lib/date';
+import styles from './styles.module.css';
 
 type Props = PropsWithChildren<{
   title: string;
   date?: Date;
+  address?: string;
 }>;
 
-export const MeetupsHeader = ({ title, date }: Props) => {
+export const MeetupsHeader = (props: Props) => {
   const dateRender = useMemo(() => {
-    if (!date) {
+    if (!props.date) {
       return null;
     }
-    const { day, month, year } = formatDate(date);
+    const { day, monthName: month, year } = formatDate(props.date);
 
     return (
-      <EventDate dateTime={`${year}-${month}-${day}`}>
+      <time className={styles.eventDate} dateTime={`${year}-${month}-${day}`}>
         {day}&nbsp;{month}&nbsp;{year}
-      </EventDate>
+      </time>
     );
-  }, [date]);
+  }, [props.date]);
 
   return (
-    <Wrapper>
-      <Content>
-        {!!date && dateRender}
-        <Heading>{ title }</Heading>
-      </Content>
-    </Wrapper>
+    <section className={styles.wrapper}>
+      <div className={styles.content}>
+        {!!props.date && dateRender}
+
+        <h1 className={styles.heading}>{props.title}</h1>
+
+        {!!props.address && <div className={styles.address}>{props.address}</div>}
+      </div>
+    </section>
   );
 };

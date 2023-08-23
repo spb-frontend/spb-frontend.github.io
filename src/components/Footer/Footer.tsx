@@ -1,9 +1,9 @@
 import classNames from 'classnames';
 import Link from 'next/link';
 import React from 'react';
-import { ContentBlock } from '@/components/ContentBlock/ContentBlock';
-import { navigation } from '@/constants/navigation';
-import { GITHUB, TELEGRAM, TELEGRAM_CHAT, TWITTER, YOUTUBE } from '@/constants/urls';
+import { navigation } from '../../constants/navigation';
+import { GITHUB, TELEGRAM, TELEGRAM_CHAT, TWITTER, YOUTUBE } from '../../constants/urls';
+import { ContentBlock } from '../ContentBlock/ContentBlock';
 import styles from './styles.module.css';
 
 export const Footer = () => {

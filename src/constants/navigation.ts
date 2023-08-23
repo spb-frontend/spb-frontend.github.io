@@ -1,6 +1,6 @@
 import { FaMeetup } from 'react-icons/fa';
 import { GiPublicSpeaker } from 'react-icons/gi';
-import { SPEAKER_FORM } from '@/constants/urls';
+import { SPEAKER_FORM } from './urls';
 
 export const navigation = [
   {
@@ -9,7 +9,7 @@ export const navigation = [
     target: '',
     rel: '',
     withIcon: false,
-    Icon: FaMeetup
+    Icon: FaMeetup,
   },
   {
     href: SPEAKER_FORM,

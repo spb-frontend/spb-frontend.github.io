@@ -1,26 +1,27 @@
 import { GetStaticPaths } from 'next';
 import Head from 'next/head';
 import React from 'react';
-import { Meetup } from '@/components/BlockMeetups/types';
-import { ContentBlock } from '@/components/ContentBlock/ContentBlock';
-import { Footer } from '@/components/Footer/Footer';
-import { MeetupsHeader } from '@/components/MeetupsHeader/MeetupsHeader';
-import { Navigation } from '@/components/Navigation/Navigation';
-import { Talks } from '@/components/Talks/Talks';
-import { getContentEntry, getContentEntries } from '@/lib/contentful';
+import { BlockHeading } from '../../../components/BlockHeading/BlockHeading';
+import { ContentBlock } from '../../../components/ContentBlock/ContentBlock';
+import { Footer } from '../../../components/Footer/Footer';
+import { MeetupPoster } from '../../../components/MeetupPoster/MeetupPoster';
+import { MeetupsHeader } from '../../../components/MeetupsHeader/MeetupsHeader';
+import { Navigation } from '../../../components/Navigation/Navigation';
+import { Talks } from '../../../components/Talks/Talks';
+import { getContentEntry, getContentEntries } from '../../../lib/contentful';
+import { Meetup } from '../../../types/meetup';
 
 interface Props {
   event: Meetup;
 }
 
 type StaticProps = Promise<{
-  props: Props
-}>
+  props: Props;
+}>;
 
 export const getStaticPaths: GetStaticPaths = async () => ({
-  paths: JSON.parse(await getContentEntries('meetup'))
-    .map(({ id }) => ({ params: { id } })),
-  fallback: false
+  paths: JSON.parse(await getContentEntries('meetup')).map(({ id }) => ({ params: { id } })),
+  fallback: false,
 });
 
 export const getStaticProps: ({ params }) => StaticProps = async ({ params }) => ({
@@ -30,7 +31,7 @@ export const getStaticProps: ({ params }) => StaticProps = async ({ params }) =>
 });
 
 export default function MeetupPage({ event }: Props) {
-  const title = `SPB Frontend | ${event.title}`;
+  const title = `${event.title} — SPB Frontend`;
 
   return (
     <>
@@ -38,12 +39,15 @@ export default function MeetupPage({ event }: Props) {
         <title>{title}</title>
       </Head>
 
-      <Navigation withUpcomingMeetup={true} />
+      <Navigation />
 
       <article>
-        <MeetupsHeader title={event.title} date={new Date(event.date)} />
-
         <ContentBlock>
+          <MeetupsHeader title={event.title} date={new Date(event.date)} address={event.address} />
+
+          {event.poster && <MeetupPoster poster={event.poster.file.url} />}
+
+          <BlockHeading>Спикеры</BlockHeading>
           <Talks talks={event.talks} />
         </ContentBlock>
       </article>

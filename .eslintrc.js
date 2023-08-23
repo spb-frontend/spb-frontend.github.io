@@ -33,34 +33,22 @@ module.exports = {
       'warn',
       { vars: 'all', varsIgnorePattern: '^_', args: 'after-used', argsIgnorePattern: '^_' },
     ],
-    'import/order': ['warn', {
-      'newlines-between': 'never',
-      groups: [
-        'builtin',
-        'external',
-        'internal',
-        'parent',
-        'sibling',
-        'index'
-      ],
-      pathGroups: [
-        {
-          pattern: '@/**',
-          group: 'internal',
-          position: 'after'
-        }
-      ],
-      pathGroupsExcludedImportTypes: ['internal', 'external', 'builtins'],
-      alphabetize: {
-        order: 'asc',
-        caseInsensitive: true
-      }
-    }
+    'import/order': [
+      'warn',
+      {
+        'newlines-between': 'never',
+        groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
+        pathGroupsExcludedImportTypes: ['internal', 'external', 'builtins'],
+        alphabetize: {
+          order: 'asc',
+          caseInsensitive: true,
+        },
+      },
     ],
   },
   settings: {
     react: {
-      version: 'detect'
-    }
-  }
+      version: 'detect',
+    },
+  },
 };
