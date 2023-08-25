@@ -1,0 +1,9 @@
+.heading {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: var(--font-size-xl);
+  position: relative;
+  line-height: 1.24em;
+  z-index: 2;
+  margin-bottom: var(--spacer-l);
+}

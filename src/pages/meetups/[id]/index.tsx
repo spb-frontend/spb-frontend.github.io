@@ -1,12 +1,9 @@
 import { GetStaticPaths } from 'next';
-import Head from 'next/head';
 import React from 'react';
 import { BlockHeading } from '../../../components/BlockHeading/BlockHeading';
-import { ContentBlock } from '../../../components/ContentBlock/ContentBlock';
-import { Footer } from '../../../components/Footer/Footer';
+import { Layout } from '../../../components/Layout/Layout';
 import { MeetupPoster } from '../../../components/MeetupPoster/MeetupPoster';
 import { MeetupsHeader } from '../../../components/MeetupsHeader/MeetupsHeader';
-import { Navigation } from '../../../components/Navigation/Navigation';
 import { Talks } from '../../../components/Talks/Talks';
 import { getContentEntry, getContentEntries } from '../../../lib/contentful';
 import { Meetup } from '../../../types/meetup';
@@ -34,25 +31,13 @@ export default function MeetupPage({ event }: Props) {
   const title = `${event.title} — SPB Frontend`;
 
   return (
-    <>
-      <Head>
-        <title>{title}</title>
-      </Head>
+    <Layout heading={<MeetupsHeader title={event.title} date={new Date(event.date)} address={event.address} />} title={title}>
+      <>
+        {event.poster && <MeetupPoster poster={event.poster.file.url} />}
 
-      <Navigation />
-
-      <article>
-        <ContentBlock>
-          <MeetupsHeader title={event.title} date={new Date(event.date)} address={event.address} />
-
-          {event.poster && <MeetupPoster poster={event.poster.file.url} />}
-
-          <BlockHeading>Спикеры</BlockHeading>
-          <Talks talks={event.talks} />
-        </ContentBlock>
-      </article>
-
-      <Footer />
-    </>
+        <BlockHeading>Доклады</BlockHeading>
+        <Talks talks={event.talks} />
+      </>
+    </Layout>
   );
 }
