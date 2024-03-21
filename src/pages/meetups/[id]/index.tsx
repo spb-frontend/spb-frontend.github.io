@@ -30,7 +30,7 @@ export const getStaticProps: ({ params }) => StaticProps = async ({ params }) =>
 });
 
 export default function MeetupPage({ event }: Props) {
-  const title = `SPB Frontend | ${event.title}`;
+  const title = `${event.title} | SPB Frontend`;
 
   return (
     <>

@@ -26,13 +26,13 @@ export default function Meetups({ events }: Props) {
   return (
     <>
       <Head>
-        <title>SPB Frontend | Meetups</title>
+        <title>Митапы | SPB Frontend</title>
       </Head>
 
       <Navigation withUpcomingMeetup={true} />
 
       <article>
-        <MeetupsHeader title="Meetups" />
+        <MeetupsHeader title="Митапы" />
 
         <ContentBlock>
           <MeetupList events={events} />
