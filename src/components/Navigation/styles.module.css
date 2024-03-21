@@ -109,6 +109,10 @@
     opacity: 1;
     visibility: visible;
   }
+
+  & a {
+    color: rgb(var(--text-color));
+  }
 }
 
 .mobileMenuList {

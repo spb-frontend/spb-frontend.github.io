@@ -33,7 +33,8 @@ jobs:
 
       - name: Build and static exports 🏗️
         env:
-          TIMEPAD_TOKEN: ${{ secrets.TIMEPAD_TOKEN }}
+          CONTENTFUL_TOKEN: ${{ secrets.CONTENTFUL_TOKEN }}
+          CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
         run: |
           yarn typecheck
           yarn build
