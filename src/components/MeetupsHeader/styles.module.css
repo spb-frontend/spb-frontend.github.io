@@ -1,6 +1,4 @@
-import styled from 'styled-components';
-
-export const Wrapper = styled.section`
+.meetupsHeader-wrapper {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -56,9 +54,9 @@ export const Wrapper = styled.section`
     height: 100%;
     background-color: rgba(0, 0, 0, 0.6);
   }
-`;
+}
 
-export const Content = styled.div`
+.meetupsHeader-content {
   position: relative;
   padding: 100px 20px 0;
   text-align: center;
@@ -72,9 +70,9 @@ export const Content = styled.div`
     padding: 100px 50px 0;
     max-width: 1327px;
   }
-`;
+}
 
-export const Heading = styled.h1`
+.meetupsHeader-heading {
   text-transform: uppercase;
   text-align: center;
   font-weight: 700;
@@ -93,10 +91,10 @@ export const Heading = styled.h1`
     line-height: 78px;
     margin: 0 auto;
   }
-`;
+}
 
-export const EventDate = styled.time`
+.meetupsHeader-date {
   font-size: 24px;
   font-weight: 400;
   text-transform: uppercase;
-`;
+}

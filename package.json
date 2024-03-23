@@ -29,8 +29,7 @@
     "next": "^13.4.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-icons": "^4.8.0",
-    "styled-components": "^6.0.3"
+    "react-icons": "^4.8.0"
   },
   "devDependencies": {
     "@types/isomorphic-fetch": "^0.0.35",
@@ -40,7 +39,6 @@
     "@typescript-eslint/parser": ">=5.57.0",
     "autoprefixer": "^10.4.14",
     "babel-eslint": "^10.1.0",
-    "babel-plugin-styled-components": "^2.0.2",
     "eslint": ">=8.0.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",

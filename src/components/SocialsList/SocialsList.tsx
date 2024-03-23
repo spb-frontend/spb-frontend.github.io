@@ -1,7 +1,7 @@
 import React from 'react';
 import { SocialButton } from '@/components//SocialButton/SocialButton';
 import { GITHUB, TELEGRAM, TWITTER, YOUTUBE } from '@/constants/urls';
-import { Wrapper } from './styled';
+import styles from './styles.module.css';
 
 type Props = {
   size?: number;
@@ -9,7 +9,7 @@ type Props = {
 };
 
 export const SocialsList = (props: Props) => (
-  <Wrapper>
+  <div className={styles['socialList-wrapper']}>
     <SocialButton
       size={props.size}
       color={props.color}
@@ -38,5 +38,5 @@ export const SocialsList = (props: Props) => (
       title="GitHub"
       href={GITHUB}
     />
-  </Wrapper>
+  </div>
 );
