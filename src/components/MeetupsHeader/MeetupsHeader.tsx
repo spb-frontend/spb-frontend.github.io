@@ -1,6 +1,6 @@
 import React, { PropsWithChildren, useMemo } from 'react';
 import { formatDate } from '@/lib/date';
-import { Content, Wrapper, Heading, EventDate } from './styled';
+import styles from './styles.module.css';
 
 type Props = PropsWithChildren<{
   title: string;
@@ -15,18 +15,18 @@ export const MeetupsHeader = ({ title, date }: Props) => {
     const { day, month, year } = formatDate(date);
 
     return (
-      <EventDate dateTime={`${year}-${month}-${day}`}>
+      <time className={styles['meetupsHeader-date']} dateTime={`${year}-${month}-${day}`}>
         {day}&nbsp;{month}&nbsp;{year}
-      </EventDate>
+      </time>
     );
   }, [date]);
 
   return (
-    <Wrapper>
-      <Content>
+    <section className={styles['meetupsHeader-wrapper']}>
+      <div className={styles['meetupsHeader-content']}>
         {!!date && dateRender}
-        <Heading>{ title }</Heading>
-      </Content>
-    </Wrapper>
+        <h1 className={styles['meetupsHeader-heading']}>{ title }</h1>
+      </div>
+    </section>
   );
 };

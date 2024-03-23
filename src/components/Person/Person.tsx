@@ -1,15 +1,17 @@
 import React from 'react';
-import { Name, Portrait } from './styled';
+import styles from './styles.module.css';
 import { PersonProps } from './types';
 
 export const Person = ({ children, person }: PersonProps) => (
   <>
-    <Portrait
+    <img
+      className={styles['person-portrait']}
       src={person.photo.file.url}
       alt={`${person.name} ${person.lastname}`}
+      loading="lazy"
     />
     <div>
-      <Name>{person.name} {person.lastname}</Name>
+      <div className={styles['person-name']}>{person.name} {person.lastname}</div>
       {children}
     </div>
   </>

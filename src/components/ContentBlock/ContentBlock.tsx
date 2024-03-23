@@ -1,8 +1,8 @@
 import React, { PropsWithChildren } from 'react';
-import { Container } from './styled';
+import styles from './styles.module.css';
 
 export const ContentBlock = (props: PropsWithChildren) => (
-  <Container>
+  <div className={styles['contentBlock-container']}>
     {props.children}
-  </Container>
+  </div>
 );

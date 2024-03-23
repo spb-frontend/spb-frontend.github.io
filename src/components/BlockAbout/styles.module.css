@@ -1,0 +1,22 @@
+.blockAbout-container {
+  position: relative;
+  scroll-margin-top: var(--header-height);
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center 42%;
+    background-image: url('./icons/bg-tilda.svg');
+    mix-blend-mode: var(--background-image-blend-mode);
+    background-size: contain;
+  }
+}
+
+.blockAbout-detailedInfo {
+  font-size: var(--font-size-m);
+}
