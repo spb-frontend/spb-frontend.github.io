@@ -18,7 +18,7 @@ type StaticProps = Promise<{
 }>
 
 export const getStaticPaths: GetStaticPaths = async () => ({
-  paths: JSON.parse(await getContentEntries('meetup'))
+  paths: JSON.parse(await getContentEntries('meetup', '-fields.date'))
     .map(({ id }) => ({ params: { id } })),
   fallback: false
 });

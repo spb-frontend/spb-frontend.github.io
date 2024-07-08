@@ -1,15 +1,14 @@
 import Head from 'next/head';
 import React from 'react';
-import { MeetupList } from '@/components/BlockMeetups/BlockMeetups';
-import { Meetup } from '@/components/BlockMeetups/types';
 import { ContentBlock } from '@/components/ContentBlock/ContentBlock';
 import { Footer } from '@/components/Footer/Footer';
 import { MeetupsHeader } from '@/components/MeetupsHeader/MeetupsHeader';
 import { Navigation } from '@/components/Navigation/Navigation';
+import { Person } from '@/components/Person/types';
 import { getContentEntries } from '@/lib/contentful';
 
 interface Props {
-  events?: Meetup[];
+  people?: Person[];
 }
 
 type StaticProps = Promise<{
@@ -18,24 +17,27 @@ type StaticProps = Promise<{
 
 export const getStaticProps: () => StaticProps = async () => ({
   props: {
-    events: await getContentEntries('meetup', '-fields.date'),
+    people: JSON.parse(await getContentEntries('person', '-fields.lastname')),
   },
 });
 
-export default function Meetups({ events }: Props) {
+export default function Meetups({ people }: Props) {
+
   return (
     <>
       <Head>
-        <title>Митапы | SPB Frontend</title>
+        <title>SPB Frontend | Люди</title>
       </Head>
 
       <Navigation withUpcomingMeetup={true} />
 
       <article>
-        <MeetupsHeader title="Митапы" />
+        <MeetupsHeader title="Люди" />
 
         <ContentBlock>
-          <MeetupList events={events} />
+          {people.map(item => (
+            item.name
+          ))}
         </ContentBlock>
       </article>
 

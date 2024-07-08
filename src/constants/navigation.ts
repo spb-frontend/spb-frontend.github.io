@@ -12,6 +12,14 @@ export const navigation = [
     Icon: FaMeetup
   },
   {
+    href: '/people',
+    title: 'Люди',
+    target: '',
+    rel: '',
+    withIcon: false,
+    Icon: FaMeetup
+  },
+  {
     href: SPEAKER_FORM,
     title: 'Стать спикером',
     target: '_blank',

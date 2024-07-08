@@ -14,7 +14,7 @@ type Props = {
 };
 
 export const getStaticProps: () => Promise<{ props: Props }> = async () => {
-  const eventList: Meetup[] = JSON.parse(await getContentEntries('meetup', 6)) ?? [];
+  const eventList: Meetup[] = JSON.parse(await getContentEntries('meetup', '-fields.date', 6)) ?? [];
   const nearestEvent = new Date(eventList[0].date) >= new Date()  ? eventList[0] : null;
 
   return {
