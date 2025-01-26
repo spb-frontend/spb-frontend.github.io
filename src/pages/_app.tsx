@@ -1,32 +1,9 @@
 import { AppProps } from 'next/app';
 import Head from 'next/head';
-import React, { useEffect, useLayoutEffect } from 'react';
+import React from 'react';
 import './../styles/globals.css';
 
-const useUniversalLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect;
-
 export default function App({ Component, pageProps }: AppProps) {
-  useUniversalLayoutEffect(() => {
-    if (typeof window === 'undefined' || typeof document === 'undefined' || !document.body) {
-      return;
-    }
-
-    const handleDarkmodeChange = (event?: MediaQueryListEvent) => {
-      const isDarkMode = event == null ? window.matchMedia('(prefers-color-scheme: dark)').matches : event.matches;
-
-      document.body.classList.toggle('theme-dark', isDarkMode);
-      document.body.classList.toggle('theme-light', !isDarkMode);
-    };
-
-    handleDarkmodeChange();
-
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', handleDarkmodeChange);
-
-    return () => {
-      window.matchMedia('(prefers-color-scheme: dark)').removeEventListener('change', handleDarkmodeChange);
-    };
-  }, []);
-
   return (
     <>
       <Head>
